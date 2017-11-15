@@ -7,6 +7,12 @@
       <url>/posts/383c5106.html</url>
       <content type="html"><![CDATA[<blockquote><p>本篇主要介绍如何使用SpringBoot搭建一个简单的web工程</p></blockquote><a id="more"></a><h1 id="环境准备"><a href="#环境准备" class="headerlink" title="环境准备"></a>环境准备</h1><h2 id="环境版本"><a href="#环境版本" class="headerlink" title="环境版本"></a>环境版本</h2><ul><li><p>JDK 1.8</p></li><li><p>Maven 3.2.3</p></li><li><p>SpringBoot 2.0.0 M6</p><p>​</p></li></ul><h2 id="开发工具"><a href="#开发工具" class="headerlink" title="开发工具"></a>开发工具</h2><ul><li>InteIIiJ IDEA UItimate</li></ul><h1 id="搭建步骤"><a href="#搭建步骤" class="headerlink" title="搭建步骤"></a>搭建步骤</h1><h4 id="新建"><a href="#新建" class="headerlink" title="新建"></a>新建</h4><ol><li><p>新建File ——&gt; New ——&gt; Project ——&gt; Spring Initializr</p><ul><li>选择JDK版本为1.8</li><li>初始化服务地址为默认：<a href="https://start.spring.io/" target="_blank" rel="external">https://start.spring.io/</a></li></ul><p><img src="https://img.i7years.com/blog/springbootday00-1.png" alt=""></p></li><li><p>设置Maven的Group、Artifact</p><p><img src="https://img.i7years.com/blog/WX20171114-224708@2x.png" alt=""></p></li><li><p>选择SpringBoot版本以及要依赖的包</p><ul><li>选择SpringBoot版本为2.0.0 M6</li><li>依赖包Web ——&gt; Web、Core——&gt; DevTools</li></ul><p><img src="https://img.i7years.com/blog/WX20171114-225211@2x.png" alt=""></p></li><li><p>等待几秒钟，待IDEA从<a href="https://start.spring.io/上下载demo程序包，并解压出来，得到如下所示" target="_blank" rel="external">https://start.spring.io/上下载demo程序包，并解压出来，得到如下所示</a></p><p><img src="https://img.i7years.com/blog/WX20171114-230352@2x.png" alt=""></p></li></ol><h4 id="运行"><a href="#运行" class="headerlink" title="运行"></a>运行</h4><ol><li><p>运行</p><p><img src="https://img.i7years.com/blog/WX20171114-231129@2x.png" alt=""></p></li><li><p>恭喜！完成！</p></li></ol>]]></content>
       
+        <categories>
+            
+            <category> Spring </category>
+            
+        </categories>
+        
         
         <tags>
             
@@ -19,53 +25,9 @@
     </entry>
     
     <entry>
-      <title><![CDATA[VPN客户端安装配置——Windows配置]]></title>
-      <url>/posts/3148786b.html</url>
-      <content type="html"><![CDATA[<h3 id="下载"><a href="#下载" class="headerlink" title="下载"></a>下载</h3><ul><li>地址：<a href="http://attach.i7years.com/Shadowsocks-4.0.6.zip" target="_blank" rel="external">http://attach.i7years.com/Shadowsocks-4.0.6.zip</a></li></ul><h3 id="解压"><a href="#解压" class="headerlink" title="解压"></a>解压</h3><ul><li><p>在桌面上新建一个文件夹，名为<code>vpn</code>；</p><blockquote><p>shadowsockts运行之后会产生一系列文件，放在一个文件夹下便于管理</p></blockquote></li><li><p>将解压后的应用程序放到<code>vpn</code>目录下；</p></li></ul><h3 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h3><ul><li><p>运行<code>纸飞机</code>图标，第一次运行会弹出如下配置界面，按照下面提示进行配置；</p><p><img src="https://img.i7years.com/blog/vpn_1.png" alt=""></p></li><li><p>配置完成，点击<code>OK</code>进行保存，效果如下：</p><p><img src="https://img.i7years.com/blog/vpn_2.png" alt=""></p><p>​</p></li><li><p>更新PAC</p><p><img src="https://img.i7years.com/blog/vpn_3.png" alt=""></p><p>​</p></li></ul>]]></content>
-      
-        <categories>
-            
-            <category> 工具 </category>
-            
-        </categories>
-        
-        
-        <tags>
-            
-            <tag> VPN </tag>
-            
-            <tag> shadowsocks </tag>
-            
-        </tags>
-        
-    </entry>
-    
-    <entry>
-      <title><![CDATA[Mac shadowsocks]]></title>
-      <url>/posts/52cfd9dd.html</url>
-      <content type="html"></content>
-      
-        <categories>
-            
-            <category> 工具 </category>
-            
-        </categories>
-        
-        
-        <tags>
-            
-            <tag> VPN </tag>
-            
-            <tag> shadowsocks </tag>
-            
-        </tags>
-        
-    </entry>
-    
-    <entry>
-      <title><![CDATA[10min搭建一个VPN]]></title>
+      <title><![CDATA[私人VPN服务搭建指南]]></title>
       <url>/posts/36c9e42e.html</url>
-      <content type="html"><![CDATA[<h2 id="服务端搭建"><a href="#服务端搭建" class="headerlink" title="服务端搭建"></a>服务端搭建</h2><h3 id="准备"><a href="#准备" class="headerlink" title="准备"></a>准备</h3><ul><li>购买阿里云ECS服务器，要求如下：<ul><li>选择大陆以外的地区，推荐购买<strong>香港</strong>地区的服务器；</li><li>系统要求：CentOS 6或7版本</li><li>配置要求：1核1G（最低配置即可）</li></ul></li></ul><a id="more"></a><h3 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h3><ol><li><p>登录服务器；</p></li><li><p>使用root权限执行以下命令：</p><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># cd /tmp</span></span><br><span class="line"><span class="comment"># wget --no-check-certificate -O shadowsocks-libev.sh https://raw.githubusercontent.com/teddysun/shadowsocks_install/master/shadowsocks-libev.sh</span></span><br><span class="line"><span class="comment"># chmod +x shadowsocks-libev.sh</span></span><br><span class="line"><span class="comment"># ./shadowsocks-libev.sh 2&gt;&amp;1 | tee shadowsocks-libev.log</span></span><br></pre></td></tr></table></figure>
+      <content type="html"><![CDATA[<blockquote><p>本篇文章教你如何使用开源软件<a href="https://github.com/shadowsocks" target="_blank" rel="external">shadowsocks</a>搭建自己的VPN服务</p></blockquote><a id="more"></a><h1 id="服务端搭建"><a href="#服务端搭建" class="headerlink" title="服务端搭建"></a>服务端搭建</h1><h3 id="准备"><a href="#准备" class="headerlink" title="准备"></a>准备</h3><ul><li>购买阿里云ECS服务器，要求如下：<ul><li>选择大陆以外的地区，推荐购买<strong>香港</strong>地区的服务器；</li><li>系统要求：CentOS 6或7版本</li><li>配置要求：1核1G（最低配置即可）</li></ul></li></ul><h3 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h3><ol><li><p>登录服务器；</p></li><li><p>使用root权限执行以下命令：</p><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># cd /tmp</span></span><br><span class="line"><span class="comment"># wget --no-check-certificate -O shadowsocks-libev.sh https://raw.githubusercontent.com/teddysun/shadowsocks_install/master/shadowsocks-libev.sh</span></span><br><span class="line"><span class="comment"># chmod +x shadowsocks-libev.sh</span></span><br><span class="line"><span class="comment"># ./shadowsocks-libev.sh 2&gt;&amp;1 | tee shadowsocks-libev.log</span></span><br></pre></td></tr></table></figure>
 </li>
 <li><p>安装过程中，按照提示设置密码、端口号以及加密方式；</p>
 <blockquote>
@@ -103,21 +65,54 @@
 </ol>
 <h3 id="卸载"><a href="#卸载" class="headerlink" title="卸载"></a>卸载</h3><p>如果要重新安装，卸载命令：</p>
 <figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># ./shadowsocks-libev.sh uninstall</span></span><br></pre></td></tr></table></figure>
-<h2 id="客户端连接"><a href="#客户端连接" class="headerlink" title="客户端连接"></a>客户端连接</h2><h5 id="Mac用户"><a href="#Mac用户" class="headerlink" title="Mac用户"></a>Mac用户</h5><ul>
-<li>下载客户端：<a href="http://attach.i7years.com/ShadowsocksX-NG.1.6.1.zip" target="_blank" rel="external">http://attach.i7years.com/ShadowsocksX-NG.1.6.1.zip</a></li>
-<li>使用说明：<a href="https://github.com/shadowsocks/ShadowsocksX-NG" target="_blank" rel="external">https://github.com/shadowsocks/ShadowsocksX-NG</a></li>
-</ul>
-<h5 id="Windows用户"><a href="#Windows用户" class="headerlink" title="Windows用户"></a>Windows用户</h5><ul>
-<li>下载客户端：<a href="http://attach.i7years.com/Shadowsocks-4.0.6.zip" target="_blank" rel="external">http://attach.i7years.com/Shadowsocks-4.0.6.zip</a></li>
-<li>使用说明：<a href="https://github.com/shadowsocks/shadowsocks-windows" target="_blank" rel="external">https://github.com/shadowsocks/shadowsocks-windows</a></li>
-</ul>
-<h5 id="iPhone用户"><a href="#iPhone用户" class="headerlink" title="iPhone用户"></a>iPhone用户</h5><ul>
-<li><p>购买客户端<code>SuperWingy</code></p>
-<p><img src="https://img.i7years.com/blog/shadow_config_iphone.jpeg" alt=""></p>
+<h1 id="客户端连接"><a href="#客户端连接" class="headerlink" title="客户端连接"></a>客户端连接</h1><h2 id="Mac端安装"><a href="#Mac端安装" class="headerlink" title="Mac端安装"></a>Mac端安装</h2><h3 id="客户端下载"><a href="#客户端下载" class="headerlink" title="客户端下载"></a>客户端下载</h3><ul>
+<li><p>官方地址：<a href="https://github.com/shadowsocks/ShadowsocksX-NG/releases/" target="_blank" rel="external">https://github.com/shadowsocks/ShadowsocksX-NG/releases/</a></p>
+</li>
+<li><p>快速下载：<a href="http://attach.i7years.com/ShadowsocksX-NG.1.6.1.zip" target="_blank" rel="external">http://attach.i7years.com/ShadowsocksX-NG.1.6.1.zip</a></p>
+<p>​</p>
 </li>
 </ul>
-<h2 id="最后"><a href="#最后" class="headerlink" title="最后"></a>最后</h2><ul>
-<li>墙外的世界才精彩，科学上网！Good Luck!</li>
+<h3 id="配置指南"><a href="#配置指南" class="headerlink" title="配置指南"></a>配置指南</h3><ul>
+<li><p>下载解压运行，桌面上方会出现一个纸飞机的小图标</p>
+<p><img src="https://img.i7years.com/blog//WX20171115-214040@2x.png" alt="WX20171115-214040@2x"></p>
+</li>
+<li><p>点击图标，打开菜单——&gt; Servers ——&gt; Servers Preferences，配置地址、端口、加密方式以及密码，其他不用勾选</p>
+<p><img src="https://img.i7years.com/blog//WX20171115-223431@2x.png" alt="WX20171115-223431@2x"></p>
+</li>
+<li><p>点击小图标打开菜单，点击菜单<code>Update PAC from GFW List</code>，更新成功提示如下：</p>
+<p><img src="https://img.i7years.com/blog//WX20171115-223555@2x.png" alt="WX20171115-223555@2x"></p>
+</li>
+<li><p>重启一下shadowsocks，之后就可以畅游世界啦~~~</p>
+</li>
+</ul>
+<h2 id="iPhone端安装"><a href="#iPhone端安装" class="headerlink" title="iPhone端安装"></a>iPhone端安装</h2><h3 id="客户端下载-1"><a href="#客户端下载-1" class="headerlink" title="客户端下载"></a>客户端下载</h3><ul>
+<li>App Store下载<code>SuperWingy</code></li>
+</ul>
+<h3 id="配置指南-1"><a href="#配置指南-1" class="headerlink" title="配置指南"></a>配置指南</h3><ul>
+<li><p>点击添加配置，选择<code>ss</code>模式，打开如下页面，填写相关信息并保存</p>
+<p><img src="https://img.i7years.com/blog//WX20171115-225625@2x.png" alt="WX20171115-225625@2x"></p>
+</li>
+<li><p>按照系统提示，允许<code>SuperWingy</code>添加VPN配置<img src="https://img.i7years.com/blog//WX20171115-230817@2x.png" alt="WX20171115-230817@2x"></p>
+</li>
+<li><p>配置成功后，手机界面上面会出现一个<code>vpn</code>的小图标</p>
+<p><img src="https://img.i7years.com/blog//WX20171115-225747@2x.png" alt="WX20171115-225747@2x"></p>
+</li>
+</ul>
+<h3 id="注意"><a href="#注意" class="headerlink" title="注意"></a>注意</h3><ul>
+<li>如果你想修改<code>SuperWingy</code>上配置的VPN信息，请将原有配置删除后，重新进行添加，直接修改原有信息是无法生效的，这应该是个Bug</li>
+</ul>
+<h2 id="Windows用户"><a href="#Windows用户" class="headerlink" title="Windows用户"></a>Windows用户</h2><h3 id="客户端下载-2"><a href="#客户端下载-2" class="headerlink" title="客户端下载"></a>客户端下载</h3><ul>
+<li>官方地址：<a href="https://github.com/shadowsocks/shadowsocks-windows/releases" target="_blank" rel="external">https://github.com/shadowsocks/shadowsocks-windows/releases</a></li>
+<li>快速下载：<a href="http://attach.i7years.com/Shadowsocks-4.0.6.zip" target="_blank" rel="external">http://attach.i7years.com/Shadowsocks-4.0.6.zip</a></li>
+</ul>
+<h3 id="配置指南-2"><a href="#配置指南-2" class="headerlink" title="配置指南"></a>配置指南</h3><ul>
+<li>请参考Mac端配置</li>
+</ul>
+<h2 id="Android用户"><a href="#Android用户" class="headerlink" title="Android用户"></a>Android用户</h2><ul>
+<li>请参考iPhone配置</li>
+</ul>
+<h1 id="最后"><a href="#最后" class="headerlink" title="最后"></a>最后</h1><ul>
+<li>纵使天网恢恢，也阻挡不了我们向往自由的心！Good Luck!</li>
 </ul>
 <p>参考资料：</p>
 <ul>
@@ -135,6 +130,8 @@
         <tags>
             
             <tag> VPN </tag>
+            
+            <tag> shadowsocks </tag>
             
         </tags>
         
@@ -199,10 +196,18 @@
 <blockquote>
 <p>参考：<a href="https://github.com/EOSIO/eos" target="_blank" rel="external">https://github.com/EOSIO/eos</a></p></blockquote>]]></content>
       
+        <categories>
+            
+            <category> 区块链 </category>
+            
+        </categories>
+        
         
         <tags>
             
             <tag> blockchain </tag>
+            
+            <tag> bitcoin </tag>
             
             <tag> eos </tag>
             
