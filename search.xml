@@ -26,7 +26,7 @@
     
     <entry>
       <title><![CDATA[私人VPN服务搭建指南]]></title>
-      <url>/posts/36c9e42e.html</url>
+      <url>/posts/bc401e84.html</url>
       <content type="html"><![CDATA[<blockquote><p>本篇文章教你如何使用开源软件<a href="https://github.com/shadowsocks" target="_blank" rel="external">shadowsocks</a>搭建自己的VPN服务</p></blockquote><a id="more"></a><h1 id="服务端搭建"><a href="#服务端搭建" class="headerlink" title="服务端搭建"></a>服务端搭建</h1><h3 id="准备"><a href="#准备" class="headerlink" title="准备"></a>准备</h3><ul><li>购买阿里云ECS服务器，要求如下：<ul><li>选择大陆以外的地区，推荐购买<strong>香港</strong>地区的服务器；</li><li>系统要求：CentOS 6或7版本</li><li>配置要求：1核1G（最低配置即可）</li></ul></li></ul><h3 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h3><ol><li><p>登录服务器；</p></li><li><p>使用root权限执行以下命令：</p><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># cd /tmp</span></span><br><span class="line"><span class="comment"># wget --no-check-certificate -O shadowsocks-libev.sh https://raw.githubusercontent.com/teddysun/shadowsocks_install/master/shadowsocks-libev.sh</span></span><br><span class="line"><span class="comment"># chmod +x shadowsocks-libev.sh</span></span><br><span class="line"><span class="comment"># ./shadowsocks-libev.sh 2&gt;&amp;1 | tee shadowsocks-libev.log</span></span><br></pre></td></tr></table></figure>
 </li>
 <li><p>安装过程中，按照提示设置密码、端口号以及加密方式；</p>
