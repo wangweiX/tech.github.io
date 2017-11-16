@@ -225,9 +225,9 @@
 </li>
 </ul>
 <h1 id="指南"><a href="#指南" class="headerlink" title="指南"></a>指南</h1><ol>
-<li>如何在自己电脑上搭建好博客，建立起初步的成就感。<a href="http://t.cn/RjU1KgD" target="_blank" rel="external">http://t.cn/RjU1KgD</a></li>
-<li>如何将自己的博客放到网上，让别人也能看到。<a href="http://t.cn/RjU1BkD" target="_blank" rel="external">http://t.cn/RjU1BkD</a></li>
-<li>修改博客的名称、logo、ico、slogan、主题等配置。<a href="http://t.cn/RjU1s3Z" target="_blank" rel="external">http://t.cn/RjU1s3Z</a></li></ol>]]></content>
+<li>如何在自己电脑上搭建好博客，建立起初步的成就感。<a href="https://tech.i7years.com/posts/c5e43a28.html">https://tech.i7years.com/posts/c5e43a28.html</a></li>
+<li>如何将自己的博客放到网上，让别人也能看到。<a href="https://tech.i7years.com/posts/f5f2d6f0.html">https://tech.i7years.com/posts/f5f2d6f0.html</a></li>
+<li>修改博客的名称、logo、ico、slogan、主题等配置。<a href="https://tech.i7years.com/posts/b8ec75a2.html">https://tech.i7years.com/posts/b8ec75a2.html</a></li></ol>]]></content>
       
         <categories>
             
@@ -367,7 +367,14 @@
 <figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># # Node 版本7.6.0之后</span></span><br><span class="line">npm i --save hexo-wordcount</span><br><span class="line"></span><br><span class="line"><span class="comment"># Node 版本7.6.0之前,请安装 2.x 版本 (Node.js v7.6.0 and previous)</span></span><br><span class="line">npm install hexo-wordcount@<span class="number">2</span> --save</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>修改NexT配置文件<code>_config.yml</code>，添加如下配置：</p>
-<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Post wordcount display settings</span></span><br><span class="line"><span class="comment"># Dependencies: https://github.com/willin/hexo-wordcount</span></span><br><span class="line"><span class="attr">post_wordcount:</span></span><br><span class="line"><span class="attr">  item_text:</span> <span class="literal">true</span></span><br><span class="line"><span class="attr">  wordcount:</span> <span class="literal">true</span></span><br><span class="line"><span class="attr">  min2read:</span> <span class="literal">true</span></span><br><span class="line"><span class="attr">  totalcount:</span> <span class="literal">true</span></span><br><span class="line"><span class="attr">  separated_meta:</span> <span class="literal">true</span></span><br></pre></td></tr></table></figure></li></ol>]]></content>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Post wordcount display settings</span></span><br><span class="line"><span class="comment"># Dependencies: https://github.com/willin/hexo-wordcount</span></span><br><span class="line"><span class="attr">post_wordcount:</span></span><br><span class="line"><span class="attr">  item_text:</span> <span class="literal">true</span></span><br><span class="line"><span class="attr">  wordcount:</span> <span class="literal">true</span></span><br><span class="line"><span class="attr">  min2read:</span> <span class="literal">true</span></span><br><span class="line"><span class="attr">  totalcount:</span> <span class="literal">true</span></span><br><span class="line"><span class="attr">  separated_meta:</span> <span class="literal">true</span></span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<h5 id="豆瓣电影"><a href="#豆瓣电影" class="headerlink" title="豆瓣电影"></a>豆瓣电影</h5><ul>
+<li><a href="https://github.com/mythsman/hexo-douban" target="_blank" rel="external">https://github.com/mythsman/hexo-douban</a></li>
+</ul>
+<h5 id="disqus评论代理"><a href="#disqus评论代理" class="headerlink" title="disqus评论代理"></a>disqus评论代理</h5><ul>
+<li><a href="https://github.com/ciqulover/disqus-proxy" target="_blank" rel="external">https://github.com/ciqulover/disqus-proxy</a></li></ul>]]></content>
       
         <categories>
             
@@ -379,26 +386,6 @@
         <tags>
             
             <tag> hexo </tag>
-            
-        </tags>
-        
-    </entry>
-    
-    <entry>
-      <title><![CDATA[Mac系统清理指南]]></title>
-      <url>/posts/80d694a6.html</url>
-      <content type="html"><![CDATA[<p>Mac电脑在使用一段时间之后，磁盘空间会逐渐减少，系统性能会逐渐降低，主要是由于在系统运行的过程中产生了大量的缓存文件（Cache File）、临时文件（Temp File）以及系统日志（System Logs），这些需要被清理的对象累计起来甚至可占用100G多的磁盘空间。这时就需要我们对这部分文件进行清理。</p><a id="more"></a><h1 id="工具"><a href="#工具" class="headerlink" title="工具"></a>工具</h1><ul><li>文件扫描工具：<a href="https://daisydiskapp.com/index.html" target="_blank" rel="external">DaisyDisk</a></li><li>文件清理工具：<a href="https://cleanmymac.com/" target="_blank" rel="external">CleanMac3</a></li></ul><h1 id="步骤"><a href="#步骤" class="headerlink" title="步骤"></a>步骤</h1><ul><li><strong>备份</strong>。准备一块移动硬盘，移动硬盘大小1TB，使用Mac自带的Time Machine将整个磁盘备份到移动硬盘上。</li><li>运行DaisyDisk，扫描整个磁盘，找出占用磁盘空间大的文件，进行针对性的删除。<img src="https://img.i7years.com/disk.png" alt="disk"></li></ul><ul><li><p>运行CleanMac，找出系统中的需要被清理的文件（Junk）,注意：CleanMac所扫描出来的需要我们自己检查一遍，以免误删文件。</p><p><img src="https://img.i7years.com/diskclean.png" alt="diskclean"></p></li></ul>]]></content>
-      
-        <categories>
-            
-            <category> 工具 </category>
-            
-        </categories>
-        
-        
-        <tags>
-            
-            <tag> Mac </tag>
             
         </tags>
         
@@ -509,6 +496,26 @@
         <tags>
             
             <tag> hexo </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
+      <title><![CDATA[Mac系统清理指南]]></title>
+      <url>/posts/80d694a6.html</url>
+      <content type="html"><![CDATA[<p>Mac电脑在使用一段时间之后，磁盘空间会逐渐减少，系统性能会逐渐降低，主要是由于在系统运行的过程中产生了大量的缓存文件（Cache File）、临时文件（Temp File）以及系统日志（System Logs），这些需要被清理的对象累计起来甚至可占用100G多的磁盘空间。这时就需要我们对这部分文件进行清理。</p><a id="more"></a><h1 id="工具"><a href="#工具" class="headerlink" title="工具"></a>工具</h1><ul><li>文件扫描工具：<a href="https://daisydiskapp.com/index.html" target="_blank" rel="external">DaisyDisk</a></li><li>文件清理工具：<a href="https://cleanmymac.com/" target="_blank" rel="external">CleanMac3</a></li></ul><h1 id="步骤"><a href="#步骤" class="headerlink" title="步骤"></a>步骤</h1><ul><li><strong>备份</strong>。准备一块移动硬盘，移动硬盘大小1TB，使用Mac自带的Time Machine将整个磁盘备份到移动硬盘上。</li><li>运行DaisyDisk，扫描整个磁盘，找出占用磁盘空间大的文件，进行针对性的删除。<img src="https://img.i7years.com/disk.png" alt="disk"></li></ul><ul><li><p>运行CleanMac，找出系统中的需要被清理的文件（Junk）,注意：CleanMac所扫描出来的需要我们自己检查一遍，以免误删文件。</p><p><img src="https://img.i7years.com/diskclean.png" alt="diskclean"></p></li></ul>]]></content>
+      
+        <categories>
+            
+            <category> 工具 </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> Mac </tag>
             
         </tags>
         
