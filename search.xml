@@ -377,6 +377,9 @@
 <li><p>到Hexo根目录下，安装插件：</p>
 <figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ npm install hexo-baidu-url-submit --save</span><br></pre></td></tr></table></figure>
 </li>
+<li><p>修改主题配置文件<code>_config.yml</code>，开启百度自动推送：</p>
+<p>​</p>
+</li>
 <li><p>修改hexo主配置文件<code>_config.yml</code>，在文末添加以下配置：</p>
 <figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">baidu_url_submit:</span></span><br><span class="line"><span class="attr">  count:</span> <span class="number">1</span> <span class="comment">## 提交最新的一个链接</span></span><br><span class="line"><span class="attr">  host:</span> <span class="string">www.hui-wang.info</span> <span class="comment">## 在百度站长平台中注册的域名</span></span><br><span class="line"><span class="attr">  token:</span> <span class="string">your_token</span> <span class="comment">## 请注意这是您的秘钥， 所以请不要把博客源代码发布在公众仓库里!</span></span><br><span class="line"><span class="attr">  path:</span> <span class="string">baidu_urls.txt</span> <span class="comment">## 文本文档的地址， 新链接会保存在此文本文档里</span></span><br></pre></td></tr></table></figure>
 </li>
