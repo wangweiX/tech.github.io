@@ -315,9 +315,16 @@
 <p>​</p>
 </li>
 </ol>
-<h4 id="站点地图"><a href="#站点地图" class="headerlink" title="站点地图"></a>站点地图</h4><h5 id="插件安装"><a href="#插件安装" class="headerlink" title="插件安装"></a>插件安装</h5><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># google</span></span><br><span class="line">$ npm install hexo-generator-sitemap --save</span><br><span class="line"></span><br><span class="line"><span class="comment"># baidu</span></span><br><span class="line">$ npm install hexo-generator-baidu-sitemap --save</span><br></pre></td></tr></table></figure>
-<h5 id="修改站点配置"><a href="#修改站点配置" class="headerlink" title="修改站点配置"></a>修改站点配置</h5><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 自动生成sitemap</span></span><br><span class="line">sitemap:</span><br><span class="line">  path: sitemap.xml</span><br><span class="line">baidusitemap:</span><br><span class="line">  path: baidusitemap.xml</span><br></pre></td></tr></table></figure>
-<h4 id="统计分析"><a href="#统计分析" class="headerlink" title="统计分析"></a>统计分析</h4><h5 id="Google统计"><a href="#Google统计" class="headerlink" title="Google统计"></a>Google统计</h5><h5 id="tencent统计"><a href="#tencent统计" class="headerlink" title="tencent统计"></a>tencent统计</h5><ol>
+<h4 id="统计分析"><a href="#统计分析" class="headerlink" title="统计分析"></a>统计分析</h4><h5 id="Google统计"><a href="#Google统计" class="headerlink" title="Google统计"></a>Google统计</h5><ol>
+<li><p>注册账号：<a href="https://analytics.google.com" target="_blank" rel="external">https://analytics.google.com</a></p>
+</li>
+<li><p>新增账号信息及网站信息，获取 Google Analytics ID，形如：UA-xxxxxxxxx-1</p>
+</li>
+<li><p>修改主题配置文件，设置Google Analytics ID</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Google Analytics</span></span><br><span class="line"><span class="attr">google_analytics:</span> <span class="string">UA-xxxxxxxxx-1</span></span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<h5 id="tencent统计"><a href="#tencent统计" class="headerlink" title="tencent统计"></a>tencent统计</h5><ol>
 <li><p>注册账号：<a href="http://mta.qq.com/" target="_blank" rel="external">http://mta.qq.com/</a></p>
 </li>
 <li><p>创建H5应用，获得AppId</p>
@@ -326,7 +333,42 @@
 <figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Tencent MTA ID</span></span><br><span class="line"><span class="attr">tencent_mta:</span></span><br></pre></td></tr></table></figure>
 </li>
 </ol>
-<h4 id="SEO优化"><a href="#SEO优化" class="headerlink" title="SEO优化"></a>SEO优化</h4><h5 id="百度"><a href="#百度" class="headerlink" title="百度"></a>百度</h5><ol>
+<h5 id="cnzz-统计"><a href="#cnzz-统计" class="headerlink" title="cnzz 统计"></a>cnzz 统计</h5><ol>
+<li><p>注册账号：<a href="http://www.umeng.com/" target="_blank" rel="external">http://www.umeng.com/</a></p>
+</li>
+<li><p>添加站点：<a href="http://web.umeng.com/main.php?c=site&amp;a=show" target="_blank" rel="external">http://web.umeng.com/main.php?c=site&amp;a=show</a></p>
+</li>
+<li><p>获取统计代码中的站点ID</p>
+</li>
+<li><p>修改主题配置文件，设置cnzz_siteid</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># CNZZ count</span></span><br><span class="line"><span class="comment">#cnzz_siteid:</span></span><br></pre></td></tr></table></figure>
+<p>​</p>
+</li>
+</ol>
+<h4 id="SEO优化"><a href="#SEO优化" class="headerlink" title="SEO优化"></a>SEO优化</h4><h5 id="安装站点地图"><a href="#安装站点地图" class="headerlink" title="安装站点地图"></a>安装站点地图</h5><ol>
+<li><p>站点地图</p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># google</span></span><br><span class="line">$ npm install hexo-generator-sitemap --save</span><br><span class="line"></span><br><span class="line"><span class="comment"># baidu</span></span><br><span class="line">$ npm install hexo-generator-baidu-sitemap --save</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>修改站点配置</p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 自动生成sitemap</span></span><br><span class="line">sitemap:</span><br><span class="line">  path: sitemap.xml</span><br><span class="line">baidusitemap:</span><br><span class="line">  path: baidusitemap.xml</span><br></pre></td></tr></table></figure>
+<p>​</p>
+</li>
+</ol>
+<h5 id="Google"><a href="#Google" class="headerlink" title="Google"></a>Google</h5><ol>
+<li><p>使用Google账号登录：<a href="https://www.google.com/webmasters" target="_blank" rel="external">https://www.google.com/webmasters</a></p>
+</li>
+<li><p>添加属性 ——&gt; 输入网站地址</p>
+</li>
+<li><p>选择HTML Tag验证方式，获取<code>content</code>的内容</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;meta name=&quot;google-site-verification&quot; content=&quot;XXXXXXXXXXXXXXXXXXXXXXX&quot; /&gt;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>修改主题配置，设置<code>google_site_verification</code></p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Google Webmaster tools verification setting</span></span><br><span class="line"><span class="comment"># See: https://www.google.com/webmasters/</span></span><br><span class="line"><span class="attr">google_site_verification:</span> <span class="string">XXXXXXXXXXXXXXXXXXXXXXX</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>​</p>
+</li>
+</ol>
+<h5 id="百度"><a href="#百度" class="headerlink" title="百度"></a>百度</h5><ol>
 <li><p>注册百度资源平台账号：<a href="http://ziyuan.baidu.com/" target="_blank" rel="external">http://ziyuan.baidu.com/</a></p>
 </li>
 <li><p>网站支持 —&gt; 数据引 —&gt;  MIP引入 —&gt; 数据提交，获取<code>token</code></p>
@@ -340,7 +382,6 @@
 </li>
 <li><p>修改hexo主配置文件<code>_config.yml</code>，修改<code>deploy</code>项配置：</p>
 <figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Deployment</span></span><br><span class="line"><span class="comment">## Docs: https://hexo.io/docs/deployment.html</span></span><br><span class="line"><span class="attr">deploy:</span></span><br><span class="line"><span class="attr">- type:</span> <span class="string">git</span></span><br><span class="line"><span class="attr">  repo:</span> <span class="string">git@github.com:wangweiX/tech.github.io.git</span></span><br><span class="line"><span class="attr">  branch:</span> <span class="string">master</span></span><br><span class="line"><span class="attr">- type:</span> <span class="string">baidu_url_submitter</span></span><br></pre></td></tr></table></figure>
-<p>​</p>
 </li>
 </ol>
 <h4 id="其他插件配置"><a href="#其他插件配置" class="headerlink" title="其他插件配置"></a>其他插件配置</h4><h5 id="文件压缩"><a href="#文件压缩" class="headerlink" title="文件压缩"></a>文件压缩</h5><ol>
