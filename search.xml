@@ -356,6 +356,18 @@
 <p>​</p>
 </li>
 </ol>
+<h5 id="baidu-统计"><a href="#baidu-统计" class="headerlink" title="baidu 统计"></a>baidu 统计</h5><ol>
+<li><p>注册账号：<a href="https://tongji.baidu.com/web/welcome/login" target="_blank" rel="external">https://tongji.baidu.com/web/welcome/login</a></p>
+</li>
+<li><p>添加站点</p>
+</li>
+<li><p>获取统计代码中的站点ID</p>
+</li>
+<li><p>修改主题配置文件，设置Baidu Analytics ID</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Baidu Analytics ID</span></span><br><span class="line"><span class="attr">baidu_analytics:</span> <span class="string">xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</span></span><br></pre></td></tr></table></figure>
+<p>​</p>
+</li>
+</ol>
 <h4 id="SEO优化"><a href="#SEO优化" class="headerlink" title="SEO优化"></a>SEO优化</h4><h5 id="安装站点地图"><a href="#安装站点地图" class="headerlink" title="安装站点地图"></a>安装站点地图</h5><ol>
 <li><p>站点地图</p>
 <figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># google</span></span><br><span class="line">$ npm install hexo-generator-sitemap --save</span><br><span class="line"></span><br><span class="line"><span class="comment"># baidu</span></span><br><span class="line">$ npm install hexo-generator-baidu-sitemap --save</span><br></pre></td></tr></table></figure>
