@@ -279,7 +279,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">10</span>
+                  <span class="site-state-item-count">11</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -442,7 +442,7 @@
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">7.3k</span>
+    <span title="Site words total count">7.5k</span>
   
 </div>
 
@@ -659,13 +659,6 @@
   
 
   
-  <script src="https://www.gstatic.com/firebasejs/4.6.0/firebase.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/4.6.0/firebase-firestore.js"></script>
-  
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/bluebird/3.5.1/bluebird.core.min.js"></script>
-  
-  <script>!function(){function getCount(t,e){return t.get().then(function(o){var a;return o.exists?(a=o.data().count,e&&(window.localStorage&&window.localStorage.getItem(title)||(t.set({count:a+1}),a++))):e?(t.set({count:1}),a=1):a=0,window.localStorage&&e&&localStorage.setItem(title,!0),a})}function appendCountTo(t){return function(e){$(t).append($("<span>").addClass("post-visitors-count").append($("<span>").addClass("post-meta-divider").text("|")).append($("<span>").addClass("post-meta-item-icon").append($("<i>").addClass("fa fa-users"))).append($("<span>").text("Visitors "+e)))}}firebase.initializeApp({apiKey:"AIzaSyBVolQrEJz5THzkbMTli49NDMN7a9PdtLo",projectId:"blog-938ce"});var db=firebase.firestore(),articles=db.collection("articles"),isPost="iBooks自动导入Kindle电子书".length>0,isArchive=!1,isCategory="".length>0,isTag="".length>0;if(isPost){var title="iBooks自动导入Kindle电子书",doc=articles.doc(title);getCount(doc,!0).then(appendCountTo($(".post-meta")))}else if(!isArchive&&!isCategory&&!isTag){var titles=[],postsstr="";eval(postsstr);var promises=titles.map(function(t){return articles.doc(t)}).map(function(t){return getCount(t)});Promise.all(promises).then(function(t){var e=$(".post-meta");t.forEach(function(t,o){appendCountTo(e[o])(t)})})}}()</script>
-
 
   
 <script>!function(){var t=document.createElement("script"),e=window.location.protocol.split(":")[0];t.src="https"===e?"https://zz.bdstatic.com/linksubmit/push.js":"http://push.zhanzhang.baidu.com/push.js";var s=document.getElementsByTagName("script")[0];s.parentNode.insertBefore(t,s)}()</script>
