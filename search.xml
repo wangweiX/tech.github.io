@@ -39,7 +39,7 @@
       
         <categories>
             
-            <category> 编程 </category>
+            <category> coding </category>
             
         </categories>
         
@@ -61,7 +61,7 @@
       
         <categories>
             
-            <category> Spring </category>
+            <category> coding </category>
             
         </categories>
         
@@ -83,7 +83,7 @@
       
         <categories>
             
-            <category> 编程 </category>
+            <category> coding </category>
             
         </categories>
         
@@ -103,7 +103,7 @@
       
         <categories>
             
-            <category> 工具 </category>
+            <category> writing </category>
             
         </categories>
         
@@ -121,11 +121,11 @@
     <entry>
       <title><![CDATA[Java开发环境搭建清单]]></title>
       <url>/posts/917fb1e0.html</url>
-      <content type="html"><![CDATA[<script src="/assets/js/APlayer.min.js"> </script><p>工欲善其事，必先利其器！</p><a id="more"></a><h1 id="适用人群"><a href="#适用人群" class="headerlink" title="适用人群"></a>适用人群</h1><ul><li><strong>Java</strong>程序员</li><li>最好有台<strong>MacBook</strong></li></ul><h1 id="VPN配置"><a href="#VPN配置" class="headerlink" title="VPN配置"></a>VPN配置</h1><blockquote><p>翻墙，是每一位有追求的程序员的必备技能</p></blockquote><ul><li>配置指南：<a href="https://tech.i7years.com/posts/bc401e84.html">https://tech.i7years.com/posts/bc401e84.html</a></li></ul><h1 id="浏览器"><a href="#浏览器" class="headerlink" title="浏览器"></a>浏览器</h1><ul><li>杜绝使用任何国产浏览器（前端|测试小伙伴除外）</li><li>务必使用这个星球上最好的浏览器——Google浏览器</li></ul><h1 id="环境包安装"><a href="#环境包安装" class="headerlink" title="环境包安装"></a>环境包安装</h1><h3 id="JDK-安装"><a href="#JDK-安装" class="headerlink" title="JDK 安装"></a>JDK 安装</h3><ol><li>下载：<ul><li>Mac OS JDK 1.6下载地址：<a href="https://support.apple.com/kb/dl1572?locale=zh_CN" target="_blank" rel="external">https://support.apple.com/kb/dl1572?locale=zh_CN</a></li><li>1.7以上的版本：<a href="http://www.oracle.com/technetwork/java/javase/downloads/jdk7-downloads-1880260.html" target="_blank" rel="external">http://www.oracle.com/technetwork/java/javase/downloads/jdk7-downloads-1880260.html</a></li></ul></li><li>推荐使用<code>jEnv</code>管理多版本JDK，自由切换JDK版本，地址：<a href="http://www.jenv.be/" target="_blank" rel="external">http://www.jenv.be/</a></li><li>编辑<code>~/.bash_profile</code>，配置环境变量<code>$JAVA_HOME</code></li></ol><h3 id="Maven-安装"><a href="#Maven-安装" class="headerlink" title="Maven 安装"></a>Maven 安装</h3><ol><li><p>下载：<a href="http://maven.apache.org/download.cgi" target="_blank" rel="external">http://maven.apache.org/download.cgi</a></p></li><li><p>编辑<code>~/.bash_profile</code>，配置环境变量<code>$M3_HOME</code></p></li><li><p>修改<code>settings.xml</code>配置</p><blockquote><ul><li>默认的配置下载jar包时，是从<a href="http://search.maven.org/" target="_blank" rel="external">国外中央库</a>下载的，速度比较慢。</li><li>建议改为国内阿里云仓库，速度快，配置文件下载：<a href="http://attach.i7years.com/attach/settings.xml" target="_blank" rel="external">http://attach.i7years.com/attach/settings.xml</a></li></ul></blockquote><p>​</p></li></ol><h3 id="Tomcat-安装"><a href="#Tomcat-安装" class="headerlink" title="Tomcat 安装"></a>Tomcat 安装</h3><ul><li>下载地址：<a href="http://tomcat.apache.org/download-70.cgi" target="_blank" rel="external">http://tomcat.apache.org/download-70.cgi</a></li></ul><h3 id="Git-安装"><a href="#Git-安装" class="headerlink" title="Git 安装"></a>Git 安装</h3><ol><li>环境安装指南：<a href="http://git-scm.com/book/en/v2/Getting-Started-Installing-Git" target="_blank" rel="external">http://git-scm.com/book/en/v2/Getting-Started-Installing-Git</a></li><li>Git客户端下载：<a href="https://www.sourcetreeapp.com/" target="_blank" rel="external">https://www.sourcetreeapp.com/</a></li><li>Git命令学习<ul><li><a href="http://www.ruanyifeng.com/blog/2015/12/git-cheat-sheet.html" target="_blank" rel="external">http://www.ruanyifeng.com/blog/2015/12/git-cheat-sheet.html</a></li><li><a href="http://rogerdudler.github.io/git-guide/index.zh.html" target="_blank" rel="external">http://rogerdudler.github.io/git-guide/index.zh.html</a></li></ul></li></ol><h1 id="开发工具安装"><a href="#开发工具安装" class="headerlink" title="开发工具安装"></a>开发工具安装</h1><h3 id="Jetbrains-toolbox"><a href="#Jetbrains-toolbox" class="headerlink" title="Jetbrains toolbox"></a>Jetbrains toolbox</h3><ol><li><p>下载地址：<a href="https://www.jetbrains.com/toolbox/download/#section=mac" target="_blank" rel="external">https://www.jetbrains.com/toolbox/download/#section=mac</a></p></li><li><p>安装完Toolbox后，使用Toolbox去安装IDEA</p><p><img src="https://img.i7years.com/blog/WX20171120-233139@2x.png" alt=""></p></li><li><p>证书获取：<a href="http://xclient.info/a/f0b9738a-36fd-8a97-a966-0d3db497092d.html" target="_blank" rel="external">http://xclient.info/a/f0b9738a-36fd-8a97-a966-0d3db497092d.html</a></p></li><li><p>推荐几款不错的插件</p><ol><li><p>Lombok</p><blockquote><p>可以省去写bean对象的get、set等方法，减少工作，提交编码效率</p></blockquote><p><img src="https://img.i7years.com/blog/lombok_install.png" alt="img"></p></li><li><p>Git Flow Intergration</p><blockquote><p>GitFlow 模型管理插件，规范Git分支的管理</p></blockquote><p><img src="https://img.i7years.com/blog/git_flow_plugin.png" alt="img"></p></li><li><p>Alibaba Java Coding Guidelines</p><blockquote><p>以阿里巴巴Java代码规范为准的代码检查插件</p></blockquote><p><img src="https://img.i7years.com/blog/plugin_alibaba.png" alt="img"></p><p>​</p></li></ol></li><li><p>学习并掌握IDEA的常用快捷键，提高编码效率</p></li><li><p>调整IDEA工具，打开view —&gt; 勾选 Toolbar，效果如下：</p><p><img src="https://img.i7years.com/blog/WX20171120-234109@2x.png" alt=""></p></li></ol><h3 id="iTerm-命令行工具"><a href="#iTerm-命令行工具" class="headerlink" title="iTerm 命令行工具"></a>iTerm 命令行工具</h3><blockquote><p>iTerm 比 mac 自带的Terminal要好用，切换窗口来去自如</p></blockquote><ol><li>下载地址: <a href="https://www.iterm2.com/" target="_blank" rel="external">https://www.iterm2.com/</a></li><li>掌握窗口切换的常用快捷键：<ul><li>新增：⌘ + T</li><li>关闭：⌘ + W</li><li>清屏：⌘ + R</li><li>上下切：⌘ + ⇧ + D</li><li>左右切：⌘ + D</li></ul></li></ol><h3 id="Zsh"><a href="#Zsh" class="headerlink" title="Zsh"></a>Zsh</h3><blockquote><p>非常强大的命令行工具</p></blockquote><ol><li>官网地址：<a href="http://ohmyz.sh/" target="_blank" rel="external">http://ohmyz.sh/</a></li><li>安装指南：<a href="https://gist.github.com/derhuerst/12a1558a4b408b3b2b6e" target="_blank" rel="external">https://gist.github.com/derhuerst/12a1558a4b408b3b2b6e</a></li></ol><h3 id="Postman-安装"><a href="#Postman-安装" class="headerlink" title="Postman 安装"></a>Postman 安装</h3><ol><li>非常不错的http请求调试神器，用于后端接口调试，非常方便；</li><li>下载地址：<a href="https://chrome.google.com/webstore/detail/postman-rest-client-packa/fhbjgbiflinjbdggehcddcbncdddomop?hl=en" target="_blank" rel="external">https://chrome.google.com/webstore/detail/postman-rest-client-packa/fhbjgbiflinjbdggehcddcbncdddomop?hl=en</a></li></ol><h3 id="Host-管理工具"><a href="#Host-管理工具" class="headerlink" title="Host 管理工具"></a>Host 管理工具</h3><ul><li>推荐<a href="https://github.com/oldj/SwitchHosts" target="_blank" rel="external">SwitchHosts</a></li></ul><h1 id="数据库客户端"><a href="#数据库客户端" class="headerlink" title="数据库客户端"></a>数据库客户端</h1><blockquote><p>依据自己的喜好进行选择，Navicat需要自己去google一下破解码</p></blockquote><ul><li>[<strong>推荐</strong>]DataGrip: 使用<code>Jetbrains toolbox</code>进行安装</li><li>mysql workbench 6.3：<a href="https://www.mysql.com/products/workbench/" target="_blank" rel="external">https://www.mysql.com/products/workbench/</a></li><li>Navicat：<a href="http://www.navicat.com.cn/download" target="_blank" rel="external">http://www.navicat.com.cn/download</a></li><li>HeidiSQL：<a href="https://www.heidisql.com/" target="_blank" rel="external">https://www.heidisql.com/</a></li></ul><h1 id="Redis-客户端"><a href="#Redis-客户端" class="headerlink" title="Redis 客户端"></a>Redis 客户端</h1><ul><li>下载地址：<a href="https://github.com/uglide/RedisDesktopManager" target="_blank" rel="external">https://github.com/uglide/RedisDesktopManager</a></li></ul><h1 id="文本编辑器"><a href="#文本编辑器" class="headerlink" title="文本编辑器"></a>文本编辑器</h1><h3 id="MarkDown"><a href="#MarkDown" class="headerlink" title="MarkDown"></a>MarkDown</h3><ol><li><p>最好的文档写作语法，是优秀的程序猿和攻城狮必备的技能</p></li><li><p>教程</p><ul><li><a href="http://wowubuntu.com/markdown/basic.html" target="_blank" rel="external">http://wowubuntu.com/markdown/basic.html</a></li><li><a href="http://www.maxiang.info/" target="_blank" rel="external">http://www.maxiang.info/</a></li></ul></li><li><p>客户端推荐</p><ul><li>[免费]<a href="http://typora.io" target="_blank" rel="external">http://typora.io</a></li><li>[付费]<a href="https://itunes.apple.com/us/app/bear/id1016366447?mt=8" target="_blank" rel="external">https://itunes.apple.com/us/app/bear/id1016366447?mt=8</a></li></ul></li></ol><h3 id="Atom"><a href="#Atom" class="headerlink" title="Atom"></a>Atom</h3><ul><li>下载地址：<a href="https://atom.io/" target="_blank" rel="external">https://atom.io/</a></li></ul><h1 id="推荐网址"><a href="#推荐网址" class="headerlink" title="推荐网址"></a>推荐网址</h1><ol><li><a href="https://sspai.com/" target="_blank" rel="external">少数派—高品质数字消费指南</a></li></ol>]]></content>
+      <content type="html"><![CDATA[<script src="/assets/js/APlayer.min.js"> </script><p>工欲善其事，必先利其器！</p><a id="more"></a><h1 id="适用人群"><a href="#适用人群" class="headerlink" title="适用人群"></a>适用人群</h1><ul><li><strong>Java</strong>程序员</li><li>最好有台<strong>MacBook</strong></li></ul><h1 id="VPN配置"><a href="#VPN配置" class="headerlink" title="VPN配置"></a>VPN配置</h1><blockquote><p>翻墙，是每一位有追求的程序员的必备技能</p></blockquote><ul><li>配置指南：<a href="https://tech.i7years.com/posts/bc401e84.html" target="_blank" rel="external">https://tech.i7years.com/posts/bc401e84.html</a></li></ul><h1 id="浏览器"><a href="#浏览器" class="headerlink" title="浏览器"></a>浏览器</h1><ul><li>杜绝使用任何国产浏览器（前端|测试小伙伴除外）</li><li>务必使用这个星球上最好的浏览器——Google浏览器</li></ul><h1 id="环境包安装"><a href="#环境包安装" class="headerlink" title="环境包安装"></a>环境包安装</h1><h3 id="JDK-安装"><a href="#JDK-安装" class="headerlink" title="JDK 安装"></a>JDK 安装</h3><ol><li>下载：<ul><li>Mac OS JDK 1.6下载地址：<a href="https://support.apple.com/kb/dl1572?locale=zh_CN" target="_blank" rel="external">https://support.apple.com/kb/dl1572?locale=zh_CN</a></li><li>1.7以上的版本：<a href="http://www.oracle.com/technetwork/java/javase/downloads/jdk7-downloads-1880260.html" target="_blank" rel="external">http://www.oracle.com/technetwork/java/javase/downloads/jdk7-downloads-1880260.html</a></li></ul></li><li>推荐使用<code>jEnv</code>管理多版本JDK，自由切换JDK版本，地址：<a href="http://www.jenv.be/" target="_blank" rel="external">http://www.jenv.be/</a></li><li>编辑<code>~/.bash_profile</code>，配置环境变量<code>$JAVA_HOME</code></li></ol><h3 id="Maven-安装"><a href="#Maven-安装" class="headerlink" title="Maven 安装"></a>Maven 安装</h3><ol><li><p>下载：<a href="http://maven.apache.org/download.cgi" target="_blank" rel="external">http://maven.apache.org/download.cgi</a></p></li><li><p>编辑<code>~/.bash_profile</code>，配置环境变量<code>$M3_HOME</code></p></li><li><p>修改<code>settings.xml</code>配置</p><blockquote><ul><li>默认的配置下载jar包时，是从<a href="http://search.maven.org/" target="_blank" rel="external">国外中央库</a>下载的，速度比较慢。</li><li>建议改为国内阿里云仓库，速度快，配置文件下载：<a href="http://attach.i7years.com/attach/settings.xml" target="_blank" rel="external">http://attach.i7years.com/attach/settings.xml</a></li></ul></blockquote><p>​</p></li></ol><h3 id="Tomcat-安装"><a href="#Tomcat-安装" class="headerlink" title="Tomcat 安装"></a>Tomcat 安装</h3><ul><li>下载地址：<a href="http://tomcat.apache.org/download-70.cgi" target="_blank" rel="external">http://tomcat.apache.org/download-70.cgi</a></li></ul><h3 id="Git-安装"><a href="#Git-安装" class="headerlink" title="Git 安装"></a>Git 安装</h3><ol><li>环境安装指南：<a href="http://git-scm.com/book/en/v2/Getting-Started-Installing-Git" target="_blank" rel="external">http://git-scm.com/book/en/v2/Getting-Started-Installing-Git</a></li><li>Git客户端下载：<a href="https://www.sourcetreeapp.com/" target="_blank" rel="external">https://www.sourcetreeapp.com/</a></li><li>Git命令学习<ul><li><a href="http://www.ruanyifeng.com/blog/2015/12/git-cheat-sheet.html" target="_blank" rel="external">http://www.ruanyifeng.com/blog/2015/12/git-cheat-sheet.html</a></li><li><a href="http://rogerdudler.github.io/git-guide/index.zh.html" target="_blank" rel="external">http://rogerdudler.github.io/git-guide/index.zh.html</a></li></ul></li></ol><h1 id="开发工具安装"><a href="#开发工具安装" class="headerlink" title="开发工具安装"></a>开发工具安装</h1><h3 id="Jetbrains-toolbox"><a href="#Jetbrains-toolbox" class="headerlink" title="Jetbrains toolbox"></a>Jetbrains toolbox</h3><ol><li><p>下载地址：<a href="https://www.jetbrains.com/toolbox/download/#section=mac" target="_blank" rel="external">https://www.jetbrains.com/toolbox/download/#section=mac</a></p></li><li><p>安装完Toolbox后，使用Toolbox去安装IDEA</p><p><img src="https://img.i7years.com/blog/WX20171120-233139@2x.png" alt=""></p></li><li><p>证书获取：<a href="http://xclient.info/a/f0b9738a-36fd-8a97-a966-0d3db497092d.html" target="_blank" rel="external">http://xclient.info/a/f0b9738a-36fd-8a97-a966-0d3db497092d.html</a></p></li><li><p>推荐几款不错的插件</p><ol><li><p>Lombok</p><blockquote><p>可以省去写bean对象的get、set等方法，减少工作，提交编码效率</p></blockquote><p><img src="https://img.i7years.com/blog/lombok_install.png" alt="img"></p></li><li><p>Git Flow Intergration</p><blockquote><p>GitFlow 模型管理插件，规范Git分支的管理</p></blockquote><p><img src="https://img.i7years.com/blog/git_flow_plugin.png" alt="img"></p></li><li><p>Alibaba Java Coding Guidelines</p><blockquote><p>以阿里巴巴Java代码规范为准的代码检查插件</p></blockquote><p><img src="https://img.i7years.com/blog/plugin_alibaba.png" alt="img"></p><p>​</p></li></ol></li><li><p>学习并掌握IDEA的常用快捷键，提高编码效率</p></li><li><p>调整IDEA工具，打开view —&gt; 勾选 Toolbar，效果如下：</p><p><img src="https://img.i7years.com/blog/WX20171120-234109@2x.png" alt=""></p></li></ol><h3 id="iTerm-命令行工具"><a href="#iTerm-命令行工具" class="headerlink" title="iTerm 命令行工具"></a>iTerm 命令行工具</h3><blockquote><p>iTerm 比 mac 自带的Terminal要好用，切换窗口来去自如</p></blockquote><ol><li>下载地址: <a href="https://www.iterm2.com/" target="_blank" rel="external">https://www.iterm2.com/</a></li><li>掌握窗口切换的常用快捷键：<ul><li>新增：⌘ + T</li><li>关闭：⌘ + W</li><li>清屏：⌘ + R</li><li>上下切：⌘ + ⇧ + D</li><li>左右切：⌘ + D</li></ul></li></ol><h3 id="Zsh"><a href="#Zsh" class="headerlink" title="Zsh"></a>Zsh</h3><blockquote><p>非常强大的命令行工具</p></blockquote><ol><li>官网地址：<a href="http://ohmyz.sh/" target="_blank" rel="external">http://ohmyz.sh/</a></li><li>安装指南：<a href="https://gist.github.com/derhuerst/12a1558a4b408b3b2b6e" target="_blank" rel="external">https://gist.github.com/derhuerst/12a1558a4b408b3b2b6e</a></li></ol><h3 id="Postman-安装"><a href="#Postman-安装" class="headerlink" title="Postman 安装"></a>Postman 安装</h3><ol><li>非常不错的http请求调试神器，用于后端接口调试，非常方便；</li><li>下载地址：<a href="https://chrome.google.com/webstore/detail/postman-rest-client-packa/fhbjgbiflinjbdggehcddcbncdddomop?hl=en" target="_blank" rel="external">https://chrome.google.com/webstore/detail/postman-rest-client-packa/fhbjgbiflinjbdggehcddcbncdddomop?hl=en</a></li></ol><h3 id="Host-管理工具"><a href="#Host-管理工具" class="headerlink" title="Host 管理工具"></a>Host 管理工具</h3><ul><li>推荐<a href="https://github.com/oldj/SwitchHosts" target="_blank" rel="external">SwitchHosts</a></li></ul><h1 id="数据库客户端"><a href="#数据库客户端" class="headerlink" title="数据库客户端"></a>数据库客户端</h1><blockquote><p>依据自己的喜好进行选择，Navicat需要自己去google一下破解码</p></blockquote><ul><li>[<strong>推荐</strong>]DataGrip: 使用<code>Jetbrains toolbox</code>进行安装</li><li>mysql workbench 6.3：<a href="https://www.mysql.com/products/workbench/" target="_blank" rel="external">https://www.mysql.com/products/workbench/</a></li><li>Navicat：<a href="http://www.navicat.com.cn/download" target="_blank" rel="external">http://www.navicat.com.cn/download</a></li><li>HeidiSQL：<a href="https://www.heidisql.com/" target="_blank" rel="external">https://www.heidisql.com/</a></li></ul><h1 id="Redis-客户端"><a href="#Redis-客户端" class="headerlink" title="Redis 客户端"></a>Redis 客户端</h1><ul><li>下载地址：<a href="https://github.com/uglide/RedisDesktopManager" target="_blank" rel="external">https://github.com/uglide/RedisDesktopManager</a></li></ul><h1 id="文本编辑器"><a href="#文本编辑器" class="headerlink" title="文本编辑器"></a>文本编辑器</h1><h3 id="MarkDown"><a href="#MarkDown" class="headerlink" title="MarkDown"></a>MarkDown</h3><ol><li><p>最好的文档写作语法，是优秀的程序猿和攻城狮必备的技能</p></li><li><p>教程</p><ul><li><a href="http://wowubuntu.com/markdown/basic.html" target="_blank" rel="external">http://wowubuntu.com/markdown/basic.html</a></li><li><a href="http://www.maxiang.info/" target="_blank" rel="external">http://www.maxiang.info/</a></li></ul></li><li><p>客户端推荐</p><ul><li>[免费]<a href="http://typora.io" target="_blank" rel="external">http://typora.io</a></li><li>[付费]<a href="https://itunes.apple.com/us/app/bear/id1016366447?mt=8" target="_blank" rel="external">https://itunes.apple.com/us/app/bear/id1016366447?mt=8</a></li></ul></li></ol><h3 id="Atom"><a href="#Atom" class="headerlink" title="Atom"></a>Atom</h3><ul><li>下载地址：<a href="https://atom.io/" target="_blank" rel="external">https://atom.io/</a></li></ul><h1 id="推荐网址"><a href="#推荐网址" class="headerlink" title="推荐网址"></a>推荐网址</h1><ol><li><a href="https://sspai.com/" target="_blank" rel="external">少数派—高品质数字消费指南</a></li></ol>]]></content>
       
         <categories>
             
-            <category> 编程 </category>
+            <category> coding </category>
             
         </categories>
         
@@ -143,7 +143,7 @@
     <entry>
       <title><![CDATA[私人VPN服务搭建指南]]></title>
       <url>/posts/bc401e84.html</url>
-      <content type="html"><![CDATA[<script src="/assets/js/APlayer.min.js"> </script><blockquote><ul><li>本篇文章教你如何使用开源软件<a href="https://github.com/shadowsocks" target="_blank" rel="external">shadowsocks</a>搭建自己的VPN服务；</li><li>不想自己搭建VPN的小伙伴，推荐VPN提供商：<a href="https://www.shadowsocks.la/；" target="_blank" rel="external">https://www.shadowsocks.la/；</a></li><li>已经购买了VPN服务但是不知道如何配置的同学，可直接查看<code>客户端配置</code>部分内容；</li></ul></blockquote><a id="more"></a><h1 id="服务端搭建"><a href="#服务端搭建" class="headerlink" title="服务端搭建"></a>服务端搭建</h1><h3 id="准备云服务器"><a href="#准备云服务器" class="headerlink" title="准备云服务器"></a>准备云服务器</h3><blockquote><p>推荐<code>vultr</code>，理由：<strong>便宜实惠</strong></p></blockquote><h5 id="vultr"><a href="#vultr" class="headerlink" title="vultr"></a>vultr</h5><ul><li>地址：<a href="https://www.vultr.com/" target="_blank" rel="external">https://www.vultr.com/</a></li><li>选择亚太地区(日本或新加坡)</li><li>系统要求：CentOS 7版本</li><li>配置要求：1核1G（最低配置即可）</li></ul><h5 id="阿里云"><a href="#阿里云" class="headerlink" title="阿里云"></a>阿里云</h5><ul><li><p>地址：<a href="https://www.aliyun.com/" target="_blank" rel="external">https://www.aliyun.com/</a></p></li><li><p>选择大陆以外的地区，推荐购买<strong>香港</strong>地区的服务器；</p></li><li><p>系统要求：CentOS 6或7版本</p></li><li><p>配置要求：1核1G（最低配置即可）</p><p>​</p></li></ul><h3 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h3><ol><li><p>登录服务器；</p></li><li><p>使用root权限执行以下命令：</p><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># cd /tmp</span></span><br><span class="line"><span class="comment"># wget --no-check-certificate -O shadowsocks-libev.sh https://raw.githubusercontent.com/teddysun/shadowsocks_install/master/shadowsocks-libev.sh</span></span><br><span class="line"><span class="comment"># chmod +x shadowsocks-libev.sh</span></span><br><span class="line"><span class="comment"># ./shadowsocks-libev.sh 2&gt;&amp;1 | tee shadowsocks-libev.log</span></span><br></pre></td></tr></table></figure>
+      <content type="html"><![CDATA[<script src="/assets/js/APlayer.min.js"> </script><blockquote><ul><li>本篇文章教你如何使用开源软件<a href="https://github.com/shadowsocks" target="_blank" rel="external">shadowsocks</a>搭建自己的VPN服务</li><li>不想自己搭建VPN的小伙伴，推荐VPN提供商：<a href="https://www.shadowsocks.la/" target="_blank" rel="external">https://www.shadowsocks.la/</a></li><li>已经购买了VPN服务但是不知道如何配置的同学，可直接查看<code>客户端配置</code>部分内容</li></ul></blockquote><a id="more"></a><h1 id="服务端搭建"><a href="#服务端搭建" class="headerlink" title="服务端搭建"></a>服务端搭建</h1><h3 id="准备云服务器"><a href="#准备云服务器" class="headerlink" title="准备云服务器"></a>准备云服务器</h3><blockquote><p>推荐<code>vultr</code>，理由：<strong>便宜实惠</strong></p></blockquote><h5 id="vultr"><a href="#vultr" class="headerlink" title="vultr"></a>vultr</h5><ul><li>地址：<a href="https://www.vultr.com/" target="_blank" rel="external">https://www.vultr.com/</a></li><li>选择亚太地区(日本或新加坡)</li><li>系统要求：CentOS 7版本</li><li>配置要求：1核1G（最低配置即可）</li></ul><h5 id="阿里云"><a href="#阿里云" class="headerlink" title="阿里云"></a>阿里云</h5><ul><li><p>地址：<a href="https://www.aliyun.com/" target="_blank" rel="external">https://www.aliyun.com/</a></p></li><li><p>选择大陆以外的地区，推荐购买<strong>香港</strong>地区的服务器；</p></li><li><p>系统要求：CentOS 6或7版本</p></li><li><p>配置要求：1核1G（最低配置即可）</p><p>​</p></li></ul><h3 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h3><ol><li><p>登录服务器；</p></li><li><p>使用root权限执行以下命令：</p><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># cd /tmp</span></span><br><span class="line"><span class="comment"># wget --no-check-certificate -O shadowsocks-libev.sh https://raw.githubusercontent.com/teddysun/shadowsocks_install/master/shadowsocks-libev.sh</span></span><br><span class="line"><span class="comment"># chmod +x shadowsocks-libev.sh</span></span><br><span class="line"><span class="comment"># ./shadowsocks-libev.sh 2&gt;&amp;1 | tee shadowsocks-libev.log</span></span><br></pre></td></tr></table></figure>
 </li>
 <li><p>安装过程中，按照提示设置密码、端口号以及加密方式；</p>
 <blockquote>
@@ -242,7 +242,7 @@
       
         <categories>
             
-            <category> 工具 </category>
+            <category> coding </category>
             
         </categories>
         
@@ -336,6 +336,26 @@
     </entry>
     
     <entry>
+      <title><![CDATA[我从亿万富翁那里学来的投资智慧（上）]]></title>
+      <url>/posts/87ab94c0.html</url>
+      <content type="html"><![CDATA[<script src="/assets/js/APlayer.min.js"> </script><p>前段时间利用部分存款购置了一些区块链资产和美股，开始了我的<strong>投资</strong>之旅，一边学习一边实践我从笑来老师那里学到的投资智慧。</p><blockquote><p>以下内容为《通往财富自由之路》复盘笔记的部分内容</p></blockquote><p>之前，我自己从来没有想过要实现财富自由，甚至脑海中都没有过这个概念，觉得那简直就是天方夜谭，这种事情怎么可能会发生在我身上？！！！即便后来听说那谁谁财务自由了，我也只是想当然地认为这些人就是有一大笔花不完的钱，那才叫财务自由。可是，过去一年，跟着笑来老师的《通往财富自由之路》专栏一路学习下来，不仅让我对<strong>财富自由</strong>这个概念有了一个深刻的认识，而且学到了一整套实现这个目标的方法论，大脑的整个操作系统被重装了一遍，而我也把实现自己的财富自由作为了我的人生目标之一。</p><blockquote><p>有时候，被有用的知识洗脑，是一件极其幸福的事情。</p></blockquote><a id="more"></a><h4 id="什么是财富自由"><a href="#什么是财富自由" class="headerlink" title="什么是财富自由"></a>什么是财富自由</h4><p>那财富自由的定义是什么呢？<strong>个人财富自由，指的是某个人再也不用为了满足生活必需而出售自己的时间了。</strong>我们有收获的付出都可以算是“出售时间”。换句话说，财富自由就是某个人能有很多“被动收入”，把一份时间卖出更多份，“躺着”都能挣钱，这种收入称之为“<strong>睡后收入</strong>”。比如，写长销书，开发一款受欢迎的App，投资极具价值性的资产等等。将自己的能力变成产品，打包卖出去，未来的时间里，它会为你带来源源不断的”<strong>睡后收入</strong>“。</p><blockquote><p>推荐阅读：得到订阅专栏《通往财富自由之路》——你真的理解什么是”财富自由”吗？</p></blockquote><p>而投资，是我们每个人立马就可以去做的事情，去购买一些潜力型公司的股票，让这些公司替我们打工，这不是”睡后收入”是什么？</p><p>这里先纠正一个概念，我们这里讨论的是<strong>投资</strong>，不是炒股，更不是投机。我已经将后面两个”毒概念”从我大脑中剔除掉了，因为它们会让人在潜意识里形成一种赌徒的心态，会让我们不自觉地做出”追涨杀跌”的行为。我比较喜欢<strong>投资</strong>这个概念，因为它背后考量的是一个人管理资本的<strong>智慧</strong>，这是需要我们花一辈子时间去学习去深究的东西。其实，我们每个人都是投资者，我们投资自己的时间来换取报酬，投资自己的注意力来获取有效的成长，如何让自己的时间更值钱，如何让自己获得更高效的成长，是我们每位”投资者”都需要反复思考的问题。</p><blockquote><p>我们脑子里如果没有一个概念，我们倾向于不去想这个东西，但如果我们脑子里存在一个定义模糊甚至是有毒的概念，它会直接影响我们的潜意识，导致我们做出错误的判断，从而产生错误的行为。我们要不断审视自己的操作系统，给自己洗脑，将脑子中错误的概念剔除掉，学习清晰且正确的概念。</p><p>推荐阅读：<a href="http://zhibimo.com/read/xiaolai/reborn-every-7-years/A10.html" target="_blank" rel="external">概念是一切知识的基石</a></p></blockquote><h4 id="什么是资本"><a href="#什么是资本" class="headerlink" title="什么是资本"></a>什么是资本</h4><p>对于不断成长的我们而言，投资世界是一个我们必将进入的领域，而且越早进入越好。很多人会存在一个误区，认为自己反正没多少钱，觉得投资这件事情跟自己没关系。其实不然，相反，我们应该庆幸自己现在还没有一笔巨额的资金，要真给你500万，估计你也不知道怎么去使用，同样是500万，在你我手中和在股神巴菲特手中，产生的效益肯定是不一样的吧。在我们拥有一笔巨额的资金钱前，得先让自己配得上拥有那笔巨额的资金，也就是我们要提前学习运用资金的智慧，让自己将来有资格站在一大笔的资金背后，这样的资金才算作是<strong>资本</strong>。</p><p>判断一笔资金是否是资本，有三个标准：</p><ul><li>资金的大小。比如100块是不可能被当做资本的，因为太少了，没法玩。</li><li>资金的使用时限。一笔金额足够大的资金，能用一天、一个月、一年、两年、十年、甚至永远，他们之间所产生的威力天差地别。万科有个传奇股东，刘元生先生。1988年，刘先生以360万元人民币拿下360万股万科股票，迄今没有动过……以2016年6月27日的市值计算，刘元生的万科资产账面财富大约为27亿人民币——相当于28年，750倍！</li><li>资金背后的智慧。同样的钱，在不同人手里，会发挥不一样的威力。这需要我们掌握如何投资、如何运用资本的心法。这是三个要素中最为重要的一点，也是我们必须从现在就要开始学习的一点，越早开始越好。</li></ul><blockquote><p>推荐阅读：得到订阅专栏《通往财富自由之路》——我们重新认识了”资本”</p><p>推荐阅读：<a href="http://zhibimo.com/read/xiaolai/reborn-every-7-years/B02.html" target="_blank" rel="external">《七年就是一辈子》—— 理财：越早越好</a></p></blockquote><p>那如果我们想要从现在开始学习投资，从现在开始培养自己的投资智慧，该从哪里下手呢，有没有一个我们人人都能把握得住的机会呢？我们下篇介绍。</p>]]></content>
+      
+        <categories>
+            
+            <category> writing </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> 投资 </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
       <title><![CDATA[个人博客搭建系列指南]]></title>
       <url>/posts/b7749504.html</url>
       <content type="html"><![CDATA[<script src="/assets/js/APlayer.min.js"> </script><h1 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h1><p>本系列文章主要用来记录自己搭建博客的过程，分享出来给需要的朋友。有几点说明需要注意：</p><ul><li>如果你是开发者或者说是对编程熟悉的朋友，可以直接忽略此声明；</li><li>如果是非开发者或是对<strong>命令行</strong>毫无概念，但是又想搭建自己博客的朋友，在依照此系列文章搭建博客时，务必保证一点：<strong>不要一上来就问这些命令行是干什么的，请先直接按照文章的引导一步一步去执行，直到把目标达成，建立起成就感。之后，再回过头去Google一下这些命令行是干什么的，先模仿再深究，才是正确的学习方式，否则很容易从入门到放弃</strong>。</li><li>此文章只适用于<strong>Mac环境</strong>。</li><li>虽说网上的有了很多关于如何通过Hexo搭建博客的指南，但我还是想用更加清晰明了的方式再做一遍梳理，希望我的文章能够给你简单、清晰的感觉。</li></ul><a id="more"></a><h1 id="准备"><a href="#准备" class="headerlink" title="准备"></a>准备</h1><ul><li><p>命令行工具<strong>terminal</strong>熟悉</p><p><img src="https://img.i7years.com/terminal_1.png" alt="WX20170604-145706@2x"></p></li><li><p>前往<a href="https://github.com/" target="_blank" rel="external">GitHub</a>注册一个账号，后面有用</p></li><li><p>打开Terminal，下面的命令，安装后续要用到各种工具及环境。</p><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ bash &lt;(curl -s https://raw.githubusercontent.com/monfresh/laptop/master/laptop)</span><br></pre></td></tr></table></figure>
@@ -345,13 +365,13 @@
 </li>
 </ul>
 <h1 id="指南"><a href="#指南" class="headerlink" title="指南"></a>指南</h1><ol>
-<li>如何在自己电脑上搭建好博客，建立起初步的成就感。<a href="https://tech.i7years.com/posts/c5e43a28.html">https://tech.i7years.com/posts/c5e43a28.html</a></li>
-<li>如何将自己的博客放到网上，让别人也能看到。<a href="https://tech.i7years.com/posts/f5f2d6f0.html">https://tech.i7years.com/posts/f5f2d6f0.html</a></li>
-<li>修改博客的名称、logo、ico、slogan、主题等配置。<a href="https://tech.i7years.com/posts/b8ec75a2.html">https://tech.i7years.com/posts/b8ec75a2.html</a></li></ol>]]></content>
+<li>如何在自己电脑上搭建好博客，建立起初步的成就感。<a href="https://tech.i7years.com/posts/c5e43a28.html" target="_blank" rel="external">https://tech.i7years.com/posts/c5e43a28.html</a></li>
+<li>如何将自己的博客放到网上，让别人也能看到。<a href="https://tech.i7years.com/posts/f5f2d6f0.html" target="_blank" rel="external">https://tech.i7years.com/posts/f5f2d6f0.html</a></li>
+<li>修改博客的名称、logo、ico、slogan、主题等配置。<a href="https://tech.i7years.com/posts/b8ec75a2.html" target="_blank" rel="external">https://tech.i7years.com/posts/b8ec75a2.html</a></li></ol>]]></content>
       
         <categories>
             
-            <category> 工具 </category>
+            <category> coding </category>
             
         </categories>
         
@@ -568,7 +588,7 @@
       
         <categories>
             
-            <category> 工具 </category>
+            <category> coding </category>
             
         </categories>
         
@@ -616,7 +636,7 @@
       
         <categories>
             
-            <category> 工具 </category>
+            <category> coding </category>
             
         </categories>
         
@@ -624,6 +644,30 @@
         <tags>
             
             <tag> hexo </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
+      <title><![CDATA[你的生命有真空吗]]></title>
+      <url>/posts/9ce6150a.html</url>
+      <content type="html"><![CDATA[<script src="/assets/js/APlayer.min.js"> </script><p>在阅读后面的内容前，最好先花几分钟时间做个小小的练习，如下：</p><blockquote><p>&lt;一&gt;</p><ol><li>认真回忆并记录昨天做的事情。</li><li>认真回忆并记录前天做的事情。</li><li>认真回忆并记录大前天做的事情。</li></ol><p>&lt;二&gt;</p><ol><li>认真回忆并记录上周做的事情。</li><li>认真回忆并记录上个月做的事情。</li><li>认真回忆并记录上个季度做的事情。</li><li>认真回忆并记录过去的一年里做的事情。</li></ol></blockquote><a id="more"></a><hr><p>上面的练习，感觉如何？如果你平时就已经养成了良好的记录习惯，相信对你来说并不困难，但绝大多数人，在第一次做这两组练习时非常耗脑，实在是想不起来自己过去都干了些啥，虽说我们在生命的时间轴上向前移动了一段距离，但我们却不知道它是怎么向前移动的，不知道自己在那段距离里都干了些啥，留下了哪些足迹，有一种”白活”了的感觉，这种现象，我称之为”<strong>生命真空</strong>“现象。</p><blockquote><p>“生命真空”，Google了一下这个词，貌似还没有明确的搜索结果，暂且归为我创的”<strong><a href="http://t.cn/RSyJDjq" target="_blank" rel="external">文字指纹</a></strong>“吧</p></blockquote><p><img src="https://img.i7years.com/daozuomimi.JPG" alt=""></p><p>当我们认真回忆自己过去几十年的光阴时，却发现自己只有几点琐碎的记忆片段，甚至是什么都想不起来，你会不会有种莫名的恐惧感？！我特别喜欢米兰昆德拉的一个洞见：”<strong>人并不是突然死去的，而是慢慢死去的，因为我们活在自己的记忆中，而当这些记忆一点点消失，我们就在一点点死亡。但记忆是不可靠的，如果你不记录你的生活，你就在一点点死去。</strong>“</p><p>这其实也就意味着，你有多少记忆，就代表着你有多少<strong>有效的生命片段</strong>。从这个层面来看，记录，其实是在延长自己的寿命。</p><blockquote><p>其实，”<strong>我思故我在</strong>“，也可以表达出同样观点。</p></blockquote><p>记录在帮助我们弥补生命真空的同时还可以帮助我们更好地思考、更好地决策。我们的一生是由过去无数次的选择组成，如同多米诺骨牌。用一条线，串联起所有的选择点，就构成了人生的轨迹。挪动任意一张牌，人生之路都会有所不同，可能有些只是毫厘之差，有些却是千里之别，其中那些尤为重要的点，就决定了人一生大致的走向。去年年底，我在自己的公众号上对自己过去的七年做了一个简短的总结，记录了过去每一年让自己印象深刻的事情、自己做了哪些改变和选择。一方面，是想找回过去的记忆，不让自己的生命出现真空。另一方面，也是最主要的目的，反思现在的自己是由过去哪些错误的思维方式和行为习惯造成的，为了变成更好的自己，当下的我需要作出哪些改变。我不能让自己再次陷入『<strong>一遍又一遍地重复着昨天的故事，却还期待会有不同的结果</strong>』这种可笑的思维模式中去。</p><p>我们可以通过写作、写反思日记这两种有效的方式来记录自己的生活。</p><blockquote><p>关于写作：<a href="http://t.cn/RSyJTw8" target="_blank" rel="external">http://t.cn/RSyJTw8</a></p><p>关于反思：<a href="http://t.cn/RSyJlGg" target="_blank" rel="external">http://t.cn/RSyJlGg</a></p></blockquote><p>同样，在工作中也需要养成记录的习惯，一方面是为了工作，其实更主要的为了自己。今年3月份的时候，老板在公司开始推广石墨文档的使用，让公司所有的人开始写工作日志，写工作日志的主要目的是便于团队内部成员的沟通与协作，知道别人在干什么，自己手头有哪些前置任务需要优先完成，自己需要哪些小伙伴的帮助。两个月下来，每天还在日更工作日志的人也就那么几个了，而我听到”最有力”的一个借口是：”写这个有啥意义呢，老板又不看”。在不少人看来，写工作日志是给老板看的，不能说错到哪里去，但这有个思维误区，写作工作日志其实更主要的是为了我们自己，我们需要记录自己每天干了什么，才能知道自己哪些地方干的不好，原因是什么，才能反思出改进的经验，才能避免下一次犯同样的错误，如此，才有可能提高我们自身的工作能力。</p><blockquote><p>其实，从这一点就可以看出来，哪些人是在为公司打工，而哪些人是在为自己打工。</p></blockquote><p>养成勤记录的习惯，每天计划明天要干的事情，晚上总结当天做的事情，又学到了哪些知识，又有了哪些新的感悟和观点。</p><p>附：我过去一两年的工作生活计划</p><p><img src="https://img.i7years.com/jiliziji.png" alt=""></p><blockquote><p>推荐阅读：<a href="《把时间当做朋友》第3章第7节——『记录开销http://t.cn/RA6IYkO』">《把时间当做朋友》3.7章节——『记录开销』</a></p></blockquote>]]></content>
+      
+        <categories>
+            
+            <category> writing </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> 时间的朋友 </tag>
+            
+            <tag> 生命真空 </tag>
+            
+            <tag> 生命空格 </tag>
             
         </tags>
         
@@ -678,7 +722,7 @@
       
         <categories>
             
-            <category> 工具 </category>
+            <category> coding </category>
             
         </categories>
         
@@ -698,7 +742,7 @@
       
         <categories>
             
-            <category> 工具 </category>
+            <category> coding </category>
             
         </categories>
         
@@ -706,6 +750,78 @@
         <tags>
             
             <tag> Mac </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
+      <title><![CDATA[让自己活在未来]]></title>
+      <url>/posts/3725b694.html</url>
+      <content type="html"><![CDATA[<script src="/assets/js/APlayer.min.js"> </script><blockquote><p><strong>版权声明</strong></p><p>本文首发自微信公共帐号：w7years；</p><p>作者：王维</p><p>无需授权即可转载，但请自觉保留以上版权声明。</p></blockquote><p>长久以来，压力都被视为公众健康的敌人，可真的是这样子吗？</p><p>这几天的<a href="http://t.cn/RVFGn9j" target="_blank" rel="external">英语练习</a>都是在模仿TED演讲，几天前练习的TED视频《<a href="https://www.ted.com/talks/kelly_mcgonigal_how_to_make_stress_your_friend?language=en" target="_blank" rel="external">How to make stress your friend</a>》，让我对”压力与健康的关系”的有了一个颠覆性的认知。</p><a id="more"></a><blockquote><p>TED是一个以”<strong>传播有价值的思想</strong>“为宗旨的知识分享平台。这个TED视频2013年就出来了，而我却在前几天才看到了这个视频，2013年的时候我甚至都不知道还存在TED这么高品质的东西，可见当时的自己有多么落后。学好英语，对于自己了解这个世界的最新资讯真的是相当相当相当地重要，一个观点说不定就会影响你的一生。</p></blockquote><p>演讲者Kelly McGonigal是一名健康心理学家，她的主要工作是让人们更加健康、更加快乐，演讲中她坦陈自己过去十多年所秉持的观点都是错的——压力有害健康，压力会提高我们患从一般感冒到心血管疾病的风险。</p><p>颠覆Kelly McGonigal认知的是一项来自威斯康辛麦迪逊大学1998年的做的一项研究，这项研究追踪了3万名美国成年人，历时8年，被调查者会被询问两个问题：</p><blockquote><ul><li>过去的一年里你遭遇了多大的压力？</li><li>你相信压力有害健康吗？</li></ul></blockquote><p>之后研究人员以公开的死亡统计找出参与者中去世的人，结果显示</p><blockquote><ul><li>前一年压力颇大的人，死亡风险增加了43%，但这只适用于那些<strong>相信压力有害健康的人</strong></li><li>那些承受了极大的压力但并不将压力视为死亡的风险的人，与压力相对较小的参与者相比，死亡风险反而更低</li></ul></blockquote><p>研究人员又追踪了过去8年的死亡案例，18.2万美国人过早离世，原因并不是压力本身，而是</p><blockquote><p>压力有害健康这个想法</p></blockquote><p>这成为了美国第15大死亡因素，超过了皮肤癌、艾滋病与谋杀。</p><p><img src="https://img.i7years.com/blog/stress.png" alt=""></p><p>看吧，<strong>很多人其实是被自己慢慢吓死的</strong>。关于压力对人的生理反应背后的科学依据，感兴趣的朋友，可以点击文稿末尾的TED视频链接进行详细的了解，相信一定会对你有所启发。</p><p>但，我对这个事例背后所蕴含的一个更加深刻的道理更感兴趣——<strong>我们所处的世界是有生命的</strong>。我们所生存的这个世界，并不只是冷冰冰的客观存在而已，这个世界是有生命的，他甚至是可以有灵魂的，你如何对待它，它就如何对待你，你相信什么，你所处的世界就会变成你所相信的样子。并且，它竟然可以做到这样一个奇迹：它总是能够向你证明你是对的，即便是在你事实上错的离谱的情况下……</p><p>你看，那些相信压力有害健康的人，压力就真的成为了摧残他们健康的罪魁祸首，那些相信压力无害的人，跟没事一样，继续健健康康地活着，不同的观念，最终导致截然不同的结果。从最终的结果来看，他们都证明了自己当初的想法是对的，即便”压力有害健康”这种错误的想法，都被他们自己证明出了正确的结果，是不是很神奇？</p><blockquote><p>这种现象，在社会心理学上有个对应的概念——<strong><a href="https://zh.wikipedia.org/wiki/%E8%87%AA%E8%AF%81%E9%A2%84%E8%A8%80" target="_blank" rel="external">自证预言</a></strong>。人们先入为主的判断，无论其正确与否，都将或多或少的影响到人们的行为，以至于这个判断最后真的实现。</p></blockquote><p>像这样的例子有很多，比如要学习某项暂时用不上但未来可能会有所帮助的知识时，人群中的绝大多数人会选择不去学习，因为在他们看来学习这个知识不会给他们带来什么帮助，最终的结果也的确如他们所料，而只有极少数的人，会主动去学习那些在旁人看起来什么用但自己认定将来一定会帮助到他们的知识，最终的结果也会证明他们是对的。</p><blockquote><p>就拿我自己来说，我的职业是程序员，按理说我其实只要认真学习计算机编程技术就好了的，每天还利用业余时间去学习薛兆丰老师的北大经济学课，好像对我的工作技能没啥太大的帮助。不过呢，我坚信，学习经济学一会对我的未来所有帮助，道理很简单啊，<strong>任何知识都是有用的</strong>。</p></blockquote><p>电影《少年派的奇幻漂流》临近尾声时，沉浸在少年时那一场奇幻漂流中的PI又给作家讲述了一个现实而残酷的故事，然后盯着作家问：你选择相信哪一个？这两个故事没有孰真孰假，全取决于我们每个人的内心是善还是恶。我们每个人刚刚降临这个世界，都是一样的，都有一个无善无恶的灵魂，或者说是不知善恶的灵魂，善与恶，最终都是习得的，每一个善恶的选择，一方面塑造了自己，与此同时又塑造了那个自己存在于其中的世界，于是，那个有生命的世界开始有了自己的灵魂，是善是恶，其实是我们每个人自我选择的镜像而已。</p><p>我们选择相信什么样的价值观，我们的行为就会相应地发生什么样的变化，行为的变化导致最终结果的变化。我们选择相信什么样的道理，我们就会是变成什么样的人，我们的周围就会聚集什么样的人，最终我们所处的”主观世界”就会变成我们所相信的那个样子。</p><p>透过这一点，我们其实可以找到让自己<strong>活在未来</strong>的方法，设想自己未来想要的生活的样子，我们可以提前按照那个世界应有的规则去行动去生活，自然而然你就会慢慢像那个世界靠拢，最终真的活在那个世界里。</p><blockquote><p><strong>按照未来的你所需要的标准去学习、去工作，将会构建一个完全不同的生活。</strong></p></blockquote><p>每天早起、每天用英语、每天不停地学习、每天不停地阅读、每周跑步、每周写作等等，都是为了让自己能够慢慢地活成自己想要的样子。</p><p>这并不是什么”鸡汤”，这只是很朴素的道理。</p><blockquote><p>推荐阅读</p><ul><li>TED视频：<a href="http://t.cn/RaBSpVv" target="_blank" rel="external">http://t.cn/RaBSpVv</a></li><li>《七年就是一辈子》——『活在未来』<a href="http://t.cn/RtjzH32" target="_blank" rel="external">http://t.cn/RtjzH32</a></li><li>得到订阅专栏《通往财富自由之路》—— 『其实这个世界是有生命的』</li><li>得到订阅专栏《通往财富自由之路》—— 『活在当下 vs 活在未来』</li><li>自证预言：<a href="http://t.cn/RaBSE30" target="_blank" rel="external">http://t.cn/RaBSE30</a></li></ul></blockquote>]]></content>
+      
+        <categories>
+            
+            <category> writing </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> TED </tag>
+            
+            <tag> 活在未来 </tag>
+            
+            <tag> 自证预言 </tag>
+            
+            <tag> 心理学 </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
+      <title><![CDATA[营造更好交谈的10条建议]]></title>
+      <url>/posts/94a4bf1c.html</url>
+      <content type="html"><![CDATA[<script src="/assets/js/APlayer.min.js"> </script><blockquote><p>以下是TED视频：<a href="https://www.ted.com/talks/celeste_headlee_10_ways_to_have_a_better_conversation/transcript?language=zh-cn" target="_blank" rel="external">10 ways to have a better conversation</a> 的总结。</p></blockquote><a id="more"></a><p>1）不要三心二意。处在当下，进入那个情境中去，不要身在曹营心在汉 。</p><p>2）不要好为人师。 如果你想要表达自己的看法， 又不想留下任何机会让人回应、争论、反驳或阐发， 请写博客去。 真正的倾听需要把自己放在一边，把你的个人观点放在一边。保持一种空杯的心态，每一个你将要见到的人都有你不知道的东西，每个人都是某方面的专家。让对方感受到这种接纳，这样对方才会越来越有肯能打开自己的心扉</p><p>3）使用开放式问题。 请参考记者采访的提问方式。 以“谁”、“什么”、“何时”、“何地”、 “为什么”或“如何”开始提问。“那是什么样子？” “你感觉怎么样？” 比“你当时恐惧吗？” 或 “你当时气愤吗？” 这种问题要好</p><p>4）顺其自然。 想法会自然流入你的头脑， 而你需要将它们表达出来。</p><p>5）如果你不知道， 就说你不知道。 谨言慎行。 谈话应该是负责任的行为。</p><p>6）不要把自己的经历和他人比较。如果对方谈论失去了家人， 不要就势开始说你失去家人的事情。如果对方在说工作上的困扰， 不要告诉他们 你多么讨厌你的工作。 这不一样的， 永远不可能一样 。任何经历都是独一无二的。</p><p>7）尽量别重复自己的话。 尽量不要换着方式去重复表达自己的某个观点。</p><p>8）少说废话。 没人在乎那些年份、名字、日期等等这些你努力试图在脑中回想的种种细节。 别人不在乎。 他们关注的是你。 对方关心你是什么样的人， 和你有什么共同点。</p><p>9）认真倾听。 “我们大多数人都不是为了理解而倾听。 我们为了回应而听。”</p><p>10）简明扼要。 “好的交谈就像恰到好处的迷你裙，足够短，能够吸引人， 又足够长，能够包纳（盖住）主体’’</p>]]></content>
+      
+        <categories>
+            
+            <category> writing </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> 沟通交流 </tag>
+            
+            <tag> TED </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
+      <title><![CDATA[一种你不可或缺的思考方式]]></title>
+      <url>/posts/e8171a45.html</url>
+      <content type="html"><![CDATA[<script src="/assets/js/APlayer.min.js"> </script><p>『失败乃成功之母』，这句我们从小就知道的警世名言，可能很少有人会意识到这句话背后所体现出的解决问题的思考方式。最近我正在阅读的《穷查理宝典》，得以让我认识到了这句话背后的普世智慧。</p><a id="more"></a><p>查理·芒格在他的演讲『如何获取精彩的人生？』中提到一个深刻的道理：</p><blockquote><p>对于复杂的适应系统以及人类的大脑而言，如果采用<strong>逆向思维</strong>，问题往往会变得更容易解决。</p></blockquote><p>『失败乃成功之母』背后就体现了这种逆向的思考方式：如果我们知道自己是怎么失败的，那我们一定会避免导致这种失败的因素的发生，避免自己去做一些错误的事情，增加自己成功的概率。</p><p>逆向思维是一种从事物的反面思考的思维方式，与正向思维相对应。我们在解决问题时，往往习惯于按照熟悉的常规的思维路径去思考问题，很少利用反向思维去思考问题，去解决问题。</p><p>记得2年前，公司的有款新产品刚上线，我们市场团队在推广这款产品时，有个客户反馈，在我们的平台上开通站后，无法成功访问自己的网站。这时按照一般人的思维方式，肯定是会先向客户解释这个问题。但是我们有个同事却从反向解释这个问题，说系统站点开通需要一定的时间，这样给我们开发部门争取了修复Bug的时间。</p><p>这样维护了公司产品在客户心中的形象，给公司避免的大量的损失。</p>]]></content>
+      
+        <categories>
+            
+            <category> writing </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> 思维方式 </tag>
+            
+            <tag> 思考方式 </tag>
+            
+            <tag> 逆向思维 </tag>
             
         </tags>
         
@@ -791,7 +907,7 @@
       
         <categories>
             
-            <category> 工具 </category>
+            <category> coding </category>
             
         </categories>
         
@@ -805,6 +921,68 @@
             <tag> Calibre </tag>
             
             <tag> DeDRM </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
+      <title><![CDATA[价值观升级在生活中运用（一）]]></title>
+      <url>/posts/685b0e.html</url>
+      <content type="html"><![CDATA[<script src="/assets/js/APlayer.min.js"> </script><p>2015年我开始把跑步当做自己的一项日常生活习惯，一整年下来App上记录的公里数为217.63Km，平均算下来4.03Km/week，2016年总计跑步300.71Km，平均5.5Km/week，总体上来看前两年跑步的公里数，并没有一个量级的增长，算下来平均到一周才跑4 ~ 5 km，运动量处于一个低水平状态，但是到了2017年，16周的时间已经过去，我已经完成了211.47KM的跑步量，平均下来13.21KM/week，这16周的跑步量相当于我过去一年的跑步量，周运动量提升了将近3倍左右，。主要的原因在于今年年初时，花了大几千给自己买了台跑步机，而这直接带给我的好处有以下两点：</p><a id="more"></a><ul><li>每当到了计划跑步的时间点，心里要是有一丝不想跑的念头，一看到摆在家里的跑步机，立马开始换衣服准备跑步，毕竟那都是钱啊</li><li>不用担心雨天、雾霾天的影响，过去2年跑步频次不高的一个很重要的原因在于天气的影响，特别是雾霾天，杭州是一个雾霾污染比较严重的城市，在这种恶劣天气下跑步，你简直就是一个空气净化器，从锻炼身体的角度来看，得不偿失</li></ul><p>你可能会觉得，买台家用跑步机那得多麻烦，办张健身卡岂不是很省事？第一，下了班去健身房，健身完回到家里，这个过程其实是非常浪费时间的；第二，偶尔你也会有不想健身的时候，纠结于还要不要去健身房的，特别是当有朋友约你去吃饭或去逛街，那么跑步健身这个计划很可能就直接作废。人的大脑在纠结于某项选择时，是非常耗能的，大脑会更多地偏向于做出让自己处于舒适区的决定，遇到这种情况，大多数人会选择不去健身，健身房之所以赚钱全靠那些办了年卡却不来健身的人们。</p><p>要是放在以前，我也不会选择花几千块钱去购置一台家用跑步机，因为那时我觉得钱很重要，可是现在在我的价值观体系中<strong>时间比钱重要</strong>，一切能节省自己时间，能提高时间价值的事情，我都会选择花钱，花钱买时间，让自己有更多的时间去做更有意义的事情，而不用浪费精力在无意义的纠结上，当然，前提是要在你的经济能力可承受范围以内。</p><blockquote><p>价值观：<strong>注意力 &gt; 时间 &gt; 金钱</strong></p></blockquote><p>花几千块钱买台跑步机，排除不利因素的干扰，为自己换取规律性的健身时间，进而换取一个更加健康的身体，这里面的投入产出比不知高出多少倍，一个健康的身体远不是几千块能买得到的。</p>]]></content>
+      
+        <categories>
+            
+            <category> writing </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> 价值观 </tag>
+            
+            <tag> 跑步 </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
+      <title><![CDATA[自我管理——反思日记]]></title>
+      <url>/posts/1fafa8f8.html</url>
+      <content type="html"><![CDATA[<script src="/assets/js/APlayer.min.js"> </script><p>跟大家分享一下我今年新养成的一个习惯——写反思日记，不是写那种简单的流水账式的日记。每天早晨起来的第一件事件就是写反思日记。</p><p>对我而言，写反思日记的目的主要在于：</p><a id="more"></a><p>1）记录自己日常生活中发生了的事情，从中我能得到什么启发，去思考这事情为什么会发生，这件事情背后的规律是什么？底层逻辑是什么？</p><p>2）回顾自己学到的知识，我们每天都会接收各种各样的观点和知识，比如我每天花在得到App上的时间将近240min左右，从李笑来，薛兆丰、吴军、万维刚、刘润、古典等各位专栏老师的文章中每天都能学到一些刷新自己认知的知识以及一些方法和套路，但这些知识怎样才能有效地吸收呢？这些零散的知识之间怎样才能建立有效的连接呢？这就需要通过反思日记，认真去消化去吸收去运用自己学到的知识，否则，只会导致自己让自己患上”知识焦虑症”。</p><p>比如，沉没成本不是成本，和概率论之间其实讲的一个道理，舍弃过去，从当下做出决定</p><p>3）反思自己的行为习惯和情绪。2000年前，苏格拉底提出人有三种灵魂，分别是<strong>欲望灵魂</strong>、<strong>意志灵魂</strong>和<strong>理性灵魂</strong>。 分别对应了柏拉图的战车模型中的<strong>黑马</strong>、<strong>白马</strong>和<strong>骑手</strong>，在初始阶段，黑马很强大，白马一般，骑手只是婴儿，战车就无法保持稳定向前，需要想办法优化战车，提高战车性能。而反思就是让这三种力量达到趋于平衡的有效方式。</p><p>每个人所遇到的问题，其实从能从自己身上找到原因，就像吴军老师在一篇文章里说的，先问问自己</p><p>每个人都活在自己的主观世界里</p><p>提升自己的认知效率，而不是技术效率</p><p>内心关照</p><p>用相同的方式做事，却还想得出不一样的结果</p><p><img src="https://img.i7years.com/self.png" alt="战车模型"></p><p>以下是我日常反思的一个问题模型：</p><p><strong>日常事项检查</strong></p><ol><li>检查自己的日常事项是否都完成了？</li><li>完成的事情，在哪些地方还可以进一步提升？</li><li>有哪些事情没有完成？为什么？如何改进？</li></ol><p><strong>反思自己的工作</strong></p><ol><li>反思今日工作计划的完成情况</li><li>总结问题和原因</li><li>提出改进措施</li><li>我今天有在为自己打工吗？</li><li>我今天有充分利用上班的时间了吗？</li></ol><p><strong>反思自己学到的知识</strong></p><ol><li>我今天学到了什么？（从知识清单中选取一个最有价值的、最有启发的知识）</li><li>今天我学到的知识能和我过去学到的哪些知识结合起来？</li><li>今天我学到的知识能和我过往的哪些生活经历结合起来？</li><li>这个知识还可以用到什么地方？如果能用到另外一个地方的话，那需要注意什么才不会出错呢？</li><li>这是一二手知识吗？是不是源头知识？这个知识有什么局限性？</li><li>我如何把学到的知识应用在工作生活里？</li><li>制作Anki记忆卡片，偏于后期回顾，强化记忆</li></ol><p><strong>今天发生了什么事情</strong></p><ol><li>今天发生了什么事情？（发生在自己身上的、发生在身边朋友同事身上的、在朋友圈刷屏的事情等）</li><li>如实记录整个事情的发生过程，在这个过程中发生了”什么”，是”如何”发生的？</li><li>反思我对这件事情的反应。自己掌握的信息是否充足？记录下自己当时的情绪、心理表征、思考过程、外部环境条件等因素。</li><li>过去发生过类似的事情吗？这些事情的发生，背后的底层规律是什么？从中可以总结出哪些经验和教训？有什么相关的方法可以应用到这件事情中吗？</li><li>这件事情对我有什么影响？有什么启发？从中能学到什么？</li></ol><p><strong>今天遇到了什么问题</strong></p><ol><li>核心问题是什么？（只能有一个，如果有很多，找到最重要的那个）</li><li>这个问题的背景是什么？（来龙去脉，历史原因）</li><li>和现在这个问题有关的人物和因素有哪些？（记住MECE法则，用归纳法，一一并列出来）</li><li>哪些是导致这个问题的关键原因？ 哪些是次要原因？ （利用黄金思维圈思考模型透过表象What找到本质Why）</li><li>解决这个问题有哪些方法？（用归纳法，写出所有可能。用演绎法，找到每种方法实施的具体步骤）</li><li>解决这个问题，你现在欠缺哪些条件或者资源？</li><li>如何去弥补这些条件上的欠缺？</li><li>你的时间规划是怎样的，先做什么，再做什么，然后做什么？</li></ol><p><strong>反思自己的情绪</strong></p><ol><li>今天我的情绪是怎么样的？用一个关键字形容</li><li>如果是消极的情绪，原因是什么？</li><li>今天有没有让我感到小确幸的事情</li></ol><p><strong>反思自己的思考方式</strong></p><ol><li>今天我有什么新的想法？</li><li>琢磨一下自己的想法从何而来？</li><li>琢磨一下自己的想法有没有逻辑谬误？</li><li>又缘何走了那么个思路？</li><li>有没有其他可能的思考结果？</li><li>琢磨一下那些影响因素究竟有没有根基，有没有道理？</li></ol><p><strong>反思自己做的决定</strong></p><ol><li>我今天做了什么决定？</li><li>自己做出决定的过程合理吗？</li><li>这个决定所要实现的目标还有其他的途径和方法吗？</li><li>考虑的因素全面吗？</li></ol><p><strong>反思自己做的选择</strong></p><ol><li>我今天做了什么选择？</li><li>做这些选择我考虑到了哪些筛选条件？尽可能全地列举</li><li>为每个条件的必要性打分，而后重新排序，可以是1~5分；</li><li>考虑每个条件的必要性，打分只有 1 和 0 ，要么有必要，要么没必要；</li><li>第2天在花30min重新仔细过一遍——如果选择本身的重要性很高，那么就多重复几次</li></ol><p><strong>反思自己做的事情</strong></p><ol><li>今天我有什么事情做的不好？为什么？</li><li>我当时是怎么考虑的？</li><li>假如我没这么做，会有什么不一样的结果？</li><li>我还能有其他的做法吗？</li><li>如果我重新来做会有哪些改进？</li></ol><p><strong>反思自己的行为习惯</strong></p><ol><li>列出一个我要「对标管理」的习惯，比如：《高效人士的七个习惯》——积极主动</li><li>我今天的言行是否符合这个习惯准则？为什么？</li><li>我该如何去改进？</li></ol><blockquote><p>推荐阅读：《好好学习》个人知识管理精进指南</p></blockquote><p>王维 2017/04/07 于杭州</p>]]></content>
+      
+        <categories>
+            
+            <category> writing </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> 反思 </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
+      <title><![CDATA[关于写作]]></title>
+      <url>/posts/8e0f869c.html</url>
+      <content type="html"><![CDATA[<script src="/assets/js/APlayer.min.js"> </script><h1 id="关于写作"><a href="#关于写作" class="headerlink" title="关于写作"></a>关于写作</h1><p>知乎上有这样一个问答：</p><blockquote><p>哪个瞬间让你突然觉得读书真有用？</p><blockquote><p>开始真实地感受到输出的每一句话都在暴露输入的时候</p></blockquote></blockquote><a id="more"></a><p>对这句回答，我感同身受，可以说这是我的真实写照，每当想要去给别人讲述一个观点的时候，要么说出去的话不能准确表达自己的意思，要么就是说着说着就卡壳了，最后不得不以”反正就是那样”来草草收场，这种尴尬的场面不知遇到了多少回。</p><p>除了<strong>输入</strong>之外，还有一个不可或缺的部分——<strong>处理</strong>，也就是思考。</p><p><strong>写作，是输入处理后的输出</strong>，是锻炼输入质量及处理质量最直接最有效的方式，没有之一。</p><p>公众号『我的七年』，这里将用来记录自己成长过程中的所思所想，内容主要涉及以下几个方面：</p><ul><li>有关一本好书或者一篇好文的阅读思考笔记；</li><li>自己学到新知识、新观念、新方法论及亲身践行的一些感悟；</li><li>对日常生活中所观察到的表象及背后逻辑与原因的思考；</li></ul><p>同时，希望通过写作来达到以下几个目的：</p><ul><li><p><strong>倒逼自己的输入质量以及思考质量</strong>。而我自己在独立思考、深入思考方面是非常非常非常欠缺的一个人，过去常常表现为，看完一篇好文章，心想：”哇！写的不错！有道理！” 然后点击”分享到朋友圈”或者”保存到印象笔记”，又如，在看一本书的过程中，我会去摘录书中觉得有道理的句子和段落，表示自己已经”认真”地看过这本书了。但是极少会主动去思考以下几个问题：</p><blockquote><p>作者主要讲了些什么？作者的观点是否有道理？哪些观点不同意，你的原因或论据是什么？</p><p>作者是如何论证自己的观点的？论证的思路又是如何？</p><p>论证的过程中用到了哪些素材？这些素材还可以用到其它什么地方去？</p><p>从中我能学到些什么？如何能跟我已有的知识结合起来？</p><p>如何将文中的观点和道理内化到自己的行动中来，进而去改变自己的生活？</p></blockquote><p>​</p><p>在接下来的几年里，我将会系统性地学习概率论与数理统计、历史方法论、逻辑学、心理学(尤其是认知心理 学)、经济学等知识，给自己的操作系统做几次重大的升级，为自己建立一个完整的知识体系框架，去帮助自己突破思考质量上的局限。一个人的思考质量几乎决定着他的生活质量，思考决定选择，选择决定命运。只有思考上的进步，才是根本上的进步。</p><p>​</p></li></ul><ul><li><strong>更加清醒地认识自己</strong>。写作是一个不断探索自己，不断与自己对话的过程，通过写作去发掘内心最真实的想法，去了解自己真正的刚需是什么，知道什么是好的，什么是更好的，什么是是最好的，知道什么事情绝对不能做，什么事情一定要做到底，让自己在面临生活中各种各样的选择时，能够自然而然地做出符合自己<strong>价值观</strong>的选择，而不至于走上违心的岔路。</li></ul><ul><li><strong>提升自己的表达能力与沟通能力</strong>。写作并不只是作者的单向输出， 更多的是作者与读者之间双向沟通的过程，作者需要站在读者的角度去审视自己的文章，反思自己有没有将自己的观点清晰地表达给对方，而对方是不是能够清楚且正确地理解自己所表达的意思。在表达能力和沟通能力方面我也是非常欠缺的一个人，希望通过持续不断的写作来提升自己的语言组织能力，让自己的想法和观点能够清晰且正确地表达出来。同时，通过我的文章可以让身边的朋友、同事以及家人更好地了解我。</li></ul><ul><li><strong>更好地消化所学的东西</strong>。通过写作可以梳理自己的知识体系，将各个知识点串联起来，有助于大脑内部形成更加稳固的记忆组块，便于我更好地理解所学的东西。另外，我也很乐意将自己所学到知识、观点和技能整理分享出来，一方面因为<strong>教是最好的学习方法</strong>，另一方面通过大家的反馈可以发现自身思维上的局限和认知的不足，这一点尤为重要，最怕的就是，不知道自己不知道。</li></ul><p>千里之行始于足下。在今后的岁月里，我愿倾注我大部分闲暇时间在自己的一亩三分地上辛勤地耕作，以<strong>持续学习、不断积累</strong>为宗旨，以输出带动输入，以行动驱动梦想，种出自己想要的硕果。</p><p>杭州 2016/12/18</p>]]></content>
+      
+        <categories>
+            
+            <category> writing </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> 写作 </tag>
             
         </tags>
         

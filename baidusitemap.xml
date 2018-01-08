@@ -3,9 +3,222 @@
 
 
     
+    
   <url>
-    <loc>https://tech.i7years.com/posts/bc401e84.html</loc>
-    <lastmod>2018-01-07T09:52:20.183Z</lastmod>
+    <loc>https://wangwei.one/posts/80d694a6.html</loc>
+    <lastmod>2018-01-08T07:09:19.779Z</lastmod>
+    <data>
+        <display>
+        <title>Mac系统清理指南</title>
+        <pubTime>2017-05-20T00:52:03.000Z</pubTime>
+        
+        <tag>Mac</tag>
+         
+         
+           
+             
+              <breadCrumb title="coding" url="https://wangwei.one/categories/coding/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://wangwei.one/posts/917fb1e0.html</loc>
+    <lastmod>2018-01-08T07:09:17.276Z</lastmod>
+    <data>
+        <display>
+        <title>Java开发环境搭建清单</title>
+        <pubTime>2017-11-20T12:42:22.000Z</pubTime>
+        
+        <tag>工具</tag>
+         
+        <tag>Java</tag>
+         
+         
+           
+             
+              <breadCrumb title="coding" url="https://wangwei.one/categories/coding/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://wangwei.one/posts/a1880e9.html</loc>
+    <lastmod>2018-01-08T07:09:07.507Z</lastmod>
+    <data>
+        <display>
+        <title>iBooks自动导入Kindle电子书</title>
+        <pubTime>2017-04-30T15:55:22.000Z</pubTime>
+        
+        <tag>iBooks</tag>
+         
+        <tag>Kindle</tag>
+         
+        <tag>Calibre</tag>
+         
+        <tag>DeDRM</tag>
+         
+         
+           
+             
+              <breadCrumb title="coding" url="https://wangwei.one/categories/coding/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://wangwei.one/posts/8b02ccd0.html</loc>
+    <lastmod>2018-01-08T07:09:04.436Z</lastmod>
+    <data>
+        <display>
+        <title>golang学习教程</title>
+        <pubTime>2017-12-09T14:38:39.000Z</pubTime>
+        
+        <tag>golang</tag>
+         
+        <tag>go</tag>
+         
+         
+           
+             
+              <breadCrumb title="coding" url="https://wangwei.one/categories/coding/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://wangwei.one/posts/258a2097.html</loc>
+    <lastmod>2018-01-08T07:09:01.606Z</lastmod>
+    <data>
+        <display>
+        <title>c++学习教程</title>
+        <pubTime>2017-12-02T14:38:39.000Z</pubTime>
+        
+        <tag>c++</tag>
+         
+         
+           
+             
+              <breadCrumb title="coding" url="https://wangwei.one/categories/coding/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://wangwei.one/posts/48247421.html</loc>
+    <lastmod>2018-01-08T07:08:48.186Z</lastmod>
+    <data>
+        <display>
+        <title>SpringBoot学习教程</title>
+        <pubTime>2017-12-02T16:31:18.000Z</pubTime>
+        
+        <tag>Spring</tag>
+         
+        <tag>SpringBoot</tag>
+         
+         
+           
+             
+              <breadCrumb title="coding" url="https://wangwei.one/categories/coding/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://wangwei.one/posts/b8ec75a2.html</loc>
+    <lastmod>2018-01-08T07:08:35.831Z</lastmod>
+    <data>
+        <display>
+        <title>个人博客搭建指南（三）</title>
+        <pubTime>2017-06-10T01:40:16.000Z</pubTime>
+        
+        <tag>hexo</tag>
+         
+         
+           
+             
+              <breadCrumb title="coding" url="https://wangwei.one/categories/coding/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://wangwei.one/posts/f5f2d6f0.html</loc>
+    <lastmod>2018-01-08T07:08:35.828Z</lastmod>
+    <data>
+        <display>
+        <title>个人博客搭建指南（二）</title>
+        <pubTime>2017-06-03T13:28:01.000Z</pubTime>
+        
+        <tag>hexo</tag>
+         
+         
+           
+             
+              <breadCrumb title="coding" url="https://wangwei.one/categories/coding/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://wangwei.one/posts/b7749504.html</loc>
+    <lastmod>2018-01-08T07:08:35.825Z</lastmod>
+    <data>
+        <display>
+        <title>个人博客搭建系列指南</title>
+        <pubTime>2017-06-12T13:54:49.000Z</pubTime>
+        
+        <tag>hexo</tag>
+         
+         
+           
+             
+              <breadCrumb title="coding" url="https://wangwei.one/categories/coding/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://wangwei.one/posts/c5e43a28.html</loc>
+    <lastmod>2018-01-08T07:08:35.818Z</lastmod>
+    <data>
+        <display>
+        <title>个人博客搭建指南（一）</title>
+        <pubTime>2017-05-27T01:40:16.000Z</pubTime>
+        
+        <tag>hexo</tag>
+         
+         
+           
+             
+              <breadCrumb title="coding" url="https://wangwei.one/categories/coding/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://wangwei.one/posts/bc401e84.html</loc>
+    <lastmod>2018-01-08T07:08:21.963Z</lastmod>
     <data>
         <display>
         <title>私人VPN服务搭建指南</title>
@@ -18,7 +231,7 @@
          
            
              
-              <breadCrumb title="工具" url="https://tech.i7years.com/categories/%E5%B7%A5%E5%85%B7/"/>
+              <breadCrumb title="coding" url="https://wangwei.one/categories/coding/"/>
           
         </display>
     </data>
@@ -26,7 +239,207 @@
 
     
   <url>
-    <loc>https://tech.i7years.com/posts/edbb6788.html</loc>
+    <loc>https://wangwei.one/posts/e4de0f3.html</loc>
+    <lastmod>2018-01-08T07:07:35.263Z</lastmod>
+    <data>
+        <display>
+        <title>高效能人士的工具清单</title>
+        <pubTime>2017-12-02T08:02:36.000Z</pubTime>
+        
+        <tag>工具</tag>
+         
+        <tag>效率</tag>
+         
+         
+           
+             
+              <breadCrumb title="writing" url="https://wangwei.one/categories/writing/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://wangwei.one/posts/3725b694.html</loc>
+    <lastmod>2018-01-08T07:07:23.008Z</lastmod>
+    <data>
+        <display>
+        <title>让自己活在未来</title>
+        <pubTime>2017-05-14T05:26:34.000Z</pubTime>
+        
+        <tag>TED</tag>
+         
+        <tag>活在未来</tag>
+         
+        <tag>自证预言</tag>
+         
+        <tag>心理学</tag>
+         
+         
+           
+             
+              <breadCrumb title="writing" url="https://wangwei.one/categories/writing/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://wangwei.one/posts/94a4bf1c.html</loc>
+    <lastmod>2018-01-08T07:07:19.717Z</lastmod>
+    <data>
+        <display>
+        <title>营造更好交谈的10条建议</title>
+        <pubTime>2017-05-07T14:31:54.000Z</pubTime>
+        
+        <tag>沟通交流</tag>
+         
+        <tag>TED</tag>
+         
+         
+           
+             
+              <breadCrumb title="writing" url="https://wangwei.one/categories/writing/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://wangwei.one/posts/1fafa8f8.html</loc>
+    <lastmod>2018-01-08T07:07:16.513Z</lastmod>
+    <data>
+        <display>
+        <title>自我管理——反思日记</title>
+        <pubTime>2017-04-07T11:56:31.000Z</pubTime>
+        
+        <tag>反思</tag>
+         
+         
+           
+             
+              <breadCrumb title="writing" url="https://wangwei.one/categories/writing/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://wangwei.one/posts/87ab94c0.html</loc>
+    <lastmod>2018-01-08T07:07:11.744Z</lastmod>
+    <data>
+        <display>
+        <title>我从亿万富翁那里学来的投资智慧（上）</title>
+        <pubTime>2017-06-21T15:23:06.000Z</pubTime>
+        
+        <tag>投资</tag>
+         
+         
+           
+             
+              <breadCrumb title="writing" url="https://wangwei.one/categories/writing/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://wangwei.one/posts/8e0f869c.html</loc>
+    <lastmod>2018-01-08T07:07:06.036Z</lastmod>
+    <data>
+        <display>
+        <title>关于写作</title>
+        <pubTime>2017-03-15T14:51:09.000Z</pubTime>
+        
+        <tag>写作</tag>
+         
+         
+           
+             
+              <breadCrumb title="writing" url="https://wangwei.one/categories/writing/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://wangwei.one/posts/9ce6150a.html</loc>
+    <lastmod>2018-01-08T07:07:02.055Z</lastmod>
+    <data>
+        <display>
+        <title>你的生命有真空吗</title>
+        <pubTime>2017-05-28T07:09:14.000Z</pubTime>
+        
+        <tag>时间的朋友</tag>
+         
+        <tag>生命真空</tag>
+         
+        <tag>生命空格</tag>
+         
+         
+           
+             
+              <breadCrumb title="writing" url="https://wangwei.one/categories/writing/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://wangwei.one/posts/685b0e.html</loc>
+    <lastmod>2018-01-08T07:06:58.906Z</lastmod>
+    <data>
+        <display>
+        <title>价值观升级在生活中运用（一）</title>
+        <pubTime>2017-04-17T00:16:25.000Z</pubTime>
+        
+        <tag>价值观</tag>
+         
+        <tag>跑步</tag>
+         
+         
+           
+             
+              <breadCrumb title="writing" url="https://wangwei.one/categories/writing/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://wangwei.one/posts/e8171a45.html</loc>
+    <lastmod>2018-01-08T07:06:50.503Z</lastmod>
+    <data>
+        <display>
+        <title>一种你不可或缺的思考方式</title>
+        <pubTime>2017-05-07T11:56:52.000Z</pubTime>
+        
+        <tag>思维方式</tag>
+         
+        <tag>思考方式</tag>
+         
+        <tag>逆向思维</tag>
+         
+         
+           
+             
+              <breadCrumb title="writing" url="https://wangwei.one/categories/writing/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://wangwei.one/posts/edbb6788.html</loc>
     <lastmod>2018-01-05T07:51:39.141Z</lastmod>
     <data>
         <display>
@@ -48,7 +461,7 @@
          
            
              
-              <breadCrumb title="blockchain" url="https://tech.i7years.com/categories/blockchain/"/>
+              <breadCrumb title="blockchain" url="https://wangwei.one/categories/blockchain/"/>
           
         </display>
     </data>
@@ -56,7 +469,7 @@
 
     
   <url>
-    <loc>https://tech.i7years.com/posts/181733fc.html</loc>
+    <loc>https://wangwei.one/posts/181733fc.html</loc>
     <lastmod>2018-01-05T07:48:24.510Z</lastmod>
     <data>
         <display>
@@ -72,177 +485,7 @@
          
            
              
-              <breadCrumb title="blockchain" url="https://tech.i7years.com/categories/blockchain/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://tech.i7years.com/posts/258a2097.html</loc>
-    <lastmod>2018-01-04T11:38:54.689Z</lastmod>
-    <data>
-        <display>
-        <title>c++学习教程</title>
-        <pubTime>2017-12-02T14:38:39.000Z</pubTime>
-        
-        <tag>c++</tag>
-         
-         
-           
-             
-              <breadCrumb title="编程" url="https://tech.i7years.com/categories/%E7%BC%96%E7%A8%8B/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://tech.i7years.com/posts/8b02ccd0.html</loc>
-    <lastmod>2017-12-09T11:32:26.605Z</lastmod>
-    <data>
-        <display>
-        <title>golang学习教程</title>
-        <pubTime>2017-12-09T14:38:39.000Z</pubTime>
-        
-        <tag>golang</tag>
-         
-        <tag>go</tag>
-         
-         
-           
-             
-              <breadCrumb title="编程" url="https://tech.i7years.com/categories/%E7%BC%96%E7%A8%8B/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://tech.i7years.com/posts/48247421.html</loc>
-    <lastmod>2017-12-08T15:05:50.933Z</lastmod>
-    <data>
-        <display>
-        <title>SpringBoot学习教程</title>
-        <pubTime>2017-12-02T16:31:18.000Z</pubTime>
-        
-        <tag>Spring</tag>
-         
-        <tag>SpringBoot</tag>
-         
-         
-           
-             
-              <breadCrumb title="Spring" url="https://tech.i7years.com/categories/Spring/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://tech.i7years.com/posts/e4de0f3.html</loc>
-    <lastmod>2017-12-03T00:51:33.219Z</lastmod>
-    <data>
-        <display>
-        <title>高效能人士的工具清单</title>
-        <pubTime>2017-12-02T08:02:36.000Z</pubTime>
-        
-        <tag>工具</tag>
-         
-        <tag>效率</tag>
-         
-         
-           
-             
-              <breadCrumb title="工具" url="https://tech.i7years.com/categories/%E5%B7%A5%E5%85%B7/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://tech.i7years.com/posts/917fb1e0.html</loc>
-    <lastmod>2017-11-21T11:12:09.719Z</lastmod>
-    <data>
-        <display>
-        <title>Java开发环境搭建清单</title>
-        <pubTime>2017-11-20T12:42:22.000Z</pubTime>
-        
-        <tag>工具</tag>
-         
-        <tag>Java</tag>
-         
-         
-           
-             
-              <breadCrumb title="编程" url="https://tech.i7years.com/categories/%E7%BC%96%E7%A8%8B/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://tech.i7years.com/posts/b7749504.html</loc>
-    <lastmod>2017-11-20T12:42:56.224Z</lastmod>
-    <data>
-        <display>
-        <title>个人博客搭建系列指南</title>
-        <pubTime>2017-06-12T13:54:49.000Z</pubTime>
-        
-        <tag>hexo</tag>
-         
-         
-           
-             
-              <breadCrumb title="工具" url="https://tech.i7years.com/categories/%E5%B7%A5%E5%85%B7/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-    
-  <url>
-    <loc>https://tech.i7years.com/posts/b8ec75a2.html</loc>
-    <lastmod>2017-11-18T14:11:55.768Z</lastmod>
-    <data>
-        <display>
-        <title>个人博客搭建指南（三）</title>
-        <pubTime>2017-06-10T01:40:16.000Z</pubTime>
-        
-        <tag>hexo</tag>
-         
-         
-           
-             
-              <breadCrumb title="工具" url="https://tech.i7years.com/categories/%E5%B7%A5%E5%85%B7/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-    
-  <url>
-    <loc>https://tech.i7years.com/posts/80d694a6.html</loc>
-    <lastmod>2017-11-16T04:57:55.845Z</lastmod>
-    <data>
-        <display>
-        <title>Mac系统清理指南</title>
-        <pubTime>2017-05-20T00:52:03.000Z</pubTime>
-        
-        <tag>Mac</tag>
-         
-         
-           
-             
-              <breadCrumb title="工具" url="https://tech.i7years.com/categories/%E5%B7%A5%E5%85%B7/"/>
+              <breadCrumb title="blockchain" url="https://wangwei.one/categories/blockchain/"/>
           
         </display>
     </data>
@@ -251,70 +494,5 @@
     
     
     
-  <url>
-    <loc>https://tech.i7years.com/posts/f5f2d6f0.html</loc>
-    <lastmod>2017-11-13T04:47:59.000Z</lastmod>
-    <data>
-        <display>
-        <title>个人博客搭建指南（二）</title>
-        <pubTime>2017-06-03T13:28:01.000Z</pubTime>
-        
-        <tag>hexo</tag>
-         
-         
-           
-             
-              <breadCrumb title="工具" url="https://tech.i7years.com/categories/%E5%B7%A5%E5%85%B7/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://tech.i7years.com/posts/c5e43a28.html</loc>
-    <lastmod>2017-11-12T11:46:38.000Z</lastmod>
-    <data>
-        <display>
-        <title>个人博客搭建指南（一）</title>
-        <pubTime>2017-05-27T01:40:16.000Z</pubTime>
-        
-        <tag>hexo</tag>
-         
-         
-           
-             
-              <breadCrumb title="工具" url="https://tech.i7years.com/categories/%E5%B7%A5%E5%85%B7/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://tech.i7years.com/posts/a1880e9.html</loc>
-    <lastmod>2017-11-12T11:46:17.000Z</lastmod>
-    <data>
-        <display>
-        <title>iBooks自动导入Kindle电子书</title>
-        <pubTime>2017-04-30T15:55:22.000Z</pubTime>
-        
-        <tag>iBooks</tag>
-         
-        <tag>Kindle</tag>
-         
-        <tag>Calibre</tag>
-         
-        <tag>DeDRM</tag>
-         
-         
-           
-             
-              <breadCrumb title="工具" url="https://tech.i7years.com/categories/%E5%B7%A5%E5%85%B7/"/>
-          
-        </display>
-    </data>
-    </url>
-
     
 </urlset>
