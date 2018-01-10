@@ -4,6 +4,49 @@
 
     
   <url>
+    <loc>https://wangwei.one/posts/47415f35.html</loc>
+    <lastmod>2018-01-10T10:48:50.832Z</lastmod>
+    <data>
+        <display>
+        <title>《通往财富自由之路》读书笔记</title>
+        <pubTime>2018-01-09T13:37:12.000Z</pubTime>
+        
+        <tag>思维</tag>
+         
+        <tag>成长</tag>
+         
+        <tag>投资</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://wangwei.one/posts/8b02ccd0.html</loc>
+    <lastmod>2018-01-09T07:22:30.334Z</lastmod>
+    <data>
+        <display>
+        <title>golang学习教程</title>
+        <pubTime>2017-12-09T14:38:39.000Z</pubTime>
+        
+        <tag>golang</tag>
+         
+        <tag>go</tag>
+         
+         
+           
+             
+              <breadCrumb title="coding" url="https://wangwei.one/categories/coding/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>https://wangwei.one/posts/e4de0f3.html</loc>
     <lastmod>2018-01-08T14:53:26.939Z</lastmod>
     <data>
@@ -109,28 +152,6 @@
         <tag>工具</tag>
          
         <tag>Java</tag>
-         
-         
-           
-             
-              <breadCrumb title="coding" url="https://wangwei.one/categories/coding/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://wangwei.one/posts/8b02ccd0.html</loc>
-    <lastmod>2018-01-08T07:09:04.436Z</lastmod>
-    <data>
-        <display>
-        <title>golang学习教程</title>
-        <pubTime>2017-12-09T14:38:39.000Z</pubTime>
-        
-        <tag>golang</tag>
-         
-        <tag>go</tag>
          
          
            
@@ -272,13 +293,13 @@
         <title>让自己活在未来</title>
         <pubTime>2017-05-14T05:26:34.000Z</pubTime>
         
-        <tag>TED</tag>
-         
         <tag>活在未来</tag>
          
         <tag>自证预言</tag>
          
         <tag>心理学</tag>
+         
+        <tag>TED</tag>
          
          
            
@@ -298,9 +319,9 @@
         <title>营造更好交谈的10条建议</title>
         <pubTime>2017-05-07T14:31:54.000Z</pubTime>
         
-        <tag>沟通交流</tag>
-         
         <tag>TED</tag>
+         
+        <tag>沟通交流</tag>
          
          
            
