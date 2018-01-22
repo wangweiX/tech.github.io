@@ -5,7 +5,7 @@
     
   <url>
     <loc>https://wangwei.one/posts/1fee111e.html</loc>
-    <lastmod>2018-01-22T18:20:45.932Z</lastmod>
+    <lastmod>2018-01-22T18:28:48.314Z</lastmod>
     <data>
         <display>
         <title>由浅入深学习EOS</title>
@@ -26,8 +26,30 @@
 
     
   <url>
+    <loc>https://wangwei.one/posts/88eff102.html</loc>
+    <lastmod>2018-01-22T18:28:26.871Z</lastmod>
+    <data>
+        <display>
+        <title>连接EOS公共测试网络</title>
+        <pubTime>2018-01-22T14:24:00.000Z</pubTime>
+        
+        <tag>blockchain</tag>
+         
+        <tag>eos</tag>
+         
+         
+           
+             
+              <breadCrumb title="blockchain" url="https://wangwei.one/categories/blockchain/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>https://wangwei.one/posts/b726a89e.html</loc>
-    <lastmod>2018-01-22T18:20:05.729Z</lastmod>
+    <lastmod>2018-01-22T18:27:08.819Z</lastmod>
     <data>
         <display>
         <title>EOS源代码运行（二）</title>
@@ -48,21 +70,19 @@
 
     
   <url>
-    <loc>https://wangwei.one/posts/88eff102.html</loc>
-    <lastmod>2018-01-22T18:19:59.096Z</lastmod>
+    <loc>https://wangwei.one/posts/b8ec75a2.html</loc>
+    <lastmod>2018-01-22T18:26:49.353Z</lastmod>
     <data>
         <display>
-        <title>EOS源代码运行（三）</title>
-        <pubTime>2018-01-22T14:24:00.000Z</pubTime>
+        <title>个人博客搭建指南（三）</title>
+        <pubTime>2017-06-10T01:40:16.000Z</pubTime>
         
-        <tag>blockchain</tag>
-         
-        <tag>eos</tag>
+        <tag>hexo</tag>
          
          
            
              
-              <breadCrumb title="blockchain" url="https://wangwei.one/categories/blockchain/"/>
+              <breadCrumb title="coding" url="https://wangwei.one/categories/coding/"/>
           
         </display>
     </data>
@@ -358,26 +378,6 @@
     
     
     
-    
-  <url>
-    <loc>https://wangwei.one/posts/b8ec75a2.html</loc>
-    <lastmod>2018-01-08T07:08:35.831Z</lastmod>
-    <data>
-        <display>
-        <title>个人博客搭建指南（三）</title>
-        <pubTime>2017-06-10T01:40:16.000Z</pubTime>
-        
-        <tag>hexo</tag>
-         
-         
-           
-             
-              <breadCrumb title="coding" url="https://wangwei.one/categories/coding/"/>
-          
-        </display>
-    </data>
-    </url>
-
     
   <url>
     <loc>https://wangwei.one/posts/f5f2d6f0.html</loc>
