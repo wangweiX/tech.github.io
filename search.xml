@@ -3,6 +3,87 @@
   
     
     <entry>
+      <title><![CDATA[EOS源代码运行（三）]]></title>
+      <url>/posts/88eff102.html</url>
+      <content type="html"><![CDATA[<script src="/assets/js/APlayer.min.js"> </script><blockquote><p>本文介绍如何将自己的本地测试网络连接到EOS公共测试网络(Public Testnet)上。</p><p>官方文档：<a href="https://github.com/EOSIO/eos/wiki/Testnet%3A%20Public" target="_blank" rel="external">https://github.com/EOSIO/eos/wiki/Testnet%3A%20Public</a></p></blockquote><a id="more"></a><p><img src="https://img.i7years.com/blog/eos-logo.jpg" alt="eos-logo"></p><h1 id="准备"><a href="#准备" class="headerlink" title="准备"></a>准备</h1><p>本地已经能够正常运行起了EOS的测试网络。如有问题，可参考这篇文档：<a href="https://wangwei.one/posts/181733fc.html">运行EOS源代码（一）</a></p><h2 id="公共测试网络端点-Public-Testnet-Endpoints"><a href="#公共测试网络端点-Public-Testnet-Endpoints" class="headerlink" title="公共测试网络端点(Public Testnet Endpoints)"></a>公共测试网络端点(Public Testnet Endpoints)</h2><p>现在可以通过以下几种方式去访问EOS Public Testnet Endpoints</p><ul><li>HTTP Endpoint: <code>testnet1.eos.io</code></li><li>P2P Endpoint: <code>p2p-testnet1.eos.io:9876</code></li><li>Web Wallet Endpoint: <code>t1wallet.eos.io</code>, <code>t1api.eos.io</code>, <code>t1readonly.eos.io</code></li></ul><p>通过浏览器或者终端命令行<code>crul</code>访问<code>testnet1.eos.io/v1/chain/get_info</code>,获得测试链信息</p><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ curl testnet1.eos.io/v1/chain/get_info</span><br></pre></td></tr></table></figure>
+<p><img src="https://img.i7years.com/blog/WX20180122-193329.png" alt=""></p>
+<h2 id="将EOSD-EOS服务端-连接到公共测试网络上"><a href="#将EOSD-EOS服务端-连接到公共测试网络上" class="headerlink" title="将EOSD(EOS服务端)连接到公共测试网络上"></a>将EOSD(EOS服务端)连接到公共测试网络上</h2><h4 id="修改配置文件config-ini"><a href="#修改配置文件config-ini" class="headerlink" title="修改配置文件config.ini"></a>修改配置文件config.ini</h4><ul>
+<li><p>路径：<code>~/eos/build/scripts/testnet_np/config.ini</code></p>
+</li>
+<li><p>将配置项<code>p2p-server-address</code>中的<code>localhost</code>改为你当前网络的<code>公网Ip地址</code>，否则后面运行时会出现如下错误：</p>
+<blockquote>
+<p>公网Ip查询：直接百度，输入IP，即可查询</p>
+</blockquote>
+</li>
+</ul>
+<p><img src="https://img.i7years.com/blog/photo_2018-01-22_19-41-09.jpg" alt=""></p>
+<h4 id="执行脚本"><a href="#执行脚本" class="headerlink" title="执行脚本"></a>执行脚本</h4><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">$ cd ~/eos/build/scripts</span><br><span class="line">$ ./start_npnode.sh</span><br><span class="line"></span><br><span class="line"><span class="comment"># 日志输出</span></span><br><span class="line">Launched eosd.</span><br><span class="line">See testnet_np/stderr.txt <span class="keyword">for</span> eosd output.</span><br><span class="line">Synching requires at least <span class="number">8</span> minutes, depending on network conditions.</span><br></pre></td></tr></table></figure>
+<h4 id="查询区块同步日志"><a href="#查询区块同步日志" class="headerlink" title="查询区块同步日志"></a>查询区块同步日志</h4><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ tail -f testnet_np/stderr.txt</span><br></pre></td></tr></table></figure>
+<p><img src="https://img.i7years.com/blog/WX20180122-194932@2x.png" alt=""></p>]]></content>
+      
+        <categories>
+            
+            <category> blockchain </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> blockchain </tag>
+            
+            <tag> eos </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
+      <title><![CDATA[EOS Programs & Tools 介绍]]></title>
+      <url>/posts/81ba25e.html</url>
+      <content type="html"><![CDATA[<script src="/assets/js/APlayer.min.js"> </script><blockquote><p>官方文档：<a href="https://github.com/EOSIO/eos/wiki/Programs-&amp;-Tools" target="_blank" rel="external">https://github.com/EOSIO/eos/wiki/Programs-&amp;-Tools</a></p><p>水平有限，有理解错误的地方，还请指正……</p></blockquote><p><img src="https://img.i7years.com/blog/eos-logo.jpg" alt="eos-logo"></p><p>完成EOS源代码编译运行之后，在<code>~/eos/build/programs</code>目录下会出现以下几个应用程序：</p><p><img src="https://img.i7years.com/blog/WX20180122-235647@2x.png" alt=""></p><h1 id="Programs"><a href="#Programs" class="headerlink" title="Programs"></a>Programs</h1><h3 id="eosd"><a href="#eosd" class="headerlink" title="eosd"></a>eosd</h3><p>The core EOS daemon that can be configured with plugins to run a node. Example uses are block production, dedicated API endpoints and local development.</p><blockquote><p><code>eosd</code>可以启动EOS的核心守护进程，通过修改<code>~/eos/build/programs/eosd/data-dir/config.ini</code>来为其配置需要的插件。比如可以作为区块的生产，专用API端点和本地开发来使用。</p><blockquote><p>插件路径：<code>~/eos/build/plugins</code></p></blockquote></blockquote><p><img src="https://img.i7years.com/blog/WX20180123-000016@2x.png" alt=""></p><h3 id="eosc"><a href="#eosc" class="headerlink" title="eosc"></a>eosc</h3><p><code>eosc</code> is a command line tool that interfaces with the REST api exposed by <code>eosd</code>. In order to use <code>eosc</code> you will need to have the end point (IP address and port number) to an <code>eosd</code>instance and also configure <code>eosc</code> to load the ‘eosio::chain_api_plugin’. eosc contains documentation for all of its commands. For a list of all commands known to eosc, simply run it with no arguments:</p><blockquote><p><code>eosc</code>是一个与<code>eosd</code>暴露出来的REST API进行交互的命令行工具。 使用<code>eosc</code>的前提是你必须有一个<code>eosd</code>实例的端点（IP地址和端口号），并且配置<code>eosc</code>加载<code>eosio :: chain_api_plugin</code>插件。 <code>eosc</code>包含了所有命令相关的文档。 不带参数地运行<code>eosc</code>即可了解到所有命令的使用帮助信息。</p><blockquote><p><code>eosc</code>的命令参数，是逐层逐层向下展开来进行使用的</p><p>后面会专门写一些文章来详细介绍如何使用<code>eosc</code>的各个命令</p></blockquote></blockquote><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">➜  eosc git:(master) ✗ ./eosc</span><br><span class="line">ERROR: RequiredError: Subcommand required</span><br><span class="line">Command Line Interface to Eos Client</span><br><span class="line">Usage: ./eosc [OPTIONS] SUBCOMMAND</span><br><span class="line"></span><br><span class="line">Options:</span><br><span class="line">  -h,--help                   Print this help message and <span class="keyword">exit</span> <span class="comment">#打印帮助信息</span></span><br><span class="line">  -H,--host TEXT=localhost    the host where eosd is running <span class="comment">#eosd运行的host地址</span></span><br><span class="line">  -p,--port UINT=<span class="number">8888</span>         the port where eosd is running <span class="comment">#eosd运行的端口号</span></span><br><span class="line">  --wallet-host TEXT=localhost</span><br><span class="line">                              the host where eos-walletd is running <span class="comment">#eos-walletd运行的host地址</span></span><br><span class="line">  --wallet-port UINT=<span class="number">8888</span>     the port where eos-walletd is running <span class="comment">#eos-walletd运行的端口号</span></span><br><span class="line">  -v,--verbose                output verbose messages on error <span class="comment">#输出详细的错误信息</span></span><br><span class="line"></span><br><span class="line">Subcommands:</span><br><span class="line">  version                     Retrieve version information <span class="comment">#检索版本信息</span></span><br><span class="line">  create                      Create various items, on and off the blockchain <span class="comment">#在链上或者链下创建各种参数项</span></span><br><span class="line">  get                         Retrieve various items and information from the blockchain <span class="comment">#从区块链上获取各种参数项和信息</span></span><br><span class="line">  set                         Set or update blockchain state <span class="comment">#设置或更新区块链状态信息</span></span><br><span class="line">  transfer                    Transfer EOS from account to account <span class="comment">#从一个账号向另一个账号转EOS</span></span><br><span class="line">  net                         Interact with local p2p network connections <span class="comment">#与本地p2p网络连接进行交互</span></span><br><span class="line">  wallet                      Interact with local wallet  <span class="comment">#与本地钱包进行交互</span></span><br><span class="line">  benchmark                   Configure and execute benchmarks <span class="comment"># 配置区块链的一些基准参数</span></span><br><span class="line">  push                        Push arbitrary transactions to the blockchain <span class="comment">#往区块链上推送任意的交易信息</span></span><br></pre></td></tr></table></figure>
+<h3 id="eos-walletd"><a href="#eos-walletd" class="headerlink" title="eos-walletd"></a>eos-walletd</h3><p>An EOS wallet daemon that loads wallet related plugins, such as the HTTP interface and RPC API</p>
+<blockquote>
+<p>用来加载EOS钱包相关插件的守护进程，例如HTTP接口和RPC API。</p>
+</blockquote>
+<h3 id="launcher"><a href="#launcher" class="headerlink" title="launcher"></a>launcher</h3><p>The launcher application simplifies the distribution of multiple eosd nodes across a LAN or a wider network. It can be configured via CLI to compose per-node configuration files, distribute these files securely amongst the peer hosts and then start up the multiple instances of eosd.</p>
+<blockquote>
+<p>这个启动器可以很方便地在局域网或广域网中已去中心化的形式启动多个eosd节点。 可以通过CLI（命令行）来对它进行配置，来修改每个节点的配置文件，在对等主机之间安全地分发这些文件，然后启动eosd的多个实例。</p>
+</blockquote>
+<h3 id="snapshot"><a href="#snapshot" class="headerlink" title="snapshot"></a>snapshot</h3><p>A submodule referencing <code>EOSIO/genesis</code> repository that contains a nodejs application for generating a snapshot from crowdsale contract, a web GUI for configuring a genesis block and other genesis related tools.</p>
+<blockquote>
+<p><code>EOSIO/genesis</code>模块，是用于初始化EOS平台生成块的工具，githu地址：<a href="https://github.com/EOSIO/genesis" target="_blank" rel="external">https://github.com/EOSIO/genesis</a></p>
+<p><code>snapshot</code>引用了<code>EOSIO/genesis</code>仓库相关的子模块，这个仓库包含了用于<code>crowdsale</code>合约生成快照的nodejs应用程序， 一个用于配置创世区块的Web图形界面以及其他与创世相关的工具。</p>
+<blockquote>
+<p>几点疑问：</p>
+<ol>
+<li>为啥我用最新的源代码没有编译出<code>snapshot</code>这个应用程序？？？可能Dawn 3.0 会有吧</li>
+<li>EOS Crowdsale 是啥？有待后期研究</li>
+</ol>
+</blockquote>
+</blockquote>
+<h1 id="Tools"><a href="#Tools" class="headerlink" title="Tools"></a>Tools</h1><blockquote>
+<p>还没完全搞懂，等搞懂了，回过头来在继续补充 (^_^)</p>
+<p>TODO</p></blockquote>]]></content>
+      
+        <categories>
+            
+            <category> blockchain </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> blockchain </tag>
+            
+            <tag> eos </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
       <title><![CDATA[EOS Glossary(EOS术语表)]]></title>
       <url>/posts/57dd6237.html</url>
       <content type="html"><![CDATA[<script src="/assets/js/APlayer.min.js"> </script><blockquote><p>官方文档：<a href="https://github.com/eosio/eos/wiki/Glossary" target="_blank" rel="external">https://github.com/eosio/eos/wiki/Glossary</a></p><p>注意：水平有限，理解不正确的地方，还望各位大佬指正……</p></blockquote><a id="more"></a><p><img src="https://img.i7years.com/blog/eos-logo.jpg" alt="eos-logo"></p><h2 id="Account-账户"><a href="#Account-账户" class="headerlink" title="Account(账户)"></a>Account(账户)</h2><h5 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h5><p>An on-chain identifier made up of native and/or custom permissions that are assigned one or more keys or accounts.</p><blockquote><p>由本地和/或自定义权限组成的链上标识符，可以分配一个或多个密钥或者帐户。</p></blockquote><h2 id="Authority-权力"><a href="#Authority-权力" class="headerlink" title="Authority(权力)"></a>Authority(权力)</h2><h5 id="定义-1"><a href="#定义-1" class="headerlink" title="定义"></a>定义</h5><p>An abstract of permissions that represent how permissions are organized in reality that are bound to an individual or groups of individuals.</p><blockquote><p>代表现实世界中一个个体或者一群个体的权限组织方式的抽象定义。</p></blockquote><h2 id="Block-区块"><a href="#Block-区块" class="headerlink" title="Block(区块)"></a>Block(区块)</h2><h5 id="同义词"><a href="#同义词" class="headerlink" title="同义词"></a>同义词</h5><blockquote><p>Blk</p></blockquote><h5 id="定义-2"><a href="#定义-2" class="headerlink" title="定义"></a>定义</h5><p>A confirmable unit of the Blockchain. Each block contains zero or more Transactions, as well as a cryptographic connection to all prior blocks. When a block becomes “irreversibly confirmed” ，it’s because a supermajority of Block Producers have agreed that the given Block contains correct Transactions. Once a Block is irreversibly confirmed, it becomes a permanent part of the immutable Blockchain.</p><blockquote><p>区块链的可确认单位。 每个区块包含零笔或多笔交易，以及到先前所有区块的加密连接。 当绝对多数的区块生产者的一致同意该区块包含了正确的交易时， 这个区块就变成了“不可逆转地确认”。 一旦一个区块被不可逆转地确认，它就成为不可变更区块链的永久的一部分。</p></blockquote><h2 id="DAC-去中心化的自治团体或公司"><a href="#DAC-去中心化的自治团体或公司" class="headerlink" title="DAC(去中心化的自治团体或公司)"></a>DAC(去中心化的自治团体或公司)</h2><h5 id="定义-3"><a href="#定义-3" class="headerlink" title="定义"></a>定义</h5><p>Decentralized Autonomous Collective, or Decentralized Autonomous Corporation.</p><blockquote><p>去中心化的自治集体或去中心化的自治公司</p></blockquote><h2 id="DAO-去中心化自治组织"><a href="#DAO-去中心化自治组织" class="headerlink" title="DAO(去中心化自治组织)"></a>DAO(去中心化自治组织)</h2><h5 id="定义-4"><a href="#定义-4" class="headerlink" title="定义"></a>定义</h5><p>Decentralized Autonomous Organization.</p><blockquote><p>去中心化的自治组织</p></blockquote><h2 id="DPoS-授权股权证明机制"><a href="#DPoS-授权股权证明机制" class="headerlink" title="DPoS(授权股权证明机制)"></a>DPoS(授权股权证明机制)</h2><h5 id="定义-5"><a href="#定义-5" class="headerlink" title="定义"></a>定义</h5><p>Delegated Proof of Stake. Also, “Democracy as Proof of Stake.” DPoS is one of a collection of consensus algorithms, i.e. methods by which block producers can agree (reach consensus) on which transactions and which blocks are “real” and should be confirmed and treated as irreversible.</p><blockquote><p><strong>授权股权证明机制</strong>，也叫做”民主主义证明机制”。DPoS是共识算法集合中的一种，即选取哪些区块生产者可以同意（达成共识）哪些交易和哪些区块是“真实的”并且应该被确认和被视为不可逆的一种算法。</p></blockquote><h2 id="Key-pair-密钥对"><a href="#Key-pair-密钥对" class="headerlink" title="Key pair(密钥对)"></a>Key pair(密钥对)</h2><h5 id="同义词-1"><a href="#同义词-1" class="headerlink" title="同义词"></a>同义词</h5><blockquote><p>keys</p></blockquote><h5 id="定义-6"><a href="#定义-6" class="headerlink" title="定义"></a>定义</h5><p>A public key and its corresponding private key</p><blockquote><p>公钥以及和它对应的私钥</p></blockquote><h2 id="larimer-拉瑞默"><a href="#larimer-拉瑞默" class="headerlink" title="larimer(拉瑞默)"></a>larimer(拉瑞默)</h2><h5 id="定义-7"><a href="#定义-7" class="headerlink" title="定义"></a>定义</h5><p>1/1000 of an EOS (token) <code>0.0001 EOS</code></p><blockquote><p>1 EOS = 1000 larimer</p></blockquote><h2 id="Master-Password-主密码"><a href="#Master-Password-主密码" class="headerlink" title="Master Password(主密码)"></a>Master Password(主密码)</h2><h5 id="定义-8"><a href="#定义-8" class="headerlink" title="定义"></a>定义</h5><p>The password used to to unlock (decrypt) a wallet file</p><blockquote><p>用于解锁（解密）钱包文件的密码</p></blockquote><h2 id="Message-消息"><a href="#Message-消息" class="headerlink" title="Message(消息)"></a>Message(消息)</h2><h5 id="同义词-2"><a href="#同义词-2" class="headerlink" title="同义词"></a>同义词</h5><blockquote><p>Msg</p></blockquote><h5 id="定义-9"><a href="#定义-9" class="headerlink" title="定义"></a>定义</h5><p>A change to the Blockchain. One or more messages make up a Transaction.</p><blockquote><p>表示区块链的一种变化，一个或多个消息组成一笔交易.</p></blockquote><h2 id="Oracle-预言机"><a href="#Oracle-预言机" class="headerlink" title="Oracle(预言机)"></a>Oracle(预言机)</h2><h5 id="定义-10"><a href="#定义-10" class="headerlink" title="定义"></a>定义</h5><p>“An oracle, in the context of blockchains and smart contracts, is an agent that finds and verifies real-world occurrences and submits this information to a blockchain to be used by smart contracts.” <em><a href="https://blockchainhub.net/blockchain-oracles/" target="_blank" rel="external">Source</a></em></p><blockquote><p>在区块链和智能合约的背景下，预言机是一个能够发现和验证真实世界事件的代理，并将这些信息提交给智能合约使用的区块链。<a href="https://blockchainhub.net/blockchain-oracles/" target="_blank" rel="external">详情</a></p><blockquote><p>理解：预言机是智能合约获取外部信息的唯一途径。智能合约逻辑的触发需要信息源，没有提供外部信息的预言机，智能合约的实用性大打折扣</p></blockquote></blockquote><h2 id="Permission-权限"><a href="#Permission-权限" class="headerlink" title="Permission(权限)"></a>Permission(权限)</h2><h5 id="定义-11"><a href="#定义-11" class="headerlink" title="定义"></a>定义</h5><p>A weighted security mechanism that determines whether or not a message is properly authorized by evaluating its signature(s) authority</p><blockquote><p>一个加权的安全机制，通过评估其签名权限来确定一个消息是否被正确授权</p></blockquote><h2 id="Private-Key-私钥"><a href="#Private-Key-私钥" class="headerlink" title="Private Key(私钥)"></a>Private Key(私钥)</h2><h5 id="定义-12"><a href="#定义-12" class="headerlink" title="定义"></a>定义</h5><p>A secret key used to sign transactions</p><blockquote><p>用于签署交易的密钥</p></blockquote><h2 id="Public-Key-公钥"><a href="#Public-Key-公钥" class="headerlink" title="Public Key(公钥)"></a>Public Key(公钥)</h2><h5 id="同义词-3"><a href="#同义词-3" class="headerlink" title="同义词"></a>同义词</h5><blockquote><p>pub key</p></blockquote><h5 id="定义-13"><a href="#定义-13" class="headerlink" title="定义"></a>定义</h5><p>A publicly available key that is transmitted alongside a transaction.</p><blockquote><p>与交易一起传送的可公开使用的密钥</p></blockquote><h2 id="Smart-Contract-智能合约"><a href="#Smart-Contract-智能合约" class="headerlink" title="Smart Contract(智能合约)"></a>Smart Contract(智能合约)</h2><h5 id="定义-14"><a href="#定义-14" class="headerlink" title="定义"></a>定义</h5><p>A smart contract is a computer protocol intended to facilitate, verify, or enforce the negotiation or performance of a contract.</p><blockquote><p>智能合约是一种旨在促进、验证或执行判断或履行合同的计算机协议。</p></blockquote><h2 id="Transaction-交易"><a href="#Transaction-交易" class="headerlink" title="Transaction(交易)"></a>Transaction(交易)</h2><h5 id="同义词-4"><a href="#同义词-4" class="headerlink" title="同义词"></a>同义词</h5><blockquote><p>Tx, Txn</p></blockquote><h5 id="定义-15"><a href="#定义-15" class="headerlink" title="定义"></a>定义</h5><p>A complete all-or-nothing change to the Blockchain. A combination of one or more Messages. Usually, the execution of a Smart Contract.</p><blockquote><p>区块链上彻底的要么有要么无的变化。是一个或多个消息的组合。通常，用于智能合约的执行。</p></blockquote><h2 id="Wallet-钱包"><a href="#Wallet-钱包" class="headerlink" title="Wallet(钱包)"></a>Wallet(钱包)</h2><h5 id="定义-16"><a href="#定义-16" class="headerlink" title="定义"></a>定义</h5><p>An encrypted file generated and/or managed by a client (for example, <code>eosc</code>) that manages private keys and facilitates the signing of transactions in a secure manner. Wallets may be in a locked or unlocked state.</p><blockquote><p>由客户端（例如<code>eosc</code>）生成和/或管理的加密文件，用于管理私钥并便于以安全方式签署交易。 钱包可能处于锁定或解锁状态。</p></blockquote><h2 id="Witness-见证人"><a href="#Witness-见证人" class="headerlink" title="Witness(见证人)"></a>Witness(见证人)</h2><h5 id="同义词-5"><a href="#同义词-5" class="headerlink" title="同义词"></a>同义词</h5><blockquote><p>block producer(区块生产者)</p></blockquote><h5 id="定义-17"><a href="#定义-17" class="headerlink" title="定义"></a>定义</h5><p>The node that is currently taking its turn producing the “right now” block for the blockchain. Or, a member of the group of nodes who have been elected to take such turns. Synonymous with ‘block producer’.</p><blockquote><p>当前正在轮流为区块链生产“立即”区块的节点。 或者，被选为轮流节点组的组成成员之一。 与“区块生产者”同义。</p></blockquote>]]></content>
@@ -326,7 +407,7 @@
     </entry>
     
     <entry>
-      <title><![CDATA[运行EOS源代码(二)]]></title>
+      <title><![CDATA[EOS源代码运行（二）]]></title>
       <url>/posts/b726a89e.html</url>
       <content type="html"><![CDATA[<script src="/assets/js/APlayer.min.js"> </script><blockquote><p>本文介绍如何手动构建EOS源代码</p><p>官方文档：<a href="https://github.com/EOSIO/eos" target="_blank" rel="external">https://github.com/EOSIO/eos</a></p></blockquote><a id="more"></a><p><img src="https://img.i7years.com/blog/eos-logo.jpg" alt="eos-logo"></p><h3 id="系统环境"><a href="#系统环境" class="headerlink" title="系统环境"></a>系统环境</h3><ul><li>macOS Sierra 10.12.6</li></ul><h3 id="升级XCode和brew"><a href="#升级XCode和brew" class="headerlink" title="升级XCode和brew"></a>升级XCode和brew</h3><ul><li><p>升级XCode</p><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ xcode-select --install</span><br></pre></td></tr></table></figure>
 </li>
@@ -371,7 +452,7 @@
     </entry>
     
     <entry>
-      <title><![CDATA[运行EOS源代码(一)]]></title>
+      <title><![CDATA[EOS源代码运行（一）]]></title>
       <url>/posts/181733fc.html</url>
       <content type="html"><![CDATA[<script src="/assets/js/APlayer.min.js"> </script><blockquote><p>本文介绍如何使用脚本自动构建eos源代码</p><p>官方文档：<a href="https://github.com/EOSIO/eos" target="_blank" rel="external">https://github.com/EOSIO/eos</a></p></blockquote><a id="more"></a><p><img src="https://img.i7years.com/blog/eos-logo.jpg" alt="eos-logo"></p><h3 id="系统环境"><a href="#系统环境" class="headerlink" title="系统环境"></a>系统环境</h3><ul><li>macOS Sierra 10.12.6</li></ul><h3 id="升级XCode和brew"><a href="#升级XCode和brew" class="headerlink" title="升级XCode和brew"></a>升级XCode和brew</h3><ul><li><p>升级XCode</p><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ xcode-select --install</span><br></pre></td></tr></table></figure>
 </li>
@@ -856,13 +937,13 @@
         
         <tags>
             
-            <tag> TED </tag>
-            
             <tag> 活在未来 </tag>
             
             <tag> 自证预言 </tag>
             
             <tag> 心理学 </tag>
+            
+            <tag> TED </tag>
             
         </tags>
         
@@ -882,9 +963,9 @@
         
         <tags>
             
-            <tag> 沟通交流 </tag>
-            
             <tag> TED </tag>
+            
+            <tag> 沟通交流 </tag>
             
         </tags>
         
