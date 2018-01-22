@@ -3,6 +3,28 @@
   
     
     <entry>
+      <title><![CDATA[由浅入深学习EOS]]></title>
+      <url>/posts/1fee111e.html</url>
+      <content type="html"><![CDATA[<script src="/assets/js/APlayer.min.js"> </script><blockquote><p>先建个文档，后面慢慢完善……</p></blockquote><h1 id="前提"><a href="#前提" class="headerlink" title="前提"></a>前提</h1><ul><li><p>需要对区块链有个基本的认识，比如什么是区块链，有哪些特点等等，网上资料很多。</p></li><li><p>对比特币的工作原理有一个深入的研究，推荐《精通比特币》第二版，一定要精读。</p></li><li><p>对以太坊、智能合约有所了解。</p></li><li><p>熟读EOS白皮书，这一块后面我会写一些EOS白皮书解读版出来。</p><blockquote><p>白皮书地址：<a href="https://github.com/EOSIO/Documentation" target="_blank" rel="external">https://github.com/EOSIO/Documentation</a></p></blockquote></li></ul><p>#部署&amp;使用EOS</p><ol><li><a href="https://wangwei.one/posts/57dd6237.html">EOS术语表</a></li><li><a href="https://wangwei.one/posts/181733fc.html">运行EOS源代码（一）</a></li><li><a href="https://wangwei.one/posts/b726a89e.html">运行EOS源代码（二）</a></li><li>​</li></ol>]]></content>
+      
+        <categories>
+            
+            <category> blockchain </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> blockchain </tag>
+            
+            <tag> eos </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
       <title><![CDATA[EOS源代码运行（三）]]></title>
       <url>/posts/88eff102.html</url>
       <content type="html"><![CDATA[<script src="/assets/js/APlayer.min.js"> </script><blockquote><p>本文介绍如何将自己的本地测试网络连接到EOS公共测试网络(Public Testnet)上。</p><p>官方文档：<a href="https://github.com/EOSIO/eos/wiki/Testnet%3A%20Public" target="_blank" rel="external">https://github.com/EOSIO/eos/wiki/Testnet%3A%20Public</a></p></blockquote><a id="more"></a><p><img src="https://img.i7years.com/blog/eos-logo.jpg" alt="eos-logo"></p><h1 id="准备"><a href="#准备" class="headerlink" title="准备"></a>准备</h1><p>本地已经能够正常运行起了EOS的测试网络。如有问题，可参考这篇文档：<a href="https://wangwei.one/posts/181733fc.html">运行EOS源代码（一）</a></p><h2 id="公共测试网络端点-Public-Testnet-Endpoints"><a href="#公共测试网络端点-Public-Testnet-Endpoints" class="headerlink" title="公共测试网络端点(Public Testnet Endpoints)"></a>公共测试网络端点(Public Testnet Endpoints)</h2><p>现在可以通过以下几种方式去访问EOS Public Testnet Endpoints</p><ul><li>HTTP Endpoint: <code>testnet1.eos.io</code></li><li>P2P Endpoint: <code>p2p-testnet1.eos.io:9876</code></li><li>Web Wallet Endpoint: <code>t1wallet.eos.io</code>, <code>t1api.eos.io</code>, <code>t1readonly.eos.io</code></li></ul><p>通过浏览器或者终端命令行<code>crul</code>访问<code>testnet1.eos.io/v1/chain/get_info</code>,获得测试链信息</p><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ curl testnet1.eos.io/v1/chain/get_info</span><br></pre></td></tr></table></figure>
@@ -937,13 +959,13 @@
         
         <tags>
             
+            <tag> TED </tag>
+            
             <tag> 活在未来 </tag>
             
             <tag> 自证预言 </tag>
             
             <tag> 心理学 </tag>
-            
-            <tag> TED </tag>
             
         </tags>
         
@@ -963,9 +985,9 @@
         
         <tags>
             
-            <tag> TED </tag>
-            
             <tag> 沟通交流 </tag>
+            
+            <tag> TED </tag>
             
         </tags>
         
