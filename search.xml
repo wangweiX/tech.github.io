@@ -62,7 +62,7 @@
     <entry>
       <title><![CDATA[由浅入深学习EOS]]></title>
       <url>/posts/1fee111e.html</url>
-      <content type="html"><![CDATA[<script src="/assets/js/APlayer.min.js"> </script><blockquote><p>带你系统性地、由浅入深地学习和了解EOS相关技术……</p></blockquote><a id="more"></a><p><img src="https://img.i7years.com/blog/eos-logo.jpg" alt="eos-logo"></p><h1><span id="前提">前提</span></h1><ul><li><p>需要对区块链有个基本的认识，比如什么是区块链，有哪些特点等等，网上资料很多。</p></li><li><p>对比特币的工作原理有一个深入的研究，推荐《精通比特币》第二版，一定要精读。</p></li><li><p>对以太坊、智能合约有所了解。</p></li></ul><h1><span id="初识eos">初识EOS</span></h1><ul><li><p>熟读EOS白皮书，这一块后面我会写一些EOS白皮书解读版出来。</p><blockquote><p>白皮书地址：<a href="https://github.com/EOSIO/Documentation" target="_blank" rel="external">https://github.com/EOSIO/Documentation</a></p></blockquote></li><li><p><a href="https://wangwei.one/posts/57dd6237.html">EOS术语表</a></p><p>​</p></li></ul><h1><span id="部署运行eos">部署运行EOS</span></h1><ol><li><a href="https://wangwei.one/posts/181733fc.html">运行EOS源代码（一）</a></li><li><a href="https://wangwei.one/posts/b726a89e.html">运行EOS源代码（二）</a></li><li><a href="https://wangwei.one/posts/81ba25e.html">EOS Programs &amp; Tools 介绍</a></li><li><a href="">EOS样例合约演示</a></li><li><a href="https://wangwei.one/posts/88eff102.html">连接EOS公共测试网络</a></li><li>typing……</li></ol>]]></content>
+      <content type="html"><![CDATA[<script src="/assets/js/APlayer.min.js"> </script><blockquote><p>带你系统性地、由浅入深地学习和了解EOS相关技术……</p></blockquote><a id="more"></a><p><img src="https://img.i7years.com/blog/eos-logo.jpg" alt="eos-logo"></p><h1><span id="前提">前提</span></h1><ul><li><p>需要对<code>区块链</code>有个基本的认识，比如什么是区块链，有哪些特点等等，网上资料很多。</p></li><li><p>对<code>比特币</code>的工作原理有一个深入的研究，推荐《精通比特币》第二版，一定要精读。</p></li><li><p>对<code>以太坊</code>、<code>智能合约</code>有所了解。</p></li></ul><h1><span id="初识eos">初识EOS</span></h1><ul><li><p>熟读EOS白皮书，这一块后面我会写一些EOS白皮书解读版出来。</p><blockquote><p>白皮书地址：<a href="https://github.com/EOSIO/Documentation" target="_blank" rel="external">https://github.com/EOSIO/Documentation</a></p></blockquote></li><li><p><a href="https://wangwei.one/posts/57dd6237.html">EOS术语表</a></p><p>​</p></li></ul><h1><span id="部署运行eos">部署运行EOS</span></h1><ol><li><a href="https://wangwei.one/posts/181733fc.html">运行EOS源代码（一）</a></li><li><a href="https://wangwei.one/posts/b726a89e.html">运行EOS源代码（二）</a></li><li><a href="https://wangwei.one/posts/81ba25e.html">EOS Programs &amp; Tools 介绍</a></li><li><a href="https://wangwei.one/posts/869983fd.html">EOS样例合约演示</a></li><li><a href="https://wangwei.one/posts/88eff102.html">连接EOS公共测试网络</a></li><li>typing……</li></ol>]]></content>
       
         <categories>
             
@@ -1054,13 +1054,13 @@
         
         <tags>
             
+            <tag> TED </tag>
+            
             <tag> 活在未来 </tag>
             
             <tag> 自证预言 </tag>
             
             <tag> 心理学 </tag>
-            
-            <tag> TED </tag>
             
         </tags>
         
@@ -1080,9 +1080,9 @@
         
         <tags>
             
-            <tag> TED </tag>
-            
             <tag> 沟通交流 </tag>
+            
+            <tag> TED </tag>
             
         </tags>
         
