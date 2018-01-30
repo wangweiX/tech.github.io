@@ -3,9 +3,9 @@
   
     
     <entry>
-      <title><![CDATA[EOS样例合约演示]]></title>
+      <title><![CDATA[EOS货币合约演示]]></title>
       <url>/posts/869983fd.html</url>
-      <content type="html"><![CDATA[<script src="/assets/js/APlayer.min.js"> </script><blockquote><p>本文演示如何创建账号，如何给某一个账户转账</p><p>官方文档：<a href="https://github.com/eosio/eos#example-currency-contract-walkthrough" target="_blank" rel="external">https://github.com/eosio/eos#example-currency-contract-walkthrough</a></p></blockquote><a id="more"></a><p><img src="https://img.i7years.com/blog/eos-logo.jpg" alt=""></p><h3><span id="启动eosio">启动EOSIO</span></h3><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ cd ~/eos/build/programs/eosiod/</span><br><span class="line">$ ./eosiod</span><br></pre></td></tr></table></figure>
+      <content type="html"><![CDATA[<script src="/assets/js/APlayer.min.js"> </script><blockquote><p>本文演示如何创建账号、如何转账</p><p>官方文档：<a href="https://github.com/eosio/eos#example-currency-contract-walkthrough" target="_blank" rel="external">https://github.com/eosio/eos#example-currency-contract-walkthrough</a></p></blockquote><a id="more"></a><p><img src="https://img.i7years.com/blog/eos-logo.jpg" alt=""></p><h3><span id="启动eosio">启动EOSIO</span></h3><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ cd ~/eos/build/programs/eosiod/</span><br><span class="line">$ ./eosiod</span><br></pre></td></tr></table></figure>
 <h3><span id="设置钱包并导入账户私钥">设置钱包并导入账户私钥</span></h3><h5><span id="创建钱包">创建钱包</span></h5><blockquote>
 <p> 请确保你在启动<code>eosiod</code>之前，已经在<code>config.ini</code>中配置了钱包插件<code>plugin = eosio::wallet_api_plugin</code></p>
 </blockquote>
@@ -232,11 +232,11 @@
         
         <tags>
             
+            <tag> 投资 </tag>
+            
             <tag> 思维 </tag>
             
             <tag> 成长 </tag>
-            
-            <tag> 投资 </tag>
             
         </tags>
         
@@ -1054,13 +1054,13 @@
         
         <tags>
             
-            <tag> TED </tag>
-            
             <tag> 活在未来 </tag>
             
             <tag> 自证预言 </tag>
             
             <tag> 心理学 </tag>
+            
+            <tag> TED </tag>
             
         </tags>
         
@@ -1080,9 +1080,9 @@
         
         <tags>
             
-            <tag> 沟通交流 </tag>
-            
             <tag> TED </tag>
+            
+            <tag> 沟通交流 </tag>
             
         </tags>
         
