@@ -4,8 +4,49 @@
 
     
   <url>
+    <loc>https://wangwei.one/posts/35c768a3.html</loc>
+    <lastmod>2018-02-07T08:41:52.742Z</lastmod>
+    <data>
+        <display>
+        <title>基于Java语言构建区块链（三）—— 持久化 & 命令行工具</title>
+        <pubTime>2018-02-07T14:43:00.000Z</pubTime>
+        
+        <tag>blockchain</tag>
+         
+         
+           
+             
+              <breadCrumb title="blockchain" url="https://wangwei.one/categories/blockchain/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+    
+  <url>
+    <loc>https://wangwei.one/posts/df195d9.html</loc>
+    <lastmod>2018-02-07T06:25:32.163Z</lastmod>
+    <data>
+        <display>
+        <title>基于Java语言构建区块链（一）—— 基本原型</title>
+        <pubTime>2018-02-02T14:00:00.000Z</pubTime>
+        
+        <tag>blockchain</tag>
+         
+         
+           
+             
+              <breadCrumb title="blockchain" url="https://wangwei.one/categories/blockchain/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>https://wangwei.one/posts/7890ab7e.html</loc>
-    <lastmod>2018-02-06T03:31:02.449Z</lastmod>
+    <lastmod>2018-02-07T06:25:17.102Z</lastmod>
     <data>
         <display>
         <title>基于Java语言构建区块链（二）—— 工作量证明</title>
@@ -26,20 +67,21 @@
 
     
   <url>
-    <loc>https://wangwei.one/posts/df195d9.html</loc>
-    <lastmod>2018-02-06T03:30:48.378Z</lastmod>
+    <loc>https://wangwei.one/posts/47415f35.html</loc>
+    <lastmod>2018-02-07T05:41:59.447Z</lastmod>
     <data>
         <display>
-        <title>基于Java语言构建区块链（一）—— 基本原型</title>
-        <pubTime>2018-02-02T14:00:00.000Z</pubTime>
+        <title>《通往财富自由之路》思考复盘笔记</title>
+        <pubTime>2018-01-09T13:37:12.000Z</pubTime>
         
-        <tag>blockchain</tag>
+        <tag>思维</tag>
+         
+        <tag>成长</tag>
+         
+        <tag>投资</tag>
          
          
            
-             
-              <breadCrumb title="blockchain" url="https://wangwei.one/categories/blockchain/"/>
-          
         </display>
     </data>
     </url>
@@ -415,27 +457,6 @@
 
     
   <url>
-    <loc>https://wangwei.one/posts/47415f35.html</loc>
-    <lastmod>2018-01-22T12:53:13.580Z</lastmod>
-    <data>
-        <display>
-        <title>《通往财富自由之路》思考复盘笔记</title>
-        <pubTime>2018-01-09T13:37:12.000Z</pubTime>
-        
-        <tag>思维</tag>
-         
-        <tag>成长</tag>
-         
-        <tag>投资</tag>
-         
-         
-           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
     <loc>https://wangwei.one/posts/48247421.html</loc>
     <lastmod>2018-01-22T02:01:44.147Z</lastmod>
     <data>
@@ -546,7 +567,6 @@
     </data>
     </url>
 
-    
     
     
     
