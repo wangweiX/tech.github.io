@@ -5,7 +5,7 @@
     <entry>
       <title><![CDATA[基于Java语言构建区块链（四）—— 交易（上）]]></title>
       <url>/posts/9cf9e42a.html</url>
-      <content type="html"><![CDATA[<script src="/assets/js/APlayer.min.js"> </script><p><img src="https://img.i7years.com/blog/ecommerce-2140604.jpg" alt="bitcoin-blockchain-transactions"></p><blockquote><p>文章的主要思想和内容均来自 <a href="https://jeiwan.cc/posts/building-blockchain-in-go-part-4/" target="_blank" rel="external">https://jeiwan.cc/posts/building-blockchain-in-go-part-4/</a></p></blockquote><h2><span id="引言">引言</span></h2><p>交易这一环节是整个比特币系统当中最为关键的一环，并且区块链唯一的目的就是通过安全的、可信的方式来存储交易信息，防止它们创建之后被人恶意篡改。今天我们开始实现交易这一环节，但由于这是一个很大的话题，所以我们分为两部分：第一部分我们将实现区块链交易的基本架构，到第二部分，我们再来研究它的细节。</p><h2><span id="比特币交易">比特币交易</span></h2><p>在开始之前，需要先来了解一下比特币的交易的基本原理，比特币的支付系统和我们所熟悉的支付系统的有点不一样，比特币的交易设计的非常精妙。</p><p>如果你开发过Web应用程序，为了实现支付系统，你可能会在数据库中创建一些数据库表：<code>账户</code> 和 <code>交易记录</code>。账户用于存储用户的个人信息以及账户余额等信息，交易记录用于存储资金从一个账户转移到另一个账户的记录。但是在比特币中，支付系统是以一种完全不一样的方式实现的，在这里：</p><ul><li>没有账户</li><li>没有余额</li><li>没有地址</li><li>没有 Coin</li><li>没有发送者和接受者</li></ul><p>由于区块链是一个公开的数据库，我们不希望存储有关钱包所有者的敏感信息。<code>Coins</code> 不会再账户中收集。交易不会将资金从一个地址转移到另一个地址。没有可保存帐户余额的字段或属性。只有交易信息。那比特币的交易信息里面到底存储的是什么呢？在介绍这个之前，我们先来了解一个概念 <code>UTXO</code>。</p><h3><span id="utxo">UTXO</span></h3><h2><span id="交易输出">交易输出</span></h2><h2><span id="交易输入">交易输入</span></h2><h2><span id="鸡蛋问题">鸡蛋问题</span></h2>]]></content>
+      <content type="html"><![CDATA[<script src="/assets/js/APlayer.min.js"> </script><p><img src="https://img.i7years.com/blog/ecommerce-2140604.jpg" alt="bitcoin-blockchain-transactions"></p><blockquote><p>文章的主要思想和内容均来自 <a href="https://jeiwan.cc/posts/building-blockchain-in-go-part-4/" target="_blank" rel="external">https://jeiwan.cc/posts/building-blockchain-in-go-part-4/</a></p></blockquote><h2><span id="引言">引言</span></h2><p>交易这一环节是整个比特币系统当中最为关键的一环，并且区块链唯一的目的就是通过安全的、可信的方式来存储交易信息，防止它们创建之后被人恶意篡改。今天我们开始实现交易这一环节，但由于这是一个很大的话题，所以我们分为两部分：第一部分我们将实现区块链交易的基本架构，到第二部分，我们再来研究它的细节。</p><a id="more"></a><h2><span id="比特币交易">比特币交易</span></h2><p>在开始之前，需要先来了解一下比特币的交易的基本原理，比特币的支付系统和我们所熟悉的支付系统的有点不一样，比特币的交易设计的非常精妙。</p><p>如果你开发过Web应用程序，为了实现支付系统，你可能会在数据库中创建一些数据库表：<code>账户</code> 和 <code>交易记录</code>。账户用于存储用户的个人信息以及账户余额等信息，交易记录用于存储资金从一个账户转移到另一个账户的记录。但是在比特币中，支付系统是以一种完全不一样的方式实现的，在这里：</p><ul><li>没有账户</li><li>没有余额</li><li>没有地址</li><li>没有 Coin</li><li>没有发送者和接受者</li></ul><p>由于区块链是一个公开的数据库，我们不希望存储有关钱包所有者的敏感信息。<code>Coins</code> 不会再账户中收集。交易不会将资金从一个地址转移到另一个地址。没有可保存帐户余额的字段或属性。只有交易信息。那比特币的交易信息里面到底存储的是什么呢？在介绍这个之前，我们先来了解一个概念 <code>UTXO</code>。</p><h3><span id="utxo">UTXO</span></h3><h2><span id="交易输出">交易输出</span></h2><h2><span id="交易输入">交易输入</span></h2><h2><span id="鸡蛋问题">鸡蛋问题</span></h2>]]></content>
       
         <categories>
             
@@ -557,11 +557,11 @@
         
         <tags>
             
+            <tag> Java </tag>
+            
             <tag> Spring </tag>
             
             <tag> SpringBoot </tag>
-            
-            <tag> Java </tag>
             
         </tags>
         
@@ -623,9 +623,9 @@
         
         <tags>
             
-            <tag> Java </tag>
-            
             <tag> 工具 </tag>
+            
+            <tag> Java </tag>
             
         </tags>
         
