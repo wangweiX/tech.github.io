@@ -4,32 +4,12 @@
 
     
   <url>
-    <loc>https://wangwei.one/posts/9cf9e42a.html</loc>
-    <lastmod>2018-03-10T05:48:45.727Z</lastmod>
+    <loc>https://wangwei.one/posts/f9088e0f.html</loc>
+    <lastmod>2018-03-12T03:15:36.090Z</lastmod>
     <data>
         <display>
-        <title>基于Java语言构建区块链（四）—— 交易（UTXO）</title>
-        <pubTime>2018-02-28T14:43:00.000Z</pubTime>
-        
-        <tag>blockchain</tag>
-         
-         
-           
-             
-              <breadCrumb title="blockchain" url="https://wangwei.one/categories/blockchain/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://wangwei.one/posts/df195d9.html</loc>
-    <lastmod>2018-03-10T05:47:42.666Z</lastmod>
-    <data>
-        <display>
-        <title>基于Java语言构建区块链（一）—— 基本原型</title>
-        <pubTime>2018-02-02T14:00:00.000Z</pubTime>
+        <title>基于Java语言构建区块链（五）—— 地址</title>
+        <pubTime>2018-03-12T14:43:00.000Z</pubTime>
         
         <tag>blockchain</tag>
          
@@ -45,7 +25,7 @@
     
   <url>
     <loc>https://wangwei.one/posts/7890ab7e.html</loc>
-    <lastmod>2018-03-10T04:33:44.445Z</lastmod>
+    <lastmod>2018-03-12T02:47:38.137Z</lastmod>
     <data>
         <display>
         <title>基于Java语言构建区块链（二）—— 工作量证明</title>
@@ -66,12 +46,52 @@
 
     
   <url>
+    <loc>https://wangwei.one/posts/9cf9e42a.html</loc>
+    <lastmod>2018-03-12T02:37:32.798Z</lastmod>
+    <data>
+        <display>
+        <title>基于Java语言构建区块链（四）—— 交易（UTXO）</title>
+        <pubTime>2018-02-28T14:43:00.000Z</pubTime>
+        
+        <tag>blockchain</tag>
+         
+         
+           
+             
+              <breadCrumb title="blockchain" url="https://wangwei.one/categories/blockchain/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>https://wangwei.one/posts/35c768a3.html</loc>
-    <lastmod>2018-03-09T10:37:44.967Z</lastmod>
+    <lastmod>2018-03-12T02:35:05.872Z</lastmod>
     <data>
         <display>
         <title>基于Java语言构建区块链（三）—— 持久化 & 命令行</title>
         <pubTime>2018-02-07T14:43:00.000Z</pubTime>
+        
+        <tag>blockchain</tag>
+         
+         
+           
+             
+              <breadCrumb title="blockchain" url="https://wangwei.one/categories/blockchain/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://wangwei.one/posts/df195d9.html</loc>
+    <lastmod>2018-03-12T02:33:45.834Z</lastmod>
+    <data>
+        <display>
+        <title>基于Java语言构建区块链（一）—— 基本原型</title>
+        <pubTime>2018-02-02T14:00:00.000Z</pubTime>
         
         <tag>blockchain</tag>
          
