@@ -5,7 +5,7 @@
     
   <url>
     <loc>https://wangwei.one/posts/f9088e0f.html</loc>
-    <lastmod>2018-03-13T01:48:43.010Z</lastmod>
+    <lastmod>2018-03-14T06:26:02.200Z</lastmod>
     <data>
         <display>
         <title>基于Java语言构建区块链（五）—— 地址</title>
@@ -29,7 +29,7 @@
     
   <url>
     <loc>https://wangwei.one/posts/9cf9e42a.html</loc>
-    <lastmod>2018-03-12T05:15:07.240Z</lastmod>
+    <lastmod>2018-03-14T01:32:13.969Z</lastmod>
     <data>
         <display>
         <title>基于Java语言构建区块链（四）—— 交易（UTXO）</title>
@@ -52,20 +52,18 @@
 
     
   <url>
-    <loc>https://wangwei.one/posts/7890ab7e.html</loc>
-    <lastmod>2018-03-12T03:22:12.515Z</lastmod>
+    <loc>https://wangwei.one/posts/35c768a3.html</loc>
+    <lastmod>2018-03-13T06:09:34.723Z</lastmod>
     <data>
         <display>
-        <title>基于Java语言构建区块链（二）—— 工作量证明</title>
-        <pubTime>2018-02-03T14:43:00.000Z</pubTime>
+        <title>基于Java语言构建区块链（三）—— 持久化 & 命令行</title>
+        <pubTime>2018-02-07T14:43:00.000Z</pubTime>
         
         <tag>blockchain</tag>
          
         <tag>java</tag>
          
         <tag>bitcoin</tag>
-         
-        <tag>pow</tag>
          
          
            
@@ -78,18 +76,20 @@
 
     
   <url>
-    <loc>https://wangwei.one/posts/35c768a3.html</loc>
-    <lastmod>2018-03-12T03:22:02.290Z</lastmod>
+    <loc>https://wangwei.one/posts/7890ab7e.html</loc>
+    <lastmod>2018-03-13T06:09:29.154Z</lastmod>
     <data>
         <display>
-        <title>基于Java语言构建区块链（三）—— 持久化 & 命令行</title>
-        <pubTime>2018-02-07T14:43:00.000Z</pubTime>
+        <title>基于Java语言构建区块链（二）—— 工作量证明</title>
+        <pubTime>2018-02-03T14:43:00.000Z</pubTime>
         
         <tag>blockchain</tag>
          
         <tag>java</tag>
          
         <tag>bitcoin</tag>
+         
+        <tag>pow</tag>
          
          
            
