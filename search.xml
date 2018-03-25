@@ -114,6 +114,8 @@
 <h3><span id="资料">资料</span></h3><ul>
 <li><p>源代码：<a href="https://github.com/wangweiX/blockchain-java/tree/part5-wallet" target="_blank" rel="external">https://github.com/wangweiX/blockchain-java/tree/part5-wallet</a></p>
 </li>
+<li><p><a href="https://github.com/bitcoinbook/bitcoinbook" target="_blank" rel="external">《精通比特币（第二版）》—— 第四章</a></p>
+</li>
 <li><p><a href="http://www.bouncycastle.org/wiki/display/JA1/Elliptic+Curve+Key+Pair+Generation+and+Key+Factories" target="_blank" rel="external">Elliptic Curve Key Pair Generation and Key Factories</a></p>
 </li>
 <li><p><a href="https://stackoverflow.com/questions/30116758/generating-publickey-from-x-and-y-values-of-elliptic-curve-point" target="_blank" rel="external">How to create public key objects with x and y coordinates?</a></p>
