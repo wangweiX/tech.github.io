@@ -3,6 +3,34 @@
   
     
     <entry>
+      <title><![CDATA[基于Java语言构建区块链（六）—— 交易（Merkle Tree）]]></title>
+      <url>/posts/630e7ae5.html</url>
+      <content type="html"><![CDATA[<script src="/assets/js/APlayer.min.js"> </script><blockquote><p>文章的主要思想和内容均来自 <a href="https://jeiwan.cc/posts/building-blockchain-in-go-part-6/" target="_blank" rel="external">https://jeiwan.cc/posts/building-blockchain-in-go-part-6/</a></p></blockquote><h2><span id="引言">引言</span></h2><p>在这一系列文章的最开始部分，我提到过区块链是一个分布式的数据库。那时候，我们决定跳过”分布式”这一部分，并且聚焦于”数据存储”这一部分。到目前为止，我们几乎实现了区块链的所有组成部分。在本篇文章中，我们将会涉及一些在前面文章中忽略的机制，并且在下一篇文章中我们将开始研究区块链的分布式特性。</p><p>先前的一系列文章：</p><ol><li><a href="https://wangwei.one/posts/df195d9.html">基本原型</a></li><li><a href="https://wangwei.one/posts/7890ab7e.html">工作量证明</a></li><li><a href="https://wangwei.one/posts/35c768a3.html">持久化 &amp; 命令行</a></li><li><a href="https://wangwei.one/posts/9cf9e42a.html">交易（UTXO）</a></li><li><a href="https://wangwei.one/posts/f9088e0f.html">地址（钱包）</a></li></ol><a id="more"></a><h2><span id="奖励">奖励</span></h2><h2><span id="utxo集">UTXO集</span></h2><h2><span id="merkle树">Merkle树</span></h2><h2><span id="p2pkh">P2PKH</span></h2>]]></content>
+      
+        <categories>
+            
+            <category> blockchain </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> blockchain </tag>
+            
+            <tag> java </tag>
+            
+            <tag> bitcoin </tag>
+            
+            <tag> Merkle Tree </tag>
+            
+            <tag> UTXO </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
       <title><![CDATA[基于Java语言构建区块链（五）—— 地址（钱包）]]></title>
       <url>/posts/f9088e0f.html</url>
       <content type="html"><![CDATA[<script src="/assets/js/APlayer.min.js"> </script><p><img src="https://img.i7years.com/blog/pexels-photo-164637.jpeg" alt="wallet"></p><blockquote><p>文章的主要思想和内容均来自 <a href="https://jeiwan.cc/posts/building-blockchain-in-go-part-5/" target="_blank" rel="external">https://jeiwan.cc/posts/building-blockchain-in-go-part-5/</a></p></blockquote><h2><span id="引言">引言</span></h2><p>在 <a href="https://wangwei.one/posts/9cf9e42a.html">上一篇</a> 文章当中，我们开始了交易机制的实现。你已经了解到交易的一些非个人特征：没有用户账户，您的个人数据（例如：姓名、护照号码以及SSN(美国社会安全卡（Social Security Card）上的9 位数字)）不是必需的，并且不存储在比特币的任何地方。但仍然必须有一些东西能够识别你是这些交易输出的所有者（例如：锁定在这些输出上的币的所有者）。这就是比特币地址的作用所在。到目前为止，我们只是使用了任意的用户定义的字符串当做地址，现在是时候来实现真正的地址了，就像它们在比特币中实现的一样。</p><a id="more"></a><h2><span id="比特币地址">比特币地址</span></h2><p>这里有一个比特币地址的示例：<a href="https://blockchain.info/address/1A1zP1eP5QGefi2DMPTfTL5SLmv7DivfNa" target="_blank" rel="external">1A1zP1eP5QGefi2DMPTfTL5SLmv7DivfNa</a>。这是一个非常早期的比特币地址，据称是属于中本聪的比特币地址。比特币地址是公开的。如果你想要给某人发送比特币，你需要知道对方的比特币地址。但是地址（尽管它是唯一的）并不能作为你是一个钱包所有者的凭证。事实上，这样的地址是公钥的一种可读性更好的表示 。在比特币中，你的身份是存储在你计算机上（或存储在你有权访问的其他位置）的一对（或多对）私钥和公钥。比特币依靠加密算法的组合来创建这些密钥，并保证世界上没有其他人任何人可以在没有物理访问密钥的情况下访问您的比特币。</p><blockquote><p>比特币地址与公钥不同。比特币地址是由公钥经过单向的哈希函数生成的</p></blockquote><p><img src="https://img.i7years.com/blog/mbc2_0405_wangwei.png" alt="PubKey to bitcoin address"></p><p>接下来，让我们来讨论一下这些加密算法。</p><blockquote><p><strong>注意</strong>：不要向本篇文章中的代码所生成的任何比特币地址发送真实的比特币来进行测试，否则后果自负……</p></blockquote><h2><span id="公钥密码学">公钥密码学</span></h2><p>公钥加密算法（public-key cryptography）使用的是密钥对：公钥和私钥。公钥属于非敏感信息，可以向任何人透露。相比之下，私钥不能公开披露：除了所有者之外，任何人都不能拥有私钥的权限，因为它是用作所有者标识的私钥。你的私钥代表就是你（当然是在加密货币世界里的）。</p><p>本质上，比特币钱包就是一对这样的密钥。当你安装一个钱包应用程序或者使用比特币客户端去生成一个新的地址时，它们就为你创建好了一个密钥对。在比特币种，谁控制了私钥，谁就掌握了所有发往对应公钥地址上所有比特币的控制权。</p><p>私钥和公钥只是随机的字节序列，因此它们不能被打印在屏幕上供人读取。这就是为什么比特币会用一种算法将公钥的字节序列转化为人类可读的字符串形式。</p><blockquote><p>如果你曾今使用过比特币钱包的应用程序，它可能会为你生成助记词密码短语。这些助记词可以用来替代私钥，并且能够生成私钥。这种机制是通过 <a href="https://github.com/bitcoin/bips/blob/master/bip-0039.mediawiki" target="_blank" rel="external">BIP-039</a> 来实现的。</p></blockquote><p>好了，现在我们已经知道在比特币中由什么来决定用户的标识了。但是，比特币是如何校验交易输出（和它里面存储的一些币）的所有权的呢？</p><h2><span id="数字签名">数字签名</span></h2><p>在数学和密码学中，有个数字签名的概念，这套算法保证了以下几点：</p><ol><li>保证数据从发送端传递到接收端的过程中不会被篡改；</li><li>数据由某个发送者创建；</li><li>发送者不能否认发送的数据；</li></ol><p>通过对数据应用签名算法（即签署数据），可以得到一个签名，以后可以对其进行验证。数字签名需要使用私钥，而验证则需要公钥。</p><p>为了能够签署数据我们需要：</p><ol><li>用于被签名的数据；</li><li>私钥。</li></ol><p>签名操作会产生一个存储在交易输入中的签名。为了能够验证一个签名，我们需要：</p><ol><li>签名之后的数据；</li><li>签名；</li><li>公钥。</li></ol><p>简单来讲，这个验证的过程可以被描述为：检查签名是由被签名数据加上私钥得来，并且这个公钥也是由该私钥生成。</p><blockquote><p>数字签名并不是一种加密方法，你无法从签名反向构造出源数据。这个和我们 <a href="https://wangwei.one/posts/7890ab7e.html">前面</a> 提到过的Hash算法有点类似：通过对一个数据使用Hash算法，你可以得到该数据的唯一表示。它们两者的不同之处在于，签名算法多了一个密钥对：它让数字签名得以验证成为可能。</p><p>但是密钥对也能够用于去加密数据：私钥用于加密数据，公钥用于解密数据。不过比特币并没有使用加密算法。</p></blockquote><p>在比特币中，每一笔交易输入都会被该笔交易的创建者进行签名。比特币中的每一笔交易在放入区块之前都必须得到验证。验证的意思就是：</p><ul><li>检查交易输入是否拥有引用前一笔交易中交易输出的权限</li><li>检查交易的签名是否正确</li></ul><p>数据签名以及签名验证的过程如下图所示：</p><p><img src="https://img.i7years.com/blog/signing-scheme.png" alt="signing-scheme"></p><p>让我们来回顾一下交易的完整生命周期：</p><ol><li>最开始，会有一个包含了Coinbase交易的创世区块。由于在Coinbase交易中没有真正的交易输入，所以它不需要签名。Coinbase交易的交易输出会包含一个Hashing之后的公钥（使用的算法为 <code>RIPEMD16(SHA256(PubKey))</code> ）</li><li>当一个人发送比特币时，会创建一笔交易。这笔交易的交易输入会引用前一笔或多笔交易的交易输出。每一个交易输入将会存储未经Hashing处理的公钥以及整个交易的签名信息。</li><li>当比特币网络中的其他节点收到其他节点广播的交易数据之后将，将会对其进行验证。其他的事情除外，他们将会验证：<ul><li>检查交易输入中公钥的Hash值是否与它所引用的交易输出的Hash值想匹配，这是确保发送方只能发送属于他们自己的比特币。</li><li>检查签名是否正确，这是为了确保这笔交易是由比特币的真正所有者创建的。</li></ul></li><li>当一个矿工准备开始开采一个新的区块时，他会将交易信息放入区块中，然后开始挖矿。</li><li>当一个区块完成挖矿之后，网络中的其他节点将会收到一条区块已挖矿完毕的消息，并且他们会把这个区块添加到区块链中去。</li><li>当一个区块被添加到区块链之后，就标志着这笔交易已经完成，它所产生的交易输出将会在新的交易中被引用。</li></ol><h2><span id="椭圆曲线密码学">椭圆曲线密码学</span></h2><p>正如前面所提到的那样，公钥和私钥是一串随机的字符序列。由于私钥是用来识别比特币所有者身份的缘故，因此有一个必要的条件：这个随机算法必须产生真正的随机序列。我们不希望意外地生成其他人所拥有的私钥。也就是要保证随机序列的绝对唯一性。</p><p>比特币是使用的椭圆曲线来生成的私钥。椭圆曲线是一个非常复杂的数学概念，这里我们不做详细的介绍（如果你对此非常好奇，可以点击 <a href="http://andrea.corbellini.name/2015/05/17/elliptic-curve-cryptography-a-gentle-introduction/" target="_blank" rel="external">this gentle introduction to elliptic curves</a> 进行详细的 了解，警告：数学公式）。我们需要知道的是，这些曲线可以用来生成真正大而随机的数字。比特币所采用的曲线算法能够随机生成一个介于0到 2^2^56之间的数字（这是一个非常大的数字，用十进制表示的话，大约是10^77， 而整个可见的宇宙中，原子数在 10^78 到 10^82 之间） 。这么巨大的上限意味着产生两个一样的私钥是几乎不可能的事情。</p><p>另外，我们将会使用比特币中所使用的 ECDSA （椭圆曲线数字签名算法）去签署交易信息。</p><h2><span id="base58和base58check编码">Base58和Base58Check编码</span></h2><p>现在让我们回到上面提到的比特币地址：<a href="https://blockchain.info/address/1A1zP1eP5QGefi2DMPTfTL5SLmv7DivfNa" target="_blank" rel="external">1A1zP1eP5QGefi2DMPTfTL5SLmv7DivfNa</a> . 现在我们知道这个地址其实是公钥的一种可读高的表示方式。如果我们对他进行解码，我们会看到公钥看起来是这样子的（字节序列的十六进制的表示方式）：</p><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">0062</span>E907B15CBF27D5425399EBF6F0FB50EBB88F18C29B7D93</span><br></pre></td></tr></table></figure>
@@ -25,7 +53,7 @@
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 钱包</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author</span> wangwei</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@date</span> 2018/03/14</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="meta">@Data</span></span><br><span class="line"><span class="meta">@AllArgsConstructor</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Wallet</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 校验码长度</span></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> ADDRESS_CHECKSUM_LEN = <span class="number">4</span>;</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 私钥</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">private</span> BCECPrivateKey privateKey;</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 公钥</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">byte</span>[] publicKey;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Wallet</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        initWallet();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 初始化钱包</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">initWallet</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            KeyPair keyPair = newECKeyPair();</span><br><span class="line">            BCECPrivateKey privateKey = (BCECPrivateKey) keyPair.getPrivate();</span><br><span class="line">            BCECPublicKey publicKey = (BCECPublicKey) keyPair.getPublic();</span><br><span class="line"></span><br><span class="line">            <span class="keyword">byte</span>[] publicKeyBytes = publicKey.getQ().getEncoded(<span class="keyword">false</span>);</span><br><span class="line"></span><br><span class="line">            <span class="keyword">this</span>.setPrivateKey(privateKey);</span><br><span class="line">            <span class="keyword">this</span>.setPublicKey(publicKeyBytes);</span><br><span class="line">        &#125; <span class="keyword">catch</span> (Exception e) &#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 创建新的密钥对</span></span><br><span class="line"><span class="comment">     *</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span></span></span><br><span class="line"><span class="comment">     * <span class="doctag">@throws</span> Exception</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">private</span> KeyPair <span class="title">newKeyPair</span><span class="params">()</span> <span class="keyword">throws</span> Exception </span>&#123;</span><br><span class="line">        <span class="comment">// 注册 BC Provider</span></span><br><span class="line">        Security.addProvider(<span class="keyword">new</span> BouncyCastleProvider());</span><br><span class="line">        <span class="comment">// 创建椭圆曲线算法的密钥对生成器，算法为 ECDSA</span></span><br><span class="line">        KeyPairGenerator g = KeyPairGenerator.getInstance(<span class="string">"ECDSA"</span>, BouncyCastleProvider.PROVIDER_NAME);</span><br><span class="line">        <span class="comment">// 椭圆曲线（EC）域参数设定</span></span><br><span class="line">        <span class="comment">// bitcoin 为什么会选择 secp256k1，详见：https://bitcointalk.org/index.php?topic=151120.0</span></span><br><span class="line">        ECParameterSpec ecSpec = ECNamedCurveTable.getParameterSpec(<span class="string">"secp256k1"</span>);</span><br><span class="line">        g.initialize(ecSpec, <span class="keyword">new</span> SecureRandom());</span><br><span class="line">        <span class="keyword">return</span> g.generateKeyPair();</span><br><span class="line">    &#125;</span><br><span class="line"> </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>所谓的钱包，其实本质上就是一个密钥对。这里我们需要借助 <strong><em>KeyPairGenerator</em></strong> 生成密钥对。</p>
 <p>接着，我们来生成比特币的钱包地址：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Wallet</span> </span>&#123;</span><br><span class="line">    </span><br><span class="line">    ...</span><br><span class="line">   </span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 获取钱包地址</span></span><br><span class="line"><span class="comment">     *</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span></span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">getAddress</span><span class="params">()</span> <span class="keyword">throws</span> Exception </span>&#123;</span><br><span class="line">        <span class="comment">// 1. 获取 ripemdHashedKey</span></span><br><span class="line">        <span class="keyword">byte</span>[] ripemdHashedKey = BtcAddressUtils.ripeMD160Hash(<span class="keyword">this</span>.getPublicKey().getEncoded());</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 2. 添加版本 0x00</span></span><br><span class="line">        ByteArrayOutputStream addrStream = <span class="keyword">new</span> ByteArrayOutputStream();</span><br><span class="line">        addrStream.write((<span class="keyword">byte</span>) <span class="number">0</span>);</span><br><span class="line">        addrStream.write(ripemdHashedKey);</span><br><span class="line">        <span class="keyword">byte</span>[] versionedPayload = addrStream.toByteArray();</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 3. 计算校验码</span></span><br><span class="line">        <span class="keyword">byte</span>[] checksum = BtcAddressUtils.checksum(versionedPayload);</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 4. 得到 version + paylod + checksum 的组合</span></span><br><span class="line">        addrStream.write(checksum);</span><br><span class="line">        <span class="keyword">byte</span>[] binaryAddress = addrStream.toByteArray();</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 5. 执行Base58转换处理</span></span><br><span class="line">        <span class="keyword">return</span> Base58Check.rawBytesToBase58(binaryAddress);</span><br><span class="line">    &#125;</span><br><span class="line">	</span><br><span class="line">    ...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Wallet</span> </span>&#123;</span><br><span class="line">    </span><br><span class="line">    ...</span><br><span class="line">   </span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 获取钱包地址</span></span><br><span class="line"><span class="comment">     *</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span></span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">getAddress</span><span class="params">()</span> <span class="keyword">throws</span> Exception </span>&#123;</span><br><span class="line">        <span class="comment">// 1. 获取 ripemdHashedKey</span></span><br><span class="line">        <span class="keyword">byte</span>[] ripemdHashedKey = BtcAddressUtils.ripeMD160Hash(<span class="keyword">this</span>.getPublicKey();</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 2. 添加版本 0x00</span></span><br><span class="line">        ByteArrayOutputStream addrStream = <span class="keyword">new</span> ByteArrayOutputStream();</span><br><span class="line">        addrStream.write((<span class="keyword">byte</span>) <span class="number">0</span>);</span><br><span class="line">        addrStream.write(ripemdHashedKey);</span><br><span class="line">        <span class="keyword">byte</span>[] versionedPayload = addrStream.toByteArray();</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 3. 计算校验码</span></span><br><span class="line">        <span class="keyword">byte</span>[] checksum = BtcAddressUtils.checksum(versionedPayload);</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 4. 得到 version + paylod + checksum 的组合</span></span><br><span class="line">        addrStream.write(checksum);</span><br><span class="line">        <span class="keyword">byte</span>[] binaryAddress = addrStream.toByteArray();</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 5. 执行Base58转换处理</span></span><br><span class="line">        <span class="keyword">return</span> Base58Check.rawBytesToBase58(binaryAddress);</span><br><span class="line">    &#125;</span><br><span class="line">	</span><br><span class="line">    ...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>这个时候，你就可以得到 <strong>真实的比特币地址</strong> 了，并且你可以到 <a href="https://blockchain.info/" target="_blank" rel="external">blockchain.info</a> 上去检查这个地址的余额。</p>
 <blockquote>
 <p> 例如，通过 <strong>getAddress</strong> 方法，得到了一个比特币地址为：<a href="https://blockchain.info/address/1rZ9SjXMRwnbW3Pu8itC1HtNBVHERSQhaACbL16" target="_blank" rel="external">1rZ9SjXMRwnbW3Pu8itC1HtNBVHERSQhaACbL16</a></p>
@@ -879,11 +907,11 @@
         
         <tags>
             
-            <tag> Java </tag>
-            
             <tag> Spring </tag>
             
             <tag> SpringBoot </tag>
+            
+            <tag> Java </tag>
             
         </tags>
         
@@ -945,9 +973,126 @@
         
         <tags>
             
+            <tag> Java </tag>
+            
             <tag> 工具 </tag>
             
-            <tag> Java </tag>
+        </tags>
+        
+    </entry>
+    
+    <entry>
+      <title><![CDATA[带你看看外面的世界]]></title>
+      <url>/posts/bc401e84.html</url>
+      <content type="html"><![CDATA[<script src="/assets/js/APlayer.min.js"> </script><p>带你去看看外面的世界……</p><a id="more"></a><h1><span id="说明">说明</span></h1><ul><li><p>如果你是小白用户，我的建议是去购买稳定可靠、体验棒的产品和服务，这里强烈推荐rixcloud</p><ul><li>官网地址：<a href="https://www.rixcloud.com/" target="_blank" rel="external">https://www.rixcloud.com/</a></li><li>相关的配置教程：<a href="https://rixcloud.com/resources/" target="_blank" rel="external">https://rixcloud.com/resources/</a></li></ul><blockquote><p>云梯、蓝灯……这些体检极差的产品就不要用了哈，用就要用省心的产品。</p></blockquote></li></ul><ul><li>已经购买了相关的VPN账号但是不知道如何配置的同学，可直接查看后面<code>客户端配置</code>部分内容，当然你也可以去看上面rixcloud的配置教程</li><li>如果你懂点技术，还是想自己动手捣腾，可以继续往下看后面的内容了……</li></ul><h1><span id="服务端搭建">服务端搭建</span></h1><h3><span id="准备云服务器">准备云服务器</span></h3><blockquote><p>推荐<code>vultr</code>，理由：<strong>便宜实惠</strong>，最重要的是政策风险小，不受中国政府监管。</p></blockquote><h5><span id="vultr">vultr</span></h5><ul><li>地址：<a href="https://www.vultr.com/" target="_blank" rel="external">https://www.vultr.com/</a></li><li>选择亚太地区(日本或新加坡)</li><li>系统要求：CentOS 7版本</li><li>配置要求：1核1G（最低配置即可）</li></ul><h5><span id="阿里云">阿里云</span></h5><ul><li><p>地址：<a href="https://www.aliyun.com/" target="_blank" rel="external">https://www.aliyun.com/</a></p></li><li><p>选择大陆以外的地区，推荐购买<strong>香港</strong>地区的服务器；</p></li><li><p>系统要求：CentOS 6或7版本</p></li><li><p>配置要求：1核1G（最低配置即可）</p><p>​</p></li></ul><h3><span id="安装">安装</span></h3><ol><li><p>登录服务器；</p></li><li><p>使用root权限执行以下命令：</p><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># cd /tmp</span></span><br><span class="line"><span class="comment"># wget --no-check-certificate -O shadowsocks-libev.sh https://raw.githubusercontent.com/teddysun/shadowsocks_install/master/shadowsocks-libev.sh</span></span><br><span class="line"><span class="comment"># chmod +x shadowsocks-libev.sh</span></span><br><span class="line"><span class="comment"># ./shadowsocks-libev.sh 2&gt;&amp;1 | tee shadowsocks-libev.log</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>安装过程中，按照提示设置密码、端口号以及加密方式；</p>
+<blockquote>
+<p>端口号、加密方式选择默认即可</p>
+</blockquote>
+</li>
+<li><p>安装完成，提示信息如下：</p>
+<p><img src="https://img.i7years.com/blog/shadowsocks_confg1.png" alt=""></p>
+</li>
+<li><p>修改配置文件<code>/etc/shadowsocks-libev/config.json</code></p>
+<ul>
+<li>设置<code>server</code>为<code>0.0.0.0</code>，不是服务器的公网IP；</li>
+<li>设置<code>local_address</code>为虚拟服务器的内网IP，不要设置为<code>127.0.0.1</code>；</li>
+</ul>
+</li>
+<li><p>重启</p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">CentOS <span class="number">7</span> 命令</span><br><span class="line"><span class="comment"># systemctl restart shadowsocks</span></span><br><span class="line"></span><br><span class="line">CentOS <span class="number">6</span> 命令</span><br><span class="line"><span class="comment"># service shadowsocks restart</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>检查服务运行状态</p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">CentOS <span class="number">7</span> 命令</span><br><span class="line"><span class="comment"># systemctl status shadowsocks </span></span><br><span class="line"></span><br><span class="line">CentOS <span class="number">6</span> 命令</span><br><span class="line"><span class="comment"># service shadowsocks status</span></span><br></pre></td></tr></table></figure>
+<p><img src="https://img.i7years.com/blog/shaw_install.png" alt="WX20171008-132153@2x"></p>
+<p>​</p>
+</li>
+<li><p>检查端口运行状态</p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># netstat -anp | grep 8379</span></span><br></pre></td></tr></table></figure>
+<p><img src="https://img.i7years.com/netstat_shawsocks.png" alt="WX20171008-132153@2x"></p>
+<p>​</p>
+</li>
+<li><p>设置阿里云ECS安全组，开放VPN端口</p>
+<blockquote>
+<p>在阿里云上购买的服务，默认会加入<a href="https://help.aliyun.com/document_detail/31707.html" target="_blank" rel="external">安全组</a>，需要新增规则，开放shadowsocks端口，否则，无法使用。</p>
+</blockquote>
+<p><img src="https://img.i7years.com/blog/shadow_config2.png" alt=""></p>
+</li>
+</ol>
+<h3><span id="卸载">卸载</span></h3><p>如果要重新安装，卸载命令：</p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># ./shadowsocks-libev.sh uninstall</span></span><br></pre></td></tr></table></figure>
+<h1><span id="客户端配置">客户端配置</span></h1><h2><span id="mac端安装">Mac端安装</span></h2><h3><span id="客户端下载">客户端下载</span></h3><ul>
+<li><p>官方地址：<a href="https://github.com/shadowsocks/ShadowsocksX-NG/releases/" target="_blank" rel="external">https://github.com/shadowsocks/ShadowsocksX-NG/releases/</a></p>
+</li>
+<li><p>快速下载：<a href="http://attach.i7years.com/ShadowsocksX-NG.1.7.0.zip" target="_blank" rel="external">http://attach.i7years.com/ShadowsocksX-NG.1.7.0.zip</a></p>
+<p>​</p>
+</li>
+</ul>
+<h3><span id="配置指南">配置指南</span></h3><ul>
+<li><p>下载-解压-运行，桌面上方会出现一个纸飞机的小图标</p>
+<p><img src="https://img.i7years.com/blog//WX20171115-214040@2x.png" alt="WX20171115-214040@2x"></p>
+</li>
+<li><p>点击图标，打开菜单——&gt; Servers ——&gt; Servers Preferences，配置地址、端口、加密方式以及密码，下面的<code>Enable OTA(deprecated)</code>和<code>Enable over kcptun</code>不用勾选，然后点击OK进行保存。</p>
+<p><img src="https://img.i7years.com/blog//WX20171115-223431@2x.png" alt="WX20171115-223431@2x"></p>
+</li>
+<li><p>点击小图标打开菜单，点击菜单<code>Update PAC from GFW List</code>，更新成功提示如下：</p>
+<p><img src="https://img.i7years.com/blog//WX20171115-223555@2x.png" alt="WX20171115-223555@2x"></p>
+</li>
+<li><p>重启一下shadowsocks，之后就可以畅游世界啦~~~</p>
+</li>
+</ul>
+<h2><span id="iphone端安装">iPhone端安装</span></h2><h3><span id="客户端下载">客户端下载</span></h3><ul>
+<li>App Store下载<code>SuperWingy</code></li>
+</ul>
+<h3><span id="配置指南">配置指南</span></h3><ul>
+<li><p>点击添加配置，选择<code>ss</code>模式，打开如下页面，填写相关信息并保存</p>
+<p><img src="https://img.i7years.com/blog//WX20171115-225625@2x.png" alt="WX20171115-225625@2x"></p>
+</li>
+<li><p>按照系统提示，允许<code>SuperWingy</code>添加VPN配置<img src="https://img.i7years.com/blog//WX20171115-230817@2x.png" alt="WX20171115-230817@2x"></p>
+</li>
+<li><p>配置成功后，手机界面上面会出现一个<code>vpn</code>的小图标</p>
+<p><img src="https://img.i7years.com/blog//WX20171115-225747@2x.png" alt="WX20171115-225747@2x"></p>
+</li>
+</ul>
+<h3><span id="注意">注意</span></h3><ul>
+<li>如果你想修改<code>SuperWingy</code>上配置的VPN信息，请将原有配置删除后，重新进行添加，直接修改原有信息是无法生效的，这应该是个Bug</li>
+</ul>
+<h2><span id="windows用户">Windows用户</span></h2><h3><span id="客户端下载">客户端下载</span></h3><ul>
+<li>官方地址：<a href="https://github.com/shadowsocks/shadowsocks-windows/releases" target="_blank" rel="external">https://github.com/shadowsocks/shadowsocks-windows/releases</a></li>
+<li>快速下载：<a href="http://attach.i7years.com/Shadowsocks-4.0.7.zip" target="_blank" rel="external">http://attach.i7years.com/Shadowsocks-4.0.7.zip</a></li>
+</ul>
+<h3><span id="配置指南">配置指南</span></h3><ul>
+<li>请参考Mac端配置</li>
+</ul>
+<h2><span id="android用户">Android用户</span></h2><h3><span id="客户端下载">客户端下载</span></h3><ul>
+<li>官方地址：<a href="https://github.com/shadowsocks/shadowsocks-android/releases" target="_blank" rel="external">https://github.com/shadowsocks/shadowsocks-android/releases</a></li>
+<li>快速下载：<a href="http://attach.i7years.com/shadowsocks-nightly-4.4.4.apk" target="_blank" rel="external">http://attach.i7years.com/shadowsocks-nightly-4.4.4.apk</a></li>
+</ul>
+<h3><span id="配置指南">配置指南</span></h3><ul>
+<li>请参考iPhone配置</li>
+</ul>
+<h1><span id="最后">最后</span></h1><ul>
+<li>纵使天网恢恢，也阻挡不了我们向往自由的心！Good Luck!</li>
+</ul>
+<p>参考资料：</p>
+<ul>
+<li><a href="https://github.com/shadowsocks" target="_blank" rel="external">https://github.com/shadowsocks</a></li>
+<li><a href="https://github.com/teddysun/shadowsocks_install" target="_blank" rel="external">https://github.com/teddysun/shadowsocks_install</a></li>
+<li><a href="https://teddysun.com/357.html" target="_blank" rel="external">https://teddysun.com/357.html</a></li></ul>]]></content>
+      
+        <categories>
+            
+            <category> tools </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> VPN </tag>
+            
+            <tag> shadowsocks </tag>
             
         </tags>
         
