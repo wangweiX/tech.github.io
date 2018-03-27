@@ -4,34 +4,6 @@
 
     
   <url>
-    <loc>https://wangwei.one/posts/630e7ae5.html</loc>
-    <lastmod>2018-03-26T14:26:43.750Z</lastmod>
-    <data>
-        <display>
-        <title>基于Java语言构建区块链（六）—— 交易（Merkle Tree）</title>
-        <pubTime>2018-03-26T09:00:00.000Z</pubTime>
-        
-        <tag>blockchain</tag>
-         
-        <tag>java</tag>
-         
-        <tag>bitcoin</tag>
-         
-        <tag>Merkle Tree</tag>
-         
-        <tag>UTXO</tag>
-         
-         
-           
-             
-              <breadCrumb title="blockchain" url="https://wangwei.one/categories/blockchain/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
     <loc>https://wangwei.one/posts/bc401e84.html</loc>
     <lastmod>2018-03-26T14:26:29.020Z</lastmod>
     <data>
@@ -576,11 +548,11 @@
         <title>SpringBoot学习教程</title>
         <pubTime>2017-12-02T16:31:18.000Z</pubTime>
         
+        <tag>Java</tag>
+         
         <tag>Spring</tag>
          
         <tag>SpringBoot</tag>
-         
-        <tag>Java</tag>
          
          
            
@@ -600,9 +572,9 @@
         <title>Java开发环境搭建清单</title>
         <pubTime>2017-11-20T12:42:22.000Z</pubTime>
         
-        <tag>Java</tag>
-         
         <tag>工具</tag>
+         
+        <tag>Java</tag>
          
          
            
