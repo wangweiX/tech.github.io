@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://wangwei.one/about/index.html</loc>
+    
+    <lastmod>2018-03-28T06:15:37.943Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://wangwei.one/posts/f9088e0f.html</loc>
     
     <lastmod>2018-03-27T23:58:50.322Z</lastmod>
@@ -61,13 +68,6 @@
     <loc>https://wangwei.one/posts/88eff102.html</loc>
     
     <lastmod>2018-03-14T06:27:40.109Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://wangwei.one/about/index.html</loc>
-    
-    <lastmod>2018-02-07T09:26:12.480Z</lastmod>
     
   </url>
   
