@@ -111,7 +111,7 @@
 <li>如何去对交易信息进行签名并对签名进行验证；</li>
 </ol>
 <p>到目前为止，我们已经实现了比特币的许多关键特性！ 我们已经实现了除外网络外的几乎所有功能，并且在下一篇文章中，我们将继续完善交易这一环节机制。</p>
-<h3><span id="资料">资料</span></h3><ul>
+<h2><span id="资料">资料</span></h2><ul>
 <li><p>源代码：<a href="https://github.com/wangweiX/blockchain-java/tree/part5-wallet" target="_blank" rel="external">https://github.com/wangweiX/blockchain-java/tree/part5-wallet</a></p>
 </li>
 <li><p><a href="https://github.com/bitcoinbook/bitcoinbook" target="_blank" rel="external">《精通比特币（第二版）》—— 第四章</a></p>
@@ -137,7 +137,12 @@
 <li><p><a href="https://en.bitcoin.it/wiki/Base58Check_encoding" target="_blank" rel="external">Base58</a></p>
 </li>
 <li><p><a href="http://andrea.corbellini.name/2015/05/17/elliptic-curve-cryptography-a-gentle-introduction/" target="_blank" rel="external">A gentle introduction to elliptic curve cryptography</a></p>
-<p>​</p></li></ul>]]></content>
+<p>​</p>
+</li>
+</ul>
+<p><img src="https://img.i7years.com/blog/blockchain_exploer.png" alt=""></p>
+<blockquote>
+<p><a href="https://press.one/file/v?s=e314e0662f84fc732e37faa7abfa5615ce04675d70c3fad51d534ac60c7f38a41e5f468d43d209823e008299b24bde00ffcbd172896c1be5a1655c37f332e1a71&amp;h=cf27d733b01c15c2dff665f44233f12735f93bf3a4529166506fce3caff2872a&amp;a=23fe9bfd7ceef4b44c2ce44dcac8e4a49caf8026&amp;f=P1&amp;v=2" target="_blank" rel="external">https://press.one/file/v?s=e314e0662f84fc732e37faa7abfa5615ce04675d70c3fad51d534ac60c7f38a41e5f468d43d209823e008299b24bde00ffcbd172896c1be5a1655c37f332e1a71&amp;h=cf27d733b01c15c2dff665f44233f12735f93bf3a4529166506fce3caff2872a&amp;a=23fe9bfd7ceef4b44c2ce44dcac8e4a49caf8026&amp;f=P1&amp;v=2</a></p></blockquote>]]></content>
       
         <categories>
             
@@ -298,12 +303,16 @@
 <ol>
 <li>钱包地址。我们还没有基于私钥的真实地址。</li>
 <li>奖励。挖矿绝对没有利润。</li>
-<li>UTXO集。当我们计算钱包地址的余额时，我们需要遍历所有的区块中的所有交易信息，当有许许多多的区块时，这将花费不少的时间。此外，如果我们想验证以后的交易，可能需要很长时间。 UTXO集旨在解决这些问题并快速处理交易。</li>
+<li>UTXO池。当我们计算钱包地址的余额时，我们需要遍历所有的区块中的所有交易信息，当有许许多多的区块时，这将花费不少的时间。此外，如果我们想验证以后的交易，可能需要很长时间。 UTXO迟旨在解决这些问题并快速处理交易。</li>
 <li>内存池。 这是交易在打包成区块之前存储的地方。 在我们当前的实现中，一个块只包含一笔交易，而且效率很低。</li>
 </ol>
-<h3><span id="资料">资料</span></h3><ul>
+<h2><span id="资料">资料</span></h2><ul>
 <li>源代码：<a href="https://github.com/wangweiX/blockchain-java/tree/part4-transaction1" target="_blank" rel="external">https://github.com/wangweiX/blockchain-java/tree/part4-transaction1</a></li>
-<li><a href="https://github.com/bitcoinbook/bitcoinbook" target="_blank" rel="external">《精通比特币（第二版）》第6章 —— 交易</a></li></ul>]]></content>
+<li><a href="https://github.com/bitcoinbook/bitcoinbook" target="_blank" rel="external">《精通比特币（第二版）》第6章 —— 交易</a></li>
+</ul>
+<p><img src="https://img.i7years.com/blog/blockchain_exploer.png" alt=""></p>
+<blockquote>
+<p><a href="https://press.one/file/v?s=ef3077c075f4ea9ffa0bd7a17d004d0af5fd1f67d8380989aba29b505c2343e7a5cf4e8a4ef75b82cb5ddea2428e5a8d9d0437c0a236ee49230005bb49104e8b1&amp;h=3e4f040f8eb07adfd8915dda4dbb1e2301860d195e5b9445a0256e56d01cebc7&amp;a=23fe9bfd7ceef4b44c2ce44dcac8e4a49caf8026&amp;f=P1&amp;v=2" target="_blank" rel="external">https://press.one/file/v?s=ef3077c075f4ea9ffa0bd7a17d004d0af5fd1f67d8380989aba29b505c2343e7a5cf4e8a4ef75b82cb5ddea2428e5a8d9d0437c0a236ee49230005bb49104e8b1&amp;h=3e4f040f8eb07adfd8915dda4dbb1e2301860d195e5b9445a0256e56d01cebc7&amp;a=23fe9bfd7ceef4b44c2ce44dcac8e4a49caf8026&amp;f=P1&amp;v=2</a></p></blockquote>]]></content>
       
         <categories>
             
@@ -360,10 +369,14 @@
 <h5><span id="项目工程打包">项目工程打包</span></h5><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ mvn clean &amp;&amp; mvn package</span><br></pre></td></tr></table></figure>
 <h5><span id="执行命令">执行命令</span></h5><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 打印帮助信息</span></span><br><span class="line">$ java -jar blockchain-java-jar-with-dependencies.jar -h </span><br><span class="line"></span><br><span class="line"><span class="comment"># 添加区块</span></span><br><span class="line">$ java -jar blockchain-java-jar-with-dependencies.jar -add <span class="string">"Send 1.5 BTC to wangwei"</span></span><br><span class="line">$ java -jar blockchain-java-jar-with-dependencies.jar -add <span class="string">"Send 2.5 BTC to wangwei"</span></span><br><span class="line">$ java -jar blockchain-java-jar-with-dependencies.jar -add <span class="string">"Send 3.5 BTC to wangwei"</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 打印区块链</span></span><br><span class="line">$ java -jar blockchain-java-jar-with-dependencies.jar -print</span><br></pre></td></tr></table></figure>
 <h2><span id="总结">总结</span></h2><p>本篇我们实现了区块链的存储功能，接下来我们将实现地址、交易、钱包这一些列的功能。</p>
-<h3><span id="资料">资料</span></h3><ul>
+<h2><span id="资料">资料</span></h2><ul>
 <li>源代码：<a href="https://github.com/wangweiX/blockchain-java/tree/part3-persistence" target="_blank" rel="external">https://github.com/wangweiX/blockchain-java/tree/part3-persistence</a></li>
 <li><a href="https://jeiwan.cc/posts/building-blockchain-in-go-part-3/" target="_blank" rel="external">https://jeiwan.cc/posts/building-blockchain-in-go-part-3/</a></li>
-<li><a href="https://github.com/bitcoinbook/bitcoinbook" target="_blank" rel="external">《精通比特币》第二版</a></li></ul>]]></content>
+<li><a href="https://github.com/bitcoinbook/bitcoinbook" target="_blank" rel="external">《精通比特币》第二版</a></li>
+</ul>
+<p><img src="https://img.i7years.com/blog/blockchain_exploer.png" alt=""></p>
+<blockquote>
+<p><a href="https://press.one/file/v?s=62076a14b3d0693cf88d19db7e2d6a5a8e05b3de0c77deee242615c5480f8818104c24b65500a8cac096dee3b2e6862cec266916ee6545dd38f3650a459c7b221&amp;h=7732ed4bedb1bb10a4d24df75b719ac2d56ae76a1b5a8f06ccc2ca6dc2d3ce30&amp;a=23fe9bfd7ceef4b44c2ce44dcac8e4a49caf8026&amp;f=P1&amp;v=2" target="_blank" rel="external">https://press.one/file/v?s=62076a14b3d0693cf88d19db7e2d6a5a8e05b3de0c77deee242615c5480f8818104c24b65500a8cac096dee3b2e6862cec266916ee6545dd38f3650a459c7b221&amp;h=7732ed4bedb1bb10a4d24df75b719ac2d56ae76a1b5a8f06ccc2ca6dc2d3ce30&amp;a=23fe9bfd7ceef4b44c2ce44dcac8e4a49caf8026&amp;f=P1&amp;v=2</a></p></blockquote>]]></content>
       
         <categories>
             
@@ -465,12 +478,16 @@
 </ul>
 <h4><span id="测试运行">测试运行</span></h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 测试</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author</span> wangwei</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@date</span> 2018/02/05</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">BlockchainTest</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">        Blockchain blockchain = Blockchain.newBlockchain();</span><br><span class="line"></span><br><span class="line">        blockchain.addBlock(<span class="string">"Send 1 BTC to Ivan"</span>);</span><br><span class="line">        blockchain.addBlock(<span class="string">"Send 2 more BTC to Ivan"</span>);</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> (Block block : blockchain.getBlockList()) &#123;</span><br><span class="line">            System.out.println(<span class="string">"Prev.hash: "</span> + block.getPrevBlockHash());</span><br><span class="line">            System.out.println(<span class="string">"Data: "</span> + block.getData());</span><br><span class="line">            System.out.println(<span class="string">"Hash: "</span> + block.getHash());</span><br><span class="line">            System.out.println(<span class="string">"Nonce: "</span> + block.getNonce());</span><br><span class="line"></span><br><span class="line">            ProofOfWork pow = ProofOfWork.newProofOfWork(block);</span><br><span class="line">            System.out.println(<span class="string">"Pow valid: "</span> +  pow.validate() + <span class="string">"\n"</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 设定TARGET_BITS = 20，得到如下结果：</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line">Mining the block containing：Genesis Block </span><br><span class="line">Elapsed Time: <span class="number">2.118</span> seconds </span><br><span class="line">correct hash Hex: <span class="number">00000828</span>ee8289ef6381f297585ef8c952fde93fc2b673ff7cc655f699bb2442 </span><br><span class="line"></span><br><span class="line">Mining the block containing：Send <span class="number">1</span> BTC to Ivan </span><br><span class="line">Elapsed Time: <span class="number">1.069</span> seconds </span><br><span class="line">correct hash Hex: <span class="number">00000</span>a38c0d7f2ebbd20773e93770298aa8bc0cc6d85fca8756fe0646ae7fea5 </span><br><span class="line"></span><br><span class="line">Mining the block containing：Send <span class="number">2</span> more BTC to Ivan </span><br><span class="line">Elapsed Time: <span class="number">4.258</span> seconds </span><br><span class="line">correct hash Hex: <span class="number">00000777f</span>93efe91d9aabcba14ab3d8ab8e0255b89818cdb9b93cfa844ad0c7f </span><br><span class="line"></span><br><span class="line">Prev.hash: </span><br><span class="line">Data: Genesis Block</span><br><span class="line">Hash: <span class="number">00000828</span>ee8289ef6381f297585ef8c952fde93fc2b673ff7cc655f699bb2442</span><br><span class="line">Nonce: <span class="number">522163</span></span><br><span class="line">Pow valid: <span class="keyword">true</span></span><br><span class="line"></span><br><span class="line">Prev.hash: <span class="number">00000828</span>ee8289ef6381f297585ef8c952fde93fc2b673ff7cc655f699bb2442</span><br><span class="line">Data: Send <span class="number">1</span> BTC to Ivan</span><br><span class="line">Hash: <span class="number">00000</span>a38c0d7f2ebbd20773e93770298aa8bc0cc6d85fca8756fe0646ae7fea5</span><br><span class="line">Nonce: <span class="number">474758</span></span><br><span class="line">Pow valid: <span class="keyword">true</span></span><br><span class="line"></span><br><span class="line">Prev.hash: <span class="number">00000</span>a38c0d7f2ebbd20773e93770298aa8bc0cc6d85fca8756fe0646ae7fea5</span><br><span class="line">Data: Send <span class="number">2</span> more BTC to Ivan</span><br><span class="line">Hash: <span class="number">00000777f</span>93efe91d9aabcba14ab3d8ab8e0255b89818cdb9b93cfa844ad0c7f</span><br><span class="line">Nonce: <span class="number">1853839</span></span><br><span class="line">Pow valid: <span class="keyword">true</span></span><br></pre></td></tr></table></figure>
 <h2><span id="总结">总结</span></h2><p>我们正在一步一步接近真实的区块链架构，本篇我们实现了挖矿机制，但是我们还有很多关键性的功能没有实现：区块链数据库的持久性、钱包、地址、交易、共识机制，这些我们后面一步一步来实现</p>
-<h3><span id="资料">资料</span></h3><ul>
+<h2><span id="资料">资料</span></h2><ul>
 <li>源代码：<a href="https://github.com/wangweiX/blockchain-java/tree/part2-pow" target="_blank" rel="external">https://github.com/wangweiX/blockchain-java/tree/part2-pow</a></li>
 </ul>
 <ul>
 <li><a href="https://jeiwan.cc/posts/building-blockchain-in-go-part-2/" target="_blank" rel="external">https://jeiwan.cc/posts/building-blockchain-in-go-part-2/</a></li>
-<li><a href="https://github.com/bitcoinbook/bitcoinbook" target="_blank" rel="external">《精通比特币（第二版）》</a></li></ul>]]></content>
+<li><a href="https://github.com/bitcoinbook/bitcoinbook" target="_blank" rel="external">《精通比特币（第二版）》</a></li>
+</ul>
+<p><img src="https://img.i7years.com/blog/blockchain_exploer.png" alt=""></p>
+<blockquote>
+<p><a href="https://press.one/file/v?s=4fb1e0818984baa1c44f0816f56490d616247c0ec4bc1ae69ce5d7b75ac93468a4fdab2d120a8077ff54b467b6c268ab220dc4247374ed06e5000972488d30e60&amp;h=976aeef7414e3e5779d73cb9950c566eb1ac7a0d75f2ab76a0bea31b30e94686&amp;a=23fe9bfd7ceef4b44c2ce44dcac8e4a49caf8026&amp;f=P1&amp;v=2" target="_blank" rel="external">https://press.one/file/v?s=4fb1e0818984baa1c44f0816f56490d616247c0ec4bc1ae69ce5d7b75ac93468a4fdab2d120a8077ff54b467b6c268ab220dc4247374ed06e5000972488d30e60&amp;h=976aeef7414e3e5779d73cb9950c566eb1ac7a0d75f2ab76a0bea31b30e94686&amp;a=23fe9bfd7ceef4b44c2ce44dcac8e4a49caf8026&amp;f=P1&amp;v=2</a></p></blockquote>]]></content>
       
         <categories>
             
@@ -521,14 +538,16 @@
 <li>缺少共识机制：区块链是一个非单一决策者的分布式数据库。 因此，一个新的区块必须得到网络的其他参与者的确认和批</li>
 </ul>
 <p>在以后的文章中，我们将介绍这些功能。</p>
-<h3><span id="资料">资料</span></h3><ul>
+<h2><span id="资料">资料</span></h2><ul>
 <li>源代码：<a href="https://github.com/wangweiX/blockchain-java/tree/part1-Basic_Prototype" target="_blank" rel="external">https://github.com/wangweiX/blockchain-java/tree/part1-Basic_Prototype</a></li>
 </ul>
 <ul>
 <li><a href="https://jeiwan.cc/posts/building-blockchain-in-go-part-1/" target="_blank" rel="external">https://jeiwan.cc/posts/building-blockchain-in-go-part-1/</a></li>
 <li><a href="https://github.com/bitcoinbook/bitcoinbook" target="_blank" rel="external">《精通比特币（第二版）》</a></li>
 </ul>
-<p><img src="https://img.i7years.com/blog/xiaomiquan_eos.jpg" alt=""></p>]]></content>
+<p><img src="https://img.i7years.com/blog/blockchain_exploer.png" alt=""></p>
+<blockquote>
+<p><a href="https://press.one/file/v?s=e2926b487ace53de6e9defb2a68561220b8da974cf712dccf8f546c770e6df6813abeb96bdb49d4199858fa8e404959a8b07631fc0c9804787f45f816f8abef30&amp;h=f3625969fe71d4d0b31df504b7f7c8598c5617fcf92b54238f65fa666724022c&amp;a=23fe9bfd7ceef4b44c2ce44dcac8e4a49caf8026&amp;f=P1&amp;v=2" target="_blank" rel="external">https://press.one/file/v?s=e2926b487ace53de6e9defb2a68561220b8da974cf712dccf8f546c770e6df6813abeb96bdb49d4199858fa8e404959a8b07631fc0c9804787f45f816f8abef30&amp;h=f3625969fe71d4d0b31df504b7f7c8598c5617fcf92b54238f65fa666724022c&amp;a=23fe9bfd7ceef4b44c2ce44dcac8e4a49caf8026&amp;f=P1&amp;v=2</a></p></blockquote>]]></content>
       
         <categories>
             
@@ -994,8 +1013,6 @@
 <figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># ./shadowsocks-libev.sh uninstall</span></span><br></pre></td></tr></table></figure>
 <h1><span id="客户端配置">客户端配置</span></h1><h2><span id="mac端安装">Mac端安装</span></h2><h3><span id="客户端下载">客户端下载</span></h3><ul>
 <li><p>官方地址：<a href="https://github.com/shadowsocks/ShadowsocksX-NG/releases/" target="_blank" rel="external">https://github.com/shadowsocks/ShadowsocksX-NG/releases/</a></p>
-</li>
-<li><p>快速下载：<a href="http://attach.i7years.com/ShadowsocksX-NG.1.7.0.zip" target="_blank" rel="external">http://attach.i7years.com/ShadowsocksX-NG.1.7.0.zip</a></p>
 <p>​</p>
 </li>
 </ul>
@@ -1030,14 +1047,12 @@
 </ul>
 <h2><span id="windows用户">Windows用户</span></h2><h3><span id="客户端下载">客户端下载</span></h3><ul>
 <li>官方地址：<a href="https://github.com/shadowsocks/shadowsocks-windows/releases" target="_blank" rel="external">https://github.com/shadowsocks/shadowsocks-windows/releases</a></li>
-<li>快速下载：<a href="http://attach.i7years.com/Shadowsocks-4.0.7.zip" target="_blank" rel="external">http://attach.i7years.com/Shadowsocks-4.0.7.zip</a></li>
 </ul>
 <h3><span id="配置指南">配置指南</span></h3><ul>
 <li>请参考Mac端配置</li>
 </ul>
 <h2><span id="android用户">Android用户</span></h2><h3><span id="客户端下载">客户端下载</span></h3><ul>
 <li>官方地址：<a href="https://github.com/shadowsocks/shadowsocks-android/releases" target="_blank" rel="external">https://github.com/shadowsocks/shadowsocks-android/releases</a></li>
-<li>快速下载：<a href="http://attach.i7years.com/shadowsocks-nightly-4.4.4.apk" target="_blank" rel="external">http://attach.i7years.com/shadowsocks-nightly-4.4.4.apk</a></li>
 </ul>
 <h3><span id="配置指南">配置指南</span></h3><ul>
 <li>请参考iPhone配置</li>
