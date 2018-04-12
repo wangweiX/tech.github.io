@@ -4,6 +4,28 @@
 
     
   <url>
+    <loc>https://wangwei.one/posts/edbb6788.html</loc>
+    <lastmod>2018-04-12T12:13:32.009Z</lastmod>
+    <data>
+        <display>
+        <title>全球区块链顶级会议Token Summit 2017一手信息解读</title>
+        <pubTime>2017-12-16T08:14:25.000Z</pubTime>
+        
+        <tag>blockchain</tag>
+         
+        <tag>Token</tag>
+         
+         
+           
+             
+              <breadCrumb title="blockchain" url="https://wangwei.one/categories/blockchain/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>https://wangwei.one/posts/630e7ae5.html</loc>
     <lastmod>2018-04-12T11:17:13.810Z</lastmod>
     <data>
@@ -17,9 +39,9 @@
          
         <tag>bitcoin</tag>
          
-        <tag>UTXO</tag>
-         
         <tag>Merkle Tree</tag>
+         
+        <tag>UTXO</tag>
          
          
            
@@ -408,36 +430,6 @@
         <tag>blockchain</tag>
          
         <tag>eos</tag>
-         
-         
-           
-             
-              <breadCrumb title="blockchain" url="https://wangwei.one/categories/blockchain/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://wangwei.one/posts/edbb6788.html</loc>
-    <lastmod>2018-02-02T07:14:32.993Z</lastmod>
-    <data>
-        <display>
-        <title>全球区块链顶级会议Token Summit 2017一手信息解读</title>
-        <pubTime>2017-12-16T08:14:25.000Z</pubTime>
-        
-        <tag>blockchain</tag>
-         
-        <tag>BTC</tag>
-         
-        <tag>EOS</tag>
-         
-        <tag>ETH</tag>
-         
-        <tag>Token</tag>
-         
-        <tag>Coin</tag>
          
          
            

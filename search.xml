@@ -90,9 +90,9 @@
             
             <tag> bitcoin </tag>
             
-            <tag> UTXO </tag>
-            
             <tag> Merkle Tree </tag>
+            
+            <tag> UTXO </tag>
             
         </tags>
         
@@ -928,15 +928,7 @@
             
             <tag> blockchain </tag>
             
-            <tag> BTC </tag>
-            
-            <tag> EOS </tag>
-            
-            <tag> ETH </tag>
-            
             <tag> Token </tag>
-            
-            <tag> Coin </tag>
             
         </tags>
         
