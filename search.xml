@@ -66,11 +66,9 @@
 <ul>
 <li><p>第一次是开采创世区块；</p>
 </li>
-<li><p>第二次是开采区块：</p>
-<p>00005fd36a2609b43fd940577f93b8622e88e854f5ccfd70e113f763b6df69f7</p>
+<li><p>第二次是开采区块：00005fd36a2609b43fd940577f93b8622e88e854f5ccfd70e113f763b6df69f7</p>
 </li>
-<li><p>第三次是开采区块：</p>
-<p>00009fd7c59b830b60ec21ade7672921d2fb0962a1b06a42c245450e47582a13</p>
+<li><p>第三次是开采区块：00009fd7c59b830b60ec21ade7672921d2fb0962a1b06a42c245450e47582a13</p>
 </li>
 </ul>
 <h2><span id="merkle-tree">Merkle Tree</span></h2><h2><span id="p2pkh">P2PKH</span></h2>]]></content>
