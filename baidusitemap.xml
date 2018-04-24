@@ -4,58 +4,8 @@
 
     
   <url>
-    <loc>https://wangwei.one/posts/f9088e0f.html</loc>
-    <lastmod>2018-04-23T14:17:45.142Z</lastmod>
-    <data>
-        <display>
-        <title>基于Java语言构建区块链（五）—— 地址（钱包）</title>
-        <pubTime>2018-03-25T09:00:00.000Z</pubTime>
-        
-        <tag>blockchain</tag>
-         
-        <tag>java</tag>
-         
-        <tag>bitcoin</tag>
-         
-        <tag>Elliptic Curve</tag>
-         
-         
-           
-             
-              <breadCrumb title="blockchain" url="https://wangwei.one/categories/blockchain/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://wangwei.one/posts/df195d9.html</loc>
-    <lastmod>2018-04-19T06:27:24.579Z</lastmod>
-    <data>
-        <display>
-        <title>基于Java语言构建区块链（一）—— 基本原型</title>
-        <pubTime>2018-02-02T14:00:00.000Z</pubTime>
-        
-        <tag>blockchain</tag>
-         
-        <tag>java</tag>
-         
-        <tag>bitcoin</tag>
-         
-         
-           
-             
-              <breadCrumb title="blockchain" url="https://wangwei.one/categories/blockchain/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
     <loc>https://wangwei.one/posts/630e7ae5.html</loc>
-    <lastmod>2018-04-15T12:22:44.053Z</lastmod>
+    <lastmod>2018-04-24T14:36:41.947Z</lastmod>
     <data>
         <display>
         <title>基于Java语言构建区块链（六）—— 交易（Merkle Tree）</title>
@@ -84,8 +34,60 @@
 
     
   <url>
+    <loc>https://wangwei.one/posts/f9088e0f.html</loc>
+    <lastmod>2018-04-24T14:35:52.103Z</lastmod>
+    <data>
+        <display>
+        <title>基于Java语言构建区块链（五）—— 地址（钱包）</title>
+        <pubTime>2018-03-25T09:00:00.000Z</pubTime>
+        
+        <tag>blockchain</tag>
+         
+        <tag>java</tag>
+         
+        <tag>bitcoin</tag>
+         
+        <tag>Elliptic Curve</tag>
+         
+         
+           
+             
+              <breadCrumb title="blockchain" url="https://wangwei.one/categories/blockchain/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://wangwei.one/posts/9cf9e42a.html</loc>
+    <lastmod>2018-04-24T14:35:18.367Z</lastmod>
+    <data>
+        <display>
+        <title>基于Java语言构建区块链（四）—— 交易（UTXO）</title>
+        <pubTime>2018-02-28T14:43:00.000Z</pubTime>
+        
+        <tag>blockchain</tag>
+         
+        <tag>java</tag>
+         
+        <tag>bitcoin</tag>
+         
+        <tag>UTXO</tag>
+         
+         
+           
+             
+              <breadCrumb title="blockchain" url="https://wangwei.one/categories/blockchain/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>https://wangwei.one/posts/35c768a3.html</loc>
-    <lastmod>2018-04-14T06:55:17.242Z</lastmod>
+    <lastmod>2018-04-24T14:34:25.504Z</lastmod>
     <data>
         <display>
         <title>基于Java语言构建区块链（三）—— 持久化 & 命令行</title>
@@ -111,7 +113,7 @@
     
   <url>
     <loc>https://wangwei.one/posts/7890ab7e.html</loc>
-    <lastmod>2018-04-14T06:49:39.563Z</lastmod>
+    <lastmod>2018-04-24T14:33:32.563Z</lastmod>
     <data>
         <display>
         <title>基于Java语言构建区块链（二）—— 工作量证明</title>
@@ -124,6 +126,30 @@
         <tag>bitcoin</tag>
          
         <tag>pow</tag>
+         
+         
+           
+             
+              <breadCrumb title="blockchain" url="https://wangwei.one/categories/blockchain/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://wangwei.one/posts/df195d9.html</loc>
+    <lastmod>2018-04-24T14:30:55.746Z</lastmod>
+    <data>
+        <display>
+        <title>基于Java语言构建区块链（一）—— 基本原型</title>
+        <pubTime>2018-02-02T14:00:00.000Z</pubTime>
+        
+        <tag>blockchain</tag>
+         
+        <tag>java</tag>
+         
+        <tag>bitcoin</tag>
          
          
            
@@ -168,32 +194,6 @@
         <tag>blockchain</tag>
          
         <tag>Token</tag>
-         
-         
-           
-             
-              <breadCrumb title="blockchain" url="https://wangwei.one/categories/blockchain/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://wangwei.one/posts/9cf9e42a.html</loc>
-    <lastmod>2018-04-12T09:24:43.395Z</lastmod>
-    <data>
-        <display>
-        <title>基于Java语言构建区块链（四）—— 交易（UTXO）</title>
-        <pubTime>2018-02-28T14:43:00.000Z</pubTime>
-        
-        <tag>blockchain</tag>
-         
-        <tag>java</tag>
-         
-        <tag>bitcoin</tag>
-         
-        <tag>UTXO</tag>
          
          
            
