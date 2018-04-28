@@ -4,6 +4,36 @@
 
     
   <url>
+    <loc>https://wangwei.one/posts/630e7ae5.html</loc>
+    <lastmod>2018-04-28T00:22:47.362Z</lastmod>
+    <data>
+        <display>
+        <title>基于Java语言构建区块链（六）—— 交易（Merkle Tree）</title>
+        <pubTime>2018-03-26T09:00:00.000Z</pubTime>
+        
+        <tag>blockchain</tag>
+         
+        <tag>java</tag>
+         
+        <tag>bitcoin</tag>
+         
+        <tag>Merkle Tree</tag>
+         
+        <tag>UTXO</tag>
+         
+        <tag>SPV</tag>
+         
+         
+           
+             
+              <breadCrumb title="blockchain" url="https://wangwei.one/categories/blockchain/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>https://wangwei.one/posts/e7455888.html</loc>
     <lastmod>2018-04-27T13:41:58.477Z</lastmod>
     <data>
@@ -42,36 +72,6 @@
         <tag>java</tag>
          
         <tag>bitcoin</tag>
-         
-         
-           
-             
-              <breadCrumb title="blockchain" url="https://wangwei.one/categories/blockchain/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://wangwei.one/posts/630e7ae5.html</loc>
-    <lastmod>2018-04-25T02:42:06.619Z</lastmod>
-    <data>
-        <display>
-        <title>基于Java语言构建区块链（六）—— 交易（Merkle Tree）</title>
-        <pubTime>2018-03-26T09:00:00.000Z</pubTime>
-        
-        <tag>blockchain</tag>
-         
-        <tag>java</tag>
-         
-        <tag>bitcoin</tag>
-         
-        <tag>Merkle Tree</tag>
-         
-        <tag>UTXO</tag>
-         
-        <tag>SPV</tag>
          
          
            
