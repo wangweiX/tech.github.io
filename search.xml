@@ -125,9 +125,9 @@
             
             <tag> bitcoin </tag>
             
-            <tag> UTXO </tag>
-            
             <tag> Merkle Tree </tag>
+            
+            <tag> UTXO </tag>
             
             <tag> SPV </tag>
             
