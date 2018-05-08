@@ -1970,18 +1970,17 @@
 </li>
 </ol>
 <h1><span id="jdk中的运用">JDK中的运用</span></h1><ul>
-<li><a href="https://docs.oracle.com/javase/8/docs/api/java/io/InputStream.html" target="_blank" rel="external">java.io.InputStream</a>  , <a href="https://docs.oracle.com/javase/8/docs/api/java/io/OutputStream.html" target="_blank" rel="external">java.io.OutputStream</a> , <a href="https://docs.oracle.com/javase/8/docs/api/java/io/Reader.html" target="_blank" rel="external">java.io.Reader</a> 以及 <a href="https://docs.oracle.com/javase/8/docs/api/java/io/Writer.html" target="_blank" rel="external">java.io.Writer</a> 中所有非抽象方法。</li>
-<li><a href="https://docs.oracle.com/javase/8/docs/api/java/util/AbstractList.html" target="_blank" rel="external">java.util.AbstractList</a> , <a href="https://docs.oracle.com/javase/8/docs/api/java/util/AbstractSet.html" target="_blank" rel="external">java.util.AbstractSet</a> 以及 <a href="https://docs.oracle.com/javase/8/docs/api/java/util/AbstractMap.html" target="_blank" rel="external">java.util.AbstractMap</a> 中所有非抽象方法。</li>
-<li><a href="http://docs.oracle.com/javaee/7/api/javax/servlet/http/HttpServlet.html" target="_blank" rel="external">javax.servlet.http.HttpServlet</a> 中所有 doXXX() 的方法；</li>
+<li><a href="https://docs.oracle.com/javase/8/docs/api/java/io/InputStream.html" target="_blank" rel="external">java.io.InputStream</a>  , <a href="https://docs.oracle.com/javase/8/docs/api/java/io/OutputStream.html" target="_blank" rel="external">java.io.OutputStream</a> , <a href="https://docs.oracle.com/javase/8/docs/api/java/io/Reader.html" target="_blank" rel="external">java.io.Reader</a> 以及 <a href="https://docs.oracle.com/javase/8/docs/api/java/io/Writer.html" target="_blank" rel="external">java.io.Writer</a> 中所有非抽象方法；</li>
+<li><a href="https://docs.oracle.com/javase/8/docs/api/java/util/AbstractList.html" target="_blank" rel="external">java.util.AbstractList</a> , <a href="https://docs.oracle.com/javase/8/docs/api/java/util/AbstractSet.html" target="_blank" rel="external">java.util.AbstractSet</a> 以及 <a href="https://docs.oracle.com/javase/8/docs/api/java/util/AbstractMap.html" target="_blank" rel="external">java.util.AbstractMap</a> 中所有非抽象方法；</li>
+<li><a href="http://docs.oracle.com/javaee/7/api/javax/servlet/http/HttpServlet.html" target="_blank" rel="external">javax.servlet.http.HttpServlet</a> 中 默认发送 Http 405 “Method Not Allowed” 错误响应信息的 doXXX() 的方法；</li>
 </ul>
 <h4><span id="参考资料">参考资料</span></h4><ul>
-<li><p><a href="https://github.com/wangweiX/backend-learning/tree/master/backend-design-patterns/src/main/java/one/wangwei/designpatterns/templatemethod" target="_blank" rel="external">源码</a></p>
-</li>
-<li><p><a href="https://sourcemaking.com/design_patterns/template_method" target="_blank" rel="external">https://sourcemaking.com/design_patterns/template_method</a></p>
-</li>
+<li><a href="https://github.com/wangweiX/backend-learning/tree/master/backend-design-patterns/src/main/java/one/wangwei/designpatterns/templatemethod" target="_blank" rel="external">源码</a></li>
+<li><a href="https://sourcemaking.com/design_patterns/template_method" target="_blank" rel="external">https://sourcemaking.com/design_patterns/template_method</a></li>
 <li><a href="https://refactoring.guru/design-patterns/template-method/java/example" target="_blank" rel="external">https://refactoring.guru/design-patterns/template-method/java/example</a></li>
-<li><a href="http://ifeve.com/template-method-design-pattern" target="_blank" rel="external">http://ifeve.com/template-method-design-pattern</a></li>
-<li>《图解设计模式》</li></ul>]]></content>
+<li><p><a href="http://ifeve.com/template-method-design-pattern" target="_blank" rel="external">http://ifeve.com/template-method-design-pattern</a></p>
+</li>
+<li><p>《图解设计模式》</p></li></ul>]]></content>
       
         <categories>
             
