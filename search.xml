@@ -638,9 +638,9 @@
             
             <tag> Java </tag>
             
-            <tag> bitcoin </tag>
-            
             <tag> pow </tag>
+            
+            <tag> bitcoin </tag>
             
         </tags>
         
@@ -1965,7 +1965,7 @@
     <entry>
       <title><![CDATA[运维资料整理]]></title>
       <url>/posts/96a7dc5b.html</url>
-      <content type="html"><![CDATA[<script src="/assets/js/APlayer.min.js"> </script><h1><span id="centos">CentOS</span></h1><ul><li><p><a href="https://www.digitalocean.com/community/tutorials/how-to-set-up-a-firewall-using-firewalld-on-centos-7" target="_blank" rel="external">防火墙配置</a></p></li><li><p><a href="https://www.cyberciti.biz/faq/unix-linux-check-if-port-is-in-use-command/" target="_blank" rel="external">端口运行检查</a></p></li></ul><h1><span id="nginx">Nginx</span></h1><ul><li><a href="https://www.digitalocean.com/community/tutorials/how-to-install-nginx-on-centos-7" target="_blank" rel="external">Nginx安装</a></li><li><a href="https://www.digitalocean.com/community/tutorials/how-to-secure-nginx-with-let-s-encrypt-on-centos-7" target="_blank" rel="external">Let’s Encrypt 安装</a></li><li><a href="https://www.cyberciti.biz/tips/linux-unix-bsd-nginx-webserver-security.html" target="_blank" rel="external">Nginx安全设置</a></li><li><a href="https://github.com/denji/nginx-tuning" target="_blank" rel="external">Nginx性能优化</a></li></ul>]]></content>
+      <content type="html"><![CDATA[<script src="/assets/js/APlayer.min.js"> </script><p>收集整理一些有关运维相关的操作指南</p><a id="more"></a><h1><span id="centos">CentOS</span></h1><ul><li><p><a href="https://www.digitalocean.com/community/tutorials/how-to-set-up-a-firewall-using-firewalld-on-centos-7" target="_blank" rel="external">防火墙配置</a></p></li><li><p><a href="https://www.cyberciti.biz/faq/unix-linux-check-if-port-is-in-use-command/" target="_blank" rel="external">端口运行检查</a></p></li></ul><h1><span id="nginx">Nginx</span></h1><ul><li><a href="https://www.digitalocean.com/community/tutorials/how-to-install-nginx-on-centos-7" target="_blank" rel="external">Nginx安装</a></li><li><a href="https://www.digitalocean.com/community/tutorials/how-to-secure-nginx-with-let-s-encrypt-on-centos-7" target="_blank" rel="external">Let’s Encrypt 安装</a></li><li><a href="https://www.cyberciti.biz/tips/linux-unix-bsd-nginx-webserver-security.html" target="_blank" rel="external">Nginx安全设置</a></li><li><a href="https://github.com/denji/nginx-tuning" target="_blank" rel="external">Nginx性能优化</a></li></ul>]]></content>
       
         <categories>
             
