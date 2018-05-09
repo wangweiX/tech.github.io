@@ -638,9 +638,9 @@
             
             <tag> Java </tag>
             
-            <tag> pow </tag>
-            
             <tag> bitcoin </tag>
+            
+            <tag> pow </tag>
             
         </tags>
         
@@ -1306,7 +1306,6 @@
       <content type="html"><![CDATA[<script src="/assets/js/APlayer.min.js"> </script><h1><span id="说明">说明</span></h1><p>本系列文章主要用来记录自己搭建博客的过程，分享出来给需要的朋友。有几点说明需要注意：</p><ul><li>如果你是开发者或者说是对编程熟悉的朋友，可以直接忽略此声明；</li><li>如果是非开发者或是对<strong>命令行</strong>毫无概念，但是又想搭建自己博客的朋友，在依照此系列文章搭建博客时，务必保证一点：<strong>不要一上来就问这些命令行是干什么的，请先直接按照文章的引导一步一步去执行，直到把目标达成，建立起成就感。之后，再回过头去Google一下这些命令行是干什么的，先模仿再深究，才是正确的学习方式，否则很容易从入门到放弃</strong>。</li><li>此文章只适用于<strong>Mac环境</strong>。</li><li>虽说网上的有了很多关于如何通过Hexo搭建博客的指南，但我还是想用更加清晰明了的方式再做一遍梳理，希望我的文章能够给你简单、清晰的感觉。</li></ul><a id="more"></a><h1><span id="准备">准备</span></h1><ul><li><p>命令行工具<strong>terminal</strong>熟悉</p><p><img src="https://img.i7years.com/terminal_1.png" alt="WX20170604-145706@2x"></p></li><li><p>前往<a href="https://github.com/" target="_blank" rel="external">GitHub</a>注册一个账号，后面有用</p></li><li><p>打开Terminal，下面的命令，安装后续要用到各种工具及环境。</p><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ bash &lt;(curl -s https://raw.githubusercontent.com/monfresh/laptop/master/laptop)</span><br></pre></td></tr></table></figure>
 <p>演示视频：<a href="https://monfresh.wistia.com/medias/k8zxt0vj7w" target="_blank" rel="external">https://monfresh.wistia.com/medias/k8zxt0vj7w</a></p>
 <p>参考文档：<a href="https://github.com/monfresh/laptop" target="_blank" rel="external">https://github.com/monfresh/laptop</a></p>
-<p>​</p>
 </li>
 </ul>
 <h1><span id="指南">指南</span></h1><ol>
@@ -1582,7 +1581,14 @@
 </li>
 <li><p>浏览器访问新的博客地址：username.github.io，如果能看到和你本地一样的页面，恭喜你，上传成功。</p>
 <blockquote>
-<p>注意：username.github.io 为你的实际仓库地址</p></blockquote></li></ol>]]></content>
+<p>注意：username.github.io 为你的实际仓库地址</p>
+</blockquote>
+</li>
+</ol>
+<h2><span id="同步github仓库">同步Github仓库</span></h2><p>如果你的博客最终是部署到服务器上的，并且希望 <code>username.github.io</code> 仓库有代码更新时，服务器上会自动执行<code>git pull</code> 命令来同步代码。请参考：</p>
+<ul>
+<li><a href="https://github.com/logsol/Github-Auto-Deploy" target="_blank" rel="external">https://github.com/logsol/Github-Auto-Deploy</a></li>
+<li><a href="https://github.com/olipo186/Git-Auto-Deploy" target="_blank" rel="external">https://github.com/olipo186/Git-Auto-Deploy</a></li></ul>]]></content>
       
         <categories>
             
