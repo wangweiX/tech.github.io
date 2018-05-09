@@ -4,6 +4,26 @@
 
     
   <url>
+    <loc>https://wangwei.one/posts/f5f2d6f0.html</loc>
+    <lastmod>2018-05-09T09:51:38.286Z</lastmod>
+    <data>
+        <display>
+        <title>个人博客搭建指南（二）</title>
+        <pubTime>2017-06-03T13:28:01.000Z</pubTime>
+        
+        <tag>hexo</tag>
+         
+         
+           
+             
+              <breadCrumb title="tools" url="https://wangwei.one/categories/tools/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>https://wangwei.one/posts/33981b7f.html</loc>
     <lastmod>2018-05-09T09:42:41.038Z</lastmod>
     <data>
@@ -71,26 +91,6 @@
            
              
               <breadCrumb title="coding" url="https://wangwei.one/categories/coding/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://wangwei.one/posts/f5f2d6f0.html</loc>
-    <lastmod>2018-05-09T08:33:59.403Z</lastmod>
-    <data>
-        <display>
-        <title>个人博客搭建指南（二）</title>
-        <pubTime>2017-06-03T13:28:01.000Z</pubTime>
-        
-        <tag>hexo</tag>
-         
-         
-           
-             
-              <breadCrumb title="tools" url="https://wangwei.one/categories/tools/"/>
           
         </display>
     </data>
@@ -179,9 +179,9 @@
          
         <tag>Java</tag>
          
-        <tag>pow</tag>
-         
         <tag>bitcoin</tag>
+         
+        <tag>pow</tag>
          
          
            
@@ -785,13 +785,13 @@
         <title>让自己活在未来</title>
         <pubTime>2017-05-14T05:26:34.000Z</pubTime>
         
+        <tag>TED</tag>
+         
         <tag>活在未来</tag>
          
         <tag>自证预言</tag>
          
         <tag>心理学</tag>
-         
-        <tag>TED</tag>
          
          
            
@@ -811,9 +811,9 @@
         <title>营造更好交谈的10条建议</title>
         <pubTime>2017-05-07T14:31:54.000Z</pubTime>
         
-        <tag>TED</tag>
-         
         <tag>沟通交流</tag>
+         
+        <tag>TED</tag>
          
          
            
