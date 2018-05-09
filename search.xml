@@ -125,9 +125,9 @@
             
             <tag> bitcoin </tag>
             
-            <tag> UTXO </tag>
-            
             <tag> Merkle Tree </tag>
+            
+            <tag> UTXO </tag>
             
             <tag> SPV </tag>
             
@@ -988,11 +988,11 @@
         
         <tags>
             
+            <tag> Java </tag>
+            
             <tag> Spring </tag>
             
             <tag> SpringBoot </tag>
-            
-            <tag> Java </tag>
             
         </tags>
         
@@ -1054,9 +1054,9 @@
         
         <tags>
             
-            <tag> Java </tag>
-            
             <tag> 工具 </tag>
+            
+            <tag> Java </tag>
             
         </tags>
         
@@ -1933,6 +1933,30 @@
         <tags>
             
             <tag> 写作 </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
+      <title><![CDATA[设计模式(2) —— 抽象工厂(Abstract Factory)]]></title>
+      <url>/posts/33981b7f.html</url>
+      <content type="html"><![CDATA[<script src="/assets/js/APlayer.min.js"> </script>]]></content>
+      
+        <categories>
+            
+            <category> coding </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> Java </tag>
+            
+            <tag> Design Patterns </tag>
+            
+            <tag> Abstract Factory </tag>
             
         </tags>
         
