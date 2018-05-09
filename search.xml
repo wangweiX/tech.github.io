@@ -125,9 +125,9 @@
             
             <tag> bitcoin </tag>
             
-            <tag> Merkle Tree </tag>
-            
             <tag> UTXO </tag>
+            
+            <tag> Merkle Tree </tag>
             
             <tag> SPV </tag>
             
@@ -1719,13 +1719,13 @@
         
         <tags>
             
-            <tag> TED </tag>
-            
             <tag> 活在未来 </tag>
             
             <tag> 自证预言 </tag>
             
             <tag> 心理学 </tag>
+            
+            <tag> TED </tag>
             
         </tags>
         
@@ -1745,9 +1745,9 @@
         
         <tags>
             
-            <tag> 沟通交流 </tag>
-            
             <tag> TED </tag>
+            
+            <tag> 沟通交流 </tag>
             
         </tags>
         
@@ -1933,6 +1933,32 @@
         <tags>
             
             <tag> 写作 </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
+      <title><![CDATA[运维资料整理]]></title>
+      <url>/posts/96a7dc5b.html</url>
+      <content type="html"><![CDATA[<script src="/assets/js/APlayer.min.js"> </script><h1><span id="centos">CentOS</span></h1><ul><li><a href="https://www.digitalocean.com/community/tutorials/how-to-set-up-a-firewall-using-firewalld-on-centos-7" target="_blank" rel="external">防火墙配置</a></li></ul><h1><span id="nginx">Nginx</span></h1><ul><li><a href="https://www.digitalocean.com/community/tutorials/how-to-install-nginx-on-centos-7" target="_blank" rel="external">Nginx安装</a></li><li><a href="https://www.digitalocean.com/community/tutorials/how-to-secure-nginx-with-let-s-encrypt-on-centos-7" target="_blank" rel="external">Let’s Encrypt 安装</a></li></ul>]]></content>
+      
+        <categories>
+            
+            <category> tools </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> Nginx </tag>
+            
+            <tag> Https </tag>
+            
+            <tag> Let’s Encrypt </tag>
+            
+            <tag> CentOs </tag>
             
         </tags>
         
