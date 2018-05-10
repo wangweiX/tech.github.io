@@ -4,6 +4,30 @@
 
     
   <url>
+    <loc>https://wangwei.one/posts/33981b7f.html</loc>
+    <lastmod>2018-05-10T09:43:23.070Z</lastmod>
+    <data>
+        <display>
+        <title>设计模式(3) —— 抽象工厂(Abstract Factory)</title>
+        <pubTime>2017-01-06T14:43:00.000Z</pubTime>
+        
+        <tag>Java</tag>
+         
+        <tag>Design Patterns</tag>
+         
+        <tag>Abstract Factory</tag>
+         
+         
+           
+             
+              <breadCrumb title="coding" url="https://wangwei.one/categories/coding/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>https://wangwei.one/posts/96a7dc5b.html</loc>
     <lastmod>2018-05-10T09:35:30.523Z</lastmod>
     <data>
@@ -23,30 +47,6 @@
            
              
               <breadCrumb title="tools" url="https://wangwei.one/categories/tools/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://wangwei.one/posts/33981b7f.html</loc>
-    <lastmod>2018-05-10T09:35:22.987Z</lastmod>
-    <data>
-        <display>
-        <title>设计模式(3) —— 抽象工厂(Abstract Factory)</title>
-        <pubTime>2017-01-06T14:43:00.000Z</pubTime>
-        
-        <tag>Java</tag>
-         
-        <tag>Design Patterns</tag>
-         
-        <tag>Abstract Factory</tag>
-         
-         
-           
-             
-              <breadCrumb title="coding" url="https://wangwei.one/categories/coding/"/>
           
         </display>
     </data>
@@ -203,9 +203,9 @@
          
         <tag>Java</tag>
          
-        <tag>bitcoin</tag>
-         
         <tag>pow</tag>
+         
+        <tag>bitcoin</tag>
          
          
            
