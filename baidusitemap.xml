@@ -4,6 +4,78 @@
 
     
   <url>
+    <loc>https://wangwei.one/posts/33981b7f.html</loc>
+    <lastmod>2018-05-10T06:29:22.412Z</lastmod>
+    <data>
+        <display>
+        <title>设计模式(3) —— 抽象工厂(Abstract Factory)</title>
+        <pubTime>2017-01-05T14:43:00.000Z</pubTime>
+        
+        <tag>Java</tag>
+         
+        <tag>Design Patterns</tag>
+         
+        <tag>Abstract Factory</tag>
+         
+         
+           
+             
+              <breadCrumb title="coding" url="https://wangwei.one/categories/coding/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://wangwei.one/posts/ae604d3e.html</loc>
+    <lastmod>2018-05-10T06:29:20.142Z</lastmod>
+    <data>
+        <display>
+        <title>设计模式(2) —— 工厂方法(Factory Method)</title>
+        <pubTime>2017-01-05T14:43:00.000Z</pubTime>
+        
+        <tag>Java</tag>
+         
+        <tag>Design Patterns</tag>
+         
+        <tag>Factory Method</tag>
+         
+         
+           
+             
+              <breadCrumb title="coding" url="https://wangwei.one/categories/coding/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://wangwei.one/posts/bfb1958c.html</loc>
+    <lastmod>2018-05-10T06:29:15.949Z</lastmod>
+    <data>
+        <display>
+        <title>设计模式(1) —— 模板方法(Template Method)</title>
+        <pubTime>2017-01-04T14:43:00.000Z</pubTime>
+        
+        <tag>Java</tag>
+         
+        <tag>Design Patterns</tag>
+         
+        <tag>Template Method</tag>
+         
+         
+           
+             
+              <breadCrumb title="coding" url="https://wangwei.one/categories/coding/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>https://wangwei.one/posts/f5f2d6f0.html</loc>
     <lastmod>2018-05-09T09:51:38.286Z</lastmod>
     <data>
@@ -17,30 +89,6 @@
            
              
               <breadCrumb title="tools" url="https://wangwei.one/categories/tools/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://wangwei.one/posts/33981b7f.html</loc>
-    <lastmod>2018-05-09T09:42:41.038Z</lastmod>
-    <data>
-        <display>
-        <title>设计模式(2) —— 抽象工厂(Abstract Factory)</title>
-        <pubTime>2017-01-05T14:43:00.000Z</pubTime>
-        
-        <tag>Java</tag>
-         
-        <tag>Design Patterns</tag>
-         
-        <tag>Abstract Factory</tag>
-         
-         
-           
-             
-              <breadCrumb title="coding" url="https://wangwei.one/categories/coding/"/>
           
         </display>
     </data>
@@ -67,30 +115,6 @@
            
              
               <breadCrumb title="tools" url="https://wangwei.one/categories/tools/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://wangwei.one/posts/bfb1958c.html</loc>
-    <lastmod>2018-05-09T09:05:49.577Z</lastmod>
-    <data>
-        <display>
-        <title>设计模式(1) —— 模板方法(Template Method)</title>
-        <pubTime>2017-01-04T14:43:00.000Z</pubTime>
-        
-        <tag>Java</tag>
-         
-        <tag>Design Patterns</tag>
-         
-        <tag>Template Method</tag>
-         
-         
-           
-             
-              <breadCrumb title="coding" url="https://wangwei.one/categories/coding/"/>
           
         </display>
     </data>
@@ -233,9 +257,9 @@
          
         <tag>bitcoin</tag>
          
-        <tag>Merkle Tree</tag>
-         
         <tag>UTXO</tag>
+         
+        <tag>Merkle Tree</tag>
          
         <tag>SPV</tag>
          
