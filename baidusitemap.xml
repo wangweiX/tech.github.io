@@ -3,6 +3,32 @@
 
 
     
+  <url>
+    <loc>https://wangwei.one/posts/643232a4.html</loc>
+    <lastmod>2018-06-09T15:41:29.774Z</lastmod>
+    <data>
+        <display>
+        <title>基于Java语言构建区块链（七）—— 交易脚本（智能合约）</title>
+        <pubTime>2018-05-02T14:43:00.000Z</pubTime>
+        
+        <tag>blockchain</tag>
+         
+        <tag>bitcoin</tag>
+         
+        <tag>bitcoin-script</tag>
+         
+        <tag>smart contract</tag>
+         
+         
+           
+             
+              <breadCrumb title="blockchain" url="https://wangwei.one/categories/blockchain/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
     
   <url>
     <loc>https://wangwei.one/posts/d1d7001d.html</loc>
@@ -194,9 +220,9 @@
          
         <tag>bitcoin</tag>
          
-        <tag>Merkle Tree</tag>
-         
         <tag>UTXO</tag>
+         
+        <tag>Merkle Tree</tag>
          
         <tag>SPV</tag>
          
