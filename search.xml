@@ -90,8 +90,7 @@
 <p>这是比特币脚本中使用最为常见的一种形式，名叫 <em>Pay to Public Key Hash</em> (P2PKH)。基于前面 <code>2 + 3 = 5</code> 的验证过程，我们可以得到 P2PKH 脚本在堆栈引擎中的验证过程如下所示：</p>
 <p><img src="https://img.i7years.com/blog/P2PKH.png" alt=""></p>
 <p>好了， 到此为止，你已经对比特币的交易脚本以及它的工作原理已经有了一个非常清楚的理解与认识。下面我们开始用代码来实现它的工作机制。</p>
-<h2><span id="代码实现">代码实现</span></h2><p>// TODO</p>
-<p>参考资料</p>
+<h2><span id="代码实现">代码实现</span></h2><p>参考资料</p>
 <ul>
 <li><a href="https://github.com/bitcoinbook/bitcoinbook/blob/develop/ch06.asciidoc" target="_blank" rel="external">《精通比特币（第二版）》第六章</a></li>
 <li><a href="https://jeiwan.cc/posts/building-blockchain-in-go-part-6" target="_blank" rel="external">https://jeiwan.cc/posts/building-blockchain-in-go-part-6</a></li>
@@ -245,9 +244,9 @@
             
             <tag> bitcoin </tag>
             
-            <tag> UTXO </tag>
-            
             <tag> Merkle Tree </tag>
+            
+            <tag> UTXO </tag>
             
             <tag> SPV </tag>
             
@@ -1828,13 +1827,13 @@
         
         <tags>
             
+            <tag> TED </tag>
+            
             <tag> 活在未来 </tag>
             
             <tag> 自证预言 </tag>
             
             <tag> 心理学 </tag>
-            
-            <tag> TED </tag>
             
         </tags>
         
@@ -1854,9 +1853,9 @@
         
         <tags>
             
-            <tag> TED </tag>
-            
             <tag> 沟通交流 </tag>
+            
+            <tag> TED </tag>
             
         </tags>
         
