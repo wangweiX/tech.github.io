@@ -4,6 +4,48 @@
 
     
   <url>
+    <loc>https://wangwei.one/posts/917fb1e0.html</loc>
+    <lastmod>2018-06-13T02:06:17.826Z</lastmod>
+    <data>
+        <display>
+        <title>Java开发环境搭建清单</title>
+        <pubTime>2017-11-20T12:42:22.000Z</pubTime>
+        
+        <tag>工具</tag>
+         
+        <tag>Java</tag>
+         
+         
+           
+             
+              <breadCrumb title="coding" url="https://wangwei.one/categories/coding/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://wangwei.one/posts/4c3b6bcb.html</loc>
+    <lastmod>2018-06-13T02:03:45.728Z</lastmod>
+    <data>
+        <display>
+        <title>好用的Chrome Extensions</title>
+        <pubTime>2017-06-12T06:27:10.000Z</pubTime>
+        
+        <tag>Chrome</tag>
+         
+         
+           
+             
+              <breadCrumb title="tools" url="https://wangwei.one/categories/tools/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>https://wangwei.one/posts/643232a4.html</loc>
     <lastmod>2018-06-10T08:13:29.057Z</lastmod>
     <data>
@@ -743,28 +785,6 @@
         <tag>Spring</tag>
          
         <tag>SpringBoot</tag>
-         
-         
-           
-             
-              <breadCrumb title="coding" url="https://wangwei.one/categories/coding/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://wangwei.one/posts/917fb1e0.html</loc>
-    <lastmod>2018-01-17T02:46:15.359Z</lastmod>
-    <data>
-        <display>
-        <title>Java开发环境搭建清单</title>
-        <pubTime>2017-11-20T12:42:22.000Z</pubTime>
-        
-        <tag>工具</tag>
-         
-        <tag>Java</tag>
          
          
            
