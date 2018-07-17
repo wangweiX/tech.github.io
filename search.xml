@@ -2060,9 +2060,53 @@
     </entry>
     
     <entry>
-      <title><![CDATA[NodeJs学习(5) | Node.js Closure]]></title>
-      <url>/posts/b16f3ce2.html</url>
-      <content type="html"><![CDATA[<script src="/assets/js/APlayer.min.js"> </script><p><a href="http://www.ruanyifeng.com/blog/2009/08/learning_javascript_closures.html" target="_blank" rel="external">http://www.ruanyifeng.com/blog/2009/08/learning_javascript_closures.html</a></p>]]></content>
+      <title><![CDATA[NodeJs学习(3) | Build first web server]]></title>
+      <url>/posts/b1fcd8d6.html</url>
+      <content type="html"><![CDATA[<script src="/assets/js/APlayer.min.js"> </script><p>本篇文章交易如何使用NodeJs搭建一个简单版的http server.</p><a id="more"></a><h2><span id="设备">设备</span></h2><ul><li>MacOS High Sierra</li></ul><h2><span id="环境部署">环境部署</span></h2><h4><span id="安装-nvm">安装 nvm</span></h4><blockquote><p>使用 nvm 方便管理node版本</p></blockquote><h5><span id="安装nvm">安装nvm</span></h5><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ brew update</span><br><span class="line">$ brew install nvm</span><br><span class="line">$ mkdir ~/.nvm</span><br><span class="line">$ vim ~/.bash_profile</span><br></pre></td></tr></table></figure>
+<h5><span id="配置变量nvm_dir">配置变量NVM_DIR</span></h5><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ export NVM_DIR=~/.nvm</span><br><span class="line">$ source $(brew --prefix nvm)/nvm.sh</span><br></pre></td></tr></table></figure>
+<h5><span id="检查">检查</span></h5><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ source ~/.bash_profile</span><br><span class="line">$ echo <span class="variable">$NVM_DIR</span></span><br><span class="line">$ nvm --version</span><br><span class="line"><span class="number">0.33</span>.<span class="number">11</span></span><br></pre></td></tr></table></figure>
+<h5><span id="删除-nvm">删除 nvm</span></h5><ul>
+<li><p>删除文件</p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ rm -rf <span class="string">"<span class="variable">$NVM_DIR</span>"</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>删除 <code>~/.bash_profile</code> 中以下配置</p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">export NVM_DIR=<span class="string">"<span class="variable">$HOME</span>/.nvm"</span></span><br><span class="line">[ -s <span class="string">"<span class="variable">$NVM_DIR</span>/nvm.sh"</span> ] &amp;&amp; \. <span class="string">"<span class="variable">$NVM_DIR</span>/nvm.sh"</span> <span class="comment"># This loads nvm</span></span><br><span class="line">[[ -r <span class="variable">$NVM_DIR</span>/bash_completion ]] &amp;&amp; \. <span class="variable">$NVM_DIR</span>/bash_completion</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h4><span id="安装node">安装Node</span></h4><p>安装最新版的Node.js</p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ nvm install node</span><br></pre></td></tr></table></figure>
+<p>使用最新版的Node.js</p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ nvm use node</span><br></pre></td></tr></table></figure>
+<h2><span id="创建http-server">创建Http Server</span></h2><ol>
+<li><p>创建一个 web.js，代码如下：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> http = <span class="built_in">require</span>(<span class="string">"http"</span>);</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">process_request</span>(<span class="params">req, res</span>) </span>&#123;</span><br><span class="line">     <span class="keyword">var</span> body = <span class="string">'Thanks for calling!\n'</span>;</span><br><span class="line">     <span class="keyword">var</span> content_length =  body.length ;</span><br><span class="line">     res.writeHead(<span class="number">200</span>, &#123;</span><br><span class="line">         <span class="string">'Content-Length'</span>: content_length,</span><br><span class="line">         <span class="string">'Content-Type'</span>: <span class="string">'text/plain'</span></span><br><span class="line">     &#125;);</span><br><span class="line">     res.end(body);</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> s = http.createServer(process_request);</span><br><span class="line">s.listen(<span class="number">8080</span>);</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<ol>
+<li><p>运行web.js，监听 8080 端口。</p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ node web.js</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<ol>
+<li><p>访问 <a href="http://localhost:8080" target="_blank" rel="external">http://localhost:8080</a> </p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">$ curl -i http://localhost:<span class="number">8080</span></span><br><span class="line"></span><br><span class="line">HTTP/<span class="number">1.1</span> <span class="number">200</span> OK</span><br><span class="line">Content-Length: <span class="number">20</span></span><br><span class="line">Content-Type: text/plain</span><br><span class="line">Date: Mon, <span class="number">09</span> Jul <span class="number">2018</span> <span class="number">03</span>:<span class="number">03</span>:<span class="number">25</span> GMT</span><br><span class="line">Connection: keep-alive</span><br><span class="line"></span><br><span class="line">Thanks <span class="keyword">for</span> calling!</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<h2><span id="express-应用">Express 应用</span></h2><ol>
+<li><p>安装 express</p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ npm install express --save</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>创建 express 应用</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> express = <span class="built_in">require</span>(<span class="string">"express"</span>);</span><br><span class="line"><span class="keyword">const</span> app = express();</span><br><span class="line"></span><br><span class="line">app.get(<span class="string">"/"</span>, <span class="function"><span class="keyword">function</span> (<span class="params">req, res</span>) </span>&#123;</span><br><span class="line">    res.send(<span class="string">"Hello world ! "</span>);</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">app.listen(<span class="number">8080</span>, <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">"app is listening at port 8080 ! "</span>)</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>访问 <a href="http://localhost:8080" target="_blank" rel="external">http://localhost:8080</a> </p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">$ curl -i http://localhost:<span class="number">8080</span></span><br><span class="line"></span><br><span class="line">HTTP/<span class="number">1.1</span> <span class="number">200</span> OK</span><br><span class="line">X-Powered-By: Express</span><br><span class="line">Content-Type: text/html; charset=utf-<span class="number">8</span></span><br><span class="line">Content-Length: <span class="number">14</span></span><br><span class="line">ETag: W/<span class="string">"e-SGStovtlAfbXbrr3HXIpSArL2nY"</span></span><br><span class="line">Date: Sat, <span class="number">14</span> Jul <span class="number">2018</span> <span class="number">13</span>:<span class="number">41</span>:<span class="number">23</span> GMT</span><br><span class="line">Connection: keep-alive</span><br><span class="line"></span><br><span class="line">Hello world !</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<h2><span id="参考资料">参考资料</span></h2><ul>
+<li><a href="https://nodejs.org/en/" target="_blank" rel="external">https://nodejs.org/en/</a></li>
+<li><a href="http://www.java2s.com/Tutorials/Javascript/Node.js_Tutorial/index.htm" target="_blank" rel="external">http://www.java2s.com/Tutorials/Javascript/Node.js_Tutorial/index.htm</a></li>
+<li><a href="https://github.com/alsotang/node-lessons/tree/master/lesson1" target="_blank" rel="external">https://github.com/alsotang/node-lessons/tree/master/lesson1</a></li></ul>]]></content>
       
         <categories>
             
@@ -2159,70 +2203,6 @@
     </entry>
     
     <entry>
-      <title><![CDATA[NodeJs学习(3) | Build first web server]]></title>
-      <url>/posts/b1fcd8d6.html</url>
-      <content type="html"><![CDATA[<script src="/assets/js/APlayer.min.js"> </script><p>本篇文章交易如何使用NodeJs搭建一个简单版的http server.</p><a id="more"></a><h2><span id="设备">设备</span></h2><ul><li>MacOS High Sierra</li></ul><h2><span id="环境部署">环境部署</span></h2><h4><span id="安装-nvm">安装 nvm</span></h4><blockquote><p>使用 nvm 方便管理node版本</p></blockquote><h5><span id="安装nvm">安装nvm</span></h5><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ brew update</span><br><span class="line">$ brew install nvm</span><br><span class="line">$ mkdir ~/.nvm</span><br><span class="line">$ vim ~/.bash_profile</span><br></pre></td></tr></table></figure>
-<h5><span id="配置变量nvm_dir">配置变量NVM_DIR</span></h5><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ export NVM_DIR=~/.nvm</span><br><span class="line">$ source $(brew --prefix nvm)/nvm.sh</span><br></pre></td></tr></table></figure>
-<h5><span id="检查">检查</span></h5><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ source ~/.bash_profile</span><br><span class="line">$ echo <span class="variable">$NVM_DIR</span></span><br><span class="line">$ nvm --version</span><br><span class="line"><span class="number">0.33</span>.<span class="number">11</span></span><br></pre></td></tr></table></figure>
-<h5><span id="删除-nvm">删除 nvm</span></h5><ul>
-<li><p>删除文件</p>
-<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ rm -rf <span class="string">"<span class="variable">$NVM_DIR</span>"</span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p>删除 <code>~/.bash_profile</code> 中以下配置</p>
-<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">export NVM_DIR=<span class="string">"<span class="variable">$HOME</span>/.nvm"</span></span><br><span class="line">[ -s <span class="string">"<span class="variable">$NVM_DIR</span>/nvm.sh"</span> ] &amp;&amp; \. <span class="string">"<span class="variable">$NVM_DIR</span>/nvm.sh"</span> <span class="comment"># This loads nvm</span></span><br><span class="line">[[ -r <span class="variable">$NVM_DIR</span>/bash_completion ]] &amp;&amp; \. <span class="variable">$NVM_DIR</span>/bash_completion</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<h4><span id="安装node">安装Node</span></h4><p>安装最新版的Node.js</p>
-<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ nvm install node</span><br></pre></td></tr></table></figure>
-<p>使用最新版的Node.js</p>
-<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ nvm use node</span><br></pre></td></tr></table></figure>
-<h2><span id="创建http-server">创建Http Server</span></h2><ol>
-<li><p>创建一个 web.js，代码如下：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> http = <span class="built_in">require</span>(<span class="string">"http"</span>);</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">process_request</span>(<span class="params">req, res</span>) </span>&#123;</span><br><span class="line">     <span class="keyword">var</span> body = <span class="string">'Thanks for calling!\n'</span>;</span><br><span class="line">     <span class="keyword">var</span> content_length =  body.length ;</span><br><span class="line">     res.writeHead(<span class="number">200</span>, &#123;</span><br><span class="line">         <span class="string">'Content-Length'</span>: content_length,</span><br><span class="line">         <span class="string">'Content-Type'</span>: <span class="string">'text/plain'</span></span><br><span class="line">     &#125;);</span><br><span class="line">     res.end(body);</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> s = http.createServer(process_request);</span><br><span class="line">s.listen(<span class="number">8080</span>);</span><br></pre></td></tr></table></figure>
-</li>
-</ol>
-<ol>
-<li><p>运行web.js，监听 8080 端口。</p>
-<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ node web.js</span><br></pre></td></tr></table></figure>
-</li>
-</ol>
-<ol>
-<li><p>访问 <a href="http://localhost:8080" target="_blank" rel="external">http://localhost:8080</a> </p>
-<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">$ curl -i http://localhost:<span class="number">8080</span></span><br><span class="line"></span><br><span class="line">HTTP/<span class="number">1.1</span> <span class="number">200</span> OK</span><br><span class="line">Content-Length: <span class="number">20</span></span><br><span class="line">Content-Type: text/plain</span><br><span class="line">Date: Mon, <span class="number">09</span> Jul <span class="number">2018</span> <span class="number">03</span>:<span class="number">03</span>:<span class="number">25</span> GMT</span><br><span class="line">Connection: keep-alive</span><br><span class="line"></span><br><span class="line">Thanks <span class="keyword">for</span> calling!</span><br></pre></td></tr></table></figure>
-</li>
-</ol>
-<h2><span id="express-应用">Express 应用</span></h2><ol>
-<li><p>安装 express</p>
-<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ npm install express --save</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>创建 express 应用</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> express = <span class="built_in">require</span>(<span class="string">"express"</span>);</span><br><span class="line"><span class="keyword">const</span> app = express();</span><br><span class="line"></span><br><span class="line">app.get(<span class="string">"/"</span>, <span class="function"><span class="keyword">function</span> (<span class="params">req, res</span>) </span>&#123;</span><br><span class="line">    res.send(<span class="string">"Hello world ! "</span>);</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">app.listen(<span class="number">8080</span>, <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">"app is listening at port 8080 ! "</span>)</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>访问 <a href="http://localhost:8080" target="_blank" rel="external">http://localhost:8080</a> </p>
-<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">$ curl -i http://localhost:<span class="number">8080</span></span><br><span class="line"></span><br><span class="line">HTTP/<span class="number">1.1</span> <span class="number">200</span> OK</span><br><span class="line">X-Powered-By: Express</span><br><span class="line">Content-Type: text/html; charset=utf-<span class="number">8</span></span><br><span class="line">Content-Length: <span class="number">14</span></span><br><span class="line">ETag: W/<span class="string">"e-SGStovtlAfbXbrr3HXIpSArL2nY"</span></span><br><span class="line">Date: Sat, <span class="number">14</span> Jul <span class="number">2018</span> <span class="number">13</span>:<span class="number">41</span>:<span class="number">23</span> GMT</span><br><span class="line">Connection: keep-alive</span><br><span class="line"></span><br><span class="line">Hello world !</span><br></pre></td></tr></table></figure>
-</li>
-</ol>
-<h2><span id="参考资料">参考资料</span></h2><ul>
-<li><a href="https://nodejs.org/en/" target="_blank" rel="external">https://nodejs.org/en/</a></li>
-<li><a href="http://www.java2s.com/Tutorials/Javascript/Node.js_Tutorial/index.htm" target="_blank" rel="external">http://www.java2s.com/Tutorials/Javascript/Node.js_Tutorial/index.htm</a></li>
-<li><a href="https://github.com/alsotang/node-lessons/tree/master/lesson1" target="_blank" rel="external">https://github.com/alsotang/node-lessons/tree/master/lesson1</a></li></ul>]]></content>
-      
-        <categories>
-            
-            <category> coding </category>
-            
-        </categories>
-        
-        
-        <tags>
-            
-            <tag> NodeJs </tag>
-            
-        </tags>
-        
-    </entry>
-    
-    <entry>
       <title><![CDATA[NodeJs学习(2) | == vs ===]]></title>
       <url>/posts/622ddccb.html</url>
       <content type="html"><![CDATA[<script src="/assets/js/APlayer.min.js"> </script><p>javascript中 <code>==</code> 与 <code>===</code>的区别。</p><a id="more"></a><h2><span id="比较">=== 比较</span></h2><p>强相等比较，意味着我们所比较的数值和类型必须相同。我们来看几个例子。</p><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">5</span> === <span class="number">5</span></span><br><span class="line"><span class="comment">// true</span></span><br><span class="line"></span><br><span class="line"><span class="string">'hello world'</span> === <span class="string">'hello world'</span></span><br><span class="line"><span class="comment">// true (Both Strings, equal values)</span></span><br><span class="line"></span><br><span class="line"><span class="literal">true</span> === <span class="literal">true</span></span><br><span class="line"><span class="comment">// true (Both Booleans, equal values)</span></span><br><span class="line"></span><br><span class="line"><span class="number">77</span> === <span class="string">'77'</span></span><br><span class="line"><span class="comment">// false (Number v. String)</span></span><br><span class="line"></span><br><span class="line"><span class="string">'cat'</span> === <span class="string">'dog'</span></span><br><span class="line"><span class="comment">// false (Both are Strings, but have different values)</span></span><br><span class="line"></span><br><span class="line"><span class="literal">false</span> === <span class="number">0</span></span><br><span class="line"><span class="comment">// false (Different type and different value)</span></span><br></pre></td></tr></table></figure>
@@ -2285,6 +2265,57 @@
 <li><p><a href="https://github.com/wangweiX/nodejs-learning/tree/lesson1" target="_blank" rel="external">本文代码</a></p>
 </li>
 <li><p><a href="http://www.java2s.com/Tutorials/Javascript/Node.js_Tutorial/0010__Node.js_Data_Type.htm" target="_blank" rel="external">Node.js_Data_Type</a></p></li></ul>]]></content>
+      
+        <categories>
+            
+            <category> coding </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> NodeJs </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
+      <title><![CDATA[NodeJs学习(1) | 变量的声明]]></title>
+      <url>/posts/92c3001f.html</url>
+      <content type="html"><![CDATA[<script src="/assets/js/APlayer.min.js"> </script><p>今天我们学习一下在javascript中如何声明变量和常量，以及<code>var</code>、<code>let</code>、<code>const</code>的区别。</p><a id="more"></a><h2><span id="变量">变量</span></h2><p>在ES6语法中，我们使用<code>let</code>关键字来声明变量。</p><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> user = <span class="string">'John'</span>, age = <span class="number">25</span>, message = <span class="string">'Hello'</span>;</span><br></pre></td></tr></table></figure>
+<p>或者</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> user = <span class="string">'John'</span>;</span><br><span class="line"><span class="keyword">let</span> age = <span class="number">25</span>;</span><br><span class="line"><span class="keyword">let</span> message = <span class="string">'Hello'</span>;</span><br></pre></td></tr></table></figure>
+<h4><span id="命名规范">命名规范</span></h4><ol>
+<li>名称必须仅包含字母，数字，符号$和_。</li>
+<li>第一个字符不能是数字。</li>
+<li>变量名称采用驼峰标记法。</li>
+</ol>
+<p>例如：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> userName = <span class="string">'wangwei'</span>;</span><br><span class="line"><span class="keyword">let</span> test123 = <span class="string">'hello world'</span>;</span><br></pre></td></tr></table></figure>
+<h2><span id="常量">常量</span></h2><p>使用<code>const</code>声明常量。声明为常量的变量不能再次被修改。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> myBirthday = <span class="string">'18.04.1982'</span>;</span><br><span class="line"></span><br><span class="line">myBirthday = <span class="string">'01.01.2001'</span>; <span class="comment">// error, can't reassign the constant!</span></span><br></pre></td></tr></table></figure>
+<h4><span id="大写常量">大写常量</span></h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> COLOR_RED = <span class="string">"#F00"</span>;</span><br><span class="line"><span class="keyword">const</span> COLOR_GREEN = <span class="string">"#0F0"</span>;</span><br><span class="line"><span class="keyword">const</span> COLOR_BLUE = <span class="string">"#00F"</span>;</span><br><span class="line"><span class="keyword">const</span> COLOR_ORANGE = <span class="string">"#FF7F00"</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> color = COLOR_ORANGE;</span><br><span class="line"><span class="built_in">console</span>.log(color); <span class="comment">// #FF7F00</span></span><br></pre></td></tr></table></figure>
+<h2><span id="var-vs-let">Var vs Let</span></h2><p>ES6中新增的 <code>let</code> 弥补了<code>var</code>中的一些不足。</p>
+<h4><span id="变量作用域">变量作用域</span></h4><ol>
+<li><p>let 声明的变量，只在代码块中有效，var则声明了一个全局变量。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    <span class="keyword">var</span> a = <span class="number">10</span>;</span><br><span class="line">    <span class="keyword">let</span> b = <span class="number">1</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">console</span>.log(a); <span class="comment">// 10</span></span><br><span class="line"><span class="built_in">console</span>.log(b); <span class="comment">// ReferenceError: b is not defined</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>在for循环中，变量i是var声明的，在全局范围内都有效。所以每一次循环，新的i值都会覆盖旧值，导致最后输出的是最后一轮的i值。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> a = [];</span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; <span class="number">10</span>; i++) &#123;</span><br><span class="line">    a[i] = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(i);</span><br><span class="line">    &#125;;</span><br><span class="line">&#125;</span><br><span class="line">a[<span class="number">6</span>](); <span class="comment">// 10</span></span><br></pre></td></tr></table></figure>
+<p>改为let声明变量i，这样i只在循环体内有效。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> a = [];</span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; <span class="number">10</span>; i++) &#123;</span><br><span class="line">    a[i] = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(i);</span><br><span class="line">    &#125;;</span><br><span class="line">&#125;</span><br><span class="line">a[<span class="number">6</span>](); <span class="comment">// 6</span></span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<h4><span id="不存在变量提升">不存在变量提升</span></h4><p>let不像var那样会发生“变量提升”现象。所以，变量一定要在声明后使用，否则报错。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(x); <span class="comment">// undefined</span></span><br><span class="line"><span class="keyword">var</span> x = <span class="number">10</span>;</span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(x); <span class="comment">// ReferenceError: x is not defined</span></span><br><span class="line"><span class="keyword">let</span> x = <span class="number">10</span>;</span><br></pre></td></tr></table></figure>
+<h4><span id="暂时性死区temporal-dead-zone-tdz">暂时性死区(temporal dead zone, TDZ)</span></h4><p>只要块级作用域内存在let命令，它所声明的变量就“绑定”（binding）这个区域，不再受外部的影响。</p>
+<p>ES6明确规定，如果区块中存在let和const命令，则这个区块对这些命令声明的变量从一开始就形成封闭作用域。只要在声明之前就使用这些变量，就会报错。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> temp = <span class="number">123</span>;</span><br><span class="line"><span class="keyword">if</span> (<span class="literal">true</span>) &#123;</span><br><span class="line">    temp = <span class="number">123</span>; <span class="comment">// ReferenceError: temp is not defined</span></span><br><span class="line">    <span class="keyword">let</span> temp;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4><span id="不允许重复声明">不允许重复声明</span></h4><p>let不允许在相同作用域内重复声明同一个变量。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">let</span> a = <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">let</span> a = <span class="number">2</span>; <span class="comment">// SyntaxError: Identifier 'a' has already been declared</span></span><br><span class="line">&#125;)();</span><br></pre></td></tr></table></figure>]]></content>
       
         <categories>
             
