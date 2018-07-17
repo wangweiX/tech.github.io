@@ -4,6 +4,26 @@
 
     
   <url>
+    <loc>https://wangwei.one/posts/92c3001f.html</loc>
+    <lastmod>2018-07-17T15:10:20.200Z</lastmod>
+    <data>
+        <display>
+        <title>NodeJs学习(1) | 变量的声明</title>
+        <pubTime>2017-03-01T13:52:03.000Z</pubTime>
+        
+        <tag>NodeJs</tag>
+         
+         
+           
+             
+              <breadCrumb title="coding" url="https://wangwei.one/categories/coding/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>https://wangwei.one/posts/b1fcd8d6.html</loc>
     <lastmod>2018-07-17T15:04:32.515Z</lastmod>
     <data>
@@ -90,26 +110,6 @@
         <display>
         <title>NodeJs学习(1) | Node.js Data Type</title>
         <pubTime>2017-03-02T13:52:03.000Z</pubTime>
-        
-        <tag>NodeJs</tag>
-         
-         
-           
-             
-              <breadCrumb title="coding" url="https://wangwei.one/categories/coding/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://wangwei.one/posts/92c3001f.html</loc>
-    <lastmod>2018-07-17T14:58:08.986Z</lastmod>
-    <data>
-        <display>
-        <title>NodeJs学习(1) | 变量的声明</title>
-        <pubTime>2017-03-01T13:52:03.000Z</pubTime>
         
         <tag>NodeJs</tag>
          
