@@ -2170,7 +2170,7 @@
     </entry>
     
     <entry>
-      <title><![CDATA[NodeJs学习(3) | Node.js Objects]]></title>
+      <title><![CDATA[NodeJs学习(4) | Node.js Objects]]></title>
       <url>/posts/b5949fa3.html</url>
       <content type="html"><![CDATA[<script src="/assets/js/APlayer.min.js"> </script><p>介绍Node.js中如何创建一个对象。</p><a id="more"></a><h2><span id="对象初始化">对象初始化</span></h2><h3><span id="对象创建">对象创建</span></h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> o1 = <span class="keyword">new</span> <span class="built_in">Object</span>();</span><br><span class="line"><span class="keyword">let</span> o2 = &#123;&#125;; <span class="comment">// 推荐这种方式</span></span><br></pre></td></tr></table></figure>
 <h3><span id="设置属性">设置属性</span></h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> user = &#123;</span><br><span class="line">    first_name: <span class="string">"HTML"</span>,</span><br><span class="line">    last_name: <span class="string">"CSS"</span>,</span><br><span class="line">    age: <span class="number">32</span>,</span><br><span class="line">    website: <span class="string">"java2s.com"</span></span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">// add field</span></span><br><span class="line">user.name = <span class="string">"wangwei"</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// remove field</span></span><br><span class="line"><span class="keyword">delete</span> user.name;</span><br></pre></td></tr></table></figure>
@@ -2203,12 +2203,104 @@
     </entry>
     
     <entry>
-      <title><![CDATA[NodeJs学习(2) | == vs ===]]></title>
+      <title><![CDATA[NodeJs学习(2) | 运算符（Operators）]]></title>
       <url>/posts/622ddccb.html</url>
-      <content type="html"><![CDATA[<script src="/assets/js/APlayer.min.js"> </script><p>javascript中 <code>==</code> 与 <code>===</code>的区别。</p><a id="more"></a><h2><span id="比较">=== 比较</span></h2><p>强相等比较，意味着我们所比较的数值和类型必须相同。我们来看几个例子。</p><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">5</span> === <span class="number">5</span></span><br><span class="line"><span class="comment">// true</span></span><br><span class="line"></span><br><span class="line"><span class="string">'hello world'</span> === <span class="string">'hello world'</span></span><br><span class="line"><span class="comment">// true (Both Strings, equal values)</span></span><br><span class="line"></span><br><span class="line"><span class="literal">true</span> === <span class="literal">true</span></span><br><span class="line"><span class="comment">// true (Both Booleans, equal values)</span></span><br><span class="line"></span><br><span class="line"><span class="number">77</span> === <span class="string">'77'</span></span><br><span class="line"><span class="comment">// false (Number v. String)</span></span><br><span class="line"></span><br><span class="line"><span class="string">'cat'</span> === <span class="string">'dog'</span></span><br><span class="line"><span class="comment">// false (Both are Strings, but have different values)</span></span><br><span class="line"></span><br><span class="line"><span class="literal">false</span> === <span class="number">0</span></span><br><span class="line"><span class="comment">// false (Different type and different value)</span></span><br></pre></td></tr></table></figure>
-<h2><span id="比较">== 比较</span></h2><p>弱相等比较，同时它也会执行类型强制比较。类型强制意味着只有在尝试将它们转换为公共类型后才会比较两个值。例如：</p>
+      <content type="html"><![CDATA[<script src="/assets/js/APlayer.min.js"> </script><p>介绍javascript中的一系列运算符。</p><a id="more"></a><h2><span id="算术运算符">算术运算符</span></h2><table><thead><tr><th>运算符</th><th>描述</th></tr></thead><tbody><tr><td>+</td><td>加</td></tr><tr><td>-</td><td>减</td></tr><tr><td>*</td><td>乘</td></tr><tr><td>/</td><td>除</td></tr><tr><td>%</td><td>取模</td></tr><tr><td>++</td><td>加1</td></tr><tr><td>–</td><td>减1</td></tr></tbody></table><h2><span id="赋值运算符">赋值运算符</span></h2><table><thead><tr><th>运算符</th><th>例子</th><th>等同于</th></tr></thead><tbody><tr><td>=</td><td>x = y</td><td>x = y</td></tr><tr><td>+=</td><td>x += y</td><td>x = x + y</td></tr><tr><td>-=</td><td>x -= y</td><td>x = x - y</td></tr><tr><td>*=</td><td>x *= y</td><td>x = x * y</td></tr><tr><td>/=</td><td>x /= y</td><td>x = x / y</td></tr><tr><td>%=</td><td>x %= y</td><td>x = x % y</td></tr></tbody></table><h2><span id="比较操作符">比较操作符</span></h2><table><thead><tr><th>运算符</th><th>描述</th></tr></thead><tbody><tr><td>==</td><td>equal to</td></tr><tr><td>===</td><td>equal value and equal type</td></tr><tr><td>!=</td><td>not equal</td></tr><tr><td>!==</td><td>not equal value or not equal type</td></tr><tr><td>&gt;</td><td>greater than</td></tr><tr><td>&lt;</td><td>less than</td></tr><tr><td>&gt;=</td><td>greater than or equal to</td></tr><tr><td>&lt;=</td><td>less than or equal to</td></tr><tr><td>?</td><td>ternary operator</td></tr></tbody></table><h2><span id="条件运算符">条件运算符</span></h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> variable = boolean_expression ? true_value : false_value;</span><br></pre></td></tr></table></figure>
+<h2><span id="逻辑运算符">逻辑运算符</span></h2><table>
+<thead>
+<tr>
+<th>运算符</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>&amp;&amp;</td>
+<td>逻辑与</td>
+</tr>
+<tr>
+<td>\</td>
+<td>\</td>
+<td></td>
+<td>逻辑或</td>
+</tr>
+<tr>
+<td>!</td>
+<td>逻辑非</td>
+</tr>
+</tbody>
+</table>
+<h2><span id="类型操作">类型操作</span></h2><table>
+<thead>
+<tr>
+<th>运算符</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>typeof</td>
+<td>返回变量类型</td>
+</tr>
+<tr>
+<td>instanceof</td>
+<td>判断object是否为某一个类型</td>
+</tr>
+</tbody>
+</table>
+<h2><span id="位运算符">位运算符</span></h2><table>
+<thead>
+<tr>
+<th>运算符</th>
+<th>用法</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Operators/Bitwise_Operators#Bitwise_AND" target="_blank" rel="external">按位与（ AND）</a></td>
+<td><code>a &amp; b</code></td>
+<td>对于每一个比特位，只有两个操作数相应的比特位都是1时，结果才为1，否则为0。</td>
+</tr>
+<tr>
+<td><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Operators/Bitwise_Operators#Bitwise_OR" target="_blank" rel="external">按位或（OR）</a></td>
+<td>`a</td>
+<td>b`</td>
+<td>对于每一个比特位，当两个操作数相应的比特位至少有一个1时，结果为1，否则为0。</td>
+</tr>
+<tr>
+<td><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Operators/Bitwise_Operators#Bitwise_XOR" target="_blank" rel="external">按位异或（XOR）</a></td>
+<td><code>a ^ b</code></td>
+<td>对于每一个比特位，当两个操作数相应的比特位有且只有一个1时，结果为1，否则为0。</td>
+</tr>
+<tr>
+<td><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Operators/Bitwise_Operators#Bitwise_NOT" target="_blank" rel="external">按位非（NOT）</a></td>
+<td><code>~ a</code></td>
+<td>反转操作数的比特位，即0变成1，1变成0。</td>
+</tr>
+<tr>
+<td><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Operators/Bitwise_Operators#Left_shift" target="_blank" rel="external">左移（L</a><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Operators/Bitwise_Operators#Left_shift" target="_blank" rel="external">eft shift）</a></td>
+<td><code>a &lt;&lt; b</code></td>
+<td>将 <code>a</code> 的二进制形式向左移 <code>b</code> (&lt; 32) 比特位，右边用0填充。</td>
+</tr>
+<tr>
+<td><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Operators/Bitwise_Operators#Right_shift" target="_blank" rel="external">有符号右移</a></td>
+<td><code>a &gt;&gt; b</code></td>
+<td>将 a 的二进制表示向右移<code>b</code>(&lt; 32) 位，丢弃被移出的位。</td>
+</tr>
+<tr>
+<td><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Operators/Bitwise_Operators#Unsigned_right_shift" target="_blank" rel="external">无符号右移</a></td>
+<td><code>a &gt;&gt;&gt; b</code></td>
+<td>将 a 的二进制表示向右移<code>b</code>(&lt; 32) 位，丢弃被移出的位，并使用 0 在左侧填充。</td>
+</tr>
+</tbody>
+</table>
+<h2><span id="与-区别">== 与 === 区别</span></h2><p>在javascript中比较时，建议使用 <code>===</code> 与 <code>!==</code> 。</p>
+<h3><span id="比较">=== 比较</span></h3><p>强相等比较，意味着我们所比较的数值和类型必须相同。我们来看几个例子。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">5</span> === <span class="number">5</span></span><br><span class="line"><span class="comment">// true</span></span><br><span class="line"></span><br><span class="line"><span class="string">'hello world'</span> === <span class="string">'hello world'</span></span><br><span class="line"><span class="comment">// true (Both Strings, equal values)</span></span><br><span class="line"></span><br><span class="line"><span class="literal">true</span> === <span class="literal">true</span></span><br><span class="line"><span class="comment">// true (Both Booleans, equal values)</span></span><br><span class="line"></span><br><span class="line"><span class="number">77</span> === <span class="string">'77'</span></span><br><span class="line"><span class="comment">// false (Number v. String)</span></span><br><span class="line"></span><br><span class="line"><span class="string">'cat'</span> === <span class="string">'dog'</span></span><br><span class="line"><span class="comment">// false (Both are Strings, but have different values)</span></span><br><span class="line"></span><br><span class="line"><span class="literal">false</span> === <span class="number">0</span></span><br><span class="line"><span class="comment">// false (Different type and different value)</span></span><br></pre></td></tr></table></figure>
+<h3><span id="比较">== 比较</span></h3><p>弱相等比较，同时它也会执行类型强制比较。类型强制意味着只有在尝试将它们转换为公共类型后才会比较两个值。例如：</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">77</span> == <span class="string">'77'</span></span><br><span class="line"><span class="comment">// true</span></span><br><span class="line"></span><br><span class="line"><span class="literal">false</span> == <span class="number">0</span></span><br><span class="line"><span class="comment">// true</span></span><br></pre></td></tr></table></figure>
-<h2><span id="falsy-values">Falsy Values</span></h2><p>在javascript中你应该注意6个虚假值：</p>
+<h3><span id="falsy-values">Falsy Values</span></h3><p>在javascript中你应该注意6个虚假值：</p>
 <ul>
 <li><code>false</code> — boolean false</li>
 <li><code>0</code> — number zero</li>
@@ -2217,7 +2309,7 @@
 <li><code>undefined</code></li>
 <li><code>NaN</code> — Not A Number</li>
 </ul>
-<h2><span id="falsy-value-comparison">Falsy Value Comparison</span></h2><ol>
+<h3><span id="falsy-value-comparison">Falsy Value Comparison</span></h3><ol>
 <li><code>false</code>, <code>&quot;&quot;</code> and <code>0</code></li>
 </ol>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="literal">false</span> == <span class="number">0</span></span><br><span class="line"><span class="comment">// true</span></span><br><span class="line"></span><br><span class="line"><span class="number">0</span> == <span class="string">""</span></span><br><span class="line"><span class="comment">// true</span></span><br><span class="line"></span><br><span class="line"><span class="string">""</span> == <span class="literal">false</span></span><br><span class="line"><span class="comment">// true</span></span><br></pre></td></tr></table></figure>
@@ -2231,7 +2323,9 @@
 <p><code>NaN</code> 不等于任何值，甚至不等于它自己。</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="literal">NaN</span> == <span class="literal">null</span></span><br><span class="line"><span class="comment">// false</span></span><br><span class="line"></span><br><span class="line"><span class="literal">NaN</span> == <span class="literal">undefined</span></span><br><span class="line"><span class="comment">// false</span></span><br><span class="line"></span><br><span class="line"><span class="literal">NaN</span> == <span class="literal">NaN</span></span><br><span class="line"><span class="comment">// false</span></span><br></pre></td></tr></table></figure>
 <h2><span id="参考资料">参考资料</span></h2><ul>
-<li><a href="https://codeburst.io/javascript-double-equals-vs-triple-equals-61d4ce5a121a" target="_blank" rel="external">https://codeburst.io/javascript-double-equals-vs-triple-equals-61d4ce5a121a</a></li></ul>]]></content>
+<li><a href="https://www.w3schools.com/jS/js_operators.asp" target="_blank" rel="external">https://www.w3schools.com/jS/js_operators.asp</a></li>
+<li><a href="https://codeburst.io/javascript-double-equals-vs-triple-equals-61d4ce5a121a" target="_blank" rel="external">https://codeburst.io/javascript-double-equals-vs-triple-equals-61d4ce5a121a</a></li>
+<li><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Operators/Bitwise_Operators" target="_blank" rel="external">https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Operators/Bitwise_Operators</a></li></ul>]]></content>
       
         <categories>
             
@@ -2249,7 +2343,7 @@
     </entry>
     
     <entry>
-      <title><![CDATA[NodeJs学习(1) | Node.js Data Type]]></title>
+      <title><![CDATA[NodeJs学习(3) | Node.js Data Type]]></title>
       <url>/posts/f88dc8a9.html</url>
       <content type="html"><![CDATA[<script src="/assets/js/APlayer.min.js"> </script><p>学习Node.js中的一些数据类型</p><a id="more"></a><h2><span id="data-type">Data Type</span></h2><h3><span id="undefined">undefined</span></h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> x;</span><br><span class="line"><span class="built_in">console</span>.log(x);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 未初始化</span></span><br><span class="line"><span class="literal">undefined</span></span><br></pre></td></tr></table></figure>
 <h3><span id="null">Null</span></h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> x;</span><br><span class="line"><span class="built_in">console</span>.log(x);</span><br><span class="line"></span><br><span class="line"><span class="comment">// undefined</span></span><br><span class="line"></span><br><span class="line">x = <span class="literal">null</span>;</span><br><span class="line"><span class="built_in">console</span>.log(x);</span><br><span class="line"></span><br><span class="line"><span class="comment">// null</span></span><br></pre></td></tr></table></figure>
@@ -2282,7 +2376,7 @@
     </entry>
     
     <entry>
-      <title><![CDATA[NodeJs学习(1) | 变量的声明]]></title>
+      <title><![CDATA[NodeJs学习(1) | 变量(variables)]]></title>
       <url>/posts/92c3001f.html</url>
       <content type="html"><![CDATA[<script src="/assets/js/APlayer.min.js"> </script><p>今天我们学习一下在javascript中如何声明变量和常量，以及<code>var</code>、<code>let</code>、<code>const</code>的区别。</p><a id="more"></a><h2><span id="变量">变量</span></h2><p>在ES6语法中，我们使用<code>let</code>关键字来声明变量。</p><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> user = <span class="string">'John'</span>, age = <span class="number">25</span>, message = <span class="string">'Hello'</span>;</span><br></pre></td></tr></table></figure>
 <p>或者</p>
