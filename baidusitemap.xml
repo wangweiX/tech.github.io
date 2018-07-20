@@ -4,12 +4,12 @@
 
     
   <url>
-    <loc>https://wangwei.one/posts/d87f7e0c.html</loc>
-    <lastmod>2018-07-20T13:59:39.649Z</lastmod>
+    <loc>https://wangwei.one/posts/c5e43a28.html</loc>
+    <lastmod>2018-07-20T14:10:13.704Z</lastmod>
     <data>
         <display>
-        <title>test</title>
-        <pubTime>2018-07-20T14:43:00.000Z</pubTime>
+        <title>个人博客搭建指南（一）</title>
+        <pubTime>2017-05-27T01:40:16.000Z</pubTime>
         
         <tag>hexo</tag>
          
@@ -890,26 +890,6 @@
            
              
               <breadCrumb title="blockchain" url="https://wangwei.one/categories/blockchain/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://wangwei.one/posts/c5e43a28.html</loc>
-    <lastmod>2018-01-31T06:04:43.741Z</lastmod>
-    <data>
-        <display>
-        <title>个人博客搭建指南（一）</title>
-        <pubTime>2017-05-27T01:40:16.000Z</pubTime>
-        
-        <tag>hexo</tag>
-         
-         
-           
-             
-              <breadCrumb title="tools" url="https://wangwei.one/categories/tools/"/>
           
         </display>
     </data>
