@@ -2060,7 +2060,7 @@
     </entry>
     
     <entry>
-      <title><![CDATA[NodeJs学习(3) | Build first web server]]></title>
+      <title><![CDATA[NodeJs学习(1) | Build first web server]]></title>
       <url>/posts/b1fcd8d6.html</url>
       <content type="html"><![CDATA[<script src="/assets/js/APlayer.min.js"> </script><p>本篇文章交易如何使用NodeJs搭建一个简单版的http server.</p><a id="more"></a><h2><span id="设备">设备</span></h2><ul><li>MacOS High Sierra</li></ul><h2><span id="环境部署">环境部署</span></h2><h4><span id="安装-nvm">安装 nvm</span></h4><blockquote><p>使用 nvm 方便管理node版本</p></blockquote><h5><span id="安装nvm">安装nvm</span></h5><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ brew update</span><br><span class="line">$ brew install nvm</span><br><span class="line">$ mkdir ~/.nvm</span><br><span class="line">$ vim ~/.bash_profile</span><br></pre></td></tr></table></figure>
 <h5><span id="配置变量nvm_dir">配置变量NVM_DIR</span></h5><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ export NVM_DIR=~/.nvm</span><br><span class="line">$ source $(brew --prefix nvm)/nvm.sh</span><br></pre></td></tr></table></figure>
