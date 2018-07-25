@@ -1,0 +1,770 @@
+<!DOCTYPE html><html class="theme-next muse use-motion" lang="en"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1"><meta name="theme-color" content="#222"><link rel="stylesheet" media="all" href="/lib/Han/dist/han.min.css?v=3.3"><meta http-equiv="Cache-Control" content="no-transform"><meta http-equiv="Cache-Control" content="no-siteapp"><link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css"><link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css"><link href="/css/main.css?v=5.1.3" rel="stylesheet" type="text/css"><link rel="apple-touch-icon" sizes="180x180" href="/favicon-180x180.png?v=5.1.3"><link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png?v=5.1.3"><link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png?v=5.1.3"><link rel="mask-icon" href="/logo.svg?v=5.1.3" color="#222"><meta name="keywords" content="javascript,"><meta name="description" content="本篇文章我们来学习一下 javascript 中的集合对象 Map 和 Set 。"><meta name="keywords" content="javascript"><meta property="og:type" content="article"><meta property="og:title" content="javascript学习(8) | Data type —— Map,WeakMap,Set,WeakSet"><meta property="og:url" content="https://wangwei.one/posts/f4ac3ebf.html"><meta property="og:site_name" content="终生学习"><meta property="og:description" content="本篇文章我们来学习一下 javascript 中的集合对象 Map 和 Set 。"><meta property="og:locale" content="en"><meta property="og:updated_time" content="2018-07-25T08:25:31.022Z"><meta name="twitter:card" content="summary"><meta name="twitter:title" content="javascript学习(8) | Data type —— Map,WeakMap,Set,WeakSet"><meta name="twitter:description" content="本篇文章我们来学习一下 javascript 中的集合对象 Map 和 Set 。"><script type="text/javascript" id="hexo.configurations">var NexT=window.NexT||{},CONFIG={root:"/",scheme:"Muse",version:"5.1.3",sidebar:{position:"left",display:"post",offset:12,b2t:!1,scrollpercent:!1,onmobile:!1},fancybox:!0,tabs:!0,motion:{enable:!0,async:!1,transition:{post_block:"fadeIn",post_header:"slideDownIn",post_body:"slideDownIn",coll_header:"slideLeftIn",sidebar:"slideUpIn"}},duoshuo:{userId:"0",author:"Author"},algolia:{applicationID:"",apiKey:"",indexName:"",hits:{per_page:10},labels:{input_placeholder:"Search for Posts",hits_empty:"We didn't find any results for the search: ${query}",hits_stats:"${hits} results found in ${time} ms"}}}</script><link rel="canonical" href="https://wangwei.one/posts/f4ac3ebf.html"><title>javascript学习(8) | Data type —— Map,WeakMap,Set,WeakSet | 终生学习</title><script>!function(e,a,t,n,g,c,o){e.GoogleAnalyticsObject=g,e.ga=e.ga||function(){(e.ga.q=e.ga.q||[]).push(arguments)},e.ga.l=1*new Date,c=a.createElement(t),o=a.getElementsByTagName(t)[0],c.async=1,c.src="https://www.google-analytics.com/analytics.js",o.parentNode.insertBefore(c,o)}(window,document,"script",0,"ga"),ga("create","UA-112239883-1","auto"),ga("send","pageview")</script><script type="text/javascript">var _hmt=_hmt||[];!function(){var e=document.createElement("script");e.src="https://hm.baidu.com/hm.js?7a23039be1256cfe778d1eeb19110f89";var t=document.getElementsByTagName("script")[0];t.parentNode.insertBefore(e,t)}()</script></head><body itemscope itemtype="http://schema.org/WebPage" lang="en"><div class="bg_content" style="height:0%;width:0%"><canvas id="canvas" style="height:0%;width:0%"><script>class Circle {
+          constructor(x, y) {
+            this.x = x;
+            this.y = y;
+            this.r = Math.random() * 14 + 1;
+            this._mx = Math.random() * 2 - 1;
+            this._my = Math.random() * 2 - 1;
+          }
+
+          drawCircle(ctx) {
+            ctx.beginPath();
+            ctx.arc(this.x, this.y, this.r, 0, 360);
+            ctx.closePath();
+            ctx.fillStyle = 'rgba(204, 204, 204, 0.2)';
+            ctx.fill();
+          }
+
+          drawLine(ctx, _circle) {
+            let dx = this.x - _circle.x;
+            let dy = this.y - _circle.y;
+            let d = Math.sqrt(dx * dx + dy * dy);
+            if (d < 150) {
+              ctx.beginPath();
+              ctx.moveTo(this.x, this.y);//起始点
+              ctx.lineTo(_circle.x, _circle.y);//终点
+              ctx.closePath();
+              ctx.strokeStyle = 'rgba(204, 204, 204, 0.1)';
+              ctx.stroke();
+            }
+          }
+
+          move(w, h) {
+            this._mx = (this.x < w && this.x > 0) ? this._mx : (-this._mx);
+            this._my = (this.y < h && this.y > 0) ? this._my : (-this._my);
+            this.x += this._mx / 2;
+            this.y += this._my / 2;
+          }
+        }
+
+
+        class currentCircle extends Circle {
+          constructor(x, y) {
+            super(x, y);
+          }
+
+          drawCircle(ctx) {
+            ctx.beginPath();
+            this.r = (this.r < 14 && this.r > 1) ? this.r + (Math.random() * 2 - 1) : 2;
+            ctx.arc(this.x, this.y, this.r, 0, 360);
+            ctx.closePath();
+            ctx.fillStyle = 'rgba(45, 120, 244, ' + (parseInt(Math.random() * 100) / 100) + ')';
+            ctx.fill();
+          }
+        }
+
+
+        window.requestAnimationFrame = window.requestAnimationFrame || window.mozRequestAnimationFrame || window.webkitRequestAnimationFrame || window.msRequestAnimationFrame;
+        let canvas = document.querySelector("#canvas");
+        let ctx = canvas.getContext("2d");
+        let w = canvas.width = canvas.offsetWidth;
+        let h = canvas.height = canvas.offsetHeight;
+        let circles = [];
+        let current_circle = new currentCircle(0, 0);
+
+
+        let draw = function () {
+          ctx.clearRect(0, 0, w, h);
+          for (let i = 0; i < circles.length; i++) {
+            circles[i].move(w, h);
+            circles[i].drawCircle(ctx);
+            for (j = i + 1; j < circles.length; j++) {
+              circles[i].drawLine(ctx, circles[j])
+            }
+          }
+          if (current_circle.x) {
+            current_circle.drawCircle(ctx);
+            for (var k = 1; k < circles.length; k++) {
+              current_circle.drawLine(ctx, circles[k]);
+            }
+          }
+          requestAnimationFrame(draw);
+        }
+
+        let init = function (num) {
+          for (var i = 0; i < num; i++) {
+            circles.push(new Circle(Math.random() * w, Math.random() * h));
+          }
+          draw();
+        }
+
+        window.addEventListener('load', init(80));
+        window.onmousemove = function (e) {
+          e = e || window.event;
+          current_circle.x = e.clientX;
+          current_circle.y = e.clientY;
+        }, window.onmouseout = function () {
+          current_circle.x = null;
+          current_circle.y = null;
+        };</script></canvas></div><div class="container sidebar-position-left page-post-detail"><div class="headband"></div><header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="header-inner"><div class="site-brand-wrapper"><div class="site-meta"><div class="custom-logo-site-title"><a href="/" class="brand" rel="start"><span class="logo-line-before"><i></i></span> <span class="site-title">终生学习</span> <span class="logo-line-after"><i></i></span></a></div><p class="site-subtitle">每天夜里睡觉时都比那天早晨聪明一点点</p></div><div class="site-nav-toggle"><button><span class="btn-bar"></span> <span class="btn-bar"></span> <span class="btn-bar"></span></button></div></div><nav class="site-nav"><ul id="menu" class="menu"><li class="menu-item menu-item-首页"><a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i><br>首页</a></li><li class="menu-item menu-item-区块链"><a href="/categories/blockchain/" rel="section"><i class="menu-item-icon fa fa-fw fa-btc"></i><br>区块链</a></li><li class="menu-item menu-item-编程"><a href="/categories/coding/" rel="section"><i class="menu-item-icon fa fa-fw fa-terminal"></i><br>编程</a></li><li class="menu-item menu-item-工具"><a href="/categories/tools/" rel="section"><i class="menu-item-icon fa fa-fw fa-gear"></i><br>工具</a></li><li class="menu-item menu-item-阅读"><a href="/books/" rel="section"><i class="menu-item-icon fa fa-fw fa-book"></i><br>阅读</a></li><li class="menu-item menu-item-电影"><a href="/movies/" rel="section"><i class="menu-item-icon fa fa-fw fa-film"></i><br>电影</a></li><li class="menu-item menu-item-分类"><a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i><br>分类</a></li><li class="menu-item menu-item-标签"><a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i><br>标签</a></li><li class="menu-item menu-item-归档"><a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i><br>归档</a></li><li class="menu-item menu-item-关于"><a href="/about/" rel="section"><i class="menu-item-icon fa fa-fw fa-user"></i><br>关于</a></li><li class="menu-item menu-item-search"><a href="javascript:;" class="popup-trigger"><i class="menu-item-icon fa fa-search fa-fw"></i><br>Search</a></li></ul><div class="site-search"><div class="popup search-popup local-search-popup"><div class="local-search-header clearfix"><span class="search-icon"><i class="fa fa-search"></i> </span><span class="popup-btn-close"><i class="fa fa-times-circle"></i></span><div class="local-search-input-wrapper"><input autocomplete="off" placeholder="Searching..." spellcheck="false" type="text" id="local-search-input"></div></div><div id="local-search-result"></div></div></div></nav></div></header><main id="main" class="main"><div class="main-inner"><div class="content-wrap"><div id="content" class="content"><div id="posts" class="posts-expand"><article class="post post-type-normal" itemscope itemtype="http://schema.org/Article"><div class="post-block"><link itemprop="mainEntityOfPage" href="https://wangwei.one/posts/f4ac3ebf.html"><span hidden itemprop="author" itemscope itemtype="http://schema.org/Person"><meta itemprop="name" content="王维 / Michael  Wang"><meta itemprop="description" content=""><meta itemprop="image" content="https://img.i7years.com/avatar/myAvatar.png"></span><span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization"><meta itemprop="name" content="终生学习"></span><header class="post-header"><h1 class="post-title" itemprop="name headline">javascript学习(8) | Data type —— Map,WeakMap,Set,WeakSet</h1><div class="post-meta"><span class="post-time"><span class="post-meta-item-icon"><i class="fa fa-calendar-o"></i> </span><span class="post-meta-item-text">Posted on</span> <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-03-08T22:43:00+08:00">2017-03-08 </time></span><span class="post-category"><span class="post-meta-divider">|</span> <span class="post-meta-item-icon"><i class="fa fa-folder-o"></i> </span><span class="post-meta-item-text">In</span> <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/coding/" itemprop="url" rel="index"><span itemprop="name">coding</span> </a></span></span><span class="post-comments-count"><span class="post-meta-divider">|</span> <span class="post-meta-item-icon"><i class="fa fa-comment-o"></i> </span><a href="/posts/f4ac3ebf.html#comments" itemprop="discussionUrl"><span class="post-comments-count disqus-comment-count" data-disqus-identifier="posts/f4ac3ebf.html" itemprop="commentCount"></span> </a></span><span class="post-meta-divider">|</span> <span class="page-pv">本文总阅读量 <span class="busuanzi-value" id="busuanzi_value_page_pv"></span>次</span><div class="post-wordcount"><span class="post-meta-item-icon"><i class="fa fa-file-word-o"></i> </span><span class="post-meta-item-text">Words count in article&#58;</span> <span title="Words count in article">2,227 </span><span class="post-meta-divider">|</span> <span class="post-meta-item-icon"><i class="fa fa-clock-o"></i> </span><span class="post-meta-item-text">Reading time &asymp;</span> <span title="Reading time">11</span></div></div></header><div class="post-body han-init-context" itemprop="articleBody"><script src="/assets/js/APlayer.min.js"></script><p>本篇文章我们来学习一下 javascript 中的集合对象 <code>Map</code> 和 <code>Set</code> 。</p><a id="more"></a><h2><span id="map">Map</span></h2><p><code>map</code> 键值对，和 java 中的 map集合特性一致，只是语法上稍微有些差别。</p><h3><span id="基本用法">基本用法</span></h3><p>主要方法如下：</p><ul><li><code>new Map()</code> – 创建Map.</li><li><code>map.set(key, value)</code> – 存储key-value键值对</li><li><code>map.get(key)</code> – 查询<code>key</code>对应的value值,如果不存在，则返回 <code>undefined</code>.</li><li><code>map.has(key)</code> – 判断 <code>key</code> 否则存在，有则返回 <code>true</code>，反之返回 <code>false</code>.</li><li><code>map.delete(key)</code> – 删除 key 对应的键值对。</li><li><code>map.clear()</code> – 清空map。</li><li><code>map.size</code> – 返回map对应的元素数量。</li></ul><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> map = <span class="keyword">new</span> <span class="built_in">Map</span>();</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> john = &#123;<span class="attr">name</span>: <span class="string">"John"</span>&#125;;</span><br><span class="line"></span><br><span class="line">map.set(<span class="string">'1'</span>, <span class="string">'str1'</span>) <span class="comment">// a string key</span></span><br><span class="line">    .set(<span class="number">1</span>, <span class="string">'num1'</span>) <span class="comment">// a numeric key</span></span><br><span class="line">    .set(<span class="literal">true</span>, <span class="string">'bool1'</span>) <span class="comment">// a boolean key</span></span><br><span class="line">    .set(john, <span class="number">123</span>) <span class="comment">// a object key</span></span><br><span class="line">    .set(<span class="literal">NaN</span>, <span class="string">'hello'</span>)</span><br><span class="line">    .set(<span class="literal">NaN</span>, <span class="string">'World'</span>);</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(map.size); <span class="comment">// 4</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(map.has(john)); <span class="comment">// true</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(map.delete(john)); <span class="comment">// true</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(map.get(<span class="number">1</span>)); <span class="comment">// 'num1'</span></span><br><span class="line"><span class="built_in">console</span>.log(map.get(<span class="string">'1'</span>)); <span class="comment">// 'str1'</span></span><br><span class="line"><span class="built_in">console</span>.log(map.get(<span class="literal">NaN</span>)); <span class="comment">// world</span></span><br><span class="line"></span><br><span class="line">map.clear();</span><br><span class="line"><span class="built_in">console</span>.log(map.size); <span class="comment">// 0</span></span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>map.set 会返回 map自身，所以我们可以链式调用set接口</p>
+</blockquote>
+<h3><span id="key-唯一性">key 唯一性</span></h3><p>键的比较是基于 <a href="https://tc39.github.io/ecma262/#sec-samevaluezero" target="_blank" rel="external">SameValueZero</a> 算法：<code>NaN</code> 是与 <code>NaN</code> 相同的（虽然 <code>NaN !== NaN</code>），剩下所有其它的值是根据 === 运算符的结果判断是否相等。在目前的ECMAScript规范中，<code>-0</code>和<code>+0</code>被认为是相等的，尽管这在早期的草案中并不是这样。有关详细信息，请参阅<a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Map#%E6%B5%8F%E8%A7%88%E5%99%A8%E5%85%BC%E5%AE%B9%E6%80%A7" target="_blank" rel="external">浏览器兼容性</a> 表中的“value equality for -0 and 0”。</p>
+<h3><span id="遍历">遍历</span></h3><ul>
+<li><code>keys()</code>：返回键名的遍历器。</li>
+<li><code>values()</code>：返回键值的遍历器。</li>
+<li><code>entries()</code>：返回所有成员的遍历器。</li>
+<li><code>forEach()</code>：遍历 Map 的所有成员。</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> map = <span class="keyword">new</span> <span class="built_in">Map</span>();</span><br><span class="line"></span><br><span class="line">map.set(<span class="string">'a'</span>, <span class="number">1</span>)</span><br><span class="line">    .set(<span class="string">'b'</span>, <span class="number">2</span>)</span><br><span class="line">    .set(<span class="string">'c'</span>, <span class="number">3</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">let</span> key <span class="keyword">of</span> map.keys()) &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(key);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">let</span> value <span class="keyword">of</span> map.values()) &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(value);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">let</span> entry <span class="keyword">of</span> map.entries()) &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(entry[<span class="number">0</span>], entry[<span class="number">1</span>]);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">let</span> [key, value] <span class="keyword">of</span> map) &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(key, value);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">map.forEach(<span class="function"><span class="keyword">function</span> (<span class="params">value, key</span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(key, value);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>更多有关Map的使用介绍请查看：<a href="http://es6.ruanyifeng.com/#docs/set-map#Map" target="_blank" rel="external">http://es6.ruanyifeng.com/#docs/set-map#Map</a></p>
+</blockquote>
+<h3><span id="与其他数据类型之间的转换">与其他数据类型之间的转换</span></h3><h4><span id="map-gt-array">Map ===&gt; Array</span></h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> map = <span class="keyword">new</span> <span class="built_in">Map</span>();</span><br><span class="line">map.set(<span class="string">'a'</span>, <span class="number">1</span>)</span><br><span class="line">    .set(<span class="string">'b'</span>, <span class="number">2</span>)</span><br><span class="line">    .set(<span class="string">'c'</span>, <span class="number">3</span>);</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Array</span>.from(map)); </span><br><span class="line"><span class="comment">// [ [ 'a', 1 ], [ 'b', 2 ], [ 'c', 3 ] ]</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log([...map]); </span><br><span class="line"><span class="comment">// [ [ 'a', 1 ], [ 'b', 2 ], [ 'c', 3 ] ]</span></span><br></pre></td></tr></table></figure>
+<p>####Array ===&gt; Map</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> array = [ [ <span class="string">'a'</span>, <span class="number">1</span> ], [ <span class="string">'b'</span>, <span class="number">2</span> ], [ <span class="string">'c'</span>, <span class="number">3</span> ] ];</span><br><span class="line"><span class="keyword">let</span> map = <span class="keyword">new</span> <span class="built_in">Map</span>(array);</span><br><span class="line"><span class="built_in">console</span>.log(map);</span><br><span class="line"><span class="comment">// Map &#123; 'a' =&gt; 1, 'b' =&gt; 2, 'c' =&gt; 3 &#125;</span></span><br></pre></td></tr></table></figure>
+<h4><span id="map-gt-object">Map ===&gt; Object</span></h4><blockquote>
+<p>如果有非字符串的键名，那么这个键名会被转成字符串，再作为对象的键名。</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> map = <span class="keyword">new</span> <span class="built_in">Map</span>();</span><br><span class="line">map.set(<span class="string">"a"</span>, <span class="number">1</span>);</span><br><span class="line">map.set(<span class="string">"b"</span>, <span class="number">2</span>);</span><br><span class="line">map.set(<span class="string">"c"</span>, <span class="number">3</span>);</span><br><span class="line">map.set(<span class="string">'keyString'</span>, <span class="string">"value associated with 'a string'"</span>);</span><br><span class="line">map.set(<span class="string">'keyObj'</span>, <span class="string">'value associated with keyObj'</span>);</span><br><span class="line">map.set(<span class="string">'keyFunc'</span>, <span class="string">'value associated with keyFunc'</span>);</span><br><span class="line">map.set(<span class="number">0</span>, <span class="string">'zero'</span>);</span><br><span class="line">map.set(<span class="number">1</span>, <span class="string">'one'</span>);</span><br><span class="line">map.set(<span class="string">'contra'</span>, &#123;<span class="attr">description</span>: <span class="string">'Asynchronous flow control'</span>&#125;);</span><br><span class="line">map.set(<span class="string">'dragula'</span>, &#123;<span class="attr">description</span>: <span class="string">'Drag and drop'</span>&#125;);</span><br><span class="line">map.set(<span class="string">'woofmark'</span>, &#123;<span class="attr">description</span>: <span class="string">'Markdown and WYSIWYG editor'</span>&#125;);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 此种方法更快 635 ms</span></span><br><span class="line"><span class="keyword">const</span> strMapToObj = <span class="function">(<span class="params">map</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">let</span> obj = &#123;&#125;;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">let</span> prop <span class="keyword">of</span> map)&#123;</span><br><span class="line">        obj[prop[<span class="number">0</span>]] = prop[<span class="number">1</span>];</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> obj;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="built_in">console</span>.log(strMapToObj(map));</span><br><span class="line"></span><br><span class="line"><span class="comment">// 此种方法慢 4704 ms</span></span><br><span class="line"><span class="keyword">const</span> strMapToObj2 = <span class="function">(<span class="params">map</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">let</span> obj = <span class="built_in">Array</span>.from(map).reduce(<span class="function">(<span class="params">obj, [key, value]</span>) =&gt;</span> (</span><br><span class="line">        <span class="built_in">Object</span>.assign(obj, &#123; [key]: value &#125;) <span class="comment">// Be careful! Maps can have non-String keys; object literals can't.</span></span><br><span class="line">    ), &#123;&#125;);</span><br><span class="line">    <span class="keyword">return</span> obj;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(strMapToObj2(map)); </span><br><span class="line"></span><br><span class="line"><span class="comment">// &#123; '0': 'zero',</span></span><br><span class="line"><span class="comment">//     '1': 'one',</span></span><br><span class="line"><span class="comment">//     a: 1,</span></span><br><span class="line"><span class="comment">//     b: 2,</span></span><br><span class="line"><span class="comment">//     c: 3,</span></span><br><span class="line"><span class="comment">//     keyString: 'value associated with \'a string\'',</span></span><br><span class="line"><span class="comment">//     keyObj: 'value associated with keyObj',</span></span><br><span class="line"><span class="comment">//     keyFunc: 'value associated with keyFunc',</span></span><br><span class="line"><span class="comment">//     contra: &#123; description: 'Asynchronous flow control' &#125;,</span></span><br><span class="line"><span class="comment">//     dragula: &#123; description: 'Drag and drop' &#125;,</span></span><br><span class="line"><span class="comment">//     woofmark: &#123; description: 'Markdown and WYSIWYG editor' &#125; &#125;</span></span><br></pre></td></tr></table></figure>
+<h4><span id="object-gt-map">Object ===&gt; Map</span></h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> user = &#123;</span><br><span class="line">    name: <span class="string">'wangwei'</span>,</span><br><span class="line">    age: <span class="number">25</span></span><br><span class="line">&#125;;</span><br><span class="line"><span class="keyword">let</span> map = <span class="keyword">new</span> <span class="built_in">Map</span>(<span class="built_in">Object</span>.entries(user));</span><br><span class="line"><span class="built_in">console</span>.log(map);</span><br><span class="line"><span class="comment">// Map &#123; 'name' =&gt; 'wangwei', 'age' =&gt; 25 &#125;</span></span><br></pre></td></tr></table></figure>
+<h4><span id="map-gt-json">Map ===&gt; JSON</span></h4><p>如果map里面的key名都是字符串，可以选择直接转为 json 对象</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> map = <span class="keyword">new</span> <span class="built_in">Map</span>();</span><br><span class="line">map.set(<span class="string">"a"</span>, <span class="number">1</span>);</span><br><span class="line">map.set(<span class="string">"b"</span>, <span class="number">2</span>);</span><br><span class="line">map.set(<span class="string">"c"</span>, <span class="number">3</span>);</span><br><span class="line">map.set(<span class="string">'contra'</span>, &#123;<span class="attr">description</span>: <span class="string">'Asynchronous flow control'</span>&#125;);</span><br><span class="line">map.set(<span class="string">'dragula'</span>, &#123;<span class="attr">description</span>: <span class="string">'Drag and drop'</span>&#125;);</span><br><span class="line">map.set(<span class="string">'woofmark'</span>, &#123;<span class="attr">description</span>: <span class="string">'Markdown and WYSIWYG editor'</span>&#125;);</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> strMapToObj = <span class="function">(<span class="params">map</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">let</span> obj = &#123;&#125;;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">let</span> prop <span class="keyword">of</span> map)&#123;</span><br><span class="line">        obj[prop[<span class="number">0</span>]] = prop[<span class="number">1</span>];</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> obj;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">strMapToJson</span>(<span class="params">strMap</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">JSON</span>.stringify(strMapToObj(strMap));</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(strMapToJson(map));</span><br></pre></td></tr></table></figure>
+<p>另一种情况是，Map 的键名有非字符串，这时可以选择转为数组 JSON。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> map = <span class="keyword">new</span> <span class="built_in">Map</span>();</span><br><span class="line">map.set(<span class="string">"a"</span>, <span class="number">1</span>);</span><br><span class="line">map.set(<span class="string">"b"</span>, <span class="number">2</span>);</span><br><span class="line">map.set(<span class="string">"c"</span>, <span class="number">3</span>);</span><br><span class="line">map.set(<span class="string">'contra'</span>, &#123;<span class="attr">description</span>: <span class="string">'Asynchronous flow control'</span>&#125;);</span><br><span class="line">map.set(<span class="string">'dragula'</span>, &#123;<span class="attr">description</span>: <span class="string">'Drag and drop'</span>&#125;);</span><br><span class="line">map.set(<span class="string">'woofmark'</span>, &#123;<span class="attr">description</span>: <span class="string">'Markdown and WYSIWYG editor'</span>&#125;);</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">mapToArrayJson</span>(<span class="params">map</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="built_in">JSON</span>.stringify([...map]);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">mapToArrayJson(map)</span><br><span class="line"><span class="comment">// '[[true,7],[&#123;"foo":3&#125;,["abc"]]]'</span></span><br></pre></td></tr></table></figure>
+<h4><span id="json-gt-map">JSON ===&gt; Map</span></h4><p>JSON 转为 Map，正常情况下，所有键名都是字符串。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">jsonToStrMap</span>(<span class="params">jsonStr</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> objToStrMap(<span class="built_in">JSON</span>.parse(jsonStr));</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">jsonToStrMap(<span class="string">'&#123;"yes": true, "no": false&#125;'</span>)</span><br><span class="line"><span class="comment">// Map &#123;'yes' =&gt; true, 'no' =&gt; false&#125;</span></span><br></pre></td></tr></table></figure>
+<p>但是，有一种特殊情况，整个 JSON 就是一个数组，且每个数组成员本身，又是一个有两个成员的数组。这时，它可以一一对应地转为 Map。这往往是 Map 转为数组 JSON 的逆操作。</p>
+ <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">jsonToMap</span>(<span class="params">jsonStr</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="keyword">new</span> <span class="built_in">Map</span>(<span class="built_in">JSON</span>.parse(jsonStr));</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">jsonToMap(<span class="string">'[[true,7],[&#123;"foo":3&#125;,["abc"]]]'</span>)</span><br><span class="line"><span class="comment">// Map &#123;true =&gt; 7, Object &#123;foo: 3&#125; =&gt; ['abc']&#125;</span></span><br></pre></td></tr></table></figure>
+<h2><span id="weakmap">WeakMap</span></h2><p><code>WeakMap</code> 的用法与 <code>Map</code> 大致类似，主要的区别在于：</p>
+<ol>
+<li>Map可以使用任意类型的数据作为 Key，而 WeakMap 只能使用对象作为 Key。它的键名所引用的对象都是弱引用，即垃圾回收机制不将该引用考虑在内。因此，只要所引用的对象的其他引用都被清除，垃圾回收机制就会释放该对象所占用的内存。也就是说，一旦不再需要，WeakMap 里面的键名对象和所对应的键值对会自动消失，不用手动删除引用。总之，<code>WeakMap</code>的专用场合就是，它的键所对应的对象，可能会在将来消失。<code>WeakMap</code>结构有助于防止内存泄漏。</li>
+<li><code>WeakMap</code> 只有这四个方法：<code>get()</code>、<code>set()</code>、<code>has()</code>、<code>delete()</code>。<ul>
+<li>没有遍历操作（即没有<code>keys()</code>、<code>values()</code>和<code>entries()</code>方法），也没有<code>size</code>属性。因为没有办法列出所有键名，某个键名是否存在完全不可预测，跟垃圾回收机制是否运行相关。这一刻可以取到键名，下一刻垃圾回收机制突然运行了，这个键名就没了，为了防止出现不确定性，就统一规定不能取到键名。</li>
+<li>无法清空，即不支持<code>clear</code>方法。</li>
+</ul>
+</li>
+</ol>
+<blockquote>
+<p>更多有关WeakMap的使用介绍请查看：<a href="http://es6.ruanyifeng.com/#docs/set-map#WeakMap" target="_blank" rel="external">http://es6.ruanyifeng.com/#docs/set-map#WeakMap</a></p>
+</blockquote>
+<h4><span id="内存示例">内存示例</span></h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br></pre></td><td class="code"><pre><span class="line">// 打开 Node 命令行</span><br><span class="line"><span class="meta">$</span> node --expose-gc</span><br><span class="line"></span><br><span class="line">// 手动执行一次垃圾回收，保证获取的内存使用状态准确</span><br><span class="line"><span class="meta">&gt;</span> global.gc();</span><br><span class="line">undefined</span><br><span class="line"></span><br><span class="line">// 查看内存占用的初始状态，heapUsed 为 5M 左右</span><br><span class="line"><span class="meta">&gt;</span> process.memoryUsage();</span><br><span class="line">&#123; rss: 18923520,</span><br><span class="line">  heapTotal: 7110656,</span><br><span class="line">  heapUsed: 5164056,</span><br><span class="line">  external: 8731 &#125;</span><br><span class="line"></span><br><span class="line"><span class="meta">&gt;</span> let wm = new WeakMap();</span><br><span class="line">undefined</span><br><span class="line"></span><br><span class="line">// 新建一个变量 key，指向一个 5*1024*1024 的数组</span><br><span class="line"><span class="meta">&gt;</span> let key = new Array(5 * 1024 * 1024);</span><br><span class="line">undefined</span><br><span class="line"></span><br><span class="line">// 设置 WeakMap 实例的键名，也指向 key 数组</span><br><span class="line">// 这时，key 数组实际被引用了两次，</span><br><span class="line">// 变量 key 引用一次，WeakMap 的键名引用了第二次</span><br><span class="line">// 但是，WeakMap 是弱引用，对于引擎来说，引用计数还是1</span><br><span class="line"><span class="meta">&gt;</span> wm.set(key, 1);</span><br><span class="line">WeakMap &#123;&#125;</span><br><span class="line"></span><br><span class="line"><span class="meta">&gt;</span> global.gc();</span><br><span class="line">undefined</span><br><span class="line"></span><br><span class="line">// 这时内存占用 heapUsed 增加到 44M 了</span><br><span class="line"><span class="meta">&gt;</span> process.memoryUsage();</span><br><span class="line">&#123; rss: 62652416,</span><br><span class="line">  heapTotal: 50638848,</span><br><span class="line">  heapUsed: 47035976,</span><br><span class="line">  external: 8707 &#125;</span><br><span class="line"></span><br><span class="line">// 清除变量 key 对数组的引用，</span><br><span class="line">// 但没有手动清除 WeakMap 实例的键名对数组的引用</span><br><span class="line"><span class="meta">&gt;</span> key = null;</span><br><span class="line">null</span><br><span class="line"></span><br><span class="line">// 再次执行垃圾回收</span><br><span class="line"><span class="meta">&gt;</span> global.gc();</span><br><span class="line">undefined</span><br><span class="line"></span><br><span class="line">// 内存占用 heapUsed 变回 5M 左右，</span><br><span class="line">// 可以看到 WeakMap 的键名引用没有阻止 gc 对内存的回收</span><br><span class="line"><span class="meta">&gt;</span> process.memoryUsage();</span><br><span class="line">&#123; rss: 20955136,</span><br><span class="line">  heapTotal: 8683520,</span><br><span class="line">  heapUsed: 5073920,</span><br><span class="line">  external: 8703 &#125;</span><br></pre></td></tr></table></figure>
+<h2><span id="set">Set</span></h2><p><code>Set</code> 集合与java中的 <code>Set</code> 类似，所有的元素都是唯一的，没有重复的值。</p>
+<h3><span id="基本用法">基本用法</span></h3><ul>
+<li><code>add(value)</code>：添加某个值，返回 Set 结构本身。</li>
+<li><code>delete(value)</code>：删除某个值，返回一个布尔值，表示删除是否成功。</li>
+<li><code>has(value)</code>：返回一个布尔值，表示该值是否为<code>Set</code>的成员。</li>
+<li><code>clear()</code>：清除所有成员，没有返回值。</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> set = <span class="keyword">new</span> <span class="built_in">Set</span>([<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">4</span>, <span class="number">3</span>, <span class="number">1</span>]);</span><br><span class="line"><span class="built_in">console</span>.log(set);</span><br><span class="line"><span class="comment">// Set &#123; 1, 2, 3, 4, 5 &#125;</span></span><br><span class="line"></span><br><span class="line">set.add(<span class="number">1</span>).add(<span class="number">2</span>);</span><br><span class="line"><span class="built_in">console</span>.log(set);</span><br><span class="line"><span class="comment">// Set &#123; 1, 2, 3, 4, 5 &#125;</span></span><br><span class="line"></span><br><span class="line">set.delete(<span class="number">1</span>);</span><br><span class="line"><span class="built_in">console</span>.log(set);</span><br><span class="line"><span class="comment">// Set &#123; 2, 3, 4, 5 &#125;</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(set.has(<span class="number">5</span>));</span><br><span class="line"><span class="comment">// true</span></span><br><span class="line"></span><br><span class="line">set.clear();</span><br><span class="line"><span class="built_in">console</span>.log(set.size);</span><br><span class="line"><span class="comment">// 0</span></span><br></pre></td></tr></table></figure>
+<h3><span id="元素唯一性">元素唯一性</span></h3><p>同 Map  中的 key 一样，也是采用的  <a href="https://tc39.github.io/ecma262/#sec-samevaluezero" target="_blank" rel="external">SameValueZero</a> 算法。</p>
+<h3><span id="遍历">遍历</span></h3><ul>
+<li><code>keys()</code>：返回键名的遍历器</li>
+<li><code>values()</code>：返回键值的遍历器</li>
+<li><code>entries()</code>：返回键值对的遍历器</li>
+<li><code>forEach()</code>：使用回调函数遍历每个成员</li>
+</ul>
+<h3><span id="与其他数据类型之间的转换">与其他数据类型之间的转换</span></h3><h4><span id="set-gt-array">set ===&gt; array</span></h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> items = <span class="keyword">new</span> <span class="built_in">Set</span>([<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>]);</span><br><span class="line"><span class="keyword">const</span> array = <span class="built_in">Array</span>.from(items);</span><br></pre></td></tr></table></figure>
+<h2><span id="weakset">WeakSet</span></h2><p><code>WeakSet</code> 的特性与前面 <code>WeakMap</code> 中存放 Key 的特性类似，这里不多做介绍。</p>
+<h2><span id="参考资料">参考资料</span></h2><ul>
+<li><a href="http://es6.ruanyifeng.com/#docs/set-map" target="_blank" rel="external">http://es6.ruanyifeng.com/#docs/set-map</a></li>
+<li><a href="https://javascript.info/map-set-weakmap-weakset" target="_blank" rel="external">https://javascript.info/map-set-weakmap-weakset</a></li></ul>
+      
+    </div>
+    
+    
+    
+
+    
+      <div>
+        <div id="wechat_subscriber" style="display:block;padding:10px 0;margin:20px auto;width:100%;text-align:center">
+    <img id="wechat_subscriber_qcode" src="https://img.i7years.com/my7year-8.jpg" alt="王维 / Michael  Wang wechat" style="width:200px;max-width:100%">
+    <div>欢迎交流学习</div>
+</div>
+
+      </div>
+    
+
+    
+      <div>
+        <div style="padding:10px 0;margin:20px auto;width:90%;text-align:center">
+  <div>请我喝杯咖啡吧~</div>
+  <button id="rewardButton" disable="enable" onclick='var qr=document.getElementById("QR");"none"===qr.style.display?qr.style.display="block":qr.style.display="none"'>
+    <span>Donate</span>
+  </button>
+  <div id="QR" style="display:none">
+
+    
+      <div id="wechat" style="display:inline-block">
+        <img id="wechat_qr" src="https://img.i7years.com/pay2Wechat.png" alt="王维 / Michael  Wang WeChat Pay">
+        <p>WeChat Pay</p>
+      </div>
+    
+
+    
+      <div id="alipay" style="display:inline-block">
+        <img id="alipay_qr" src="https://img.i7years.com/pay2Alipay.png" alt="王维 / Michael  Wang Alipay">
+        <p>Alipay</p>
+      </div>
+    
+
+    
+      <div id="bitcoin" style="display:inline-block">
+        <img id="bitcoin_qr" src="https://img.i7years.com/wallet/rec_bitcoin.png" alt="王维 / Michael  Wang Bitcoin">
+        <p>Bitcoin</p>
+      </div>
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+      <div>
+        <ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>Post author:</strong>
+    王维 / Michael  Wang
+  </li>
+  <li class="post-copyright-link">
+    <strong>Post link:</strong>
+    <a href="https://wangwei.one/posts/f4ac3ebf.html" title="javascript学习(8) | Data type —— Map,WeakMap,Set,WeakSet">https://wangwei.one/posts/f4ac3ebf.html</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>Copyright Notice: </strong>
+    All articles in this blog are licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 3.0</a> unless stating additionally.
+  </li>
+</ul>
+
+      </div>
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/javascript/" rel="tag"># javascript</a>
+          
+        </div>
+      
+
+      
+      
+        <div class="post-widgets">
+        
+
+        
+
+        
+          
+          <div id="needsharebutton-postbottom">
+            <span class="btn">
+              <i class="fa fa-share-alt" aria-hidden="true"></i>
+            </span>
+          </div>
+        
+        </div>
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/posts/a1e7623d.html" rel="next" title="javascript学习(7) | Data Type —— Array">
+                <i class="fa fa-chevron-left"></i> javascript学习(7) | Data Type —— Array
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/posts/39da151b.html" rel="prev" title="javascript学习(9) | Iterables (迭代器)">
+                javascript学习(9) | Iterables (迭代器) <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="https://img.i7years.com/avatar/myAvatar.png" alt="王维 / Michael  Wang">
+            
+              <p class="site-author-name" itemprop="name">王维 / Michael  Wang</p>
+              <p class="site-description motion-element" itemprop="description">分享自己所思所学所行</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives">
+              
+                  <span class="site-state-item-count">54</span>
+                  <span class="site-state-item-name">posts</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">4</span>
+                  <span class="site-state-item-name">categories</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">62</span>
+                  <span class="site-state-item-name">tags</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          <div class="links-of-author motion-element">
+            
+              
+                <span class="links-of-author-item">
+                  <a href="https://github.com/wangweiX" target="_blank" title="GitHub">
+                    
+                      <i class="fa fa-fw fa-github"></i>GitHub</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="http://weibo.com/wangweijava" target="_blank" title="Weibo">
+                    
+                      <i class="fa fa-fw fa-weibo"></i>Weibo</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="https://twitter.com/wangwei_hz" target="_blank" title="Twitter">
+                    
+                      <i class="fa fa-fw fa-twitter"></i>Twitter</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="https://www.douban.com/people/wwxzwj" target="_blank" title="Douban">
+                    
+                      <i class="fa fa-fw fa-film"></i>Douban</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="http://www.linkedin.com/in/wangweix/" target="_blank" title="Linkedin">
+                    
+                      <i class="fa fa-fw fa-linkedin"></i>Linkedin</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="http://www.ximalaya.com/53432374/profile" target="_blank" title="Podcast">
+                    
+                      <i class="fa fa-fw fa-podcast"></i>Podcast</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="mailto:w7years@gmail.com" target="_blank" title="E-Mail">
+                    
+                      <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="https://telegram.me/wangwei_hz" target="_blank" title="Telegram">
+                    
+                      <i class="fa fa-fw fa-telegram"></i>Telegram</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="https://press.one/main/p/23fe9bfd7ceef4b44c2ce44dcac8e4a49caf8026" target="_blank" title="PressOne">
+                    
+                      <i class="fa fa-fw fa-expeditedssl"></i>PressOne</a>
+                </span>
+              
+            
+          </div>
+
+          
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+              <div class="links-of-blogroll-title">
+                <i class="fa fa-fw fa-link"></i>
+                Links
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://learnblockchain.cn/" title="深入浅出区块链" target="_blank">深入浅出区块链</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://bitshuo.com/" title="区块链技术中文社区" target="_blank">区块链技术中文社区</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://eosfans.io/" title="EOS中文社区" target="_blank">EOS中文社区</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://www.bitask.org/" title="币问" target="_blank">币问</a>
+                  </li>
+                
+              </ul>
+            </div>
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">1.</span> <span class="nav-text">Map</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">1.1.</span> <span class="nav-text">基本用法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">1.2.</span> <span class="nav-text">key 唯一性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">1.3.</span> <span class="nav-text">遍历</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">1.4.</span> <span class="nav-text">与其他数据类型之间的转换</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#undefined"><span class="nav-number">1.4.1.</span> <span class="nav-text">Map ===> Array</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#undefined"><span class="nav-number">1.4.2.</span> <span class="nav-text">Map ===> Object</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#undefined"><span class="nav-number">1.4.3.</span> <span class="nav-text">Object ===> Map</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#undefined"><span class="nav-number">1.4.4.</span> <span class="nav-text">Map ===> JSON</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#undefined"><span class="nav-number">1.4.5.</span> <span class="nav-text">JSON ===> Map</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">2.</span> <span class="nav-text">WeakMap</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#undefined"><span class="nav-number">2.0.1.</span> <span class="nav-text">内存示例</span></a></li></ol></li></ol><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">3.</span> <span class="nav-text">Set</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">3.1.</span> <span class="nav-text">基本用法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">3.2.</span> <span class="nav-text">元素唯一性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">3.3.</span> <span class="nav-text">遍历</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">3.4.</span> <span class="nav-text">与其他数据类型之间的转换</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#undefined"><span class="nav-number">3.4.1.</span> <span class="nav-text">set ===> array</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">4.</span> <span class="nav-text">WeakSet</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">5.</span> <span class="nav-text">参考资料</span></a></li></div>
+            
+
+          </div>
+        </section>
+      
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; 2017 &mdash; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">王维 / Michael  Wang</span>
+
+  
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+    
+      <span class="post-meta-item-text">Site words total count&#58;</span>
+    
+    <span title="Site words total count">85.1k</span>
+  
+</div>
+
+
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Muse</a> v5.1.3</div>
+
+
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv">
+      本站访客数
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+      人次
+    </span>
+  
+
+  
+    <span class="site-pv">
+      本站总访问量
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+      次
+    </span>
+  
+</div>
+
+
+
+<script>var _mtac={};!function(){var t=document.createElement("script");t.src="https://pingjs.qq.com/h5/stats.js?v2.0.4",t.setAttribute("name","MTAH5"),t.setAttribute("sid","500547962");var e=document.getElementsByTagName("script")[0];e.parentNode.insertBefore(t,e)}()</script>
+
+
+
+
+
+
+  <div style="display:none">
+    <script src="//s95.cnzz.com/z_stat.php?id=1270083794&web_id=1270083794" language="JavaScript"></script>
+  </div>
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+      <div id="needsharebutton-float">
+        <span class="btn">
+          <i class="fa fa-share-alt" aria-hidden="true"></i>
+        </span>
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">"[object Function]"!==Object.prototype.toString.call(window.Promise)&&(window.Promise=null)</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.3"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.3"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.3"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.3"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.3"></script>
+
+
+
+  
+
+
+  
+
+    
+      <script id="dsq-count-scr" src="https://techi7years.disqus.com/count.js" async></script>
+    
+
+    
+      <script type="text/javascript">var disqus_config=function(){this.page.url="https://wangwei.one/posts/f4ac3ebf.html",this.page.identifier="posts/f4ac3ebf.html",this.page.title="javascript学习(8) | Data type —— Map,WeakMap,Set,WeakSet"},d=document,s=d.createElement("script");s.src="https://techi7years.disqus.com/embed.js",s.setAttribute("data-timestamp",""+ +new Date),(d.head||d.body).appendChild(s)</script>
+    
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+
+
+
+  
+
+  <script type="text/javascript">function proceedsearch(){$("body").append('<div class="search-popup-overlay local-search-pop-overlay"></div>').css("overflow","hidden"),$(".search-popup-overlay").click(onPopupClose),$(".popup").toggle();var t=$("#local-search-input");t.attr("autocapitalize","none"),t.attr("autocorrect","off"),t.focus()}var isfetched=!1,isXml=!0,search_path="search.xml";0===search_path.length?search_path="search.xml":/json$/i.test(search_path)&&(isXml=!1);var path="/"+search_path,onPopupClose=function(t){$(".popup").hide(),$("#local-search-input").val(""),$(".search-result-list").remove(),$("#no-result").remove(),$(".local-search-pop-overlay").remove(),$("body").css("overflow","")},searchFunc=function(t,e,o){"use strict";$("body").append('<div class="search-popup-overlay local-search-pop-overlay"><div id="search-loading-icon"><i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i></div></div>').css("overflow","hidden"),$("#search-loading-icon").css("margin","20% auto 0 auto").css("text-align","center"),$.ajax({url:t,dataType:isXml?"xml":"json",async:!0,success:function(t){isfetched=!0,$(".popup").detach().appendTo(".header-inner");var n=isXml?$("entry",t).map(function(){return{title:$("title",this).text(),content:$("content",this).text(),url:$("url",this).text()}}).get():t,r=document.getElementById(e),s=document.getElementById(o),a=function(){var t=r.value.trim().toLowerCase(),e=t.split(/[\s\-]+/);e.length>1&&e.push(t);var o=[];if(t.length>0&&n.forEach(function(n){var r=!1,s=0,a=0,i=n.title.trim(),c=i.toLowerCase(),l=n.content.trim().replace(/<[^>]+>/g,""),h=l.toLowerCase(),p=decodeURIComponent(n.url),u=[],f=[];if(""!=i&&(e.forEach(function(t){function e(t,e,o){var n=t.length;if(0===n)return[];var r=0,s=[],a=[];for(o||(e=e.toLowerCase(),t=t.toLowerCase());(s=e.indexOf(t,r))>-1;)a.push({position:s,word:t}),r=s+n;return a}u=u.concat(e(t,c,!1)),f=f.concat(e(t,h,!1))}),(u.length>0||f.length>0)&&(r=!0,s=u.length+f.length)),r){[u,f].forEach(function(t){t.sort(function(t,e){return e.position!==t.position?e.position-t.position:t.word.length-e.word.length})});function d(e,o,n,r){for(var s=r[r.length-1],i=s.position,c=s.word,l=[],h=0;i+c.length<=n&&0!=r.length;){c===t&&h++,l.push({position:i,length:c.length});var p=i+c.length;for(r.pop();0!=r.length&&(s=r[r.length-1],i=s.position,c=s.word,p>i);)r.pop()}return a+=h,{hits:l,start:o,end:n,searchTextCount:h}}var g=[];0!=u.length&&g.push(d(0,0,i.length,u));for(var v=[];0!=f.length;){var $=f[f.length-1],C=$.position,m=$.word,x=C-20,w=C+80;x<0&&(x=0),w<C+m.length&&(w=C+m.length),w>l.length&&(w=l.length),v.push(d(0,x,w,f))}v.sort(function(t,e){return t.searchTextCount!==e.searchTextCount?e.searchTextCount-t.searchTextCount:t.hits.length!==e.hits.length?e.hits.length-t.hits.length:t.start-e.start});var y=parseInt("1");y>=0&&(v=v.slice(0,y));function T(t,e){var o="",n=e.start;return e.hits.forEach(function(e){o+=t.substring(n,e.position);var r=e.position+e.length;o+='<b class="search-keyword">'+t.substring(e.position,r)+"</b>",n=r}),o+=t.substring(n,e.end)}var b="";0!=g.length?b+="<li><a href='"+p+"' class='search-result-title'>"+T(i,g[0])+"</a>":b+="<li><a href='"+p+"' class='search-result-title'>"+i+"</a>",v.forEach(function(t){b+="<a href='"+p+'\'><p class="search-result">'+T(l,t)+"...</p></a>"}),b+="</li>",o.push({item:b,searchTextCount:a,hitCount:s,id:o.length})}}),1===e.length&&""===e[0])s.innerHTML='<div id="no-result"><i class="fa fa-search fa-5x" /></div>';else if(0===o.length)s.innerHTML='<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>';else{o.sort(function(t,e){return t.searchTextCount!==e.searchTextCount?e.searchTextCount-t.searchTextCount:t.hitCount!==e.hitCount?e.hitCount-t.hitCount:e.id-t.id});var a='<ul class="search-result-list">';o.forEach(function(t){a+=t.item}),a+="</ul>",s.innerHTML=a}};r.addEventListener("input",a),$(".local-search-pop-overlay").remove(),$("body").css("overflow",""),proceedsearch()}})};$(".popup-trigger").click(function(t){t.stopPropagation(),!1===isfetched?searchFunc(path,"local-search-input","local-search-result"):proceedsearch()}),$(".popup-btn-close").click(onPopupClose),$(".popup").click(function(t){t.stopPropagation()}),$(document).on("keyup",function(t){27===t.which&&$(".search-popup").is(":visible")&&onPopupClose()})</script>
+
+
+
+
+
+  
+
+  
+
+  
+<script>!function(){var t=document.createElement("script"),e=window.location.protocol.split(":")[0];t.src="https"===e?"https://zz.bdstatic.com/linksubmit/push.js":"http://push.zhanzhang.baidu.com/push.js";var s=document.getElementsByTagName("script")[0];s.parentNode.insertBefore(t,s)}()</script>
+
+
+  
+  
+  
+  <link rel="stylesheet" href="/lib/needsharebutton/needsharebutton.css">
+
+  
+  
+  <script src="/lib/needsharebutton/needsharebutton.js"></script>
+
+  <script>pbOptions={},pbOptions.iconStyle="default",pbOptions.boxForm="horizontal",pbOptions.position="bottomCenter",pbOptions.networks="Mailto,Wechat,Weibo,QQZone,Twitter,Facebook,Linkedin,Evernote,Douban,GooglePlus,Reddit",new needShareButton("#needsharebutton-postbottom",pbOptions),flOptions={},flOptions.iconStyle="default",flOptions.boxForm="horizontal",flOptions.position="middleRight",flOptions.networks="Mailto,Wechat,Weibo,QQZone,Twitter,Facebook,Linkedin,Evernote,Douban,GooglePlus,Reddit",new needShareButton("#needsharebutton-float",flOptions)</script></body></html>
