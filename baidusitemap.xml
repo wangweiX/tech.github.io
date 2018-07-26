@@ -4,6 +4,168 @@
 
     
   <url>
+    <loc>https://wangwei.one/posts/4522b97f.html</loc>
+    <lastmod>2018-07-26T09:06:16.430Z</lastmod>
+    <data>
+        <display>
+        <title>Java8 | 新特性纵览</title>
+        <pubTime>2017-05-01T14:00:00.000Z</pubTime>
+        
+        <tag>Java8</tag>
+         
+        <tag>Lambda</tag>
+         
+         
+           
+             
+              <breadCrumb title="coding" url="https://wangwei.one/categories/coding/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://wangwei.one/posts/b1fcd8d6.html</loc>
+    <lastmod>2018-07-26T09:06:06.582Z</lastmod>
+    <data>
+        <display>
+        <title>NodeJs学习(1) | Build First Web Server</title>
+        <pubTime>2017-04-03T14:43:00.000Z</pubTime>
+        
+        <tag>NodeJs</tag>
+         
+         
+           
+             
+              <breadCrumb title="coding" url="https://wangwei.one/categories/coding/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://wangwei.one/posts/f8c889e2.html</loc>
+    <lastmod>2018-07-26T09:05:36.941Z</lastmod>
+    <data>
+        <display>
+        <title>javascript学习(12) |</title>
+        <pubTime>2017-03-10T14:43:00.000Z</pubTime>
+        
+        <tag>javascript</tag>
+         
+         
+           
+             
+              <breadCrumb title="coding" url="https://wangwei.one/categories/coding/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://wangwei.one/posts/b4757a13.html</loc>
+    <lastmod>2018-07-26T09:05:16.597Z</lastmod>
+    <data>
+        <display>
+        <title>javascript学习(11) | Date and time</title>
+        <pubTime>2017-03-10T14:43:00.000Z</pubTime>
+        
+        <tag>javascript</tag>
+         
+         
+           
+             
+              <breadCrumb title="coding" url="https://wangwei.one/categories/coding/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://wangwei.one/posts/39da151b.html</loc>
+    <lastmod>2018-07-25T09:26:25.544Z</lastmod>
+    <data>
+        <display>
+        <title>javascript学习(9) | Iterables (迭代器)</title>
+        <pubTime>2017-03-09T14:43:00.000Z</pubTime>
+        
+        <tag>javascript</tag>
+         
+         
+           
+             
+              <breadCrumb title="coding" url="https://wangwei.one/categories/coding/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://wangwei.one/posts/1c89568e.html</loc>
+    <lastmod>2018-07-25T09:24:44.014Z</lastmod>
+    <data>
+        <display>
+        <title>javascript学习(4) | 函数（Functions）</title>
+        <pubTime>2017-03-04T14:43:00.000Z</pubTime>
+        
+        <tag>javascript</tag>
+         
+         
+           
+             
+              <breadCrumb title="coding" url="https://wangwei.one/categories/coding/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://wangwei.one/posts/b5949fa3.html</loc>
+    <lastmod>2018-07-25T09:23:41.769Z</lastmod>
+    <data>
+        <display>
+        <title>javascript学习(5) | 对象（Objects）</title>
+        <pubTime>2017-03-05T14:43:00.000Z</pubTime>
+        
+        <tag>javascript</tag>
+         
+         
+           
+             
+              <breadCrumb title="coding" url="https://wangwei.one/categories/coding/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://wangwei.one/posts/f8560033.html</loc>
+    <lastmod>2018-07-25T09:23:34.324Z</lastmod>
+    <data>
+        <display>
+        <title>javascript学习(6) | Symbol Type</title>
+        <pubTime>2017-03-06T14:43:00.000Z</pubTime>
+        
+        <tag>javascript</tag>
+         
+         
+           
+             
+              <breadCrumb title="coding" url="https://wangwei.one/categories/coding/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>https://wangwei.one/posts/d45f2631.html</loc>
     <lastmod>2018-07-25T09:17:44.382Z</lastmod>
     <data>
@@ -64,112 +226,12 @@
 
     
   <url>
-    <loc>https://wangwei.one/posts/39da151b.html</loc>
-    <lastmod>2018-07-25T09:12:36.583Z</lastmod>
-    <data>
-        <display>
-        <title>javascript学习(9) | Iterables (迭代器)</title>
-        <pubTime>2017-03-09T14:43:00.000Z</pubTime>
-        
-        <tag>javascript</tag>
-         
-         
-           
-             
-              <breadCrumb title="coding" url="https://wangwei.one/categories/coding/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://wangwei.one/posts/b4757a13.html</loc>
-    <lastmod>2018-07-25T09:12:36.576Z</lastmod>
-    <data>
-        <display>
-        <title>javascript学习(11) | Date and time</title>
-        <pubTime>2017-03-10T14:43:00.000Z</pubTime>
-        
-        <tag>javascript</tag>
-         
-         
-           
-             
-              <breadCrumb title="coding" url="https://wangwei.one/categories/coding/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
     <loc>https://wangwei.one/posts/a1e7623d.html</loc>
     <lastmod>2018-07-25T08:24:08.001Z</lastmod>
     <data>
         <display>
         <title>javascript学习(7) | Data Type —— Array</title>
         <pubTime>2017-03-07T14:43:00.000Z</pubTime>
-        
-        <tag>javascript</tag>
-         
-         
-           
-             
-              <breadCrumb title="coding" url="https://wangwei.one/categories/coding/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://wangwei.one/posts/f8560033.html</loc>
-    <lastmod>2018-07-25T08:22:55.491Z</lastmod>
-    <data>
-        <display>
-        <title>javascript学习(6) | Symbol Type</title>
-        <pubTime>2017-03-06T14:43:00.000Z</pubTime>
-        
-        <tag>javascript</tag>
-         
-         
-           
-             
-              <breadCrumb title="coding" url="https://wangwei.one/categories/coding/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://wangwei.one/posts/b5949fa3.html</loc>
-    <lastmod>2018-07-25T08:20:02.285Z</lastmod>
-    <data>
-        <display>
-        <title>javascript学习(5) | 对象（Objects）</title>
-        <pubTime>2017-03-05T14:43:00.000Z</pubTime>
-        
-        <tag>javascript</tag>
-         
-         
-           
-             
-              <breadCrumb title="coding" url="https://wangwei.one/categories/coding/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://wangwei.one/posts/1c89568e.html</loc>
-    <lastmod>2018-07-25T08:19:32.724Z</lastmod>
-    <data>
-        <display>
-        <title>javascript学习(4) | 函数（Functions）</title>
-        <pubTime>2017-03-04T14:43:00.000Z</pubTime>
         
         <tag>javascript</tag>
          
@@ -283,48 +345,6 @@
            
              
               <breadCrumb title="blockchain" url="https://wangwei.one/categories/blockchain/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://wangwei.one/posts/4522b97f.html</loc>
-    <lastmod>2018-07-24T10:00:21.155Z</lastmod>
-    <data>
-        <display>
-        <title>Java8 | 新特性纵览</title>
-        <pubTime>2017-04-01T14:00:00.000Z</pubTime>
-        
-        <tag>Java8</tag>
-         
-        <tag>Lambda</tag>
-         
-         
-           
-             
-              <breadCrumb title="coding" url="https://wangwei.one/categories/coding/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://wangwei.one/posts/b1fcd8d6.html</loc>
-    <lastmod>2018-07-23T22:49:59.912Z</lastmod>
-    <data>
-        <display>
-        <title>NodeJs学习(1) | Build first web server</title>
-        <pubTime>2017-03-10T14:43:00.000Z</pubTime>
-        
-        <tag>NodeJs</tag>
-         
-         
-           
-             
-              <breadCrumb title="coding" url="https://wangwei.one/categories/coding/"/>
           
         </display>
     </data>
@@ -997,30 +1017,6 @@
 
     
   <url>
-    <loc>https://wangwei.one/posts/48247421.html</loc>
-    <lastmod>2018-01-22T02:01:44.147Z</lastmod>
-    <data>
-        <display>
-        <title>SpringBoot学习教程</title>
-        <pubTime>2017-12-02T16:31:18.000Z</pubTime>
-        
-        <tag>Java</tag>
-         
-        <tag>Spring</tag>
-         
-        <tag>SpringBoot</tag>
-         
-         
-           
-             
-              <breadCrumb title="coding" url="https://wangwei.one/categories/coding/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
     <loc>https://wangwei.one/posts/80d694a6.html</loc>
     <lastmod>2018-01-08T14:53:03.763Z</lastmod>
     <data>
@@ -1045,94 +1041,6 @@
     
     
   <url>
-    <loc>https://wangwei.one/posts/3725b694.html</loc>
-    <lastmod>2018-01-08T07:07:23.009Z</lastmod>
-    <data>
-        <display>
-        <title>让自己活在未来</title>
-        <pubTime>2017-05-14T05:26:34.000Z</pubTime>
-        
-        <tag>TED</tag>
-         
-        <tag>活在未来</tag>
-         
-        <tag>自证预言</tag>
-         
-        <tag>心理学</tag>
-         
-         
-           
-             
-              <breadCrumb title="writing" url="https://wangwei.one/categories/writing/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://wangwei.one/posts/94a4bf1c.html</loc>
-    <lastmod>2018-01-08T07:07:19.718Z</lastmod>
-    <data>
-        <display>
-        <title>营造更好交谈的10条建议</title>
-        <pubTime>2017-05-07T14:31:54.000Z</pubTime>
-        
-        <tag>沟通交流</tag>
-         
-        <tag>TED</tag>
-         
-         
-           
-             
-              <breadCrumb title="writing" url="https://wangwei.one/categories/writing/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://wangwei.one/posts/1fafa8f8.html</loc>
-    <lastmod>2018-01-08T07:07:16.513Z</lastmod>
-    <data>
-        <display>
-        <title>自我管理——反思日记</title>
-        <pubTime>2017-04-07T11:56:31.000Z</pubTime>
-        
-        <tag>反思</tag>
-         
-         
-           
-             
-              <breadCrumb title="writing" url="https://wangwei.one/categories/writing/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://wangwei.one/posts/87ab94c0.html</loc>
-    <lastmod>2018-01-08T07:07:11.745Z</lastmod>
-    <data>
-        <display>
-        <title>我从亿万富翁那里学来的投资智慧（上）</title>
-        <pubTime>2017-06-21T15:23:06.000Z</pubTime>
-        
-        <tag>投资</tag>
-         
-         
-           
-             
-              <breadCrumb title="writing" url="https://wangwei.one/categories/writing/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
     <loc>https://wangwei.one/posts/8e0f869c.html</loc>
     <lastmod>2018-01-08T07:07:06.037Z</lastmod>
     <data>
@@ -1141,76 +1049,6 @@
         <pubTime>2017-03-15T14:51:09.000Z</pubTime>
         
         <tag>写作</tag>
-         
-         
-           
-             
-              <breadCrumb title="writing" url="https://wangwei.one/categories/writing/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://wangwei.one/posts/9ce6150a.html</loc>
-    <lastmod>2018-01-08T07:07:02.056Z</lastmod>
-    <data>
-        <display>
-        <title>你的生命有真空吗</title>
-        <pubTime>2017-05-28T07:09:14.000Z</pubTime>
-        
-        <tag>时间的朋友</tag>
-         
-        <tag>生命真空</tag>
-         
-        <tag>生命空格</tag>
-         
-         
-           
-             
-              <breadCrumb title="writing" url="https://wangwei.one/categories/writing/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://wangwei.one/posts/685b0e.html</loc>
-    <lastmod>2018-01-08T07:06:58.906Z</lastmod>
-    <data>
-        <display>
-        <title>价值观升级在生活中运用（一）</title>
-        <pubTime>2017-04-17T00:16:25.000Z</pubTime>
-        
-        <tag>价值观</tag>
-         
-        <tag>跑步</tag>
-         
-         
-           
-             
-              <breadCrumb title="writing" url="https://wangwei.one/categories/writing/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://wangwei.one/posts/e8171a45.html</loc>
-    <lastmod>2018-01-08T07:06:50.504Z</lastmod>
-    <data>
-        <display>
-        <title>一种你不可或缺的思考方式</title>
-        <pubTime>2017-05-07T11:56:52.000Z</pubTime>
-        
-        <tag>思维方式</tag>
-         
-        <tag>思考方式</tag>
-         
-        <tag>逆向思维</tag>
          
          
            
