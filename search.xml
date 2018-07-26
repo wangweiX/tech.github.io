@@ -1832,7 +1832,7 @@
 </ul>
 <h4><span id="step-5-使用ibooks打开-calibre-library-下epub电子书">Step 5. 使用iBooks打开 Calibre Library 下ePub电子书</span></h4><p>只有这一步是需要我们手动去完成的，使用 iBooks 打开转化后的ePub，你会发现文字排版、图片、表格等格式都与Kindle电子书一模一样。</p>
 <p>嗯，就这样，希望对你有所帮助。</p>
-<h3><span id="申明">申明</span></h3><p>DeDRM 是为了买来书后自己用的更方便，请不要传播盗版……</p>
+<h3><span id="声明">声明</span></h3><p>DeDRM 是为了买来书后自己用的更方便，请不要传播盗版……</p>
 <blockquote>
 <p>参考：<a href="http://t.cn/RGA59Bo" target="_blank" rel="external">http://t.cn/RGA59Bo</a></p></blockquote>]]></content>
       
@@ -1942,9 +1942,36 @@
     </entry>
     
     <entry>
-      <title><![CDATA[javascript学习(12) |]]></title>
-      <url>/posts/f8c889e2.html</url>
-      <content type="html"><![CDATA[<script src="/assets/js/APlayer.min.js"> </script>]]></content>
+      <title><![CDATA[javascript学习(11) | Date and time]]></title>
+      <url>/posts/b4757a13.html</url>
+      <content type="html"><![CDATA[<script src="/assets/js/APlayer.min.js"> </script><p>本篇文章来介绍一下javascript中的另一个内建对象—— <a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Date" target="_blank" rel="external">Date</a>，其用法与java中的 <code>Date</code> 颇为相似。</p><a id="more"></a><h2><span id="创建">创建</span></h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// new Date()</span></span><br><span class="line"><span class="keyword">let</span> now = <span class="keyword">new</span> <span class="built_in">Date</span>();</span><br><span class="line"><span class="built_in">console</span>.log(now);</span><br><span class="line"></span><br><span class="line"><span class="comment">// new Date(milliseconds)</span></span><br><span class="line"><span class="keyword">let</span> date1 = <span class="keyword">new</span> <span class="built_in">Date</span>(<span class="number">24</span> * <span class="number">3600</span> * <span class="number">3600</span>);</span><br><span class="line"><span class="built_in">console</span>.log(date1);</span><br><span class="line"></span><br><span class="line"><span class="comment">// new Date(datestring)</span></span><br><span class="line"><span class="keyword">let</span> date2 = <span class="keyword">new</span> <span class="built_in">Date</span>(<span class="string">'2017-03-07'</span>);</span><br><span class="line"><span class="built_in">console</span>.log(date2);</span><br><span class="line"></span><br><span class="line"><span class="comment">// new Date(year, month, date, hours, minutes, seconds, ms)</span></span><br><span class="line"><span class="keyword">let</span> date3 = <span class="keyword">new</span> <span class="built_in">Date</span>(<span class="number">2017</span>, <span class="number">3</span>, <span class="number">7</span>, <span class="number">0</span>, <span class="number">0</span>);</span><br><span class="line"><span class="built_in">console</span>.log(date3);</span><br></pre></td></tr></table></figure>
+<h2><span id="查询日期组件">查询日期组件</span></h2><p><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Date/getFullYear" target="_blank" rel="external">getFullYear()</a>：根据当地时间，返回一个对应于给定日期的年份数字。</p>
+<p><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Date/getMonth" target="_blank" rel="external">getMonth()</a>：根据本地时间，返回一个指定的日期对象的月份，为基于0的值（0表示一年中的第一月）。</p>
+<p><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Date/getDate" target="_blank" rel="external">getDate()</a>：根据本地时间，返回一个指定的日期对象为一个月中的第几天。</p>
+<p><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/getHours" target="_blank" rel="external">getHours()</a>：根据本地时间，返回一个指定的日期对象的小时。</p>
+<p><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Date/getMinutes" target="_blank" rel="external">getMinutes()</a>：根据本地时间，返回一个指定的日期对象的分钟。</p>
+<p><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Date/getSeconds" target="_blank" rel="external">getSeconds()</a>：根据本地时间，返回一个指定的日期对象的秒数。</p>
+<p><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Date/getMilliseconds" target="_blank" rel="external">getMilliseconds()</a>：根据本地时间，返回一个指定的日期对象的毫秒数。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> now = <span class="keyword">new</span> <span class="built_in">Date</span>();</span><br><span class="line"><span class="built_in">console</span>.log(now.getFullYear());</span><br><span class="line"><span class="built_in">console</span>.log(now.getMonth());</span><br><span class="line"><span class="built_in">console</span>.log(now.getDay());</span><br><span class="line"><span class="built_in">console</span>.log(now.getHours());</span><br><span class="line"><span class="built_in">console</span>.log(now.getMinutes());</span><br><span class="line"><span class="built_in">console</span>.log(now.getSeconds());</span><br><span class="line"><span class="built_in">console</span>.log(now.getMilliseconds());</span><br></pre></td></tr></table></figure>
+<h2><span id="设置日期组件">设置日期组件</span></h2><ul>
+<li><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Date/setFullYear" target="_blank" rel="external">setFullYear(year [, month, date])</a></li>
+<li><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Date/setMonth" target="_blank" rel="external">setMonth(month [, date])</a></li>
+<li><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Date/setDate" target="_blank" rel="external">setDate(date)</a></li>
+<li><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Date/setHours" target="_blank" rel="external">setHours(hour [, min, sec, ms])</a></li>
+<li><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Date/setMinutes" target="_blank" rel="external">setMinutes(min [, sec, ms])</a></li>
+<li><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Date/setSeconds" target="_blank" rel="external">setSeconds(sec [, ms])</a></li>
+<li><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Date/setMilliseconds" target="_blank" rel="external">setMilliseconds(ms)</a></li>
+<li><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Date/setTime" target="_blank" rel="external">setTime(milliseconds)</a></li>
+</ul>
+<h2><span id="datenow">Date.now()</span></h2><p>获取当前时间戳，<code>Date.now()</code>  比  <code>new Date().getTime()</code>  更快，因为不需要创建对象，所以不需要进行垃圾回收。</p>
+<h2><span id="dateparse">Date.parse</span></h2><p>解析日期字符串，并返回对应的时间戳</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Date</span>.parse(<span class="string">'2017/03/09'</span>));</span><br><span class="line"><span class="comment">// 1488988800000</span></span><br></pre></td></tr></table></figure>
+<h2><span id="工具包">工具包</span></h2><ul>
+<li>推荐一个与js相关的日期库：<a href="http://momentjs.com/" target="_blank" rel="external">http://momentjs.com/</a></li>
+</ul>
+<h2><span id="参考资料">参考资料</span></h2><ul>
+<li><a href="https://javascript.info/date" target="_blank" rel="external">https://javascript.info/date</a></li>
+<li><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Date" target="_blank" rel="external">https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Date</a></li></ul>]]></content>
       
         <categories>
             
@@ -2013,36 +2040,9 @@
     </entry>
     
     <entry>
-      <title><![CDATA[javascript学习(11) | Date and time]]></title>
-      <url>/posts/b4757a13.html</url>
-      <content type="html"><![CDATA[<script src="/assets/js/APlayer.min.js"> </script><p>本篇文章来介绍一下javascript中的另一个内建对象—— <a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Date" target="_blank" rel="external">Date</a>，其用法与java中的 <code>Date</code> 颇为相似。</p><a id="more"></a><h2><span id="创建">创建</span></h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// new Date()</span></span><br><span class="line"><span class="keyword">let</span> now = <span class="keyword">new</span> <span class="built_in">Date</span>();</span><br><span class="line"><span class="built_in">console</span>.log(now);</span><br><span class="line"></span><br><span class="line"><span class="comment">// new Date(milliseconds)</span></span><br><span class="line"><span class="keyword">let</span> date1 = <span class="keyword">new</span> <span class="built_in">Date</span>(<span class="number">24</span> * <span class="number">3600</span> * <span class="number">3600</span>);</span><br><span class="line"><span class="built_in">console</span>.log(date1);</span><br><span class="line"></span><br><span class="line"><span class="comment">// new Date(datestring)</span></span><br><span class="line"><span class="keyword">let</span> date2 = <span class="keyword">new</span> <span class="built_in">Date</span>(<span class="string">'2017-03-07'</span>);</span><br><span class="line"><span class="built_in">console</span>.log(date2);</span><br><span class="line"></span><br><span class="line"><span class="comment">// new Date(year, month, date, hours, minutes, seconds, ms)</span></span><br><span class="line"><span class="keyword">let</span> date3 = <span class="keyword">new</span> <span class="built_in">Date</span>(<span class="number">2017</span>, <span class="number">3</span>, <span class="number">7</span>, <span class="number">0</span>, <span class="number">0</span>);</span><br><span class="line"><span class="built_in">console</span>.log(date3);</span><br></pre></td></tr></table></figure>
-<h2><span id="查询日期组件">查询日期组件</span></h2><p><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Date/getFullYear" target="_blank" rel="external">getFullYear()</a>：根据当地时间，返回一个对应于给定日期的年份数字。</p>
-<p><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Date/getMonth" target="_blank" rel="external">getMonth()</a>：根据本地时间，返回一个指定的日期对象的月份，为基于0的值（0表示一年中的第一月）。</p>
-<p><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Date/getDate" target="_blank" rel="external">getDate()</a>：根据本地时间，返回一个指定的日期对象为一个月中的第几天。</p>
-<p><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/getHours" target="_blank" rel="external">getHours()</a>：根据本地时间，返回一个指定的日期对象的小时。</p>
-<p><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Date/getMinutes" target="_blank" rel="external">getMinutes()</a>：根据本地时间，返回一个指定的日期对象的分钟。</p>
-<p><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Date/getSeconds" target="_blank" rel="external">getSeconds()</a>：根据本地时间，返回一个指定的日期对象的秒数。</p>
-<p><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Date/getMilliseconds" target="_blank" rel="external">getMilliseconds()</a>：根据本地时间，返回一个指定的日期对象的毫秒数。</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> now = <span class="keyword">new</span> <span class="built_in">Date</span>();</span><br><span class="line"><span class="built_in">console</span>.log(now.getFullYear());</span><br><span class="line"><span class="built_in">console</span>.log(now.getMonth());</span><br><span class="line"><span class="built_in">console</span>.log(now.getDay());</span><br><span class="line"><span class="built_in">console</span>.log(now.getHours());</span><br><span class="line"><span class="built_in">console</span>.log(now.getMinutes());</span><br><span class="line"><span class="built_in">console</span>.log(now.getSeconds());</span><br><span class="line"><span class="built_in">console</span>.log(now.getMilliseconds());</span><br></pre></td></tr></table></figure>
-<h2><span id="设置日期组件">设置日期组件</span></h2><ul>
-<li><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Date/setFullYear" target="_blank" rel="external">setFullYear(year [, month, date])</a></li>
-<li><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Date/setMonth" target="_blank" rel="external">setMonth(month [, date])</a></li>
-<li><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Date/setDate" target="_blank" rel="external">setDate(date)</a></li>
-<li><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Date/setHours" target="_blank" rel="external">setHours(hour [, min, sec, ms])</a></li>
-<li><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Date/setMinutes" target="_blank" rel="external">setMinutes(min [, sec, ms])</a></li>
-<li><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Date/setSeconds" target="_blank" rel="external">setSeconds(sec [, ms])</a></li>
-<li><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Date/setMilliseconds" target="_blank" rel="external">setMilliseconds(ms)</a></li>
-<li><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Date/setTime" target="_blank" rel="external">setTime(milliseconds)</a></li>
-</ul>
-<h2><span id="datenow">Date.now()</span></h2><p>获取当前时间戳，<code>Date.now()</code>  比  <code>new Date().getTime()</code>  更快，因为不需要创建对象，所以不需要进行垃圾回收。</p>
-<h2><span id="dateparse">Date.parse</span></h2><p>解析日期字符串，并返回对应的时间戳</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Date</span>.parse(<span class="string">'2017/03/09'</span>));</span><br><span class="line"><span class="comment">// 1488988800000</span></span><br></pre></td></tr></table></figure>
-<h2><span id="工具包">工具包</span></h2><ul>
-<li>推荐一个与js相关的日期库：<a href="http://momentjs.com/" target="_blank" rel="external">http://momentjs.com/</a></li>
-</ul>
-<h2><span id="参考资料">参考资料</span></h2><ul>
-<li><a href="https://javascript.info/date" target="_blank" rel="external">https://javascript.info/date</a></li>
-<li><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Date" target="_blank" rel="external">https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Date</a></li></ul>]]></content>
+      <title><![CDATA[javascript学习(12) |]]></title>
+      <url>/posts/f8c889e2.html</url>
+      <content type="html"><![CDATA[<script src="/assets/js/APlayer.min.js"> </script>]]></content>
       
         <categories>
             
