@@ -1275,9 +1275,9 @@
 </li>
 </ul>
 <h1><span id="指南">指南</span></h1><ol>
-<li>如何在自己电脑上搭建好博客，建立起初步的成就感。<a href="https://tech.i7years.com/posts/c5e43a28.html" target="_blank" rel="external">https://tech.i7years.com/posts/c5e43a28.html</a></li>
-<li>如何将自己的博客放到网上，让别人也能看到。<a href="https://tech.i7years.com/posts/f5f2d6f0.html" target="_blank" rel="external">https://tech.i7years.com/posts/f5f2d6f0.html</a></li>
-<li>修改博客的名称、logo、ico、slogan、主题等配置。<a href="https://tech.i7years.com/posts/b8ec75a2.html" target="_blank" rel="external">https://tech.i7years.com/posts/b8ec75a2.html</a></li></ol>]]></content>
+<li>如何在自己电脑上搭建好博客，建立起初步的成就感。<a href="https://wangwei.one/posts/c5e43a28.html">https://wangwei.one/posts/c5e43a28.html</a></li>
+<li>如何将自己的博客放到网上，让别人也能看到。<a href="https://wangwei.one/posts/f5f2d6f0.html">https://wangwei.one/posts/f5f2d6f0.html</a></li>
+<li>修改博客的名称、logo、ico、slogan、主题等配置。<a href="https://wangwei.one/posts/b8ec75a2.html">https://wangwei.one/posts/b8ec75a2.html</a></li></ol>]]></content>
       
         <categories>
             
@@ -1942,7 +1942,53 @@
     </entry>
     
     <entry>
-      <title><![CDATA[javascript学习(11) | Date and time]]></title>
+      <title><![CDATA[JavaScript学习(12) | Property flags and descriptors]]></title>
+      <url>/posts/c0e346ec.html</url>
+      <content type="html"><![CDATA[<script src="/assets/js/APlayer.min.js"> </script><p>在 <a href="https://wangwei.one/posts/b5949fa3.html">前面</a> 我们学习了javascript中如何创建对象以及对象属性的操作，本篇将深入学习 Object 属性的一些特性：<strong>Enumerable</strong>、<strong>Writable</strong>、<strong>Configurable</strong>.</p><a id="more"></a><h2><span id="property-flags">Property flags</span></h2><p>我们先来看下下面这段代码：</p><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// My beloved object ob</span></span><br><span class="line"><span class="keyword">let</span> ob = &#123;<span class="attr">a</span>: <span class="number">1</span>&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">// Accessing to a property</span></span><br><span class="line"><span class="built_in">console</span>.log(ob.a); <span class="comment">// =&gt; 1</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// Modifying the value of a property</span></span><br><span class="line">ob.a = <span class="number">0</span>;</span><br><span class="line"><span class="built_in">console</span>.log(ob.a); <span class="comment">// =&gt; 0;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// Creating a new property</span></span><br><span class="line">ob.b = <span class="number">2</span>;</span><br><span class="line"><span class="built_in">console</span>.log(ob.b); <span class="comment">// =&gt; 2</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// Deleting a property</span></span><br><span class="line"><span class="keyword">delete</span> ob.b;</span><br><span class="line"><span class="built_in">console</span>.log(ob.b); <span class="comment">// =&gt; undefined</span></span><br></pre></td></tr></table></figure>
+<h3><span id="objectgetownpropertydescriptor">Object.getOwnPropertyDescriptor</span></h3><p>获取对象属性的描述，语法：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> descriptor = <span class="built_in">Object</span>.getOwnPropertyDescriptor(obj, propertyName);</span><br></pre></td></tr></table></figure>
+<p>查看上面的例子中对象 <code>ob</code> 属性 <code>a</code> ：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> descriptor = <span class="built_in">Object</span>.getOwnPropertyDescriptor(ob, <span class="string">'a'</span>);</span><br><span class="line"><span class="built_in">console</span>.log(descriptor);</span><br><span class="line"><span class="comment">// &#123; value: 0, writable: true, enumerable: true, configurable: true &#125;</span></span><br></pre></td></tr></table></figure>
+<p>对象 <code>ob</code> 的属性是 enumerable、writable、configurable，什么意思呢？</p>
+<ul>
+<li>enumerable（可枚举）：可以使用 <code>for...in</code> 方法遍历对象的所有属性。也能通过 <code>Object.keys</code> 返回一个对象的所有的属性。</li>
+<li>writable（可修改）：可以修改对象的属性值。</li>
+<li>configurable（可配置）：可以修改属性的行为，可以将属性改为non-enumerable、non-writable 甚至是 non-configurable。可配置的属性是唯一能够通过 <code>delete</code> 操作删除的属性。</li>
+</ul>
+<h3><span id="objectgetownpropertydescriptors">Object.getOwnPropertyDescriptors</span></h3><p>获取对象所有属性的描述，语法：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> descriptors = <span class="built_in">Object</span>.getOwnPropertyDescriptor(obj);</span><br></pre></td></tr></table></figure>
+<p>例如：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> user = &#123;</span><br><span class="line">    name: <span class="string">'John'</span>,</span><br><span class="line">    surname: <span class="string">'Smith'</span></span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Object</span>.getOwnPropertyDescriptors(user));</span><br><span class="line">&#123; <span class="attr">name</span>:</span><br><span class="line"><span class="comment">// &#123; value: 'John',</span></span><br><span class="line"><span class="comment">//     writable: true,</span></span><br><span class="line"><span class="comment">//     enumerable: true,</span></span><br><span class="line"><span class="comment">//     configurable: true &#125;,</span></span><br><span class="line"><span class="comment">//     surname:</span></span><br><span class="line"><span class="comment">//     &#123; value: 'Smith',</span></span><br><span class="line"><span class="comment">//         writable: true,</span></span><br><span class="line"><span class="comment">//         enumerable: true,</span></span><br><span class="line"><span class="comment">//         configurable: true &#125; &#125;</span></span><br></pre></td></tr></table></figure>
+<h3><span id="objectdefineproperty">Object.defineProperty</span></h3><p>一次性定义对象的所有属性，语法：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">Object</span>.defineProperty(obj, propertyName, descriptor)</span><br></pre></td></tr></table></figure>
+<p>例如：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> user = &#123;&#125;;</span><br><span class="line"><span class="built_in">Object</span>.defineProperties(user, &#123;</span><br><span class="line">    name: &#123;<span class="attr">value</span>: <span class="string">"John"</span>, <span class="attr">writable</span>: <span class="literal">false</span>&#125;,</span><br><span class="line">    surname: &#123;<span class="attr">value</span>: <span class="string">"Smith"</span>, <span class="attr">writable</span>: <span class="literal">false</span>&#125;,</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p>与 <code>Object.getOwnPropertyDescriptors</code> 配合使用可以克隆对象所有的属性：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">let clone = Object.defineProperties(&#123;&#125;, Object.getOwnPropertyDescriptors(obj));</span><br></pre></td></tr></table></figure>
+<p>例子：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> user = &#123;</span><br><span class="line">    name: <span class="string">'John'</span>,</span><br><span class="line">    surname: <span class="string">'Smith'</span></span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> user1 = &#123;&#125;;</span><br><span class="line"></span><br><span class="line"><span class="built_in">Object</span>.defineProperties(user1, <span class="built_in">Object</span>.getOwnPropertyDescriptors(user));</span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Object</span>.getOwnPropertyDescriptors(user1));</span><br><span class="line"><span class="comment">// &#123; name:</span></span><br><span class="line"><span class="comment">// &#123; value: 'John',</span></span><br><span class="line"><span class="comment">//     writable: true,</span></span><br><span class="line"><span class="comment">//     enumerable: true,</span></span><br><span class="line"><span class="comment">//     configurable: true &#125;,</span></span><br><span class="line"><span class="comment">//     surname:</span></span><br><span class="line"><span class="comment">//     &#123; value: 'Smith',</span></span><br><span class="line"><span class="comment">//         writable: true,</span></span><br><span class="line"><span class="comment">//         enumerable: true,</span></span><br><span class="line"><span class="comment">//         configurable: true &#125; &#125;</span></span><br></pre></td></tr></table></figure>
+<h2><span id="参考资料">参考资料</span></h2><ul>
+<li><p><a href="http://javascript.info/property-descriptors" target="_blank" rel="external">http://javascript.info/property-descriptors</a></p>
+</li>
+<li><p><a href="http://arqex.com/967/javascript-properties-enumerable-writable-configurable" target="_blank" rel="external">http://arqex.com/967/javascript-properties-enumerable-writable-configurable</a></p></li></ul>]]></content>
+      
+        <categories>
+            
+            <category> coding </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> JavaScript </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
+      <title><![CDATA[JavaScript学习(11) | Date and time]]></title>
       <url>/posts/b4757a13.html</url>
       <content type="html"><![CDATA[<script src="/assets/js/APlayer.min.js"> </script><p>本篇文章来介绍一下javascript中的另一个内建对象—— <a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Date" target="_blank" rel="external">Date</a>，其用法与java中的 <code>Date</code> 颇为相似。</p><a id="more"></a><h2><span id="创建">创建</span></h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// new Date()</span></span><br><span class="line"><span class="keyword">let</span> now = <span class="keyword">new</span> <span class="built_in">Date</span>();</span><br><span class="line"><span class="built_in">console</span>.log(now);</span><br><span class="line"></span><br><span class="line"><span class="comment">// new Date(milliseconds)</span></span><br><span class="line"><span class="keyword">let</span> date1 = <span class="keyword">new</span> <span class="built_in">Date</span>(<span class="number">24</span> * <span class="number">3600</span> * <span class="number">3600</span>);</span><br><span class="line"><span class="built_in">console</span>.log(date1);</span><br><span class="line"></span><br><span class="line"><span class="comment">// new Date(datestring)</span></span><br><span class="line"><span class="keyword">let</span> date2 = <span class="keyword">new</span> <span class="built_in">Date</span>(<span class="string">'2017-03-07'</span>);</span><br><span class="line"><span class="built_in">console</span>.log(date2);</span><br><span class="line"></span><br><span class="line"><span class="comment">// new Date(year, month, date, hours, minutes, seconds, ms)</span></span><br><span class="line"><span class="keyword">let</span> date3 = <span class="keyword">new</span> <span class="built_in">Date</span>(<span class="number">2017</span>, <span class="number">3</span>, <span class="number">7</span>, <span class="number">0</span>, <span class="number">0</span>);</span><br><span class="line"><span class="built_in">console</span>.log(date3);</span><br></pre></td></tr></table></figure>
 <h2><span id="查询日期组件">查询日期组件</span></h2><p><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Date/getFullYear" target="_blank" rel="external">getFullYear()</a>：根据当地时间，返回一个对应于给定日期的年份数字。</p>
@@ -1966,8 +2012,8 @@
 <h2><span id="datenow">Date.now()</span></h2><p>获取当前时间戳，<code>Date.now()</code>  比  <code>new Date().getTime()</code>  更快，因为不需要创建对象，所以不需要进行垃圾回收。</p>
 <h2><span id="dateparse">Date.parse</span></h2><p>解析日期字符串，并返回对应的时间戳</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Date</span>.parse(<span class="string">'2017/03/09'</span>));</span><br><span class="line"><span class="comment">// 1488988800000</span></span><br></pre></td></tr></table></figure>
-<h2><span id="工具包">工具包</span></h2><ul>
-<li>推荐一个与js相关的日期库：<a href="http://momentjs.com/" target="_blank" rel="external">http://momentjs.com/</a></li>
+<h2><span id="日期库">日期库</span></h2><ul>
+<li>推荐非常不错的日期库：<a href="http://momentjs.com/" target="_blank" rel="external">http://momentjs.com/</a></li>
 </ul>
 <h2><span id="参考资料">参考资料</span></h2><ul>
 <li><a href="https://javascript.info/date" target="_blank" rel="external">https://javascript.info/date</a></li>
@@ -1982,14 +2028,14 @@
         
         <tags>
             
-            <tag> javascript </tag>
+            <tag> JavaScript </tag>
             
         </tags>
         
     </entry>
     
     <entry>
-      <title><![CDATA[javascript学习(10) | JSON]]></title>
+      <title><![CDATA[JavaScript学习(10) | JSON]]></title>
       <url>/posts/d45f2631.html</url>
       <content type="html"><![CDATA[<script src="/assets/js/APlayer.min.js"> </script><p>本篇介绍一下javasctipt中有关JSON的用法。</p><a id="more"></a><h2><span id="jsonstringify">JSON.stringify</span></h2><h4><span id="基本用法">基本用法</span></h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> value = <span class="built_in">JSON</span>.stringify(value[, replacer [, space]]);</span><br></pre></td></tr></table></figure>
 <blockquote>
@@ -2033,34 +2079,14 @@
         
         <tags>
             
-            <tag> javascript </tag>
+            <tag> JavaScript </tag>
             
         </tags>
         
     </entry>
     
     <entry>
-      <title><![CDATA[javascript学习(12) |]]></title>
-      <url>/posts/f8c889e2.html</url>
-      <content type="html"><![CDATA[<script src="/assets/js/APlayer.min.js"> </script>]]></content>
-      
-        <categories>
-            
-            <category> coding </category>
-            
-        </categories>
-        
-        
-        <tags>
-            
-            <tag> javascript </tag>
-            
-        </tags>
-        
-    </entry>
-    
-    <entry>
-      <title><![CDATA[javascript学习(9) | Iterables (迭代器)]]></title>
+      <title><![CDATA[JavaScript学习(9) | Iterables (迭代器)]]></title>
       <url>/posts/39da151b.html</url>
       <content type="html"><![CDATA[<script src="/assets/js/APlayer.min.js"> </script><p>Iterator 接口的目的，就是为所有数据结构，提供了一种统一的访问机制，即<code>for...of</code>循环）。当使用<code>for...of</code>循环遍历某种数据结构时，该循环会自动去寻找 Iterator 接口。</p><p>ES6 规定，一个数据结构只要具有<code>Symbol.iterator</code>属性，就可以认为是“可遍历的”（iterable）。</p><a id="more"></a><h2><span id="symboliterator">Symbol.iterator</span></h2><p>为了便于理解 <code>Symbol.iterator</code> ，我们先来造个轮子。</p><p>先创建一个对象 <code>rang</code>，我们希望能够遍历出 <code>from</code> 到 <code>to</code> 之间的数字。</p><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> rang = &#123;</span><br><span class="line">    <span class="keyword">from</span>: <span class="number">1</span>,</span><br><span class="line">    to: <span class="number">5</span></span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 <p>为了能够实现这个效果，我们需要为 rang 创建一个名为 <code>Symbol.iterator</code> 的方法。</p>
@@ -2097,14 +2123,14 @@
         
         <tags>
             
-            <tag> javascript </tag>
+            <tag> JavaScript </tag>
             
         </tags>
         
     </entry>
     
     <entry>
-      <title><![CDATA[javascript学习(8) | Data type —— Map,WeakMap,Set,WeakSet]]></title>
+      <title><![CDATA[JavaScript学习(8) | Data type —— Map,WeakMap,Set,WeakSet']]></title>
       <url>/posts/f4ac3ebf.html</url>
       <content type="html"><![CDATA[<script src="/assets/js/APlayer.min.js"> </script><p>本篇文章我们来学习一下 javascript 中的集合对象 <code>Map</code> 和 <code>Set</code> 。</p><a id="more"></a><h2><span id="map">Map</span></h2><p><code>map</code> 键值对，和 java 中的 map集合特性一致，只是语法上稍微有些差别。</p><h3><span id="基本用法">基本用法</span></h3><p>主要方法如下：</p><ul><li><code>new Map()</code> – 创建Map.</li><li><code>map.set(key, value)</code> – 存储key-value键值对</li><li><code>map.get(key)</code> – 查询<code>key</code>对应的value值,如果不存在，则返回 <code>undefined</code>.</li><li><code>map.has(key)</code> – 判断 <code>key</code> 否则存在，有则返回 <code>true</code>，反之返回 <code>false</code>.</li><li><code>map.delete(key)</code> – 删除 key 对应的键值对。</li><li><code>map.clear()</code> – 清空map。</li><li><code>map.size</code> – 返回map对应的元素数量。</li></ul><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> map = <span class="keyword">new</span> <span class="built_in">Map</span>();</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> john = &#123;<span class="attr">name</span>: <span class="string">"John"</span>&#125;;</span><br><span class="line"></span><br><span class="line">map.set(<span class="string">'1'</span>, <span class="string">'str1'</span>) <span class="comment">// a string key</span></span><br><span class="line">    .set(<span class="number">1</span>, <span class="string">'num1'</span>) <span class="comment">// a numeric key</span></span><br><span class="line">    .set(<span class="literal">true</span>, <span class="string">'bool1'</span>) <span class="comment">// a boolean key</span></span><br><span class="line">    .set(john, <span class="number">123</span>) <span class="comment">// a object key</span></span><br><span class="line">    .set(<span class="literal">NaN</span>, <span class="string">'hello'</span>)</span><br><span class="line">    .set(<span class="literal">NaN</span>, <span class="string">'World'</span>);</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(map.size); <span class="comment">// 4</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(map.has(john)); <span class="comment">// true</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(map.delete(john)); <span class="comment">// true</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(map.get(<span class="number">1</span>)); <span class="comment">// 'num1'</span></span><br><span class="line"><span class="built_in">console</span>.log(map.get(<span class="string">'1'</span>)); <span class="comment">// 'str1'</span></span><br><span class="line"><span class="built_in">console</span>.log(map.get(<span class="literal">NaN</span>)); <span class="comment">// world</span></span><br><span class="line"></span><br><span class="line">map.clear();</span><br><span class="line"><span class="built_in">console</span>.log(map.size); <span class="comment">// 0</span></span><br></pre></td></tr></table></figure>
 <blockquote>
@@ -2180,14 +2206,14 @@
         
         <tags>
             
-            <tag> javascript </tag>
+            <tag> JavaScript </tag>
             
         </tags>
         
     </entry>
     
     <entry>
-      <title><![CDATA[javascript学习(7) | Data Type —— Array]]></title>
+      <title><![CDATA[JavaScript学习(7) | Data Type —— Array]]></title>
       <url>/posts/a1e7623d.html</url>
       <content type="html"><![CDATA[<script src="/assets/js/APlayer.min.js"> </script><p>本篇文章重点介绍javascript中数组的特性。</p><a id="more"></a><h2><span id="声明">声明</span></h2><h3><span id="创建">创建</span></h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> arr = <span class="keyword">new</span> <span class="built_in">Array</span>();</span><br><span class="line"><span class="keyword">let</span> arr = []; <span class="comment">// 这种方式更为常见</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// e.g: </span></span><br><span class="line"><span class="keyword">let</span> fruits = [<span class="string">"Apple"</span>, <span class="string">"Orange"</span>, <span class="string">"Plum"</span>];</span><br></pre></td></tr></table></figure>
 <p>与java这种强类型不同的是，javascript中的数组可以存储任意类型的数据。</p>
@@ -2269,14 +2295,14 @@
         
         <tags>
             
-            <tag> javascript </tag>
+            <tag> JavaScript </tag>
             
         </tags>
         
     </entry>
     
     <entry>
-      <title><![CDATA[javascript学习(6) | Symbol Type]]></title>
+      <title><![CDATA[JavaScript学习(6) | Symbol Type]]></title>
       <url>/posts/f8560033.html</url>
       <content type="html"><![CDATA[<script src="/assets/js/APlayer.min.js"> </script><p>ES5 的对象属性名都是字符串，这容易造成属性名的冲突。比如，你使用了一个他人提供的对象，但又想为这个对象添加新的方法（mixin 模式），新方法的名字就有可能与现有方法产生冲突。如果有一种机制，保证每个属性的名字都是独一无二的就好了，这样就从根本上防止属性名的冲突。这就是 ES6 引入<code>Symbol</code>的原因。</p><a id="more"></a><p>ES6 引入了一种新的原始数据类型<code>Symbol</code>，表示独一无二的值。它是 JavaScript 语言的第七种数据类型，前六种是：<code>undefined</code>、<code>null</code>、布尔值（Boolean）、字符串（String）、数值（Number）、对象（Object）。</p><p>Symbol 值通过<code>Symbol</code>函数生成。这就是说，对象的属性名现在可以有两种类型，一种是原来就有的字符串，另一种就是新增的 Symbol 类型。凡是属性名属于 Symbol 类型，就都是独一无二的，可以保证不会与其他属性名产生冲突。</p><h2><span id="声明">声明</span></h2><p>声明方式：</p><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// id is a new symbol</span></span><br><span class="line"><span class="keyword">let</span> id = <span class="built_in">Symbol</span>();</span><br></pre></td></tr></table></figure>
 <p>我们也可以为其添加名称：</p>
@@ -2304,16 +2330,16 @@
         
         <tags>
             
-            <tag> javascript </tag>
+            <tag> JavaScript </tag>
             
         </tags>
         
     </entry>
     
     <entry>
-      <title><![CDATA[javascript学习(5) | 对象（Objects）]]></title>
+      <title><![CDATA[JavaScript学习(5) | 对象（Objects）]]></title>
       <url>/posts/b5949fa3.html</url>
-      <content type="html"><![CDATA[<script src="/assets/js/APlayer.min.js"> </script><p><a href="https://wangwei.one/posts/f88dc8a9.html">前面</a> 我们介绍了javascript中的6种原生的数据类型，今天来重点介绍 Object 类型。</p><a id="more"></a><h2><span id="创建">创建</span></h2><h3><span id="初始化">初始化</span></h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> o1 = <span class="keyword">new</span> <span class="built_in">Object</span>();</span><br><span class="line"><span class="keyword">let</span> o2 = &#123;&#125;; <span class="comment">// 推荐这种方式</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> user = &#123; 		    <span class="comment">// an object</span></span><br><span class="line">   name: <span class="string">"John"</span>,	    <span class="comment">// by key "name" store value "John"</span></span><br><span class="line">   age: <span class="number">30</span>,			    <span class="comment">// by key "age" store value 30</span></span><br><span class="line">   <span class="string">"likes birds"</span>: <span class="literal">true</span>   <span class="comment">// multiword property name must be quoted</span></span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+      <content type="html"><![CDATA[<script src="/assets/js/APlayer.min.js"> </script><p><a href="https://wangwei.one/posts/f88dc8a9.html">前面</a> 我们介绍了javascript中的6种原生的数据类型，</p><a id="more"></a><h2><span id="创建">创建</span></h2><h3><span id="初始化">初始化</span></h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> o1 = <span class="keyword">new</span> <span class="built_in">Object</span>();</span><br><span class="line"><span class="keyword">let</span> o2 = &#123;&#125;; <span class="comment">// 推荐这种方式</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> user = &#123; 		    <span class="comment">// an object</span></span><br><span class="line">   name: <span class="string">"John"</span>,	    <span class="comment">// by key "name" store value "John"</span></span><br><span class="line">   age: <span class="number">30</span>,			    <span class="comment">// by key "age" store value 30</span></span><br><span class="line">   <span class="string">"likes birds"</span>: <span class="literal">true</span>   <span class="comment">// multiword property name must be quoted</span></span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 <h3><span id="创建复杂对象">创建复杂对象</span></h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> myData = &#123;</span><br><span class="line">    myValue: <span class="number">123</span>,</span><br><span class="line">    bas: [&#123;</span><br><span class="line">        myItem: <span class="number">1</span></span><br><span class="line">    &#125;,</span><br><span class="line">        &#123;</span><br><span class="line">            myItem: <span class="number">2</span></span><br><span class="line">        &#125;,</span><br><span class="line">        &#123;</span><br><span class="line">            myItem: <span class="number">3</span></span><br><span class="line">        &#125;]</span><br><span class="line">&#125;;</span><br><span class="line"><span class="built_in">console</span>.log(myData.myValue); <span class="comment">// 123</span></span><br><span class="line"><span class="built_in">console</span>.log(myData.bas[<span class="number">0</span>].myItem); <span class="comment">// 1</span></span><br><span class="line"><span class="built_in">console</span>.log(myData.bas[<span class="number">2</span>].myItem); <span class="comment">// 2</span></span><br></pre></td></tr></table></figure>
 <h3><span id="构造器函数">构造器函数</span></h3><p>但我们需要创建大量类似的对象时，使用 <code>{...}</code> 语法不便于代码复用，这里需要使用 <code>constructor funcation（构造器函数）</code> 。例如：</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">User</span>(<span class="params">name</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.name = name;</span><br><span class="line">    <span class="keyword">this</span>.isAdmin = <span class="literal">false</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> user = <span class="keyword">new</span> User(<span class="string">"Jack"</span>);</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(user.name); <span class="comment">// Jack</span></span><br><span class="line"><span class="built_in">console</span>.log(user.isAdmin); <span class="comment">// false</span></span><br></pre></td></tr></table></figure>
@@ -2381,14 +2407,14 @@
         
         <tags>
             
-            <tag> javascript </tag>
+            <tag> JavaScript </tag>
             
         </tags>
         
     </entry>
     
     <entry>
-      <title><![CDATA[javascript学习(4) | 函数（Functions）]]></title>
+      <title><![CDATA[JavaScript学习(4) | 函数（Functions）]]></title>
       <url>/posts/1c89568e.html</url>
       <content type="html"><![CDATA[<script src="/assets/js/APlayer.min.js"> </script><p>Javascript 是一种函数式编程语言，函数是完全类型化的对象，可以作为数据进行操作、扩展和传递。</p><a id="more"></a><h2><span id="概述">概述</span></h2><h3><span id="函数声明">函数声明</span></h3><h4><span id="funcation命令">funcation命令</span></h4><p><code>function</code>命令声明的代码区块，就是一个函数。<code>function</code>命令后面是函数名，函数名后面是一对圆括号，里面是传入函数的参数。函数体放在大括号里面。</p><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">showMessage</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log( <span class="string">'Hello everyone!'</span> );</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h4><span id="函数表达式">函数表达式</span></h4><p>将一个匿名函数赋值给变量。这时，这个匿名函数又称函数表达式（Function Expression），因为赋值语句的等号右侧只能放表达式。</p>
@@ -2485,14 +2511,14 @@
         
         <tags>
             
-            <tag> javascript </tag>
+            <tag> JavaScript </tag>
             
         </tags>
         
     </entry>
     
     <entry>
-      <title><![CDATA[javascript学习(3) | 基本数据类型（Primitive Data Type）]]></title>
+      <title><![CDATA[JavaScript学习(3) | 基本数据类型（Primitive Data Type）]]></title>
       <url>/posts/f88dc8a9.html</url>
       <content type="html"><![CDATA[<script src="/assets/js/APlayer.min.js"> </script><p>javascript中有7种基本的数据类型：<code>undefined</code>、<code>null</code>、布尔值（Boolean）、字符串（String）、数值（Number）、对象（Object）、Symbol。本篇文章先来简要介绍一下他们的特性，后面的文章会分别对它们做详细的说明介绍。</p><a id="more"></a><p>javascript 中的变量可以包含任何类型的数据。 一个变量可以在某一时刻是字符串类型，过会就可能变成数值类型，所以说javascript是一门动态类型语言。</p><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// no error</span></span><br><span class="line"><span class="keyword">let</span> message = <span class="string">"hello"</span>;</span><br><span class="line"><span class="built_in">console</span>.log(message); <span class="comment">// hello</span></span><br><span class="line"></span><br><span class="line">message = <span class="number">123456</span>;</span><br><span class="line"><span class="built_in">console</span>.log(message); <span class="comment">// 123456</span></span><br></pre></td></tr></table></figure>
 <h2><span id="number">number</span></h2><p>JavaScript 内部，所有数字都是以64位浮点数形式储存，即使整数也是如此。</p>
@@ -2546,14 +2572,14 @@
         
         <tags>
             
-            <tag> javascript </tag>
+            <tag> JavaScript </tag>
             
         </tags>
         
     </entry>
     
     <entry>
-      <title><![CDATA[javascript学习(2) | 运算符（Operators）]]></title>
+      <title><![CDATA[JavaScript学习(2) | 运算符（Operators）]]></title>
       <url>/posts/622ddccb.html</url>
       <content type="html"><![CDATA[<script src="/assets/js/APlayer.min.js"> </script><p>javascript中的运算符与其他语言中的一样，学起来难度不大。</p><a id="more"></a><h2><span id="算术运算符">算术运算符</span></h2><table><thead><tr><th>运算符</th><th>描述</th></tr></thead><tbody><tr><td>+</td><td>加</td></tr><tr><td>-</td><td>减</td></tr><tr><td>*</td><td>乘</td></tr><tr><td>/</td><td>除</td></tr><tr><td>%</td><td>取模</td></tr><tr><td>++</td><td>加1</td></tr><tr><td>–</td><td>减1</td></tr></tbody></table><h2><span id="赋值运算符">赋值运算符</span></h2><table><thead><tr><th>运算符</th><th>例子</th><th>等同于</th></tr></thead><tbody><tr><td>=</td><td>x = y</td><td>x = y</td></tr><tr><td>+=</td><td>x += y</td><td>x = x + y</td></tr><tr><td>-=</td><td>x -= y</td><td>x = x - y</td></tr><tr><td>*=</td><td>x *= y</td><td>x = x * y</td></tr><tr><td>/=</td><td>x /= y</td><td>x = x / y</td></tr><tr><td>%=</td><td>x %= y</td><td>x = x % y</td></tr></tbody></table><h2><span id="比较操作符">比较操作符</span></h2><table><thead><tr><th>运算符</th><th>描述</th></tr></thead><tbody><tr><td>==</td><td>equal to</td></tr><tr><td>===</td><td>equal value and equal type</td></tr><tr><td>!=</td><td>not equal</td></tr><tr><td>!==</td><td>not equal value or not equal type</td></tr><tr><td>&gt;</td><td>greater than</td></tr><tr><td>&lt;</td><td>less than</td></tr><tr><td>&gt;=</td><td>greater than or equal to</td></tr><tr><td>&lt;=</td><td>less than or equal to</td></tr><tr><td>?</td><td>ternary operator</td></tr></tbody></table><h2><span id="条件运算符">条件运算符</span></h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> variable = boolean_expression ? true_value : false_value;</span><br></pre></td></tr></table></figure>
 <h2><span id="逻辑运算符">逻辑运算符</span></h2><table>
@@ -2691,14 +2717,14 @@
         
         <tags>
             
-            <tag> javascript </tag>
+            <tag> JavaScript </tag>
             
         </tags>
         
     </entry>
     
     <entry>
-      <title><![CDATA[javascript学习(1) | 变量(variables)]]></title>
+      <title><![CDATA[JavaScript学习(1) | 变量(variables)]]></title>
       <url>/posts/92c3001f.html</url>
       <content type="html"><![CDATA[<script src="/assets/js/APlayer.min.js"> </script><p>今天我们学习一下在javascript中如何声明变量和常量，以及<code>var</code>、<code>let</code>、<code>const</code>的区别。</p><a id="more"></a><h2><span id="变量">变量</span></h2><p>在ES6语法中，我们使用<code>let</code>关键字来声明变量。</p><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> user = <span class="string">'John'</span>, age = <span class="number">25</span>, message = <span class="string">'Hello'</span>;</span><br></pre></td></tr></table></figure>
 <p>或者</p>
@@ -2746,7 +2772,7 @@
         
         <tags>
             
-            <tag> javascript </tag>
+            <tag> JavaScript </tag>
             
         </tags>
         
