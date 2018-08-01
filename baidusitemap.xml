@@ -4,8 +4,28 @@
 
     
   <url>
+    <loc>https://wangwei.one/posts/92c3001f.html</loc>
+    <lastmod>2018-08-01T14:39:18.014Z</lastmod>
+    <data>
+        <display>
+        <title>JavaScript学习(1) | 变量(variables)</title>
+        <pubTime>2017-03-01T14:43:00.000Z</pubTime>
+        
+        <tag>JavaScript</tag>
+         
+         
+           
+             
+              <breadCrumb title="coding" url="https://wangwei.one/categories/coding/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>https://wangwei.one/posts/57ede93d.html</loc>
-    <lastmod>2018-08-01T14:27:58.171Z</lastmod>
+    <lastmod>2018-08-01T14:36:25.392Z</lastmod>
     <data>
         <display>
         <title>JavaScript学习(13) | Property getters and setters</title>
@@ -30,26 +50,6 @@
         <display>
         <title>JavaScript学习(12) | Property flags and descriptors</title>
         <pubTime>2017-03-12T14:43:00.000Z</pubTime>
-        
-        <tag>JavaScript</tag>
-         
-         
-           
-             
-              <breadCrumb title="coding" url="https://wangwei.one/categories/coding/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://wangwei.one/posts/92c3001f.html</loc>
-    <lastmod>2018-08-01T04:27:33.885Z</lastmod>
-    <data>
-        <display>
-        <title>JavaScript学习(1) | 变量(variables)</title>
-        <pubTime>2017-03-01T14:43:00.000Z</pubTime>
         
         <tag>JavaScript</tag>
          
