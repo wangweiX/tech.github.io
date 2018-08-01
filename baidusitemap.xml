@@ -5,11 +5,191 @@
     
   <url>
     <loc>https://wangwei.one/posts/c0e346ec.html</loc>
-    <lastmod>2018-07-30T07:07:55.357Z</lastmod>
+    <lastmod>2018-08-01T14:27:34.101Z</lastmod>
     <data>
         <display>
         <title>JavaScript学习(12) | Property flags and descriptors</title>
         <pubTime>2017-03-12T14:43:00.000Z</pubTime>
+        
+        <tag>JavaScript</tag>
+         
+         
+           
+             
+              <breadCrumb title="coding" url="https://wangwei.one/categories/coding/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://wangwei.one/posts/57ede93d.html</loc>
+    <lastmod>2018-08-01T14:27:22.747Z</lastmod>
+    <data>
+        <display>
+        <title>JavaScript学习(13) | Property getters and setters</title>
+        <pubTime>2017-03-13T14:43:00.000Z</pubTime>
+        
+        <tag>JavaScript</tag>
+         
+         
+           
+             
+              <breadCrumb title="coding" url="https://wangwei.one/categories/coding/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://wangwei.one/posts/92c3001f.html</loc>
+    <lastmod>2018-08-01T04:27:33.885Z</lastmod>
+    <data>
+        <display>
+        <title>JavaScript学习(1) | 变量(variables)</title>
+        <pubTime>2017-03-01T14:43:00.000Z</pubTime>
+        
+        <tag>JavaScript</tag>
+         
+         
+           
+             
+              <breadCrumb title="coding" url="https://wangwei.one/categories/coding/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://wangwei.one/posts/622ddccb.html</loc>
+    <lastmod>2018-08-01T04:27:30.253Z</lastmod>
+    <data>
+        <display>
+        <title>JavaScript学习(2) | 运算符（Operators）</title>
+        <pubTime>2017-03-02T14:43:00.000Z</pubTime>
+        
+        <tag>JavaScript</tag>
+         
+         
+           
+             
+              <breadCrumb title="coding" url="https://wangwei.one/categories/coding/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://wangwei.one/posts/f88dc8a9.html</loc>
+    <lastmod>2018-08-01T04:27:26.454Z</lastmod>
+    <data>
+        <display>
+        <title>JavaScript学习(3) | 基本数据类型（Primitive Data Type）</title>
+        <pubTime>2017-03-03T14:43:00.000Z</pubTime>
+        
+        <tag>JavaScript</tag>
+         
+         
+           
+             
+              <breadCrumb title="coding" url="https://wangwei.one/categories/coding/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://wangwei.one/posts/b5949fa3.html</loc>
+    <lastmod>2018-08-01T04:27:20.061Z</lastmod>
+    <data>
+        <display>
+        <title>JavaScript学习(5) | 对象（Objects）</title>
+        <pubTime>2017-03-05T14:43:00.000Z</pubTime>
+        
+        <tag>JavaScript</tag>
+         
+         
+           
+             
+              <breadCrumb title="coding" url="https://wangwei.one/categories/coding/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://wangwei.one/posts/a1e7623d.html</loc>
+    <lastmod>2018-08-01T04:27:14.016Z</lastmod>
+    <data>
+        <display>
+        <title>JavaScript学习(7) | Data Type —— Array</title>
+        <pubTime>2017-03-07T14:43:00.000Z</pubTime>
+        
+        <tag>JavaScript</tag>
+         
+         
+           
+             
+              <breadCrumb title="coding" url="https://wangwei.one/categories/coding/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://wangwei.one/posts/f4ac3ebf.html</loc>
+    <lastmod>2018-08-01T04:27:11.070Z</lastmod>
+    <data>
+        <display>
+        <title>JavaScript学习(8) | Data type —— Map,WeakMap,Set,WeakSet'</title>
+        <pubTime>2017-03-08T14:43:00.000Z</pubTime>
+        
+        <tag>JavaScript</tag>
+         
+         
+           
+             
+              <breadCrumb title="coding" url="https://wangwei.one/categories/coding/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://wangwei.one/posts/d45f2631.html</loc>
+    <lastmod>2018-08-01T04:27:04.406Z</lastmod>
+    <data>
+        <display>
+        <title>JavaScript学习(10) | JSON</title>
+        <pubTime>2017-03-10T14:43:00.000Z</pubTime>
+        
+        <tag>JavaScript</tag>
+         
+         
+           
+             
+              <breadCrumb title="coding" url="https://wangwei.one/categories/coding/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://wangwei.one/posts/b4757a13.html</loc>
+    <lastmod>2018-08-01T04:27:01.462Z</lastmod>
+    <data>
+        <display>
+        <title>JavaScript学习(11) | Date and time</title>
+        <pubTime>2017-03-11T14:43:00.000Z</pubTime>
         
         <tag>JavaScript</tag>
          
@@ -37,46 +217,6 @@
            
              
               <breadCrumb title="tools" url="https://wangwei.one/categories/tools/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://wangwei.one/posts/b4757a13.html</loc>
-    <lastmod>2018-07-27T09:33:03.640Z</lastmod>
-    <data>
-        <display>
-        <title>JavaScript学习(11) | Date and time</title>
-        <pubTime>2017-03-11T14:43:00.000Z</pubTime>
-        
-        <tag>JavaScript</tag>
-         
-         
-           
-             
-              <breadCrumb title="coding" url="https://wangwei.one/categories/coding/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://wangwei.one/posts/b5949fa3.html</loc>
-    <lastmod>2018-07-27T09:27:45.633Z</lastmod>
-    <data>
-        <display>
-        <title>JavaScript学习(5) | 对象（Objects）</title>
-        <pubTime>2017-03-05T14:43:00.000Z</pubTime>
-        
-        <tag>JavaScript</tag>
-         
-         
-           
-             
-              <breadCrumb title="coding" url="https://wangwei.one/categories/coding/"/>
           
         </display>
     </data>
@@ -124,132 +264,12 @@
 
     
   <url>
-    <loc>https://wangwei.one/posts/92c3001f.html</loc>
-    <lastmod>2018-07-27T02:38:23.563Z</lastmod>
-    <data>
-        <display>
-        <title>JavaScript学习(1) | 变量(variables)</title>
-        <pubTime>2017-03-01T14:43:00.000Z</pubTime>
-        
-        <tag>JavaScript</tag>
-         
-         
-           
-             
-              <breadCrumb title="coding" url="https://wangwei.one/categories/coding/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://wangwei.one/posts/d45f2631.html</loc>
-    <lastmod>2018-07-26T09:41:02.949Z</lastmod>
-    <data>
-        <display>
-        <title>JavaScript学习(10) | JSON</title>
-        <pubTime>2017-03-10T14:43:00.000Z</pubTime>
-        
-        <tag>JavaScript</tag>
-         
-         
-           
-             
-              <breadCrumb title="coding" url="https://wangwei.one/categories/coding/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
     <loc>https://wangwei.one/posts/39da151b.html</loc>
     <lastmod>2018-07-26T09:40:57.323Z</lastmod>
     <data>
         <display>
         <title>JavaScript学习(9) | Iterables (迭代器)</title>
         <pubTime>2017-03-09T14:43:00.000Z</pubTime>
-        
-        <tag>JavaScript</tag>
-         
-         
-           
-             
-              <breadCrumb title="coding" url="https://wangwei.one/categories/coding/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://wangwei.one/posts/f4ac3ebf.html</loc>
-    <lastmod>2018-07-26T09:40:51.954Z</lastmod>
-    <data>
-        <display>
-        <title>JavaScript学习(8) | Data type —— Map,WeakMap,Set,WeakSet'</title>
-        <pubTime>2017-03-08T14:43:00.000Z</pubTime>
-        
-        <tag>JavaScript</tag>
-         
-         
-           
-             
-              <breadCrumb title="coding" url="https://wangwei.one/categories/coding/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://wangwei.one/posts/a1e7623d.html</loc>
-    <lastmod>2018-07-26T09:40:41.845Z</lastmod>
-    <data>
-        <display>
-        <title>JavaScript学习(7) | Data Type —— Array</title>
-        <pubTime>2017-03-07T14:43:00.000Z</pubTime>
-        
-        <tag>JavaScript</tag>
-         
-         
-           
-             
-              <breadCrumb title="coding" url="https://wangwei.one/categories/coding/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://wangwei.one/posts/f88dc8a9.html</loc>
-    <lastmod>2018-07-26T09:40:19.713Z</lastmod>
-    <data>
-        <display>
-        <title>JavaScript学习(3) | 基本数据类型（Primitive Data Type）</title>
-        <pubTime>2017-03-03T14:43:00.000Z</pubTime>
-        
-        <tag>JavaScript</tag>
-         
-         
-           
-             
-              <breadCrumb title="coding" url="https://wangwei.one/categories/coding/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://wangwei.one/posts/622ddccb.html</loc>
-    <lastmod>2018-07-26T09:40:10.097Z</lastmod>
-    <data>
-        <display>
-        <title>JavaScript学习(2) | 运算符（Operators）</title>
-        <pubTime>2017-03-02T14:43:00.000Z</pubTime>
         
         <tag>JavaScript</tag>
          
