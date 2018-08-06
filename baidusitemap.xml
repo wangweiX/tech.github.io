@@ -4,11 +4,305 @@
 
     
   <url>
-    <loc>https://wangwei.one/posts/92c3001f.html</loc>
-    <lastmod>2018-08-01T14:39:18.014Z</lastmod>
+    <loc>https://wangwei.one/posts/5368b95d.html</loc>
+    <lastmod>2018-08-06T04:09:51.262Z</lastmod>
     <data>
         <display>
-        <title>JavaScript学习(1) | 变量(variables)</title>
+        <title>JavaScript学习(14) | Prototypal inheritance</title>
+        <pubTime>2017-03-15T14:43:00.000Z</pubTime>
+        
+        <tag>JavaScript</tag>
+         
+         
+           
+             
+              <breadCrumb title="coding" url="https://wangwei.one/categories/coding/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://wangwei.one/posts/b5949fa3.html</loc>
+    <lastmod>2018-08-06T03:40:26.157Z</lastmod>
+    <data>
+        <display>
+        <title>JavaScript学习(5) | Objects</title>
+        <pubTime>2017-03-05T14:43:00.000Z</pubTime>
+        
+        <tag>JavaScript</tag>
+         
+         
+           
+             
+              <breadCrumb title="coding" url="https://wangwei.one/categories/coding/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://wangwei.one/posts/f88dc8a9.html</loc>
+    <lastmod>2018-08-06T02:33:28.159Z</lastmod>
+    <data>
+        <display>
+        <title>JavaScript学习(3) | Primitive Data Type</title>
+        <pubTime>2017-03-03T14:43:00.000Z</pubTime>
+        
+        <tag>JavaScript</tag>
+         
+         
+           
+             
+              <breadCrumb title="coding" url="https://wangwei.one/categories/coding/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://wangwei.one/posts/e07d35dc.html</loc>
+    <lastmod>2018-08-03T13:43:58.401Z</lastmod>
+    <data>
+        <display>
+        <title>Mac、Linux常用命令工具清单</title>
+        <pubTime>2017-01-17T11:16:20.000Z</pubTime>
+        
+        <tag>Mac</tag>
+         
+        <tag>Linux</tag>
+         
+         
+           
+             
+              <breadCrumb title="tools" url="https://wangwei.one/categories/tools/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://wangwei.one/posts/917fb1e0.html</loc>
+    <lastmod>2018-08-03T13:39:40.193Z</lastmod>
+    <data>
+        <display>
+        <title>Java开发环境搭建清单</title>
+        <pubTime>2016-11-20T12:42:22.000Z</pubTime>
+        
+        <tag>工具</tag>
+         
+        <tag>Java</tag>
+         
+         
+           
+             
+              <breadCrumb title="coding" url="https://wangwei.one/categories/coding/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://wangwei.one/posts/57dd6237.html</loc>
+    <lastmod>2018-08-03T08:30:55.360Z</lastmod>
+    <data>
+        <display>
+        <title>EOS学习(2) | EOS Glossary</title>
+        <pubTime>2018-01-19T10:18:10.000Z</pubTime>
+        
+        <tag>blockchain</tag>
+         
+        <tag>eos</tag>
+         
+         
+           
+             
+              <breadCrumb title="blockchain" url="https://wangwei.one/categories/blockchain/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://wangwei.one/posts/57ede93d.html</loc>
+    <lastmod>2018-08-03T08:30:43.307Z</lastmod>
+    <data>
+        <display>
+        <title>JavaScript学习(13) | Property getters and setters</title>
+        <pubTime>2017-03-13T14:43:00.000Z</pubTime>
+        
+        <tag>JavaScript</tag>
+         
+         
+           
+             
+              <breadCrumb title="coding" url="https://wangwei.one/categories/coding/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://wangwei.one/posts/88eff102.html</loc>
+    <lastmod>2018-08-03T07:58:11.817Z</lastmod>
+    <data>
+        <display>
+        <title>连接EOS公共测试网络</title>
+        <pubTime>2018-01-22T14:24:00.000Z</pubTime>
+        
+        <tag>blockchain</tag>
+         
+        <tag>eos</tag>
+         
+         
+           
+             
+              <breadCrumb title="blockchain" url="https://wangwei.one/categories/blockchain/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://wangwei.one/posts/869983fd.html</loc>
+    <lastmod>2018-08-03T07:57:56.577Z</lastmod>
+    <data>
+        <display>
+        <title>EOS学习(3) | EOS货币合约演示</title>
+        <pubTime>2018-01-30T09:38:00.000Z</pubTime>
+        
+        <tag>blockchain</tag>
+         
+        <tag>eos</tag>
+         
+         
+           
+             
+              <breadCrumb title="blockchain" url="https://wangwei.one/categories/blockchain/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://wangwei.one/posts/1fee111e.html</loc>
+    <lastmod>2018-08-03T07:57:42.662Z</lastmod>
+    <data>
+        <display>
+        <title>由浅入深学习EOS</title>
+        <pubTime>2018-01-23T14:00:00.000Z</pubTime>
+        
+        <tag>blockchain</tag>
+         
+        <tag>eos</tag>
+         
+         
+           
+             
+              <breadCrumb title="blockchain" url="https://wangwei.one/categories/blockchain/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://wangwei.one/posts/181733fc.html</loc>
+    <lastmod>2018-08-03T07:57:16.109Z</lastmod>
+    <data>
+        <display>
+        <title>EOS学习(1) | 安装部署</title>
+        <pubTime>2017-09-12T09:38:00.000Z</pubTime>
+        
+        <tag>blockchain</tag>
+         
+        <tag>eos</tag>
+         
+         
+           
+             
+              <breadCrumb title="blockchain" url="https://wangwei.one/categories/blockchain/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://wangwei.one/posts/39da151b.html</loc>
+    <lastmod>2018-08-02T13:23:56.072Z</lastmod>
+    <data>
+        <display>
+        <title>JavaScript学习(9) | Iterables</title>
+        <pubTime>2017-03-09T14:43:00.000Z</pubTime>
+        
+        <tag>JavaScript</tag>
+         
+         
+           
+             
+              <breadCrumb title="coding" url="https://wangwei.one/categories/coding/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://wangwei.one/posts/1c89568e.html</loc>
+    <lastmod>2018-08-02T13:23:39.756Z</lastmod>
+    <data>
+        <display>
+        <title>JavaScript学习(4) | Functions</title>
+        <pubTime>2017-03-04T14:43:00.000Z</pubTime>
+        
+        <tag>JavaScript</tag>
+         
+         
+           
+             
+              <breadCrumb title="coding" url="https://wangwei.one/categories/coding/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://wangwei.one/posts/622ddccb.html</loc>
+    <lastmod>2018-08-02T13:23:27.835Z</lastmod>
+    <data>
+        <display>
+        <title>JavaScript学习(2) | Operators</title>
+        <pubTime>2017-03-02T14:43:00.000Z</pubTime>
+        
+        <tag>JavaScript</tag>
+         
+         
+           
+             
+              <breadCrumb title="coding" url="https://wangwei.one/categories/coding/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://wangwei.one/posts/92c3001f.html</loc>
+    <lastmod>2018-08-02T13:23:23.781Z</lastmod>
+    <data>
+        <display>
+        <title>JavaScript学习(1) | Variables</title>
         <pubTime>2017-03-01T14:43:00.000Z</pubTime>
         
         <tag>JavaScript</tag>
@@ -24,12 +318,12 @@
 
     
   <url>
-    <loc>https://wangwei.one/posts/57ede93d.html</loc>
-    <lastmod>2018-08-01T14:36:25.392Z</lastmod>
+    <loc>https://wangwei.one/posts/f4ac3ebf.html</loc>
+    <lastmod>2018-08-02T13:23:08.151Z</lastmod>
     <data>
         <display>
-        <title>JavaScript学习(13) | Property getters and setters</title>
-        <pubTime>2017-03-13T14:43:00.000Z</pubTime>
+        <title>JavaScript学习(8) | Data type —— Map,WeakMap,Set,WeakSet</title>
+        <pubTime>2017-03-08T14:43:00.000Z</pubTime>
         
         <tag>JavaScript</tag>
          
@@ -64,92 +358,12 @@
 
     
   <url>
-    <loc>https://wangwei.one/posts/622ddccb.html</loc>
-    <lastmod>2018-08-01T04:27:30.253Z</lastmod>
-    <data>
-        <display>
-        <title>JavaScript学习(2) | 运算符（Operators）</title>
-        <pubTime>2017-03-02T14:43:00.000Z</pubTime>
-        
-        <tag>JavaScript</tag>
-         
-         
-           
-             
-              <breadCrumb title="coding" url="https://wangwei.one/categories/coding/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://wangwei.one/posts/f88dc8a9.html</loc>
-    <lastmod>2018-08-01T04:27:26.454Z</lastmod>
-    <data>
-        <display>
-        <title>JavaScript学习(3) | 基本数据类型（Primitive Data Type）</title>
-        <pubTime>2017-03-03T14:43:00.000Z</pubTime>
-        
-        <tag>JavaScript</tag>
-         
-         
-           
-             
-              <breadCrumb title="coding" url="https://wangwei.one/categories/coding/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://wangwei.one/posts/b5949fa3.html</loc>
-    <lastmod>2018-08-01T04:27:20.061Z</lastmod>
-    <data>
-        <display>
-        <title>JavaScript学习(5) | 对象（Objects）</title>
-        <pubTime>2017-03-05T14:43:00.000Z</pubTime>
-        
-        <tag>JavaScript</tag>
-         
-         
-           
-             
-              <breadCrumb title="coding" url="https://wangwei.one/categories/coding/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
     <loc>https://wangwei.one/posts/a1e7623d.html</loc>
     <lastmod>2018-08-01T04:27:14.016Z</lastmod>
     <data>
         <display>
         <title>JavaScript学习(7) | Data Type —— Array</title>
         <pubTime>2017-03-07T14:43:00.000Z</pubTime>
-        
-        <tag>JavaScript</tag>
-         
-         
-           
-             
-              <breadCrumb title="coding" url="https://wangwei.one/categories/coding/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://wangwei.one/posts/f4ac3ebf.html</loc>
-    <lastmod>2018-08-01T04:27:11.070Z</lastmod>
-    <data>
-        <display>
-        <title>JavaScript学习(8) | Data type —— Map,WeakMap,Set,WeakSet'</title>
-        <pubTime>2017-03-08T14:43:00.000Z</pubTime>
         
         <tag>JavaScript</tag>
          
@@ -224,52 +438,12 @@
 
     
   <url>
-    <loc>https://wangwei.one/posts/1c89568e.html</loc>
-    <lastmod>2018-07-27T09:21:11.377Z</lastmod>
-    <data>
-        <display>
-        <title>JavaScript学习(4) | 函数（Functions）</title>
-        <pubTime>2017-03-04T14:43:00.000Z</pubTime>
-        
-        <tag>JavaScript</tag>
-         
-         
-           
-             
-              <breadCrumb title="coding" url="https://wangwei.one/categories/coding/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
     <loc>https://wangwei.one/posts/f8560033.html</loc>
     <lastmod>2018-07-27T09:07:07.353Z</lastmod>
     <data>
         <display>
         <title>JavaScript学习(6) | Symbol Type</title>
         <pubTime>2017-03-06T14:43:00.000Z</pubTime>
-        
-        <tag>JavaScript</tag>
-         
-         
-           
-             
-              <breadCrumb title="coding" url="https://wangwei.one/categories/coding/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://wangwei.one/posts/39da151b.html</loc>
-    <lastmod>2018-07-26T09:40:57.323Z</lastmod>
-    <data>
-        <display>
-        <title>JavaScript学习(9) | Iterables (迭代器)</title>
-        <pubTime>2017-03-09T14:43:00.000Z</pubTime>
         
         <tag>JavaScript</tag>
          
@@ -352,72 +526,6 @@
 
     
   <url>
-    <loc>https://wangwei.one/posts/869983fd.html</loc>
-    <lastmod>2018-07-25T02:31:17.416Z</lastmod>
-    <data>
-        <display>
-        <title>EOS学习(3) | EOS货币合约演示</title>
-        <pubTime>2018-01-30T09:38:00.000Z</pubTime>
-        
-        <tag>blockchain</tag>
-         
-        <tag>eos</tag>
-         
-         
-           
-             
-              <breadCrumb title="blockchain" url="https://wangwei.one/categories/blockchain/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://wangwei.one/posts/57dd6237.html</loc>
-    <lastmod>2018-07-25T02:31:08.045Z</lastmod>
-    <data>
-        <display>
-        <title>EOS学习(2) | EOS Glossary</title>
-        <pubTime>2018-01-19T10:18:10.000Z</pubTime>
-        
-        <tag>blockchain</tag>
-         
-        <tag>eos</tag>
-         
-         
-           
-             
-              <breadCrumb title="blockchain" url="https://wangwei.one/categories/blockchain/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://wangwei.one/posts/181733fc.html</loc>
-    <lastmod>2018-07-25T02:31:05.830Z</lastmod>
-    <data>
-        <display>
-        <title>EOS学习(1) | 安装部署</title>
-        <pubTime>2017-09-12T09:38:00.000Z</pubTime>
-        
-        <tag>blockchain</tag>
-         
-        <tag>eos</tag>
-         
-         
-           
-             
-              <breadCrumb title="blockchain" url="https://wangwei.one/categories/blockchain/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
     <loc>https://wangwei.one/posts/c5e43a28.html</loc>
     <lastmod>2018-07-20T14:10:13.704Z</lastmod>
     <data>
@@ -426,28 +534,6 @@
         <pubTime>2017-05-27T01:40:16.000Z</pubTime>
         
         <tag>hexo</tag>
-         
-         
-           
-             
-              <breadCrumb title="tools" url="https://wangwei.one/categories/tools/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://wangwei.one/posts/e07d35dc.html</loc>
-    <lastmod>2018-07-19T13:10:36.446Z</lastmod>
-    <data>
-        <display>
-        <title>Mac、Linux常用命令工具清单</title>
-        <pubTime>2018-01-17T11:16:20.000Z</pubTime>
-        
-        <tag>Mac</tag>
-         
-        <tag>Linux</tag>
          
          
            
@@ -475,28 +561,6 @@
            
              
               <breadCrumb title="tools" url="https://wangwei.one/categories/tools/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://wangwei.one/posts/917fb1e0.html</loc>
-    <lastmod>2018-07-17T01:32:08.245Z</lastmod>
-    <data>
-        <display>
-        <title>Java开发环境搭建清单</title>
-        <pubTime>2017-11-20T12:42:22.000Z</pubTime>
-        
-        <tag>工具</tag>
-         
-        <tag>Java</tag>
-         
-         
-           
-             
-              <breadCrumb title="coding" url="https://wangwei.one/categories/coding/"/>
           
         </display>
     </data>
@@ -981,50 +1045,6 @@
         <tag>blockchain</tag>
          
         <tag>Token</tag>
-         
-         
-           
-             
-              <breadCrumb title="blockchain" url="https://wangwei.one/categories/blockchain/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://wangwei.one/posts/88eff102.html</loc>
-    <lastmod>2018-03-14T06:27:40.110Z</lastmod>
-    <data>
-        <display>
-        <title>连接EOS公共测试网络</title>
-        <pubTime>2018-01-22T14:24:00.000Z</pubTime>
-        
-        <tag>blockchain</tag>
-         
-        <tag>eos</tag>
-         
-         
-           
-             
-              <breadCrumb title="blockchain" url="https://wangwei.one/categories/blockchain/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://wangwei.one/posts/1fee111e.html</loc>
-    <lastmod>2018-02-02T12:04:27.666Z</lastmod>
-    <data>
-        <display>
-        <title>由浅入深学习EOS</title>
-        <pubTime>2018-01-23T14:00:00.000Z</pubTime>
-        
-        <tag>blockchain</tag>
-         
-        <tag>eos</tag>
          
          
            
