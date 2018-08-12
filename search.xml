@@ -2907,7 +2907,7 @@
     </entry>
     
     <entry>
-      <title><![CDATA[JVM学习(1) | Java内存模型]]></title>
+      <title><![CDATA[JVM学习(1) | JVM内存模型]]></title>
       <url>/posts/71c1df10.html</url>
       <content type="html"><![CDATA[<script src="/assets/js/APlayer.min.js"> </script><p>本文我们来学习一下JDK 1.7 HotSpot VM的内存模型</p><a id="more"></a><h2><span id="jvm-architecture">JVM Architecture</span></h2><p><img src="https://img.i7years.com/blog/JVM%20Architecture.png" alt="JVM Architecture"></p><p>我们先来了解一下JVM的架构体系，JVM主要分三大子系统：Class Loader SubSystem、Runtime Data Area、Execution Engine 。</p><h4><span id="class-loader-subsystem">Class Loader SubSystem</span></h4><p>Java的动态类加载功能由类加载器子系统处理。 它在<strong>运行时</strong>第一次引用类时加载，链接和初始化类，而不是在编译时引用。 它执行三个主要功能，如加载，链接和初始化。</p><h4><span id="execution-engine">Execution Engine</span></h4><p>被分配给运行时数据区域中的字节码将被执行引擎来执行。 执行引擎读取字节代码并挨个挨个执行。</p><p>本篇重点介绍 Rumtime Date Area，至于Class Loader SubSystem和Execution Engine将放在后面的文章去介绍。</p><h2><span id="runtime-data-area">Runtime Data Area</span></h2><p>运行时数据区，是JVM内存管理的主要区域。Java虚拟机在程序执行的过程中，会把它所管理的内存划分为若干个不同的数据区域。主要分为：</p><ul><li>Program Counter Register：程序计数器</li><li>Java Virtual Machine Stacks：Java虚拟机栈</li><li>Native Method Stack：本地方法栈</li><li>Java Heap：堆</li><li>Method Area：方法区</li></ul><h3><span id="内存分配查询">内存分配查询</span></h3><p>我们可以使用如下命令查询系统默认分配的内存大小：</p><p><strong>Ubuntu &amp; RedHat</strong>：</p><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ java -XX:+PrintFlagsFinal -version | grep -iE <span class="string">'HeapSize|PermSize|ThreadStackSize'</span></span><br></pre></td></tr></table></figure>
 <p><strong>Windows</strong>：</p>

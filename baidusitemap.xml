@@ -4,6 +4,23 @@
 
     
   <url>
+    <loc>https://wangwei.one/posts/71c1df10.html</loc>
+    <lastmod>2018-08-12T13:31:11.867Z</lastmod>
+    <data>
+        <display>
+        <title>JVM学习(1) | JVM内存模型</title>
+        <pubTime>2016-06-08T11:34:32.000Z</pubTime>
+        
+        <tag>JVM</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>https://wangwei.one/posts/80d694a6.html</loc>
     <lastmod>2018-08-12T13:08:39.786Z</lastmod>
     <data>
@@ -18,23 +35,6 @@
              
               <breadCrumb title="tools" url="https://wangwei.one/categories/tools/"/>
           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://wangwei.one/posts/71c1df10.html</loc>
-    <lastmod>2018-08-12T12:42:11.440Z</lastmod>
-    <data>
-        <display>
-        <title>JVM学习(1) | Java内存模型</title>
-        <pubTime>2016-06-08T11:34:32.000Z</pubTime>
-        
-        <tag>JVM</tag>
-         
-         
-           
         </display>
     </data>
     </url>
