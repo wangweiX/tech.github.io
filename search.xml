@@ -240,8 +240,6 @@
             
             <tag> blockchain </tag>
             
-            <tag> Java </tag>
-            
             <tag> bitcoin </tag>
             
             <tag> Merkle Tree </tag>
@@ -409,8 +407,6 @@
         <tags>
             
             <tag> blockchain </tag>
-            
-            <tag> Java </tag>
             
             <tag> bitcoin </tag>
             
@@ -580,8 +576,6 @@
             
             <tag> blockchain </tag>
             
-            <tag> Java </tag>
-            
             <tag> bitcoin </tag>
             
             <tag> UTXO </tag>
@@ -644,8 +638,6 @@
         <tags>
             
             <tag> blockchain </tag>
-            
-            <tag> Java </tag>
             
             <tag> bitcoin </tag>
             
@@ -756,8 +748,6 @@
             
             <tag> blockchain </tag>
             
-            <tag> Java </tag>
-            
             <tag> bitcoin </tag>
             
             <tag> pow </tag>
@@ -815,8 +805,6 @@
         <tags>
             
             <tag> blockchain </tag>
-            
-            <tag> Java </tag>
             
             <tag> bitcoin </tag>
             
@@ -1020,141 +1008,6 @@
     </entry>
     
     <entry>
-      <title><![CDATA[高效能人士的工具清单]]></title>
-      <url>/posts/e4de0f3.html</url>
-      <content type="html"><![CDATA[<script src="/assets/js/APlayer.min.js"> </script><p>分享自己日常生活与工作中经常使用的工具、app以及网站，也欢迎分享你的好东西~</p><blockquote><p>发现好东西，遇见好……</p></blockquote><a id="more"></a><h1><span id="硬件">硬件</span></h1><blockquote><p><code>已勾选</code> 表示已获得</p><p><code>未勾选</code> 表示将来要获得</p></blockquote><ul><li style="list-style:none"><input type="checkbox" checked>MacBook Pro</li><li style="list-style:none"><input type="checkbox" checked>iPhone</li><li style="list-style:none"><input type="checkbox">iPad Pro</li><li style="list-style:none"><input type="checkbox">Apple Watch</li><li style="list-style:none"><input type="checkbox">iMac Pro</li><li style="list-style:none"><input type="checkbox">Kindle Oasis</li></ul><h1><span id="app">App</span></h1><h3><span id="成长学习">成长学习</span></h3><ul><li><a href="https://www.igetget.com/" target="_blank" rel="external">得到App</a></li><li><a href="http://www.hundun.cn/" target="_blank" rel="external">混沌大学</a></li><li><a href="https://time.geekbang.org/" target="_blank" rel="external">极客时间</a></li></ul><h3><span id="专注">专注</span></h3><ul><li>冥想：<a href="https://insighttimer.com/" target="_blank" rel="external">Insight Timer</a></li><li>专注：<a href="https://www.forestapp.cc/en/" target="_blank" rel="external">Forest</a></li></ul><h3><span id="阅读">阅读</span></h3><ul><li>Kindle</li><li>iBooks</li></ul><h3><span id="英语">英语</span></h3><ul><li><a href="https://itunes.apple.com/ca/app/ldoce-inapp-longman-dictionary-of-english-5th/id600007708?mt=8" target="_blank" rel="external">LDOCE</a></li><li><a href="https://www.eudic.net/v4/en/app/eudic" target="_blank" rel="external">Eudic</a></li></ul><h3><span id="记录">记录</span></h3><ul><li><a href="https://evernote.com/intl/en/" target="_blank" rel="external">evernote</a></li><li><a href="http://www.bear-writer.com/" target="_blank" rel="external">Bear</a></li><li><a href="https://mindnode.com/" target="_blank" rel="external">MindNode</a></li><li><a href="https://itunes.apple.com/cn/app/%E8%AE%AF%E9%A3%9E%E8%AF%AD%E8%AE%B0-%E8%AF%AD%E9%9F%B3%E5%8F%98%E6%96%87%E5%AD%97%E8%BE%93%E5%85%A5%E7%9A%84%E4%BA%91%E7%AC%94%E8%AE%B0/id931409652?mt=8" target="_blank" rel="external">讯飞语录</a></li></ul><h3><span id="时间记录">时间记录</span></h3><ul><li><a href="http://www.atimelogger.com/" target="_blank" rel="external">aTimelogger2</a></li></ul><h3><span id="任务管理">任务管理</span></h3><ul><li>Calendar</li><li><a href="https://www.omnigroup.com/omniFocus" target="_blank" rel="external">OmniFocus</a></li><li><a href="https://culturedcode.com/things/" target="_blank" rel="external">Things</a></li></ul><h3><span id="项目管理">项目管理</span></h3><ul><li><a href="https://www.omnigroup.com/omniPlan" target="_blank" rel="external">OmniPlan</a></li><li><a href="https://www.teambition.com/en" target="_blank" rel="external">Teambition</a></li></ul><h3><span id="账号安全">账号安全</span></h3><ul><li><a href="https://1password.com/" target="_blank" rel="external">1Password</a></li><li><a href="https://itunes.apple.com/us/app/google-authenticator/id388497605?mt=8" target="_blank" rel="external">Google Authenticator</a></li></ul><h3><span id="制图">制图</span></h3><ul><li><a href="https://www.omnigroup.com/omnigraffle" target="_blank" rel="external">OmniGraffle</a></li><li><a href="http://staruml.io/" target="_blank" rel="external">StarUML</a></li></ul><h3><span id="区块链">区块链</span></h3><ul><li><a href="https://itunes.apple.com/us/app/aicoin/id1287350112?mt=8" target="_blank" rel="external">AICoin</a></li><li><a href="https://itunes.apple.com/us/app/mytoken/id1271352380?mt=8" target="_blank" rel="external">MyToken</a></li></ul><h3><span id="社群">社群</span></h3><ul><li><a href="https://www.xiaomiquan.com/" target="_blank" rel="external">知识星球</a></li><li><a href="https://twitter.com/?lang=en" target="_blank" rel="external">Twitter</a></li><li><a href="https://telegram.org/" target="_blank" rel="external">Telegram</a></li></ul><h3><span id="健身">健身</span></h3><ul><li>Keep</li><li>Joyrun</li></ul><h3><span id="其他">其他</span></h3><ul><li>翻墙：<a href="https://itunes.apple.com/us/app/superwingy/id1290093815?mt=8" target="_blank" rel="external">SuperWingy</a></li><li>截图拼接：<a href="https://itunes.apple.com/us/app/tailor-screenshot-stitching/id926653095?mt=8" target="_blank" rel="external">Tailor</a></li><li>自动化处理：<a href="https://workflow.is/" target="_blank" rel="external">Workflow</a></li></ul><h1><span id="chrome-extensions">Chrome Extensions</span></h1><ul><li><a href="https://wangwei.one/posts/4c3b6bcb.html">https://wangwei.one/posts/4c3b6bcb.html</a></li></ul>]]></content>
-      
-        <categories>
-            
-            <category> tools </category>
-            
-        </categories>
-        
-        
-        <tags>
-            
-            <tag> 工具 </tag>
-            
-            <tag> 效率 </tag>
-            
-        </tags>
-        
-    </entry>
-    
-    <entry>
-      <title><![CDATA[带你看看外面的世界]]></title>
-      <url>/posts/bc401e84.html</url>
-      <content type="html"><![CDATA[<script src="/assets/js/APlayer.min.js"> </script><p>带你去看看外面的世界……</p><a id="more"></a><h1><span id="说明">说明</span></h1><ul><li><p>如果你是小白用户，我的建议是去购买稳定可靠、体验棒的产品和服务，这里强烈推荐rixcloud</p><ul><li><a href="https://portal.rixcloud.me/aff.php?aff=1491" target="_blank" rel="external">官网地址</a></li><li><a href="https://support.rixcloud.me/" target="_blank" rel="external">相关的配置教程</a></li></ul><blockquote><p>云梯、蓝灯……这些体检极差的产品就不要用了哈，用就要用省心的产品。</p></blockquote></li></ul><ul><li>已经购买了相关的VPN账号但是不知道如何配置的同学，可直接查看后面<code>客户端配置</code>部分内容，当然你也可以去看上面rixcloud的配置教程</li><li>如果你懂点技术，还是想自己动手捣腾，可以继续往下看后面的内容了……</li></ul><h1><span id="服务端搭建">服务端搭建</span></h1><h3><span id="准备云服务器">准备云服务器</span></h3><blockquote><p>推荐<code>vultr</code>，理由：<strong>便宜实惠</strong>，最重要的是政策风险小，不受中国政府监管。</p></blockquote><h5><span id="vultr">vultr</span></h5><ul><li>地址：<a href="https://www.vultr.com/" target="_blank" rel="external">https://www.vultr.com/</a></li><li>选择亚太地区(日本或新加坡)</li><li>系统要求：CentOS 7版本</li><li>配置要求：1核1G（最低配置即可）</li></ul><h5><span id="阿里云">阿里云</span></h5><ul><li><p>地址：<a href="https://www.aliyun.com/" target="_blank" rel="external">https://www.aliyun.com/</a></p></li><li><p>选择大陆以外的地区，推荐购买<strong>香港</strong>地区的服务器；</p></li><li><p>系统要求：CentOS 6或7版本</p></li><li><p>配置要求：1核1G（最低配置即可）</p><p>​</p></li></ul><h3><span id="安装">安装</span></h3><ol><li><p>登录服务器；</p></li><li><p>使用root权限执行以下命令：</p><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># cd /tmp</span></span><br><span class="line"><span class="comment"># wget --no-check-certificate -O shadowsocks-libev.sh https://raw.githubusercontent.com/teddysun/shadowsocks_install/master/shadowsocks-libev.sh</span></span><br><span class="line"><span class="comment"># chmod +x shadowsocks-libev.sh</span></span><br><span class="line"><span class="comment"># ./shadowsocks-libev.sh 2&gt;&amp;1 | tee shadowsocks-libev.log</span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p>安装过程中，按照提示设置密码、端口号以及加密方式；</p>
-<blockquote>
-<p>端口号、加密方式选择默认即可</p>
-</blockquote>
-</li>
-<li><p>安装完成，提示信息如下：</p>
-<p><img src="https://img.i7years.com/blog/shadowsocks_confg1.png" alt=""></p>
-</li>
-<li><p>修改配置文件<code>/etc/shadowsocks-libev/config.json</code></p>
-<ul>
-<li>设置<code>server</code>为<code>0.0.0.0</code>，不是服务器的公网IP；</li>
-<li>设置<code>local_address</code>为虚拟服务器的内网IP，不要设置为<code>127.0.0.1</code>；</li>
-</ul>
-</li>
-<li><p>重启</p>
-<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">CentOS <span class="number">7</span> 命令</span><br><span class="line"><span class="comment"># systemctl restart shadowsocks</span></span><br><span class="line"></span><br><span class="line">CentOS <span class="number">6</span> 命令</span><br><span class="line"><span class="comment"># service shadowsocks restart</span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p>检查服务运行状态</p>
-<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">CentOS <span class="number">7</span> 命令</span><br><span class="line"><span class="comment"># systemctl status shadowsocks </span></span><br><span class="line"></span><br><span class="line">CentOS <span class="number">6</span> 命令</span><br><span class="line"><span class="comment"># service shadowsocks status</span></span><br></pre></td></tr></table></figure>
-<p><img src="https://img.i7years.com/blog/shaw_install.png" alt="WX20171008-132153@2x"></p>
-<p>​</p>
-</li>
-<li><p>检查端口运行状态</p>
-<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># netstat -anp | grep 8379</span></span><br></pre></td></tr></table></figure>
-<p><img src="https://img.i7years.com/netstat_shawsocks.png" alt="WX20171008-132153@2x"></p>
-<p>​</p>
-</li>
-<li><p>设置阿里云ECS安全组，开放VPN端口</p>
-<blockquote>
-<p>在阿里云上购买的服务，默认会加入<a href="https://help.aliyun.com/document_detail/31707.html" target="_blank" rel="external">安全组</a>，需要新增规则，开放shadowsocks端口，否则，无法使用。</p>
-</blockquote>
-<p><img src="https://img.i7years.com/blog/shadow_config2.png" alt=""></p>
-</li>
-</ol>
-<h3><span id="卸载">卸载</span></h3><p>如果要重新安装，卸载命令：</p>
-<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># ./shadowsocks-libev.sh uninstall</span></span><br></pre></td></tr></table></figure>
-<h1><span id="客户端配置">客户端配置</span></h1><h2><span id="mac端安装">Mac端安装</span></h2><h3><span id="客户端下载">客户端下载</span></h3><ul>
-<li><p>官方地址：<a href="https://github.com/shadowsocks/ShadowsocksX-NG/releases/" target="_blank" rel="external">https://github.com/shadowsocks/ShadowsocksX-NG/releases/</a></p>
-<p>​</p>
-</li>
-</ul>
-<h3><span id="配置指南">配置指南</span></h3><ul>
-<li><p>下载-解压-运行，桌面上方会出现一个纸飞机的小图标</p>
-<p><img src="https://img.i7years.com/blog//WX20171115-214040@2x.png" alt="WX20171115-214040@2x"></p>
-</li>
-<li><p>点击图标，打开菜单——&gt; Servers ——&gt; Servers Preferences，配置地址、端口、加密方式以及密码，下面的<code>Enable OTA(deprecated)</code>和<code>Enable over kcptun</code>不用勾选，然后点击OK进行保存。</p>
-<p><img src="https://img.i7years.com/blog//WX20171115-223431@2x.png" alt="WX20171115-223431@2x"></p>
-</li>
-<li><p>点击小图标打开菜单，点击菜单<code>Update PAC from GFW List</code>，更新成功提示如下：</p>
-<p><img src="https://img.i7years.com/blog//WX20171115-223555@2x.png" alt="WX20171115-223555@2x"></p>
-</li>
-<li><p>重启一下shadowsocks，之后就可以畅游世界啦~~~</p>
-</li>
-</ul>
-<h2><span id="iphone端安装">iPhone端安装</span></h2><h3><span id="客户端下载">客户端下载</span></h3><ul>
-<li>App Store下载<code>SuperWingy</code></li>
-</ul>
-<h3><span id="配置指南">配置指南</span></h3><ul>
-<li><p>点击添加配置，选择<code>ss</code>模式，打开如下页面，填写相关信息并保存</p>
-<p><img src="https://img.i7years.com/blog//WX20171115-225625@2x.png" alt="WX20171115-225625@2x"></p>
-</li>
-<li><p>按照系统提示，允许<code>SuperWingy</code>添加VPN配置<img src="https://img.i7years.com/blog//WX20171115-230817@2x.png" alt="WX20171115-230817@2x"></p>
-</li>
-<li><p>配置成功后，手机界面上面会出现一个<code>vpn</code>的小图标</p>
-<p><img src="https://img.i7years.com/blog//WX20171115-225747@2x.png" alt="WX20171115-225747@2x"></p>
-</li>
-</ul>
-<h3><span id="注意">注意</span></h3><ul>
-<li>如果你想修改<code>SuperWingy</code>上配置的VPN信息，请将原有配置删除后，重新进行添加，直接修改原有信息是无法生效的，这应该是个Bug</li>
-</ul>
-<h2><span id="windows用户">Windows用户</span></h2><h3><span id="客户端下载">客户端下载</span></h3><ul>
-<li>官方地址：<a href="https://github.com/shadowsocks/shadowsocks-windows/releases" target="_blank" rel="external">https://github.com/shadowsocks/shadowsocks-windows/releases</a></li>
-</ul>
-<h3><span id="配置指南">配置指南</span></h3><ul>
-<li>请参考Mac端配置</li>
-</ul>
-<h2><span id="android用户">Android用户</span></h2><h3><span id="客户端下载">客户端下载</span></h3><ul>
-<li>官方地址：<a href="https://github.com/shadowsocks/shadowsocks-android/releases" target="_blank" rel="external">https://github.com/shadowsocks/shadowsocks-android/releases</a></li>
-</ul>
-<h3><span id="配置指南">配置指南</span></h3><ul>
-<li>请参考iPhone配置</li>
-</ul>
-<h1><span id="最后">最后</span></h1><ul>
-<li>纵使天网恢恢，也阻挡不了我们向往自由的心！Good Luck!</li>
-</ul>
-<p>参考资料：</p>
-<ul>
-<li><a href="https://github.com/shadowsocks" target="_blank" rel="external">https://github.com/shadowsocks</a></li>
-<li><a href="https://github.com/teddysun/shadowsocks_install" target="_blank" rel="external">https://github.com/teddysun/shadowsocks_install</a></li>
-<li><a href="https://teddysun.com/357.html" target="_blank" rel="external">https://teddysun.com/357.html</a></li></ul>]]></content>
-      
-        <categories>
-            
-            <category> tools </category>
-            
-        </categories>
-        
-        
-        <tags>
-            
-            <tag> VPN </tag>
-            
-            <tag> shadowsocks </tag>
-            
-        </tags>
-        
-    </entry>
-    
-    <entry>
       <title><![CDATA[EOS学习(1) | 安装部署]]></title>
       <url>/posts/181733fc.html</url>
       <content type="html"><![CDATA[<script src="/assets/js/APlayer.min.js"> </script><p><img src="https://img.i7years.com/blog/eos-logo.jpg" alt="eos-logo"></p><p>本篇文章教你如何本地安装EOS。</p><a id="more"></a><h3><span id="eosio版本">EOSIO版本</span></h3><ul><li>Beginning build version: 1.2</li><li>2018年 4月 9日 星期一 06时13分18秒 UTC</li><li>git head id: 124c62d0e1b3974bcd551b885518ff05301b39c9</li><li>Current branch: * master</li><li>ARCHITECTURE: Darwin</li></ul><h3><span id="系统环境">系统环境</span></h3><ul><li>OS name: Darwin</li><li>OS Version: 10.13.4</li></ul><h3><span id="执行构建脚本">执行构建脚本</span></h3><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ git clone https://github.com/eosio/eos --recursive</span><br><span class="line">$ cd eos</span><br><span class="line">$ ./eosio_build.sh</span><br></pre></td></tr></table></figure>
@@ -1222,26 +1075,6 @@
         <tags>
             
             <tag> hexo </tag>
-            
-        </tags>
-        
-    </entry>
-    
-    <entry>
-      <title><![CDATA[好用的Chrome Extensions]]></title>
-      <url>/posts/4c3b6bcb.html</url>
-      <content type="html"><![CDATA[<script src="/assets/js/APlayer.min.js"> </script><p>整理分享自己平时使用比较多的一些Chrome插件。</p><a id="more"></a><h2><span id="学习类">学习类</span></h2><h4><span id="掘金">掘金</span></h4><ul><li><a href="https://juejin.im" target="_blank" rel="external">官网</a></li><li><a href="https://chrome.google.com/webstore/detail/%E6%8E%98%E9%87%91/lecdifefmmfjnjjinhaennhdlmcaeeeb" target="_blank" rel="external">安装</a></li></ul><h4><span id="google-translate">Google Translate</span></h4><ul><li><a href="https://translate.google.com/?hl=zh-CN&amp;tab=XT" target="_blank" rel="external">官网</a></li><li><a href="https://chrome.google.com/webstore/detail/google-translate/aapbdbdomjkkjkaonfhkkikfgjllcleb" target="_blank" rel="external">安装</a></li></ul><h4><span id="evernote-web-clipper">Evernote Web Clipper</span></h4><ul><li><a href="https://www.evernote.com" target="_blank" rel="external">官网</a></li><li><a href="https://chrome.google.com/webstore/detail/evernote-web-clipper/pioclpoplcdbaefihamjohnefbikjilc" target="_blank" rel="external">安装</a></li></ul><h2><span id="隐私安全">隐私安全</span></h2><h4><span id="clickampclean">Click&amp;Clean</span></h4><ul><li><p><a href="https://www.hotcleaner.com/" target="_blank" rel="external">官网</a></p></li><li><p><a href="https://chrome.google.com/webstore/detail/clickclean/ghgabhipcejejjmhhchfonmamedcbeod" target="_blank" rel="external">安装</a></p></li></ul><h4><span id="adguard-adblocker">AdGuard AdBlocker</span></h4><ul><li><a href="https://adguard.com/en/welcome.html" target="_blank" rel="external">官网</a></li><li><a href="https://chrome.google.com/webstore/detail/adguard-adblocker/bgnkhhnnamicmpeenaelnjfhikgbkllg" target="_blank" rel="external">安装</a></li></ul><h4><span id="1password">1Password</span></h4><ul><li><a href="https://1password.com" target="_blank" rel="external">官网</a></li><li><a href="https://chrome.google.com/webstore/detail/1password-extension-deskt/aomjjhallfgjeglblehebfpbcfeobpgk" target="_blank" rel="external">安装</a></li></ul><h2><span id="开发工具类">开发工具类</span></h2><h4><span id="postman">Postman</span></h4><ul><li><a href="https://www.getpostman.com/" target="_blank" rel="external">官网</a></li><li><a href="https://www.getpostman.com/apps" target="_blank" rel="external">安装</a></li></ul><h4><span id="json-formatter">JSON Formatter</span></h4><ul><li><a href="https://github.com/callumlocke/json-formatter" target="_blank" rel="external">官网</a></li><li><a href="https://chrome.google.com/webstore/detail/json-formatter/bcjindcccaagfpapjjmafapmmgkkhgoa" target="_blank" rel="external">安装</a></li></ul><h4><span id="wappalyzer">Wappalyzer</span></h4><ul><li><p><a href="https://www.wappalyzer.com/" target="_blank" rel="external">官网</a></p></li><li><p><a href="https://chrome.google.com/webstore/detail/wappalyzer/gppongmhjkpfnbhagpmjfkannfbllamg" target="_blank" rel="external">安装</a></p></li></ul><h2><span id="其他">其他</span></h2><h4><span id="btools">Btools</span></h4><ul><li><a href="https://chrome.google.com/webstore/detail/btools/aheookoeeopcgengpkngclcpcpjeigok" target="_blank" rel="external">安装</a></li></ul>]]></content>
-      
-        <categories>
-            
-            <category> tools </category>
-            
-        </categories>
-        
-        
-        <tags>
-            
-            <tag> Chrome </tag>
             
         </tags>
         
@@ -1589,26 +1422,6 @@
     </entry>
     
     <entry>
-      <title><![CDATA[Mac系统清理指南]]></title>
-      <url>/posts/80d694a6.html</url>
-      <content type="html"><![CDATA[<script src="/assets/js/APlayer.min.js"> </script><p>Mac电脑在使用一段时间之后，磁盘空间会逐渐减少，系统性能会逐渐降低，主要是由于在系统运行的过程中产生了大量的缓存文件（Cache File）、临时文件（Temp File）以及系统日志（System Logs），这些需要被清理的对象累计起来甚至可占用100G多的磁盘空间。这时就需要我们对这部分文件进行清理。</p><a id="more"></a><h1><span id="工具">工具</span></h1><ul><li>文件扫描工具：<a href="https://daisydiskapp.com/index.html" target="_blank" rel="external">DaisyDisk</a></li><li>文件清理工具：<a href="https://cleanmymac.com/" target="_blank" rel="external">CleanMac3</a></li></ul><h1><span id="步骤">步骤</span></h1><ul><li><strong>备份</strong>。准备一块移动硬盘，移动硬盘大小1TB，使用Mac自带的Time Machine将整个磁盘备份到移动硬盘上。</li><li>运行DaisyDisk，扫描整个磁盘，找出占用磁盘空间大的文件，进行针对性的删除。<img src="https://img.i7years.com/disk.png" alt="disk"></li></ul><ul><li><p>运行CleanMac，找出系统中的需要被清理的文件（Junk）,注意：CleanMac所扫描出来的需要我们自己检查一遍，以免误删文件。</p><p><img src="https://img.i7years.com/diskclean.png" alt="diskclean"></p></li></ul>]]></content>
-      
-        <categories>
-            
-            <category> tools </category>
-            
-        </categories>
-        
-        
-        <tags>
-            
-            <tag> Mac </tag>
-            
-        </tags>
-        
-    </entry>
-    
-    <entry>
       <title><![CDATA[Java8 | 新特性纵览]]></title>
       <url>/posts/4522b97f.html</url>
       <content type="html"><![CDATA[<script src="/assets/js/APlayer.min.js"> </script><h2><span id="java-8介绍">Java 8介绍</span></h2><p>Java 8 于 2014年3月份发布，新版本增添很多不错的特性，本篇文章我们一起纵览一下这些新特性，后面的章节我们会一一详细讨论。促使Java做出重大改变的动力主要来源于：</p><ul><li>代码可读性</li><li>多核运行</li></ul><a id="more"></a><h3><span id="代码可读性">代码可读性</span></h3><p>Java代码非常的啰嗦冗长，导致了代码可读性的下降，换句话说，需要很多额外的代码来解释一段很小的内容。例如，现在有个需求，要按照发票金额的数量倒序排序发票列表。在Java 8之前，你可能需要这么处理：</p><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Collections.sort(invoices, <span class="keyword">new</span> Comparator&lt;Invoice&gt;() &#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">compare</span><span class="params">(Invoice inv1, Invoice inv2)</span> </span>&#123;</span><br><span class="line">    	<span class="keyword">return</span> Double.compare(inv2.getAmount(), inv1.getAmount());</span><br><span class="line">   &#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
@@ -1686,105 +1499,6 @@
             <tag> Java8 </tag>
             
             <tag> Lambda </tag>
-            
-        </tags>
-        
-    </entry>
-    
-    <entry>
-      <title><![CDATA[iBooks自动导入Kindle电子书]]></title>
-      <url>/posts/a1880e9.html</url>
-      <content type="html"><![CDATA[<script src="/assets/js/APlayer.min.js"> </script><p>趁着五一小长期，把自己的电子书库整理了一番，最主要的工作是将Kindle电子书合并到了iBooks，实现了电子书的统一管理，方便Spotlight检索。用过Kindle和iBooks的同学，都应该清楚，这两者在阅读体验上没多大差别，但iBooks在做读书笔记，文字检索，终端数据同步等方面甩Kindle好几条大街。</p><p>试想一下，如果没有检索功能，想要在几百本甚至是上千本书中，找到自己想要的信息，堪比大海捞针，信息检索俨然已成为我们这个时代的刚性需求，快速定位自己想要的知识和素材，将更多的注意力、更多的时间留给大脑去思考、去写作，才是最重要的事情。</p><a id="more"></a><p>今天这篇文章主要教你如何通过Calibre将Kindle for Mac中的电子书自动导入到iBooks中去。</p><blockquote><ol><li>使用 Kindle for Mac 将你在 amazon 上购买的电子书同步到本地目录（暂且命名为path）；</li><li>使用 Mac 自带的 Automator 自动 Copy 上一步path下的电子书到另外一个文件夹（暂且命名为forder）；</li><li>使用 Calibre 自动加载上一步forder中的Kindle电子书，并自动转化为ePub格式；</li><li>将上一步转化好的ePub电子书到手动导入到iBooks中去（唯一一个需要手动操作的步骤）</li></ol></blockquote><hr><h3><span id="环境">环境</span></h3><ul><li>macOS 系统</li></ul><h3><span id="工具">工具</span></h3><ul><li>下载并安装<a href="https://itunes.apple.com/us/app/kindle/id405399194?mt=12" target="_blank" rel="external">Kindle for Mac</a>；</li><li>下载并安装<a href="https://calibre-ebook.com/download" target="_blank" rel="external">Calibre</a>；</li></ul><h3><span id="步骤">步骤</span></h3><h4><span id="step-1-同步kindle电子书到本地">Step 1. 同步Kindle电子书到本地</span></h4><h5><span id="登录kindle-for-mac">登录Kindle for Mac</span></h5><blockquote><p>注意：由于amazon不同国家间账号的数据互不相通，所以登录时请选择正确的登录域名，国内用户请选择amazon.cn</p></blockquote><p><img src="https://img.i7years.com/bolgReg_kindle4Mac.png" alt="register"></p><h5><span id="同步电子书到本地">同步电子书到本地</span></h5><ul><li><p>登录成功后，使用 ⌘ + R 同步电子书</p></li><li><p>在Kindle for Mac操作区外，使用 ⌘ + Shift + G 打开 Go to Folder，输入以下路劲：</p><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">~/Library/Containers/com.amazon.Kindle/<span class="keyword">Data</span>/Library/Application Support/Kindle/My Kindle Content/</span><br></pre></td></tr></table></figure>
-<p><img src="https://img.i7years.com/bolgGo2Folder.png" alt="gotofolder"></p>
-</li>
-</ul>
-<ul>
-<li><p>以 .azw 或 .mobi 结尾的文件就是我们要找的Kindle电子书</p>
-<p><img src="https://img.i7years.com/bolgKindleItems.png" alt="MyKindleContent"></p>
-</li>
-</ul>
-<h4><span id="step-2-设置automator自动复制kindle-books">Step 2. 设置Automator自动复制Kindle Books</span></h4><ul>
-<li><p>打开Mac 自带的应用软件 Automator；</p>
-</li>
-<li><p>选择”Folder Action”</p>
-<p><img src="https://img.i7years.com/bolg/automator1.png" alt=""></p>
-</li>
-<li><p>点击右侧下拉选框 “Choose folder”，选择other，通过 ⌘ + Shift + G 可以快速定位到前面所说的Kindle电子书目录：My Kindle Content</p>
-<p><img src="https://img.i7years.com/bolg/automator2.png" alt=""></p>
-</li>
-<li><p>选择 “Files &amp; Folders” ——&gt; 选择 “Copy Finder Items” ——&gt; 指定文件Copy的目标文件夹，我的路劲为 ~/Documents/003-Books/Kindle4MacItems，这个看个人喜好</p>
-<p><img src="https://img.i7years.com/bolg/automator3.png" alt=""></p>
-</li>
-<li><p>按住 ⌘ + S 保存上面设置的 folder action. </p>
-<p><img src="https://img.i7years.com/bolg/automator4.png" alt=""></p>
-</li>
-</ul>
-<p>现在我们可以做个测试看看Automator是否生效</p>
-<ul>
-<li><p>打开Kindle for Mac，从Downloaded Items中删除一本书</p>
-</li>
-<li><p>双击 Archived Items 下刚刚删被除的书籍，下载完成后，会出现Automator的提示弹框，证明Automator copy设置成功，点击Continue即可。</p>
-<blockquote>
-<p>在Step 2中设置的Automator脚本，会随时监听My Kindle Content目录下的变化，一旦有新增书籍， Automator会自动Copy书籍到Kindle4MacItems目录下</p>
-</blockquote>
-<p><img src="https://img.i7years.com/blog/automator7.png" alt=""></p>
-</li>
-</ul>
-<h4><span id="step-3-安装calibre-dedrm插件">Step 3. 安装Calibre DeDRM插件</span></h4><blockquote>
-<p>DeDRM 可以移除Kindle电子书上的DRM保护，让Calibre自由转化Kindle电子书为你想要的格式</p>
-</blockquote>
-<ul>
-<li><p>安装<a href="https://calibre-ebook.com/download" target="_blank" rel="external">Calibre</a>，设置工具栏上的 <code>Calibre Library</code> 地址，这个地址为Calibre的书库地址；</p>
-</li>
-<li><p>下载<a href="https://github.com/apprenticeharper/DeDRM_tools/archive/v6.5.3.zip" target="_blank" rel="external">DeDRM Tools</a>并解压，找到 DeDRM_plugin.zip 文件，相对路劲DeDRM_tools-6.5.3/DeDRM_calibre_plugin/DeDRM_plugin.zip</p>
-</li>
-<li><p>安装DeDRM_plugin.zip</p>
-<p>Calibre → Preferences ——&gt; Plugins ——&gt; Load plugin from file ——&gt; 选取 DeDRM_plugin.zip ——&gt; 重启 Calibre.</p>
-<p>​</p>
-<p><img src="https://img.i7years.com/bolg/calibre1.png" alt=""></p>
-<p><img src="https://img.i7years.com/bolg/calibre2.png" alt=""></p>
-</li>
-</ul>
-<h4><span id="step-4-设置calibre自动加载kindle电子书并自动转化为epub格式">Step 4. 设置Calibre自动加载Kindle电子书并自动转化为ePub格式</span></h4><h5><span id="设置输出格式为epub">设置输出格式为ePub</span></h5><ul>
-<li><p>Cabler ——&gt; Preferences ——&gt; Behavior</p>
-<p><img src="https://img.i7years.com/bolg/calibre6.png" alt=""></p>
-</li>
-</ul>
-<h5><span id="设置自动加载kindle电子书并自动转化">设置自动加载Kindle电子书并自动转化</span></h5><ul>
-<li><p>Calibre ——&gt; Preferences ——&gt; Adding books ——&gt; The Add Process</p>
-<p><img src="https://img.i7years.com/bolg/calibre3.png" alt=""></p>
-<p><img src="https://img.i7years.com/bolg/calibre4.png" alt=""></p>
-</li>
-<li><p>Calibre ——&gt; Preferences ——&gt; Adding books ——&gt; Automatic Adding</p>
-<p>选择Calibre要自动加载Kindle电子书目录，也就是我们在 <strong>Step2</strong> 中设置的复制目录 Kindle4MacItmes</p>
-<blockquote>
-<p>Calibre加载Kindle电子书后会自动删除源目录下的电子书，这也是为什么我们要使用Automator将Kindle for Mac 下的电子书复制到一个新的目录 Kindle4MacItems 下的原因</p>
-</blockquote>
-<p><img src="https://img.i7years.com/bolg/calibre5.png" alt=""></p>
-</li>
-</ul>
-<h4><span id="step-5-使用ibooks打开-calibre-library-下epub电子书">Step 5. 使用iBooks打开 Calibre Library 下ePub电子书</span></h4><p>只有这一步是需要我们手动去完成的，使用 iBooks 打开转化后的ePub，你会发现文字排版、图片、表格等格式都与Kindle电子书一模一样。</p>
-<p>嗯，就这样，希望对你有所帮助。</p>
-<h3><span id="声明">声明</span></h3><p>DeDRM 是为了买来书后自己用的更方便，请不要传播盗版……</p>
-<blockquote>
-<p>参考：<a href="http://t.cn/RGA59Bo" target="_blank" rel="external">http://t.cn/RGA59Bo</a></p></blockquote>]]></content>
-      
-        <categories>
-            
-            <category> tools </category>
-            
-        </categories>
-        
-        
-        <tags>
-            
-            <tag> iBooks </tag>
-            
-            <tag> Kindle </tag>
-            
-            <tag> Calibre </tag>
-            
-            <tag> DeDRM </tag>
             
         </tags>
         
@@ -1877,7 +1591,7 @@
     <entry>
       <title><![CDATA[JavaScript学习(14) | Prototypal inheritance]]></title>
       <url>/posts/5368b95d.html</url>
-      <content type="html"><![CDATA[<script src="/assets/js/APlayer.min.js"> </script><p>与Java中的对象一样，JavaScript 中的对象也可以通过继承的方式来扩展自身的功能与属性。</p><a id="more"></a><h2><span id="prototype">[[Prototype]]</span></h2><p>在 JavaScript 中，对象有一个隐藏的属性 <code>[[Prototype]]</code> ，该属性的值要么为<code>null</code> ，要么指向一个对象，这个所指向的对象就被称为<code>原型</code>。</p><p><img src="https://img.i7years.com/blog/object-prototype-empty@2x.png" alt="object-prototype-empty"></p><p>通过 <code>[[Prototype]]</code> 我们继承一个对象的属性与方法，例如：</p><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> animal = &#123;</span><br><span class="line">    eats: <span class="literal">true</span>,</span><br><span class="line">    walk() &#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">"Animal walk"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> rabbit = &#123;</span><br><span class="line">    jumps: <span class="literal">true</span>,</span><br><span class="line">    __proto__: animal</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> longEar = &#123;</span><br><span class="line">    earLength: <span class="number">10</span>,</span><br><span class="line">    __proto__: rabbit</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">// we can find both properties in rabbit now:</span></span><br><span class="line"><span class="built_in">console</span>.log(longEar.eats); <span class="comment">// true (**)</span></span><br><span class="line"><span class="built_in">console</span>.log(longEar.jumps); <span class="comment">// true</span></span><br><span class="line"><span class="built_in">console</span>.log(longEar.earLength); <span class="comment">// true</span></span><br><span class="line"></span><br><span class="line">longEar.walk(); <span class="comment">// Animal walk</span></span><br></pre></td></tr></table></figure>
+      <content type="html"><![CDATA[<script src="/assets/js/APlayer.min.js"> </script><p>JavaScript中没有”子类”和”父类”的概念，也没有”类”（class）和”实例”（instance）的区分，全靠一种很奇特的”原型链”（prototype chain）模式，来实现继承。</p><a id="more"></a><h2><span id="prototype">[[Prototype]]</span></h2><p>在 JavaScript 中，对象有一个隐藏的属性 <code>[[Prototype]]</code> ，该属性的值要么为<code>null</code> ，要么指向一个对象，这个所指向的对象就被称为<code>原型</code>。</p><p><img src="https://img.i7years.com/blog/object-prototype-empty@2x.png" alt="object-prototype-empty"></p><p>通过 <code>[[Prototype]]</code> 我们继承一个对象的属性与方法，例如：</p><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> animal = &#123;</span><br><span class="line">    eats: <span class="literal">true</span>,</span><br><span class="line">    walk() &#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">"Animal walk"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> rabbit = &#123;</span><br><span class="line">    jumps: <span class="literal">true</span>,</span><br><span class="line">    __proto__: animal</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> longEar = &#123;</span><br><span class="line">    earLength: <span class="number">10</span>,</span><br><span class="line">    __proto__: rabbit</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">// we can find both properties in rabbit now:</span></span><br><span class="line"><span class="built_in">console</span>.log(longEar.eats); <span class="comment">// true (**)</span></span><br><span class="line"><span class="built_in">console</span>.log(longEar.jumps); <span class="comment">// true</span></span><br><span class="line"><span class="built_in">console</span>.log(longEar.earLength); <span class="comment">// true</span></span><br><span class="line"></span><br><span class="line">longEar.walk(); <span class="comment">// Animal walk</span></span><br></pre></td></tr></table></figure>
 <p>在上面的例子中，这三个对象的关系如下：<code>longEar</code> –&gt; <code>rabbit</code> –&gt; <code>animal</code>。我们可以这样表述：<code>animal</code> 是 <code>rabbit</code> 的原型，或者 <code>rabbit</code> 原型继承自 <code>animal</code> 。</p>
 <p><strong>注意</strong></p>
 <ol>
@@ -1888,12 +1602,15 @@
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> animal = &#123;</span><br><span class="line">    eats: <span class="literal">true</span>,</span><br><span class="line">    walk() &#123;</span><br><span class="line">        <span class="comment">/* this method won't be used by rabbit */</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> rabbit = &#123;</span><br><span class="line">    __proto__: animal</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">rabbit.walk = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">"Rabbit! Bounce-bounce!"</span>);</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">rabbit.walk(); <span class="comment">// Rabbit! Bounce-bounce!</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(rabbit.eats); <span class="comment">// true</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">delete</span> rabbit.eats;</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(rabbit.eats); <span class="comment">// true</span></span><br><span class="line"><span class="built_in">console</span>.log(animal.eats); <span class="comment">// true</span></span><br></pre></td></tr></table></figure>
 <p>对于 <code>getters/setters</code> 方法，在调用时会向上调用到原型里面的方法上去。例如:</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> user = &#123;</span><br><span class="line">    name: <span class="string">"John"</span>,</span><br><span class="line">    surname: <span class="string">"Smith"</span>,</span><br><span class="line"></span><br><span class="line">    set fullName(value) &#123;</span><br><span class="line">        [<span class="keyword">this</span>.name, <span class="keyword">this</span>.surname] = value.split(<span class="string">" "</span>);</span><br><span class="line">    &#125;,</span><br><span class="line"></span><br><span class="line">    get fullName() &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">`<span class="subst">$&#123;<span class="keyword">this</span>.name&#125;</span> <span class="subst">$&#123;<span class="keyword">this</span>.surname&#125;</span>`</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> admin = &#123;</span><br><span class="line">    __proto__: user,</span><br><span class="line">    isAdmin: <span class="literal">true</span></span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(admin.fullName); <span class="comment">// John Smith (*)</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// setter triggers!</span></span><br><span class="line">admin.fullName = <span class="string">"Alice Cooper"</span>; <span class="comment">// (**)</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(user.name); <span class="comment">// John</span></span><br><span class="line"><span class="built_in">console</span>.log(admin.name); <span class="comment">// Alice</span></span><br></pre></td></tr></table></figure>
-<h2><span id="this">this</span></h2><p>在上面的这个例子中，this 指向的是哪个对象？答案是： <code>admin</code> 。</p>
+<h2><span id="this">this</span></h2><p>函数中的 <code>this</code>值通常是由函数的调用方来定义。因此，每次执行函数，函数内的 <code>this</code>值可能都不一样。</p>
+<p>在上面的这个例子中，this 指向的是哪个对象？答案是： <code>admin</code> 。</p>
 <p><code>this</code> 不受原型的影响。无论在哪里调用，不管是对象中还是在原型中，一个方法里面的 <code>this</code> 总是表示 <code>.</code> 号前面的对象。例如：</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// animal has methods</span></span><br><span class="line"><span class="keyword">let</span> animal = &#123;</span><br><span class="line">    walk() &#123;</span><br><span class="line">        <span class="keyword">if</span> (!<span class="keyword">this</span>.isSleeping) &#123;</span><br><span class="line">            alert(<span class="string">`I walk`</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;,</span><br><span class="line">    sleep() &#123;</span><br><span class="line">        <span class="keyword">this</span>.isSleeping = <span class="literal">true</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> rabbit = &#123;</span><br><span class="line">    name: <span class="string">"White Rabbit"</span>,</span><br><span class="line">    __proto__: animal</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">// modifies rabbit.isSleeping</span></span><br><span class="line">rabbit.sleep();</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(rabbit.isSleeping); <span class="comment">// true</span></span><br><span class="line"><span class="built_in">console</span>.log(animal.isSleeping); <span class="comment">// undefined (no such property in the prototype)</span></span><br></pre></td></tr></table></figure>
 <h2><span id="参考资料">参考资料</span></h2><ul>
 <li><a href="http://javascript.info/prototype-inheritance" target="_blank" rel="external">http://javascript.info/prototype-inheritance</a></li>
-<li><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Inheritance_and_the_prototype_chain" target="_blank" rel="external">https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Inheritance_and_the_prototype_chain</a></li></ul>]]></content>
+<li><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Inheritance_and_the_prototype_chain" target="_blank" rel="external">https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Inheritance_and_the_prototype_chain</a></li>
+<li><a href="https://juejin.im/post/5b6676e6f265da0fa00a3a12" target="_blank" rel="external">https://juejin.im/post/5b6676e6f265da0fa00a3a12</a></li>
+<li><a href="http://www.ruanyifeng.com/blog/2011/06/designing_ideas_of_inheritance_mechanism_in_javascript.html" target="_blank" rel="external">http://www.ruanyifeng.com/blog/2011/06/designing_ideas_of_inheritance_mechanism_in_javascript.html</a></li></ul>]]></content>
       
         <categories>
             
@@ -3045,81 +2762,6 @@
     </entry>
     
     <entry>
-      <title><![CDATA[Mac、Linux常用命令工具清单]]></title>
-      <url>/posts/e07d35dc.html</url>
-      <content type="html"><![CDATA[<script src="/assets/js/APlayer.min.js"> </script><p>整理一下自己平时用的比较多的一些工具和命令，便于后期查阅。</p><a id="more"></a><h2><span id="mac命令">Mac命令</span></h2><blockquote><p>Github上有个老外，整理一份Mac上各种工具的安装指南，很是不错，强烈推荐：</p><blockquote><p><a href="https://github.com/sb2nov/mac-setup" target="_blank" rel="external">https://github.com/sb2nov/mac-setup</a></p></blockquote></blockquote><h3><span id="brew">brew</span></h3><blockquote><p>官网：<a href="https://brew.sh/" target="_blank" rel="external">https://brew.sh/</a></p></blockquote><h5><span id="安装">安装</span></h5><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ ruby -e <span class="string">"$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"</span></span><br></pre></td></tr></table></figure>
-<h5><span id="常用命令">常用命令</span></h5><blockquote>
-<p>以安装 nginx 为例</p>
-</blockquote>
-<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">$ brew update <span class="comment">#更新brew</span></span><br><span class="line">$ brew list  <span class="comment"># 列出本机通过brew安装的所有软件</span></span><br><span class="line">$ brew cleanup <span class="comment"># 清除过时的就版本软件</span></span><br><span class="line"></span><br><span class="line">$ brew search nginx <span class="comment">#模糊搜索关键字openssl</span></span><br><span class="line">$ brew install nginx  <span class="comment">#安装openssl</span></span><br><span class="line">$ brew info nginx <span class="comment">#查询openssl的安装信息</span></span><br><span class="line">$ brew uninstall nginx <span class="comment">#卸载openssl</span></span><br><span class="line">$ brew uninstall --ignore-dependencies nginx <span class="comment">#强行卸载openssl</span></span><br><span class="line">$ brew upgrade nginx <span class="comment"># 升级openssl，如果不加软件名，就更新所有可以更新的软件</span></span><br><span class="line">$ brew service start/stop/restart nginx <span class="comment"># 启动/停止/重启 nginx服务</span></span><br></pre></td></tr></table></figure>
-<h3><span id="jenv">Jenv</span></h3><blockquote>
-<p>官网：<a href="http://www.jenv.be/" target="_blank" rel="external">http://www.jenv.be/</a></p>
-</blockquote>
-<h3><span id="mac特有命令">Mac特有命令</span></h3><h5><span id="清除剪切板内容">清除剪切板内容</span></h5><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ pbcopy &lt; /dev/null</span><br></pre></td></tr></table></figure>
-<h2><span id="文件操作">文件操作</span></h2><h4><span id="本地操作">本地操作</span></h4><ol>
-<li><p>查询 <code>path1</code>目录中的java文件：</p>
-<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ find path1 -type f -name <span class="string">"*.java"</span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p>从 <code>path1</code> 目录同步 java 文件到 <code>path2</code> 中，并且: 1)同步目录结构;2)删除源文件;3)删除path2中的空文件夹</p>
-<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ rsync -arv --prune-empty-dirs --remove-source-files --include=<span class="string">'*/'</span> --include=<span class="string">'*.java'</span> --exclude=<span class="string">'*'</span> path1 path2</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>删除 <code>path1</code> 目录中所有的空文件夹：</p>
-<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ find path1 -type d -depth -empty -exec rmdir <span class="string">"&#123;&#125;"</span> \;</span><br></pre></td></tr></table></figure>
-</li>
-</ol>
-<h4><span id="远程操作">远程操作</span></h4><ol>
-<li><p>同步远程服务器上的文件到本地</p>
-<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ rsync -avz --progress -e <span class="string">"ssh -p <span class="variable">$portNumber</span>"</span> user@remoteip:/path/to/files/ /local/path/</span><br></pre></td></tr></table></figure>
-</li>
-</ol>
-<h2><span id="进程amp端口">进程&amp;端口</span></h2><ol>
-<li><p>检查端口运行</p>
-<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ netstat -vanp tcp | grep <span class="variable">$port</span></span><br></pre></td></tr></table></figure></li></ol>]]></content>
-      
-        <categories>
-            
-            <category> tools </category>
-            
-        </categories>
-        
-        
-        <tags>
-            
-            <tag> Mac </tag>
-            
-            <tag> Linux </tag>
-            
-        </tags>
-        
-    </entry>
-    
-    <entry>
-      <title><![CDATA[运维资料整理]]></title>
-      <url>/posts/96a7dc5b.html</url>
-      <content type="html"><![CDATA[<script src="/assets/js/APlayer.min.js"> </script><p>收集整理一些有关运维相关的操作指南</p><a id="more"></a><h1><span id="centos">CentOS</span></h1><ul><li><a href="https://www.digitalocean.com/community/tutorials/how-to-set-up-a-firewall-using-firewalld-on-centos-7" target="_blank" rel="external">防火墙配置</a></li><li><a href="https://www.cyberciti.biz/faq/unix-linux-check-if-port-is-in-use-command/" target="_blank" rel="external">端口运行检查</a></li></ul><h1><span id="nginx">Nginx</span></h1><ul><li><a href="https://www.digitalocean.com/community/tutorials/how-to-install-nginx-on-centos-7" target="_blank" rel="external">Nginx安装</a></li><li><a href="https://www.digitalocean.com/community/tutorials/how-to-secure-nginx-with-let-s-encrypt-on-centos-7" target="_blank" rel="external">Let’s Encrypt 安装</a></li><li><a href="https://www.cyberciti.biz/tips/linux-unix-bsd-nginx-webserver-security.html" target="_blank" rel="external">Nginx安全设置</a></li><li><a href="https://github.com/denji/nginx-tuning" target="_blank" rel="external">Nginx性能优化</a></li></ul><h1><span id="git常用命令">Git常用命令</span></h1><ul><li><a href="http://www.ruanyifeng.com/blog/2015/12/git-cheat-sheet.html" target="_blank" rel="external">http://www.ruanyifeng.com/blog/2015/12/git-cheat-sheet.html</a></li></ul>]]></content>
-      
-        <categories>
-            
-            <category> tools </category>
-            
-        </categories>
-        
-        
-        <tags>
-            
-            <tag> Nginx </tag>
-            
-            <tag> Https </tag>
-            
-            <tag> Let’s Encrypt </tag>
-            
-            <tag> CentOs </tag>
-            
-        </tags>
-        
-    </entry>
-    
-    <entry>
       <title><![CDATA[数据结构与算法 | 栈]]></title>
       <url>/posts/d1e0a844.html</url>
       <content type="html"><![CDATA[<script src="/assets/js/APlayer.min.js"> </script><h1><span id="栈">栈</span></h1><h4><span id="定义">定义</span></h4><p>线性表中的一种特殊数据结构，数据只能从固定的一端插入数据或删除数据，另一端是封死的。</p><a id="more"></a><p><img src="https://img.i7years.com/blog/stack-1.png" alt=""></p><h4><span id="特点">特点</span></h4><ul><li>FILO（First In Last Out）: 先进后出</li><li>栈满还存会“上溢”，栈空再取会“下溢”</li></ul><h1><span id="分类">分类</span></h1><h3><span id="顺序栈">顺序栈</span></h3><h4><span id="特点">特点</span></h4><ul><li>采用数组实现，数据在物理结构上保持连续性。</li></ul><h4><span id="代码实现">代码实现</span></h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br><span class="line">178</span><br><span class="line">179</span><br><span class="line">180</span><br><span class="line">181</span><br><span class="line">182</span><br><span class="line">183</span><br><span class="line">184</span><br><span class="line">185</span><br><span class="line">186</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> one.wangwei.algorithms.datastructures.stack.impl;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> one.wangwei.algorithms.datastructures.stack.IStack;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.util.Arrays;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 顺序栈</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param</span> &lt;T&gt;</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author</span> wangwei</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@date</span> 2018/05/04</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ArrayStack</span>&lt;<span class="title">T</span>&gt; <span class="keyword">implements</span> <span class="title">IStack</span>&lt;<span class="title">T</span>&gt; </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 默认大小</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> DEFAULT_SIZE = <span class="number">10</span>;</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 数组</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">private</span> T[] array = (T[]) <span class="keyword">new</span> Object[DEFAULT_SIZE];</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 大小</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">int</span> size;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 入栈</span></span><br><span class="line"><span class="comment">     *</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> value</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span></span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">push</span><span class="params">(T value)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (size &gt;= array.length) &#123;</span><br><span class="line">            grow();</span><br><span class="line">        &#125;</span><br><span class="line">        array[size] = value;</span><br><span class="line">        size++;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 扩容50%</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">grow</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> growSize = size + (size &lt;&lt; <span class="number">1</span>);</span><br><span class="line">        array = Arrays.copyOf(array, growSize);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 压缩50%</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">shrink</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> shrinkSize = size &gt;&gt; <span class="number">1</span>;</span><br><span class="line">        array = Arrays.copyOf(array, shrinkSize);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 出栈</span></span><br><span class="line"><span class="comment">     *</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span></span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> T <span class="title">pop</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (size &lt;= <span class="number">0</span>) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">null</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        T element = array[--size];</span><br><span class="line">        array[size] = <span class="keyword">null</span>;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">int</span> shrinkSize = array.length &gt;&gt; <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">if</span> (shrinkSize &gt;= DEFAULT_SIZE &amp;&amp; shrinkSize &gt; size) &#123;</span><br><span class="line">            shrink();</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> element;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 查看栈顶值</span></span><br><span class="line"><span class="comment">     *</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span></span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> T <span class="title">peek</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (size &lt;= <span class="number">0</span>) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">null</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> array[size - <span class="number">1</span>];</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 删除元素</span></span><br><span class="line"><span class="comment">     *</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> value</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span></span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">remove</span><span class="params">(T value)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (size &lt;= <span class="number">0</span>) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; size; i++) &#123;</span><br><span class="line">            T t = array[i];</span><br><span class="line">            <span class="keyword">if</span> (value == <span class="keyword">null</span> &amp;&amp; t == <span class="keyword">null</span>) &#123;</span><br><span class="line">                <span class="keyword">return</span> remove(i);</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span> (value != <span class="keyword">null</span> &amp;&amp; value.equals(t)) &#123;</span><br><span class="line">                <span class="keyword">return</span> remove(i);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 移除 index 处的栈值</span></span><br><span class="line"><span class="comment">     *</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> index</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span></span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">boolean</span> <span class="title">remove</span><span class="params">(<span class="keyword">int</span> index)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (index &lt; <span class="number">0</span> || index &gt;= size) &#123;</span><br><span class="line">            <span class="keyword">throw</span> <span class="keyword">new</span> ArrayIndexOutOfBoundsException(<span class="string">"Index: "</span> + index + <span class="string">", Size: "</span> + size);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (index != --size) &#123;</span><br><span class="line">            System.arraycopy(array, index + <span class="number">1</span>, array, index, size - index);</span><br><span class="line">        &#125;</span><br><span class="line">        array[size] = <span class="keyword">null</span>;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">int</span> shrinkSize = array.length &gt;&gt; <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">if</span> (shrinkSize &gt;= DEFAULT_SIZE &amp;&amp; shrinkSize &gt; size) &#123;</span><br><span class="line">            shrink();</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 清空栈</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">clear</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (size &lt;= <span class="number">0</span>) &#123;</span><br><span class="line">            <span class="keyword">return</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; size; i++) &#123;</span><br><span class="line">            array[i] = <span class="keyword">null</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        size = <span class="number">0</span>;</span><br><span class="line">        array = <span class="keyword">null</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 是否包含元素</span></span><br><span class="line"><span class="comment">     *</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> value</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span></span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">contains</span><span class="params">(T value)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (size &lt;= <span class="number">0</span>) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; size; i++) &#123;</span><br><span class="line">            T t = array[i];</span><br><span class="line">            <span class="keyword">if</span> (value == <span class="keyword">null</span> &amp;&amp; t == <span class="keyword">null</span>) &#123;</span><br><span class="line">                <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span> (value != <span class="keyword">null</span> &amp;&amp; value.equals(t)) &#123;</span><br><span class="line">                <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 栈大小</span></span><br><span class="line"><span class="comment">     *</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span></span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">size</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> size;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
@@ -3245,9 +2887,469 @@
     </entry>
     
     <entry>
-      <title><![CDATA[Java开发环境搭建清单]]></title>
+      <title><![CDATA[好用的工具清单]]></title>
+      <url>/posts/e4de0f3.html</url>
+      <content type="html"><![CDATA[<script src="/assets/js/APlayer.min.js"> </script><p>发现好东西，遇见好……</p><p>分享自己日常生活与工作中经常使用的工具、app以及网站，也欢迎分享你的好东西~</p><a id="more"></a><h1><span id="设备">设备</span></h1><ul><li style="list-style:none"><input type="checkbox">MacBook Pro</li><li style="list-style:none"><input type="checkbox">iPhone</li><li style="list-style:none"><input type="checkbox">iPad Pro</li><li style="list-style:none"><input type="checkbox">Apple Watch</li><li style="list-style:none"><input type="checkbox">iMac Pro</li><li style="list-style:none"><input type="checkbox">Kindle Oasis</li></ul><h1><span id="app">App</span></h1><h3><span id="成长学习">成长学习</span></h3><ul><li><a href="https://www.igetget.com/" target="_blank" rel="external">得到App</a></li><li><a href="http://www.hundun.cn/" target="_blank" rel="external">混沌大学</a></li><li><a href="https://time.geekbang.org/" target="_blank" rel="external">极客时间</a></li></ul><h3><span id="专注">专注</span></h3><ul><li>冥想：<a href="https://insighttimer.com/" target="_blank" rel="external">Insight Timer</a></li><li>专注：<a href="https://www.forestapp.cc/en/" target="_blank" rel="external">Forest</a></li></ul><h3><span id="阅读">阅读</span></h3><ul><li>Kindle</li><li>iBooks</li></ul><h3><span id="英语">英语</span></h3><ul><li><a href="https://itunes.apple.com/ca/app/ldoce-inapp-longman-dictionary-of-english-5th/id600007708?mt=8" target="_blank" rel="external">LDOCE</a></li><li><a href="https://www.eudic.net/v4/en/app/eudic" target="_blank" rel="external">Eudic</a></li></ul><h3><span id="记录">记录</span></h3><ul><li><a href="https://evernote.com/intl/en/" target="_blank" rel="external">evernote</a></li><li><a href="http://www.bear-writer.com/" target="_blank" rel="external">Bear</a></li><li><a href="https://mindnode.com/" target="_blank" rel="external">MindNode</a></li><li><a href="https://itunes.apple.com/cn/app/%E8%AE%AF%E9%A3%9E%E8%AF%AD%E8%AE%B0-%E8%AF%AD%E9%9F%B3%E5%8F%98%E6%96%87%E5%AD%97%E8%BE%93%E5%85%A5%E7%9A%84%E4%BA%91%E7%AC%94%E8%AE%B0/id931409652?mt=8" target="_blank" rel="external">讯飞语录</a></li></ul><h3><span id="时间记录">时间记录</span></h3><ul><li><a href="http://www.atimelogger.com/" target="_blank" rel="external">aTimelogger2</a></li></ul><h3><span id="任务管理">任务管理</span></h3><ul><li>Calendar</li><li><a href="https://www.omnigroup.com/omniFocus" target="_blank" rel="external">OmniFocus</a></li><li><a href="https://culturedcode.com/things/" target="_blank" rel="external">Things</a></li></ul><h3><span id="项目管理">项目管理</span></h3><ul><li><a href="https://www.omnigroup.com/omniPlan" target="_blank" rel="external">OmniPlan</a></li><li><a href="https://www.teambition.com/en" target="_blank" rel="external">Teambition</a></li></ul><h3><span id="账号安全">账号安全</span></h3><ul><li><a href="https://1password.com/" target="_blank" rel="external">1Password</a></li><li><a href="https://itunes.apple.com/us/app/google-authenticator/id388497605?mt=8" target="_blank" rel="external">Google Authenticator</a></li></ul><h3><span id="制图">制图</span></h3><ul><li><a href="https://www.omnigroup.com/omnigraffle" target="_blank" rel="external">OmniGraffle</a></li><li><a href="http://staruml.io/" target="_blank" rel="external">StarUML</a></li></ul><h3><span id="区块链">区块链</span></h3><ul><li><a href="https://itunes.apple.com/us/app/aicoin/id1287350112?mt=8" target="_blank" rel="external">AICoin</a></li><li><a href="https://itunes.apple.com/us/app/mytoken/id1271352380?mt=8" target="_blank" rel="external">MyToken</a></li></ul><h3><span id="社群">社群</span></h3><ul><li><a href="https://www.xiaomiquan.com/" target="_blank" rel="external">知识星球</a></li><li><a href="https://twitter.com/?lang=en" target="_blank" rel="external">Twitter</a></li><li><a href="https://telegram.org/" target="_blank" rel="external">Telegram</a></li></ul><h3><span id="健身">健身</span></h3><ul><li>Keep</li><li>Joyrun</li></ul><h3><span id="其他">其他</span></h3><ul><li>翻墙：<a href="https://itunes.apple.com/us/app/superwingy/id1290093815?mt=8" target="_blank" rel="external">SuperWingy</a></li><li>截图拼接：<a href="https://itunes.apple.com/us/app/tailor-screenshot-stitching/id926653095?mt=8" target="_blank" rel="external">Tailor</a></li><li>自动化处理：<a href="https://workflow.is/" target="_blank" rel="external">Workflow</a></li></ul><h1><span id="chrome-extensions">Chrome Extensions</span></h1><ul><li><a href="https://wangwei.one/posts/4c3b6bcb.html">好用的Chrome Extensions</a></li></ul><h2><span id="系统清理">系统清理</span></h2><ul><li><a href="https://wangwei.one/posts/80d694a6.html">Mac系统清理指南</a></li></ul><h2><span id="资源推荐">资源推荐</span></h2><ol><li><a href="https://sspai.com/" target="_blank" rel="external">少数派—高品质数字消费指南</a></li></ol>]]></content>
+      
+        <categories>
+            
+            <category> tools </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> 工具 </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
+      <title><![CDATA[JVM学习(1) | Java内存模型]]></title>
+      <url>/posts/71c1df10.html</url>
+      <content type="html"><![CDATA[<script src="/assets/js/APlayer.min.js"> </script><p>本文我们来学习一下JDK 1.7 HotSpot VM的内存模型</p><a id="more"></a><h2><span id="jvm-architecture">JVM Architecture</span></h2><p><img src="https://img.i7years.com/blog/JVM%20Architecture.png" alt="JVM Architecture"></p><p>我们先来了解一下JVM的架构体系，JVM主要分三大子系统：Class Loader SubSystem、Runtime Data Area、Execution Engine 。</p><h4><span id="class-loader-subsystem">Class Loader SubSystem</span></h4><p>Java的动态类加载功能由类加载器子系统处理。 它在<strong>运行时</strong>第一次引用类时加载，链接和初始化类，而不是在编译时引用。 它执行三个主要功能，如加载，链接和初始化。</p><h4><span id="execution-engine">Execution Engine</span></h4><p>被分配给运行时数据区域中的字节码将被执行引擎来执行。 执行引擎读取字节代码并挨个挨个执行。</p><p>本篇重点介绍 Rumtime Date Area，至于Class Loader SubSystem和Execution Engine将放在后面的文章去介绍。</p><h2><span id="runtime-data-area">Runtime Data Area</span></h2><p>运行时数据区，是JVM内存管理的主要区域。Java虚拟机在程序执行的过程中，会把它所管理的内存划分为若干个不同的数据区域。主要分为：</p><ul><li>Program Counter Register：程序计数器</li><li>Java Virtual Machine Stacks：Java虚拟机栈</li><li>Native Method Stack：本地方法栈</li><li>Java Heap：堆</li><li>Method Area：方法区</li></ul><h3><span id="内存分配查询">内存分配查询</span></h3><p>我们可以使用如下命令查询系统默认分配的内存大小：</p><p><strong>Ubuntu &amp; RedHat</strong>：</p><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ java -XX:+PrintFlagsFinal -version | grep -iE <span class="string">'HeapSize|PermSize|ThreadStackSize'</span></span><br></pre></td></tr></table></figure>
+<p><strong>Windows</strong>：</p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&gt; java -XX:+PrintFlagsFinal -version | findstr /i <span class="string">"HeapSize PermSize ThreadStackSize"</span></span><br></pre></td></tr></table></figure>
+<p><strong>MacOS</strong>：</p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ java -XX:+PrintFlagsFinal -version | grep -iE <span class="string">'heapsize|permsize|threadstacksize'</span></span><br></pre></td></tr></table></figure>
+<p>例如，我的Mac返回结果如下：</p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">    uintx AdaptivePermSizeWeight                    = <span class="number">20</span>              &#123;product&#125;</span><br><span class="line">     intx CompilerThreadStackSize                   = <span class="number">0</span>               &#123;pd product&#125;</span><br><span class="line">    uintx ErgoHeapSizeLimit                         = <span class="number">0</span>               &#123;product&#125;</span><br><span class="line">    uintx HeapSizePerGCThread                       = <span class="number">87241520</span>        &#123;product&#125;</span><br><span class="line">    uintx InitialHeapSize                          := <span class="number">134217728</span>       &#123;product&#125;</span><br><span class="line">    uintx LargePageHeapSizeThreshold                = <span class="number">134217728</span>       &#123;product&#125;</span><br><span class="line">    uintx MaxHeapSize                              := <span class="number">2147483648</span>      &#123;product&#125;</span><br><span class="line">    uintx MaxPermSize                               = <span class="number">85983232</span>        &#123;pd product&#125;</span><br><span class="line">    uintx PermSize                                  = <span class="number">21757952</span>        &#123;pd product&#125;</span><br><span class="line">     intx ThreadStackSize                           = <span class="number">1024</span>            &#123;pd product&#125;</span><br><span class="line">     intx VMThreadStackSize                         = <span class="number">1024</span>            &#123;pd product&#125;</span><br><span class="line">java version <span class="string">"1.7.0_72"</span></span><br><span class="line">Java(TM) SE Runtime Environment (build <span class="number">1.7</span>.<span class="number">0</span>_72-b14)</span><br><span class="line">Java HotSpot(TM) <span class="number">64</span>-Bit Server VM (build <span class="number">24.72</span>-b04, mixed mode)</span><br></pre></td></tr></table></figure>
+<h3><span id="控制参数">控制参数</span></h3><p><img src="https://img.i7years.com/blog/Runtime%20Date%20Area%20Allocation.png" alt="Runtime data area allocation"></p>
+<p>控制参数：</p>
+<ul>
+<li>-Xms设置堆的最小空间大小。</li>
+<li>-Xmx设置堆的最大空间大小。</li>
+<li>-XX:NewSize设置新生代最小空间大小。</li>
+<li>-XX:MaxNewSize设置新生代最大空间大小。</li>
+<li>-XX:PermSize设置永久代最小空间大小。</li>
+<li>-XX:MaxPermSize设置永久代最大空间大小。</li>
+<li>-Xss设置每个线程的堆栈大小。</li>
+</ul>
+<h2><span id="program-counter-register">Program Counter Register</span></h2><ul>
+<li>当前线程所执行的字节码的行号解释器。字节码解释器工作时就是通过改变这个计数器的值来选取下一条需要执行的字节码指令，分支、循环、跳转、异常处理、线程恢复等基础功能都需要依赖这个计数器来完成。</li>
+<li>此为线程的私有内存区域。任何一个确定的时刻，一个处理器或者内核，都只会执行一条线程中的指令，为了确保线程切换后还能回到正确的执行位置，每一个线程都有一个独立的程序计数器，各个线程之间计数器互不影响，独立存储。</li>
+<li>此内存区域是唯一一个在Java虚拟机规范中没有规定任何OutOfMemoryError情况的区域。</li>
+</ul>
+<h2><span id="java-virtual-machine-stack">Java Virtual Machine Stack</span></h2><h4><span id="概念">概念</span></h4><ul>
+<li>线程私有，生命周期与线程的一致。</li>
+<li>虚拟机栈描述的是Java方法执行的内存模型：每个方法在执行的同时都会创建一个<strong>栈帧（Stack Frame）</strong>用于存储<strong>局部变量表</strong>、<strong>操作数栈</strong>、<strong>动态链接</strong>、<strong>方法出口</strong>等信息。每一个方法从调用直至执行完成的过程，就对应着一个栈帧在虚拟机栈中入栈到出栈的过程。</li>
+<li><strong>局部变量表</strong>存放了编译期可知的各种基本数据类型（boolean、byte、char、short、int、float、long、double）、对象引用（reference类型，它不等同于对象本身，可能是一个指向对象起始地址的引用指针，也可能是指向一个代表对象的句柄或其他与此对象相关的位置）和returnAddress类型（指向了一条字节码指令的地址）。</li>
+<li>局部变量表所需的内存空间在<strong>编译期间完成分配</strong>，当进入一个方法时，这个方法需要在帧中分配多大的局部变量空间是完全确定的，在方法运行期间不会改变局部变量表的大小。</li>
+</ul>
+<h4><span id="大小设置">大小设置</span></h4><p>Java虚拟机栈的默认大小与运行的操作系统有关：</p>
+<table>
+<thead>
+<tr>
+<th>Platform</th>
+<th>Default</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Windows IA32</td>
+<td>64 KB</td>
+</tr>
+<tr>
+<td>Linux IA32</td>
+<td>128 KB</td>
+</tr>
+<tr>
+<td>Windows x86_64</td>
+<td>128 KB</td>
+</tr>
+<tr>
+<td>Linux x86_64</td>
+<td>256 KB</td>
+</tr>
+<tr>
+<td>Windows IA64</td>
+<td>320 KB</td>
+</tr>
+<tr>
+<td>Linux IA64</td>
+<td>1024 KB (1 MB)</td>
+</tr>
+<tr>
+<td>Solaris Sparc</td>
+<td>512 KB</td>
+</tr>
+</tbody>
+</table>
+<p>我们可以通过 <code>-Xss&lt;size&gt;</code> 来设置Java虚拟机栈大小，例如：-Xss128k，则大小为128k。</p>
+<h4><span id="异常">异常</span></h4><h5><span id="stackoverflowerror">StackOverflowError</span></h5><p>如果线程请求的栈深度大于虚拟机所允许的深度，将抛出StackOverflowError异常。</p>
+<p>如下例子，通过限制虚拟机栈的大小，并产生大量的局部变量，以此来增加此方法帧中的本地变量表长度。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.thinkingjava;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * VM args: -Xss:200k</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">JavaVMStackSOF</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">int</span> stackLength = <span class="number">1</span>;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">stackLeak</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        stackLength++;</span><br><span class="line">        stackLeak();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        JavaVMStackSOF oom = <span class="keyword">new</span> JavaVMStackSOF();</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            oom.stackLeak();</span><br><span class="line">        &#125; <span class="keyword">catch</span> (Throwable e) &#123;</span><br><span class="line">            System.out.println(<span class="string">"stack length:"</span> + oom.stackLength);</span><br><span class="line">            <span class="keyword">throw</span> e;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 内容输出：</span></span><br><span class="line">Exception in thread <span class="string">"main"</span> java.lang.StackOverflowError</span><br><span class="line">stack length:<span class="number">1239</span></span><br><span class="line">	at com.thinkingjava.JavaVMStackSOF.stackLeak(JavaVMStackSOF.java:<span class="number">11</span>)</span><br><span class="line">	at com.thinkingjava.JavaVMStackSOF.stackLeak(JavaVMStackSOF.java:<span class="number">12</span>)</span><br><span class="line"></span><br><span class="line">    ...</span><br></pre></td></tr></table></figure>
+<p>在单线程的情况下，无论是栈容量太大，还是虚拟机内存太小，当内存无法分配时，都会抛出StackOverflowError异常。</p>
+<h5><span id="outofmemoryerror">OutOfMemoryError</span></h5><p>如果虚拟机栈可以动态扩展（当前大部分的Java虚拟机都可动态扩展，只不过Java虚拟机规范中也允许固定长度的虚拟机栈），如果扩展时无法申请到足够的内存，就会抛出OutOfMemoryError异常。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">栈内存大小 = 进程的内存大小 - 堆内存大小(-Xmx) - 方法区内存大小(-XX:MaxPermSize)</span><br></pre></td></tr></table></figure>
+<p>由于操作系统给每一个进程的内存是有限制，除去Java堆内存大小（Xmx）和方法区的内存大小（MaxPermSize），剩余的内容就归Java虚拟机栈和本地方法栈分配了，每个线程可分配的栈容量越大，那么所能够产生的线程数则越少。建立线程越多，则越容易把内存消耗掉。</p>
+<p>如果是建立过多线程导致的内存溢出，在不能减少线程数或者更换64位虚拟机的情况下，就只能通过减少最大堆和减少栈容量来换取更多的线程。</p>
+<p>如下例子：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.thinkingjava;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * </span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">JavaVMStackOOM</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> count = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">while</span> (<span class="keyword">true</span>) &#123;</span><br><span class="line">            System.out.println(++count);</span><br><span class="line">            <span class="keyword">new</span> Thread(<span class="keyword">new</span> Runnable() &#123;</span><br><span class="line">                <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>&#123;</span><br><span class="line">                    <span class="keyword">try</span> &#123;</span><br><span class="line">                        Thread.sleep(<span class="number">10000000</span>);</span><br><span class="line">                    &#125; <span class="keyword">catch</span> (InterruptedException e) &#123;</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;).start();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 输出</span></span><br><span class="line"><span class="number">1</span></span><br><span class="line"><span class="number">2</span></span><br><span class="line"></span><br><span class="line">...</span><br><span class="line"></span><br><span class="line"><span class="number">2032</span></span><br><span class="line">    </span><br><span class="line">Exception in thread <span class="string">"main"</span> java.lang.OutOfMemoryError: unable to create <span class="keyword">new</span> <span class="keyword">native</span> thread</span><br><span class="line">	at java.lang.Thread.start0(Native Method)</span><br><span class="line">	at java.lang.Thread.start(Thread.java:<span class="number">714</span>)</span><br><span class="line">	at com.thinkingjava.JavaVMStackOOM.main(JavaVMStackOOM.java:<span class="number">12</span>)</span><br></pre></td></tr></table></figure>
+<h2><span id="native-method-stack">Native Method Stack</span></h2><ul>
+<li>本地方法栈与Java虚拟机栈类似，区别在于 Java虚拟机栈为Java方法服务，而本地方法栈为Native方法服务。</li>
+<li>与虚拟机栈一样，本地方法栈区域也会抛出StackOverflowError和OutOfMemoryError异常。</li>
+</ul>
+<h2><span id="java-heap">Java Heap</span></h2><p>Java堆（Java Heap）主要用于所有<strong>对象实例与数组</strong>的分配，是Java虚拟机所管理的内存当中最大的一块。</p>
+<blockquote>
+<p>随着JIT编译器的发展与逃逸分析技术逐渐成熟，栈上分配、标量替换优化技术将会导致一些微妙的变化发生，所有的对象都分配在堆上也渐渐变得不是那么“绝对”了。</p>
+</blockquote>
+<p>Java堆是垃圾收集器管理的主要区域，因此很多时候也被称做“GC堆”（Garbage Collected Heap）。</p>
+<p>Java堆空间还可以细分为：</p>
+<ul>
+<li>Young Generation（新生代）、Tenured/Old Generation（老年代）</li>
+<li>Young Generation又可以细分为：Eden（伊甸区）、From Survivor 0（幸存者0区） 、To Survivor 1（幸存者1区） </li>
+</ul>
+<p><img src="https://img.i7years.com/blog/Java%20Heap.PNG" alt="Java Heap"></p>
+<h3><span id="异常">异常</span></h3><p>如果在堆中没有内存完成实例分配时，并且堆再也无法扩展时，将会抛出 OOM 异常。</p>
+<blockquote>
+<p>将堆的最小值-Xms参数与最大值-Xmx参数设置为一样即可避免堆自动扩展</p>
+</blockquote>
+<p>如下例子，不断地创造对象，最终导致Java堆内存溢出。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.thinkingjava;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.util.ArrayList;</span><br><span class="line"><span class="keyword">import</span> java.util.List;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * VM Args：-Xms20m -Xmx20m -XX:+HeapDumpOnOutOfMemoryError</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">HeapOOM</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">static</span> <span class="class"><span class="keyword">class</span> <span class="title">HeapObject</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        List&lt;HeapObject&gt; heapObjectList = <span class="keyword">new</span> ArrayList&lt;&gt;();</span><br><span class="line">        <span class="keyword">while</span> (<span class="keyword">true</span>) &#123;</span><br><span class="line">            heapObjectList.add(<span class="keyword">new</span> HeapObject());</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 日志输出：</span></span><br><span class="line">java.lang.OutOfMemoryError: Java heap space</span><br><span class="line">Dumping heap to java_pid22301.hprof ...</span><br><span class="line">Heap dump file created [<span class="number">27600189</span> bytes in <span class="number">0.203</span> secs]</span><br><span class="line">Exception in thread <span class="string">"main"</span> java.lang.OutOfMemoryError: Java heap space</span><br><span class="line">	at java.util.Arrays.copyOf(Arrays.java:<span class="number">2245</span>)</span><br><span class="line">	at java.util.Arrays.copyOf(Arrays.java:<span class="number">2219</span>)</span><br><span class="line">	at java.util.ArrayList.grow(ArrayList.java:<span class="number">242</span>)</span><br><span class="line">	at java.util.ArrayList.ensureExplicitCapacity(ArrayList.java:<span class="number">216</span>)</span><br><span class="line">	at java.util.ArrayList.ensureCapacityInternal(ArrayList.java:<span class="number">208</span>)</span><br><span class="line">	at java.util.ArrayList.add(ArrayList.java:<span class="number">440</span>)</span><br><span class="line">	at com.thinkingjava.HeapOOM.main(HeapOOM.java:<span class="number">18</span>)</span><br><span class="line"></span><br><span class="line">Process finished with exit code <span class="number">1</span></span><br></pre></td></tr></table></figure>
+<h2><span id="method-area">Method Area</span></h2><p>由于该区域使用的是永久代GC收集方法来实现，所以也称为”永久代”（Permanent Generation），用于存储已被虚拟机加载的类信息、常量、静态变量、即时编译器编译后的代码等数据。</p>
+<p><strong>字符串常量池</strong>在JDK 1.7的HotSpot中已经从方法区移除掉了。</p>
+<p>垃圾回收在这个区域较少出现，但这个区域的数据并非永久存在，这个区域的内存回收主要目标是针对常量池的回收和对类型的卸载。</p>
+<h3><span id="异常">异常</span></h3><p>当方法区无法满足内存分配的需求时，将会抛出OutOfMemoryError异常。下面例子，运用cblib动态代理技术，产生大量的类型，导致OOM异常：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> one.wangwei.java;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> net.sf.cglib.proxy.Enhancer;</span><br><span class="line"><span class="keyword">import</span> net.sf.cglib.proxy.MethodInterceptor;</span><br><span class="line"><span class="keyword">import</span> net.sf.cglib.proxy.MethodProxy;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.lang.reflect.Method;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">JavaMethodOOM</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">static</span> <span class="class"><span class="keyword">class</span> <span class="title">OOMObject</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">while</span> (<span class="keyword">true</span>) &#123;</span><br><span class="line">            Enhancer enhancer = <span class="keyword">new</span> Enhancer();</span><br><span class="line">            enhancer.setSuperclass(OOMObject.class);</span><br><span class="line">            enhancer.setUseCache(<span class="keyword">false</span>);</span><br><span class="line">            enhancer.setCallback(<span class="keyword">new</span> MethodInterceptor() &#123;</span><br><span class="line">                <span class="meta">@Override</span></span><br><span class="line">                <span class="function"><span class="keyword">public</span> Object <span class="title">intercept</span><span class="params">(Object o, Method method, Object[] objects, MethodProxy methodProxy)</span> <span class="keyword">throws</span> Throwable </span>&#123;</span><br><span class="line">                    <span class="keyword">return</span> methodProxy.invoke(o, objects);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;);</span><br><span class="line">            enhancer.create();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 异常输出：</span></span><br><span class="line">Exception in thread <span class="string">"main"</span> </span><br><span class="line">Exception: java.lang.OutOfMemoryError thrown from the UncaughtExceptionHandler in thread <span class="string">"main"</span></span><br></pre></td></tr></table></figure>
+<h2><span id="运行时常量池">运行时常量池</span></h2><p>运行时常量池（Runtime Constant Pool）是方法区的一部分。Class文件除了有类的版本、字段、方法、接口等描述信息外，还有一项信息是常量池（Constant Pool Table），用于存放编译期生成的各种<strong>字面量</strong>和<strong>符号引用</strong>，这部分内容将在类加载进方法区后进入常量池存放。</p>
+<p>运行时常量池相对于Class文件常量池的另一个重要特征，是具备动态性。Java语言并不要求常量一定只有编译期才能产生，也就是并非预置入Class文件中常量池的内容才能进入方法区运行时常量池，运行期间也可能将新的常量放入池中，这种特性被开发人员利用得比较多的便是String类的intern（）方法。</p>
+<h3><span id="异常">异常</span></h3><p>既然运行时常量池是方法区的一部分，自然受到方法区内存的限制，当常量池无法再申请到内存时会抛出OutOfMemoryError异常。</p>
+<p>String.intern()是一个Native方法，它的作用是：如果字符串常量池中已经包含一个等于此String对象的字符串，则返回代表池中这个字符串的String对象；否则，将此String对象包含的字符串添加到常量池中，并且返回此String对象的引用。在JDK 1.6及之前的版本中，由于常量池分配在永久代内，我们可以通过-XX:PermSize和-XX:MaxPermSize限制方法区大小，从而间接限制其中常量池的容量。</p>
+<p>例如：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> one.wangwei.java;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.util.ArrayList;</span><br><span class="line"><span class="keyword">import</span> java.util.List;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * JVM VM: -XX:PermSize=10M -XX:MaxPermSize=10M</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">App</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        List&lt;String&gt; stringList = <span class="keyword">new</span> ArrayList&lt;String&gt;();</span><br><span class="line">        <span class="keyword">int</span> i = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">while</span> (<span class="keyword">true</span>) &#123;</span><br><span class="line">            i++;</span><br><span class="line">            stringList.add(String.valueOf(i).intern());</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 输出</span></span><br><span class="line">Exception in thread <span class="string">"main"</span> java.lang.OutOfMemoryError: PermGen space</span><br><span class="line">	at java.lang.String.intern(Native Method)</span><br><span class="line">	at one.wangwei.java.App.main(App.java:<span class="number">15</span>)</span><br></pre></td></tr></table></figure>
+<h2><span id="direct-memory">Direct Memory</span></h2><p>直接内存（Direct Memory）并不是虚拟机运行时数据区的一部分，也不是Java虚拟机规范中定义的内存区域。</p>
+<p>在JDK 1.4中新加入了NIO（New Input/Output）类，引入了一种基于通道（Channel）与缓冲区（Buffer）的I/O方式，它可以使用Native函数库直接分配堆外内存，然后通过一个存储在Java堆中的DirectByteBuffer对象作为这块内存的引用进行操作。这样能在一些场景中显著提高性能，因为避免了在Java堆和Native堆中来回复制数据。</p>
+<h3><span id="异常">异常</span></h3><p>本机直接内存的分配不会受到Java堆大小的限制，但是，既然是内存，肯定还是会受到本机总内存（包括RAM以及SWAP区或者分页文件）大小以及处理器寻址空间的限制。服务器管理员在配置虚拟机参数时，会根据实际内存设置-Xmx等参数信息，但经常忽略直接内存，使得各个内存区域总和大于物理内存限制（包括物理的和操作系统级的限制），从而导致动态扩展时出现OutOfMemoryError异常。</p>
+<p>DirectMemory容量可通过 <code>-XX:MaxDirectMemorySize</code> 指定，下面的代码越过了DirectByteBuffer类，直接通过反射获取Unsafe实例进行内存分配（Unsafe类的getUnsafe()方法限制了只有引导类加载器才会返回实例，也就是设计者希望只有rt.jar中的类才能使用Unsafe的功能）。因为，虽然使用DirectByteBuffer分配内存也会抛出内存溢出异常，但它抛出异常时并没有真正向操作系统申请分配内存，而是通过计算得知内存无法分配，于是手动抛出异常，真正申请分配内存的方法是unsafe.allocateMemory()。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> one.wangwei.java;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> sun.misc.Unsafe;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.lang.reflect.Field;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * VM Args：-Xmx20M -XX:MaxDirectMemorySize=10M</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">DirectMemory</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> ALLOCATE_MEMORY = <span class="number">10</span> * <span class="number">1024</span> * <span class="number">1024</span>;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            Field unsafeField = Unsafe.class.getDeclaredFields()[<span class="number">0</span>];</span><br><span class="line">            unsafeField.setAccessible(<span class="keyword">true</span>);</span><br><span class="line">            Unsafe unsafe = (Unsafe) unsafeField.get(<span class="keyword">null</span>);</span><br><span class="line">            <span class="keyword">while</span> (<span class="keyword">true</span>) &#123;</span><br><span class="line">                unsafe.allocateMemory(ALLOCATE_MEMORY);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125; <span class="keyword">catch</span> (Exception e) &#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">// 输出：</span></span><br><span class="line"></span><br><span class="line">java(<span class="number">45961</span>,<span class="number">0x70000a70c000</span>) malloc: *** mach_vm_map(size=<span class="number">10485760</span>) failed (error code=<span class="number">3</span>)</span><br><span class="line">*** error: can<span class="string">'t allocate region</span></span><br><span class="line"><span class="string">*** set a breakpoint in malloc_error_break to debug</span></span><br><span class="line"><span class="string">Exception in thread "main" java.lang.OutOfMemoryError</span></span><br><span class="line"><span class="string">	at sun.misc.Unsafe.allocateMemory(Native Method)</span></span><br><span class="line"><span class="string">	at one.wangwei.java.DirectMemory.main(DirectMemory.java:20)</span></span><br></pre></td></tr></table></figure>
+<h2><span id="参考资料">参考资料</span></h2><ul>
+<li>《JVM高级特性与最佳实践[第2版]》第2章节「Java内存区域与内存溢出异常」</li>
+<li><a href="http://www.javainterviewpoint.com/java-virtual-machine-architecture-in-java/" target="_blank" rel="external">http://www.javainterviewpoint.com/java-virtual-machine-architecture-in-java/</a></li>
+<li><a href="http://blog.jamesdbloom.com/JVMInternals.html#constant_pool" target="_blank" rel="external">http://blog.jamesdbloom.com/JVMInternals.html#constant_pool</a></li></ul>]]></content>
+      
+        
+        <tags>
+            
+            <tag> JVM </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
+      <title><![CDATA[好用的Chrome Extensions]]></title>
+      <url>/posts/4c3b6bcb.html</url>
+      <content type="html"><![CDATA[<script src="/assets/js/APlayer.min.js"> </script><p>整理分享自己平时使用比较多的一些Chrome插件。</p><a id="more"></a><h2><span id="学习类">学习类</span></h2><h4><span id="掘金">掘金</span></h4><ul><li><a href="https://juejin.im" target="_blank" rel="external">官网</a></li><li><a href="https://chrome.google.com/webstore/detail/%E6%8E%98%E9%87%91/lecdifefmmfjnjjinhaennhdlmcaeeeb" target="_blank" rel="external">安装</a></li></ul><h4><span id="google-translate">Google Translate</span></h4><ul><li><a href="https://translate.google.com/?hl=zh-CN&amp;tab=XT" target="_blank" rel="external">官网</a></li><li><a href="https://chrome.google.com/webstore/detail/google-translate/aapbdbdomjkkjkaonfhkkikfgjllcleb" target="_blank" rel="external">安装</a></li></ul><h4><span id="evernote-web-clipper">Evernote Web Clipper</span></h4><ul><li><a href="https://www.evernote.com" target="_blank" rel="external">官网</a></li><li><a href="https://chrome.google.com/webstore/detail/evernote-web-clipper/pioclpoplcdbaefihamjohnefbikjilc" target="_blank" rel="external">安装</a></li></ul><h2><span id="隐私安全">隐私安全</span></h2><h4><span id="clickampclean">Click&amp;Clean</span></h4><ul><li><p><a href="https://www.hotcleaner.com/" target="_blank" rel="external">官网</a></p></li><li><p><a href="https://chrome.google.com/webstore/detail/clickclean/ghgabhipcejejjmhhchfonmamedcbeod" target="_blank" rel="external">安装</a></p></li></ul><h4><span id="adguard-adblocker">AdGuard AdBlocker</span></h4><ul><li><a href="https://adguard.com/en/welcome.html" target="_blank" rel="external">官网</a></li><li><a href="https://chrome.google.com/webstore/detail/adguard-adblocker/bgnkhhnnamicmpeenaelnjfhikgbkllg" target="_blank" rel="external">安装</a></li></ul><h4><span id="1password">1Password</span></h4><ul><li><a href="https://1password.com" target="_blank" rel="external">官网</a></li><li><a href="https://chrome.google.com/webstore/detail/1password-extension-deskt/aomjjhallfgjeglblehebfpbcfeobpgk" target="_blank" rel="external">安装</a></li></ul><h2><span id="开发工具类">开发工具类</span></h2><h4><span id="postman">Postman</span></h4><ul><li><a href="https://www.getpostman.com/" target="_blank" rel="external">官网</a></li><li><a href="https://www.getpostman.com/apps" target="_blank" rel="external">安装</a></li></ul><h4><span id="json-formatter">JSON Formatter</span></h4><ul><li><a href="https://github.com/callumlocke/json-formatter" target="_blank" rel="external">官网</a></li><li><a href="https://chrome.google.com/webstore/detail/json-formatter/bcjindcccaagfpapjjmafapmmgkkhgoa" target="_blank" rel="external">安装</a></li></ul><h4><span id="wappalyzer">Wappalyzer</span></h4><ul><li><p><a href="https://www.wappalyzer.com/" target="_blank" rel="external">官网</a></p></li><li><p><a href="https://chrome.google.com/webstore/detail/wappalyzer/gppongmhjkpfnbhagpmjfkannfbllamg" target="_blank" rel="external">安装</a></p></li></ul><h2><span id="其他">其他</span></h2><h4><span id="btools">Btools</span></h4><ul><li><a href="https://chrome.google.com/webstore/detail/btools/aheookoeeopcgengpkngclcpcpjeigok" target="_blank" rel="external">安装</a></li></ul>]]></content>
+      
+        <categories>
+            
+            <category> tools </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> Chrome </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
+      <title><![CDATA[iBooks自动导入Kindle电子书]]></title>
+      <url>/posts/a1880e9.html</url>
+      <content type="html"><![CDATA[<script src="/assets/js/APlayer.min.js"> </script><p>趁着五一小长期，把自己的电子书库整理了一番，最主要的工作是将Kindle电子书合并到了iBooks，实现了电子书的统一管理，方便Spotlight检索。用过Kindle和iBooks的同学，都应该清楚，这两者在阅读体验上没多大差别，但iBooks在做读书笔记，文字检索，终端数据同步等方面甩Kindle好几条大街。</p><p>试想一下，如果没有检索功能，想要在几百本甚至是上千本书中，找到自己想要的信息，堪比大海捞针，信息检索俨然已成为我们这个时代的刚性需求，快速定位自己想要的知识和素材，将更多的注意力、更多的时间留给大脑去思考、去写作，才是最重要的事情。</p><a id="more"></a><p>今天这篇文章主要教你如何通过Calibre将Kindle for Mac中的电子书自动导入到iBooks中去。</p><blockquote><ol><li>使用 Kindle for Mac 将你在 amazon 上购买的电子书同步到本地目录（暂且命名为path）；</li><li>使用 Mac 自带的 Automator 自动 Copy 上一步path下的电子书到另外一个文件夹（暂且命名为forder）；</li><li>使用 Calibre 自动加载上一步forder中的Kindle电子书，并自动转化为ePub格式；</li><li>将上一步转化好的ePub电子书到手动导入到iBooks中去（唯一一个需要手动操作的步骤）</li></ol></blockquote><hr><h3><span id="环境">环境</span></h3><ul><li>macOS 系统</li></ul><h3><span id="工具">工具</span></h3><ul><li>下载并安装<a href="https://itunes.apple.com/us/app/kindle/id405399194?mt=12" target="_blank" rel="external">Kindle for Mac</a>；</li><li>下载并安装<a href="https://calibre-ebook.com/download" target="_blank" rel="external">Calibre</a>；</li></ul><h3><span id="步骤">步骤</span></h3><h4><span id="step-1-同步kindle电子书到本地">Step 1. 同步Kindle电子书到本地</span></h4><h5><span id="登录kindle-for-mac">登录Kindle for Mac</span></h5><blockquote><p>注意：由于amazon不同国家间账号的数据互不相通，所以登录时请选择正确的登录域名，国内用户请选择amazon.cn</p></blockquote><p><img src="https://img.i7years.com/bolgReg_kindle4Mac.png" alt="register"></p><h5><span id="同步电子书到本地">同步电子书到本地</span></h5><ul><li><p>登录成功后，使用 ⌘ + R 同步电子书</p></li><li><p>在Kindle for Mac操作区外，使用 ⌘ + Shift + G 打开 Go to Folder，输入以下路劲：</p><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">~/Library/Containers/com.amazon.Kindle/<span class="keyword">Data</span>/Library/Application Support/Kindle/My Kindle Content/</span><br></pre></td></tr></table></figure>
+<p><img src="https://img.i7years.com/bolgGo2Folder.png" alt="gotofolder"></p>
+</li>
+</ul>
+<ul>
+<li><p>以 .azw 或 .mobi 结尾的文件就是我们要找的Kindle电子书</p>
+<p><img src="https://img.i7years.com/bolgKindleItems.png" alt="MyKindleContent"></p>
+</li>
+</ul>
+<h4><span id="step-2-设置automator自动复制kindle-books">Step 2. 设置Automator自动复制Kindle Books</span></h4><ul>
+<li><p>打开Mac 自带的应用软件 Automator；</p>
+</li>
+<li><p>选择”Folder Action”</p>
+<p><img src="https://img.i7years.com/bolg/automator1.png" alt=""></p>
+</li>
+<li><p>点击右侧下拉选框 “Choose folder”，选择other，通过 ⌘ + Shift + G 可以快速定位到前面所说的Kindle电子书目录：My Kindle Content</p>
+<p><img src="https://img.i7years.com/bolg/automator2.png" alt=""></p>
+</li>
+<li><p>选择 “Files &amp; Folders” ——&gt; 选择 “Copy Finder Items” ——&gt; 指定文件Copy的目标文件夹，我的路劲为 ~/Documents/003-Books/Kindle4MacItems，这个看个人喜好</p>
+<p><img src="https://img.i7years.com/bolg/automator3.png" alt=""></p>
+</li>
+<li><p>按住 ⌘ + S 保存上面设置的 folder action. </p>
+<p><img src="https://img.i7years.com/bolg/automator4.png" alt=""></p>
+</li>
+</ul>
+<p>现在我们可以做个测试看看Automator是否生效</p>
+<ul>
+<li><p>打开Kindle for Mac，从Downloaded Items中删除一本书</p>
+</li>
+<li><p>双击 Archived Items 下刚刚删被除的书籍，下载完成后，会出现Automator的提示弹框，证明Automator copy设置成功，点击Continue即可。</p>
+<blockquote>
+<p>在Step 2中设置的Automator脚本，会随时监听My Kindle Content目录下的变化，一旦有新增书籍， Automator会自动Copy书籍到Kindle4MacItems目录下</p>
+</blockquote>
+<p><img src="https://img.i7years.com/blog/automator7.png" alt=""></p>
+</li>
+</ul>
+<h4><span id="step-3-安装calibre-dedrm插件">Step 3. 安装Calibre DeDRM插件</span></h4><blockquote>
+<p>DeDRM 可以移除Kindle电子书上的DRM保护，让Calibre自由转化Kindle电子书为你想要的格式</p>
+</blockquote>
+<ul>
+<li><p>安装<a href="https://calibre-ebook.com/download" target="_blank" rel="external">Calibre</a>，设置工具栏上的 <code>Calibre Library</code> 地址，这个地址为Calibre的书库地址；</p>
+</li>
+<li><p>下载<a href="https://github.com/apprenticeharper/DeDRM_tools/archive/v6.5.3.zip" target="_blank" rel="external">DeDRM Tools</a>并解压，找到 DeDRM_plugin.zip 文件，相对路劲DeDRM_tools-6.5.3/DeDRM_calibre_plugin/DeDRM_plugin.zip</p>
+</li>
+<li><p>安装DeDRM_plugin.zip</p>
+<p>Calibre → Preferences ——&gt; Plugins ——&gt; Load plugin from file ——&gt; 选取 DeDRM_plugin.zip ——&gt; 重启 Calibre.</p>
+<p>​</p>
+<p><img src="https://img.i7years.com/bolg/calibre1.png" alt=""></p>
+<p><img src="https://img.i7years.com/bolg/calibre2.png" alt=""></p>
+</li>
+</ul>
+<h4><span id="step-4-设置calibre自动加载kindle电子书并自动转化为epub格式">Step 4. 设置Calibre自动加载Kindle电子书并自动转化为ePub格式</span></h4><h5><span id="设置输出格式为epub">设置输出格式为ePub</span></h5><ul>
+<li><p>Cabler ——&gt; Preferences ——&gt; Behavior</p>
+<p><img src="https://img.i7years.com/bolg/calibre6.png" alt=""></p>
+</li>
+</ul>
+<h5><span id="设置自动加载kindle电子书并自动转化">设置自动加载Kindle电子书并自动转化</span></h5><ul>
+<li><p>Calibre ——&gt; Preferences ——&gt; Adding books ——&gt; The Add Process</p>
+<p><img src="https://img.i7years.com/bolg/calibre3.png" alt=""></p>
+<p><img src="https://img.i7years.com/bolg/calibre4.png" alt=""></p>
+</li>
+<li><p>Calibre ——&gt; Preferences ——&gt; Adding books ——&gt; Automatic Adding</p>
+<p>选择Calibre要自动加载Kindle电子书目录，也就是我们在 <strong>Step2</strong> 中设置的复制目录 Kindle4MacItmes</p>
+<blockquote>
+<p>Calibre加载Kindle电子书后会自动删除源目录下的电子书，这也是为什么我们要使用Automator将Kindle for Mac 下的电子书复制到一个新的目录 Kindle4MacItems 下的原因</p>
+</blockquote>
+<p><img src="https://img.i7years.com/bolg/calibre5.png" alt=""></p>
+</li>
+</ul>
+<h4><span id="step-5-使用ibooks打开-calibre-library-下epub电子书">Step 5. 使用iBooks打开 Calibre Library 下ePub电子书</span></h4><p>只有这一步是需要我们手动去完成的，使用 iBooks 打开转化后的ePub，你会发现文字排版、图片、表格等格式都与Kindle电子书一模一样。</p>
+<p>嗯，就这样，希望对你有所帮助。</p>
+<h3><span id="声明">声明</span></h3><p>DeDRM 是为了买来书后自己用的更方便，请不要传播盗版……</p>
+<blockquote>
+<p>参考：<a href="http://t.cn/RGA59Bo" target="_blank" rel="external">http://t.cn/RGA59Bo</a></p></blockquote>]]></content>
+      
+        <categories>
+            
+            <category> tools </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> iBooks </tag>
+            
+            <tag> Kindle </tag>
+            
+            <tag> Calibre </tag>
+            
+            <tag> DeDRM </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
+      <title><![CDATA[带你看看外面的世界]]></title>
+      <url>/posts/bc401e84.html</url>
+      <content type="html"><![CDATA[<script src="/assets/js/APlayer.min.js"> </script><p>带你去看看外面的世界……</p><a id="more"></a><h1><span id="说明">说明</span></h1><ul><li><p>如果你是小白用户，我的建议是去购买稳定可靠、体验棒的产品和服务，这里强烈推荐rixcloud</p><ul><li><a href="https://portal.rixcloud.me/aff.php?aff=1491" target="_blank" rel="external">官网地址</a></li><li><a href="https://support.rixcloud.me/" target="_blank" rel="external">相关的配置教程</a></li></ul><blockquote><p>云梯、蓝灯……这些体检极差的产品就不要用了哈，用就要用省心的产品。</p></blockquote></li></ul><ul><li>已经购买了相关的VPN账号但是不知道如何配置的同学，可直接查看后面<code>客户端配置</code>部分内容，当然你也可以去看上面rixcloud的配置教程</li><li>如果你懂点技术，还是想自己动手捣腾，可以继续往下看后面的内容了……</li></ul><h1><span id="服务端搭建">服务端搭建</span></h1><h3><span id="准备云服务器">准备云服务器</span></h3><blockquote><p>推荐<code>vultr</code>，理由：<strong>便宜实惠</strong>，最重要的是政策风险小，不受中国政府监管。</p></blockquote><h5><span id="vultr">vultr</span></h5><ul><li>地址：<a href="https://www.vultr.com/" target="_blank" rel="external">https://www.vultr.com/</a></li><li>选择亚太地区(日本或新加坡)</li><li>系统要求：CentOS 7版本</li><li>配置要求：1核1G（最低配置即可）</li></ul><h5><span id="阿里云">阿里云</span></h5><ul><li><p>地址：<a href="https://www.aliyun.com/" target="_blank" rel="external">https://www.aliyun.com/</a></p></li><li><p>选择大陆以外的地区，推荐购买<strong>香港</strong>地区的服务器；</p></li><li><p>系统要求：CentOS 6或7版本</p></li><li><p>配置要求：1核1G（最低配置即可）</p><p>​</p></li></ul><h3><span id="安装">安装</span></h3><ol><li><p>登录服务器；</p></li><li><p>使用root权限执行以下命令：</p><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># cd /tmp</span></span><br><span class="line"><span class="comment"># wget --no-check-certificate -O shadowsocks-libev.sh https://raw.githubusercontent.com/teddysun/shadowsocks_install/master/shadowsocks-libev.sh</span></span><br><span class="line"><span class="comment"># chmod +x shadowsocks-libev.sh</span></span><br><span class="line"><span class="comment"># ./shadowsocks-libev.sh 2&gt;&amp;1 | tee shadowsocks-libev.log</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>安装过程中，按照提示设置密码、端口号以及加密方式；</p>
+<blockquote>
+<p>端口号、加密方式选择默认即可</p>
+</blockquote>
+</li>
+<li><p>安装完成，提示信息如下：</p>
+<p><img src="https://img.i7years.com/blog/shadowsocks_confg1.png" alt=""></p>
+</li>
+<li><p>修改配置文件<code>/etc/shadowsocks-libev/config.json</code></p>
+<ul>
+<li>设置<code>server</code>为<code>0.0.0.0</code>，不是服务器的公网IP；</li>
+<li>设置<code>local_address</code>为虚拟服务器的内网IP，不要设置为<code>127.0.0.1</code>；</li>
+</ul>
+</li>
+<li><p>重启</p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">CentOS <span class="number">7</span> 命令</span><br><span class="line"><span class="comment"># systemctl restart shadowsocks</span></span><br><span class="line"></span><br><span class="line">CentOS <span class="number">6</span> 命令</span><br><span class="line"><span class="comment"># service shadowsocks restart</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>检查服务运行状态</p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">CentOS <span class="number">7</span> 命令</span><br><span class="line"><span class="comment"># systemctl status shadowsocks </span></span><br><span class="line"></span><br><span class="line">CentOS <span class="number">6</span> 命令</span><br><span class="line"><span class="comment"># service shadowsocks status</span></span><br></pre></td></tr></table></figure>
+<p><img src="https://img.i7years.com/blog/shaw_install.png" alt="WX20171008-132153@2x"></p>
+<p>​</p>
+</li>
+<li><p>检查端口运行状态</p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># netstat -anp | grep 8379</span></span><br></pre></td></tr></table></figure>
+<p><img src="https://img.i7years.com/netstat_shawsocks.png" alt="WX20171008-132153@2x"></p>
+<p>​</p>
+</li>
+<li><p>设置阿里云ECS安全组，开放VPN端口</p>
+<blockquote>
+<p>在阿里云上购买的服务，默认会加入<a href="https://help.aliyun.com/document_detail/31707.html" target="_blank" rel="external">安全组</a>，需要新增规则，开放shadowsocks端口，否则，无法使用。</p>
+</blockquote>
+<p><img src="https://img.i7years.com/blog/shadow_config2.png" alt=""></p>
+</li>
+</ol>
+<h3><span id="卸载">卸载</span></h3><p>如果要重新安装，卸载命令：</p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># ./shadowsocks-libev.sh uninstall</span></span><br></pre></td></tr></table></figure>
+<h1><span id="客户端配置">客户端配置</span></h1><h2><span id="mac端安装">Mac端安装</span></h2><h3><span id="客户端下载">客户端下载</span></h3><ul>
+<li><p>官方地址：<a href="https://github.com/shadowsocks/ShadowsocksX-NG/releases/" target="_blank" rel="external">https://github.com/shadowsocks/ShadowsocksX-NG/releases/</a></p>
+<p>​</p>
+</li>
+</ul>
+<h3><span id="配置指南">配置指南</span></h3><ul>
+<li><p>下载-解压-运行，桌面上方会出现一个纸飞机的小图标</p>
+<p><img src="https://img.i7years.com/blog//WX20171115-214040@2x.png" alt="WX20171115-214040@2x"></p>
+</li>
+<li><p>点击图标，打开菜单——&gt; Servers ——&gt; Servers Preferences，配置地址、端口、加密方式以及密码，下面的<code>Enable OTA(deprecated)</code>和<code>Enable over kcptun</code>不用勾选，然后点击OK进行保存。</p>
+<p><img src="https://img.i7years.com/blog//WX20171115-223431@2x.png" alt="WX20171115-223431@2x"></p>
+</li>
+<li><p>点击小图标打开菜单，点击菜单<code>Update PAC from GFW List</code>，更新成功提示如下：</p>
+<p><img src="https://img.i7years.com/blog//WX20171115-223555@2x.png" alt="WX20171115-223555@2x"></p>
+</li>
+<li><p>重启一下shadowsocks，之后就可以畅游世界啦~~~</p>
+</li>
+</ul>
+<h2><span id="iphone端安装">iPhone端安装</span></h2><h3><span id="客户端下载">客户端下载</span></h3><ul>
+<li>App Store下载<code>SuperWingy</code></li>
+</ul>
+<h3><span id="配置指南">配置指南</span></h3><ul>
+<li><p>点击添加配置，选择<code>ss</code>模式，打开如下页面，填写相关信息并保存</p>
+<p><img src="https://img.i7years.com/blog//WX20171115-225625@2x.png" alt="WX20171115-225625@2x"></p>
+</li>
+<li><p>按照系统提示，允许<code>SuperWingy</code>添加VPN配置<img src="https://img.i7years.com/blog//WX20171115-230817@2x.png" alt="WX20171115-230817@2x"></p>
+</li>
+<li><p>配置成功后，手机界面上面会出现一个<code>vpn</code>的小图标</p>
+<p><img src="https://img.i7years.com/blog//WX20171115-225747@2x.png" alt="WX20171115-225747@2x"></p>
+</li>
+</ul>
+<h3><span id="注意">注意</span></h3><ul>
+<li>如果你想修改<code>SuperWingy</code>上配置的VPN信息，请将原有配置删除后，重新进行添加，直接修改原有信息是无法生效的，这应该是个Bug</li>
+</ul>
+<h2><span id="windows用户">Windows用户</span></h2><h3><span id="客户端下载">客户端下载</span></h3><ul>
+<li>官方地址：<a href="https://github.com/shadowsocks/shadowsocks-windows/releases" target="_blank" rel="external">https://github.com/shadowsocks/shadowsocks-windows/releases</a></li>
+</ul>
+<h3><span id="配置指南">配置指南</span></h3><ul>
+<li>请参考Mac端配置</li>
+</ul>
+<h2><span id="android用户">Android用户</span></h2><h3><span id="客户端下载">客户端下载</span></h3><ul>
+<li>官方地址：<a href="https://github.com/shadowsocks/shadowsocks-android/releases" target="_blank" rel="external">https://github.com/shadowsocks/shadowsocks-android/releases</a></li>
+</ul>
+<h3><span id="配置指南">配置指南</span></h3><ul>
+<li>请参考iPhone配置</li>
+</ul>
+<h1><span id="最后">最后</span></h1><ul>
+<li>纵使天网恢恢，也阻挡不了我们向往自由的心！Good Luck!</li>
+</ul>
+<p>参考资料：</p>
+<ul>
+<li><a href="https://github.com/shadowsocks" target="_blank" rel="external">https://github.com/shadowsocks</a></li>
+<li><a href="https://github.com/teddysun/shadowsocks_install" target="_blank" rel="external">https://github.com/teddysun/shadowsocks_install</a></li>
+<li><a href="https://teddysun.com/357.html" target="_blank" rel="external">https://teddysun.com/357.html</a></li></ul>]]></content>
+      
+        <categories>
+            
+            <category> tools </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> VPN </tag>
+            
+            <tag> shadowsocks </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
+      <title><![CDATA[Mac开发环境搭建清单]]></title>
       <url>/posts/917fb1e0.html</url>
-      <content type="html"><![CDATA[<script src="/assets/js/APlayer.min.js"> </script><p>工欲善其事，必先利其器！</p><a id="more"></a><h1><span id="适用人群">适用人群</span></h1><ul><li><strong>Java</strong>程序员</li><li>最好有台<strong>MacBook</strong></li></ul><h1><span id="vpn配置">VPN配置</span></h1><blockquote><p>翻墙，是每一位有追求的程序员的必备技能</p></blockquote><ul><li>配置指南：<a href="https://wangwei.one/posts/bc401e84.html">https://wangwei.one/posts/bc401e84.html</a></li></ul><h1><span id="浏览器">浏览器</span></h1><ul><li>杜绝使用任何国产浏览器（前端|测试小伙伴除外）</li><li>务必使用这个星球上最好的浏览器——Google浏览器</li><li>插件推荐：<a href="https://wangwei.one/posts/4c3b6bcb.html">https://wangwei.one/posts/4c3b6bcb.html</a></li></ul><h1><span id="环境包安装">环境包安装</span></h1><h3><span id="jdk-安装">JDK 安装</span></h3><ol><li>下载：<ul><li>Mac OS JDK 1.6下载地址：<a href="https://support.apple.com/kb/dl1572?locale=zh_CN" target="_blank" rel="external">https://support.apple.com/kb/dl1572?locale=zh_CN</a></li><li>1.7以上的版本：<a href="http://www.oracle.com/technetwork/java/javase/downloads/jdk7-downloads-1880260.html" target="_blank" rel="external">http://www.oracle.com/technetwork/java/javase/downloads/jdk7-downloads-1880260.html</a></li></ul></li><li>推荐使用<code>jEnv</code>管理多版本JDK，自由切换JDK版本，地址：<a href="http://www.jenv.be/" target="_blank" rel="external">http://www.jenv.be/</a></li><li>编辑<code>~/.bash_profile</code>，配置环境变量<code>$JAVA_HOME</code></li></ol><h3><span id="maven-安装">Maven 安装</span></h3><ol><li><p>下载：<a href="http://maven.apache.org/download.cgi" target="_blank" rel="external">http://maven.apache.org/download.cgi</a></p></li><li><p>编辑<code>~/.bash_profile</code>，配置环境变量<code>$M3_HOME</code></p></li><li><p>修改<code>settings.xml</code>配置</p><blockquote><ul><li>默认的配置下载jar包时，是从<a href="http://search.maven.org/" target="_blank" rel="external">国外中央库</a>下载的，速度比较慢。</li><li>建议改为国内阿里云仓库，速度快，配置文件下载：<a href="http://attach.i7years.com/attach/settings.xml" target="_blank" rel="external">http://attach.i7years.com/attach/settings.xml</a></li></ul></blockquote><p>​</p></li></ol><h3><span id="tomcat-安装">Tomcat 安装</span></h3><ul><li>下载地址：<a href="http://tomcat.apache.org/download-70.cgi" target="_blank" rel="external">http://tomcat.apache.org/download-70.cgi</a></li></ul><h3><span id="git-安装">Git 安装</span></h3><ol><li>环境安装指南：<a href="http://git-scm.com/book/en/v2/Getting-Started-Installing-Git" target="_blank" rel="external">http://git-scm.com/book/en/v2/Getting-Started-Installing-Git</a></li><li>Git客户端下载：<a href="https://www.sourcetreeapp.com/" target="_blank" rel="external">https://www.sourcetreeapp.com/</a></li><li>Git命令学习<ul><li><a href="http://www.ruanyifeng.com/blog/2015/12/git-cheat-sheet.html" target="_blank" rel="external">http://www.ruanyifeng.com/blog/2015/12/git-cheat-sheet.html</a></li><li><a href="http://rogerdudler.github.io/git-guide/index.zh.html" target="_blank" rel="external">http://rogerdudler.github.io/git-guide/index.zh.html</a></li></ul></li></ol><h1><span id="开发工具安装">开发工具安装</span></h1><h3><span id="jetbrains-toolbox">Jetbrains toolbox</span></h3><ol><li><p>下载地址：<a href="https://www.jetbrains.com/toolbox/download/#section=mac" target="_blank" rel="external">https://www.jetbrains.com/toolbox/download/#section=mac</a></p></li><li><p>安装完Toolbox后，使用Toolbox去安装IDEA</p><p><img src="https://img.i7years.com/blog/WX20171120-233139@2x.png" alt=""></p></li><li><p>证书获取：<a href="http://xclient.info/a/f0b9738a-36fd-8a97-a966-0d3db497092d.html" target="_blank" rel="external">http://xclient.info/a/f0b9738a-36fd-8a97-a966-0d3db497092d.html</a></p></li><li><p>推荐几款不错的插件</p><ol><li><p>Lombok</p><blockquote><p>可以省去写bean对象的get、set等方法，减少工作，提交编码效率</p></blockquote><p><img src="https://img.i7years.com/blog/lombok_install.png" alt="img"></p></li><li><p>Git Flow Intergration</p><blockquote><p>GitFlow 模型管理插件，规范Git分支的管理</p></blockquote><p><img src="https://img.i7years.com/blog/git_flow_plugin.png" alt="img"></p></li><li><p>Alibaba Java Coding Guidelines</p><blockquote><p>以阿里巴巴Java代码规范为准的代码检查插件</p></blockquote><p><img src="https://img.i7years.com/blog/plugin_alibaba.png" alt="img"></p><p>​</p></li></ol></li><li><p>学习并掌握IDEA的常用快捷键，提高编码效率</p></li><li><p>调整IDEA工具，打开view —&gt; 勾选 Toolbar，效果如下：</p><p><img src="https://img.i7years.com/blog/WX20171120-234109@2x.png" alt=""></p></li></ol><h3><span id="iterm-命令行工具">iTerm 命令行工具</span></h3><blockquote><p>iTerm 比 mac 自带的Terminal要好用，切换窗口来去自如</p></blockquote><ol><li>下载地址: <a href="https://www.iterm2.com/" target="_blank" rel="external">https://www.iterm2.com/</a></li><li>掌握窗口切换的常用快捷键：<ul><li>新增：⌘ + T</li><li>关闭：⌘ + W</li><li>清屏：⌘ + R</li><li>上下切：⌘ + ⇧ + D</li><li>左右切：⌘ + D</li></ul></li></ol><h3><span id="zsh">Zsh</span></h3><blockquote><p>非常强大的命令行工具</p></blockquote><ol><li>官网地址：<a href="http://ohmyz.sh/" target="_blank" rel="external">http://ohmyz.sh/</a></li><li>安装指南：<a href="https://gist.github.com/derhuerst/12a1558a4b408b3b2b6e" target="_blank" rel="external">https://gist.github.com/derhuerst/12a1558a4b408b3b2b6e</a></li></ol><h3><span id="postman-安装">Postman 安装</span></h3><ol><li>非常不错的http请求调试神器，用于后端接口调试，非常方便；</li><li>下载地址：<a href="https://chrome.google.com/webstore/detail/postman-rest-client-packa/fhbjgbiflinjbdggehcddcbncdddomop?hl=en" target="_blank" rel="external">https://chrome.google.com/webstore/detail/postman-rest-client-packa/fhbjgbiflinjbdggehcddcbncdddomop?hl=en</a></li></ol><h3><span id="host-管理工具">Host 管理工具</span></h3><ul><li>推荐<a href="https://github.com/oldj/SwitchHosts" target="_blank" rel="external">SwitchHosts</a></li></ul><h1><span id="数据库客户端">数据库客户端</span></h1><blockquote><p>依据自己的喜好进行选择，Navicat需要自己去google一下破解码</p></blockquote><ul><li>[<strong>推荐</strong>]DataGrip: 使用<code>Jetbrains toolbox</code>进行安装</li><li>mysql workbench 6.3：<a href="https://www.mysql.com/products/workbench/" target="_blank" rel="external">https://www.mysql.com/products/workbench/</a></li><li>Navicat：<a href="http://www.navicat.com.cn/download" target="_blank" rel="external">http://www.navicat.com.cn/download</a></li><li>HeidiSQL：<a href="https://www.heidisql.com/" target="_blank" rel="external">https://www.heidisql.com/</a></li></ul><h1><span id="redis-客户端">Redis 客户端</span></h1><ul><li>下载地址：<a href="https://github.com/uglide/RedisDesktopManager" target="_blank" rel="external">https://github.com/uglide/RedisDesktopManager</a></li></ul><h1><span id="文本编辑器">文本编辑器</span></h1><h3><span id="markdown">MarkDown</span></h3><ol><li><p>最好的文档写作语法，是优秀的程序猿和攻城狮必备的技能</p></li><li><p>教程</p><ul><li><a href="http://wowubuntu.com/markdown/basic.html" target="_blank" rel="external">http://wowubuntu.com/markdown/basic.html</a></li><li><a href="http://www.maxiang.info/" target="_blank" rel="external">http://www.maxiang.info/</a></li></ul></li><li><p>客户端推荐</p><ul><li>[免费]<a href="http://typora.io" target="_blank" rel="external">http://typora.io</a></li><li>[付费]<a href="https://itunes.apple.com/us/app/bear/id1016366447?mt=8" target="_blank" rel="external">https://itunes.apple.com/us/app/bear/id1016366447?mt=8</a></li></ul></li></ol><h3><span id="atom">Atom</span></h3><ul><li>下载地址：<a href="https://atom.io/" target="_blank" rel="external">https://atom.io/</a></li></ul><h1><span id="推荐网址">推荐网址</span></h1><ol><li><a href="https://sspai.com/" target="_blank" rel="external">少数派—高品质数字消费指南</a></li></ol>]]></content>
+      <content type="html"><![CDATA[<script src="/assets/js/APlayer.min.js"> </script><p>工欲善其事，必先利其器！</p><a id="more"></a><p>国外有位 <a href="https://github.com/sb2nov" target="_blank" rel="external">工程师</a> 在Github上整理了一份Mac上各种工具的安装指南，很是不错，强烈推荐：</p><blockquote><p><a href="https://github.com/sb2nov/mac-setup" target="_blank" rel="external">https://github.com/sb2nov/mac-setup</a></p></blockquote><p>我fork了一个自己仓库，添加了一些其它工具的安装指南：</p><blockquote><p><a href="https://github.com/wangweiX/mac-setup" target="_blank" rel="external">https://github.com/wangweiX/mac-setup</a></p></blockquote><h2><span id="环境">环境</span></h2><ul><li>macOS High Sierra</li><li>version 10.13.6</li></ul><h2><span id="适用人群">适用人群</span></h2><ul><li>程序员</li></ul><h2><span id="vpn配置">VPN配置</span></h2><blockquote><p>翻墙，是每一位有追求的程序员的必备技能</p></blockquote><p>指南：<a href="https://wangwei.one/posts/bc401e84.html">https://wangwei.one/posts/bc401e84.html</a></p><h2><span id="浏览器">浏览器</span></h2><ul><li>杜绝使用任何国产浏览器（前端|测试小伙伴除外）</li><li>务必使用这个星球上最好的浏览器——Google浏览器</li><li>插件推荐：<a href="https://wangwei.one/posts/4c3b6bcb.html">https://wangwei.one/posts/4c3b6bcb.html</a></li></ul><h2><span id="开发环境">开发环境</span></h2><h3><span id="java">Java</span></h3><blockquote><p>指南：<a href="https://github.com/wangweiX/mac-setup/tree/master/Java" target="_blank" rel="external">https://github.com/wangweiX/mac-setup/tree/master/Java</a></p></blockquote><h3><span id="scala">Scala</span></h3><blockquote><p>指南：<a href="https://github.com/wangweiX/mac-setup/tree/master/Scala" target="_blank" rel="external">https://github.com/wangweiX/mac-setup/tree/master/Scala</a></p></blockquote><h3><span id="python">Python</span></h3><blockquote><p>指南：<a href="https://github.com/wangweiX/mac-setup/tree/master/Python" target="_blank" rel="external">https://github.com/wangweiX/mac-setup/tree/master/Python</a></p></blockquote><h3><span id="go">Go</span></h3><blockquote><p>指南：<a href="https://github.com/wangweiX/mac-setup/tree/master/Go" target="_blank" rel="external">https://github.com/wangweiX/mac-setup/tree/master/Go</a></p></blockquote><h3><span id="nodejs">Node.js</span></h3><blockquote><p>指南：<a href="https://github.com/wangweiX/mac-setup/tree/master/Node.js" target="_blank" rel="external">https://github.com/wangweiX/mac-setup/tree/master/Node.js</a></p></blockquote><h3><span id="git">Git</span></h3><blockquote><ol><li>指南：<a href="https://github.com/wangweiX/mac-setup/tree/master/Git" target="_blank" rel="external">https://github.com/wangweiX/mac-setup/tree/master/Git</a></li><li>Git客户端下载：<a href="https://www.sourcetreeapp.com/" target="_blank" rel="external">https://www.sourcetreeapp.com/</a></li><li>Git命令学习<ul><li><a href="http://www.ruanyifeng.com/blog/2015/12/git-cheat-sheet.html" target="_blank" rel="external">http://www.ruanyifeng.com/blog/2015/12/git-cheat-sheet.html</a></li><li><a href="http://rogerdudler.github.io/git-guide/index.zh.html" target="_blank" rel="external">http://rogerdudler.github.io/git-guide/index.zh.html</a></li></ul></li></ol></blockquote><h3><span id="maven">Maven</span></h3><h5><span id="安装">安装</span></h5><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ brew install maven</span><br></pre></td></tr></table></figure>
+<h5><span id="配置">配置</span></h5><ul>
+<li><p><code>settings.xml</code> 路劲：<code>/usr/local/Cellar/maven/3.5.4/libexec/conf</code></p>
+</li>
+<li><p>修改 <code>settings.xml</code> 配置</p>
+<blockquote>
+<ul>
+<li>默认的配置下载jar包时，是从 <a href="http://search.maven.org/" target="_blank" rel="external">国外中央库</a>下载的，速度比较慢。</li>
+<li>建议改为国内阿里云仓库，配置文件下载：<a href="http://attach.i7years.com/attach/settings.xml" target="_blank" rel="external">http://attach.i7years.com/attach/settings.xml</a></li>
+</ul>
+</blockquote>
+</li>
+</ul>
+<h3><span id="tomcat">Tomcat</span></h3><h5><span id="安装">安装</span></h5><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ brew install tomcat</span><br></pre></td></tr></table></figure>
+<h5><span id="管理">管理</span></h5><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ brew services start|stop tomcat</span><br></pre></td></tr></table></figure>
+<h2><span id="ide安装">IDE安装</span></h2><blockquote>
+<p>指南：<a href="https://github.com/wangweiX/mac-setup/tree/master/JetBrains%20IDEs" target="_blank" rel="external">https://github.com/wangweiX/mac-setup/tree/master/JetBrains%20IDEs</a></p>
+</blockquote>
+<h3><span id="安装">安装</span></h3><ol>
+<li><p>这里统一推荐 <a href="https://www.jetbrains.com/" target="_blank" rel="external">jetbrains</a> 系列的产品，支持各种编程语言的IDE以及数据库操作。</p>
+</li>
+<li><p>这里推荐使用 <a href="https://www.jetbrains.com/toolbox/download/#section=mac" target="_blank" rel="external">toolbox</a> 安装中IDE，便于安装、卸载以及版本管理。</p>
+<p><img src="https://img.i7years.com/blog/WX20171120-233139@3x.png" alt=""></p>
+</li>
+<li><p>调整IDEA工具，打开view —&gt; 勾选 Toolbar，效果如下：</p>
+<p><img src="https://img.i7years.com/blog/WX20171120-234109@3x.png" alt=""></p>
+</li>
+<li><p>学习并掌握IDEA的常用快捷键，提高编码效率。</p>
+</li>
+</ol>
+<h3><span id="ide插件推荐">IDE插件推荐</span></h3><ol>
+<li><a href="https://plugins.jetbrains.com/plugin/6317-lombok-plugin" target="_blank" rel="external">Lombok</a></li>
+<li><a href="https://plugins.jetbrains.com/plugin/7315-git-flow-integration" target="_blank" rel="external">Git Flow Intergration</a></li>
+<li><a href="https://plugins.jetbrains.com/plugin/10046-alibaba-java-coding-guidelines" target="_blank" rel="external">Alibaba Java Coding Guidelines</a></li>
+</ol>
+<h2><span id="开发工具">开发工具</span></h2><h3><span id="iterm">iTerm</span></h3><blockquote>
+<p>指南：<a href="https://github.com/wangweiX/mac-setup/tree/master/iTerm" target="_blank" rel="external">https://github.com/wangweiX/mac-setup/tree/master/iTerm</a></p>
+</blockquote>
+<h3><span id="zsh">Zsh</span></h3><blockquote>
+<p>指南：<a href="https://github.com/robbyrussell/oh-my-zsh" target="_blank" rel="external">https://github.com/robbyrussell/oh-my-zsh</a></p>
+</blockquote>
+<h3><span id="postman">Postman</span></h3><blockquote>
+<p>非常不错的http请求调试神器，便于API接口调试</p>
+</blockquote>
+<p>地址：<a href="https://www.getpostman.com/" target="_blank" rel="external">https://www.getpostman.com/</a></p>
+<h3><span id="switchhosts">SwitchHosts</span></h3><blockquote>
+<p>指南：<a href="https://github.com/oldj/SwitchHosts" target="_blank" rel="external">https://github.com/oldj/SwitchHosts</a></p>
+</blockquote>
+<h2><span id="数据库">数据库</span></h2><h3><span id="mysql">Mysql</span></h3><blockquote>
+<p>指南：<a href="https://github.com/wangweiX/mac-setup/tree/master/MySQL" target="_blank" rel="external">https://github.com/wangweiX/mac-setup/tree/master/MySQL</a></p>
+</blockquote>
+<h3><span id="redis">Redis</span></h3><h5><span id="安装">安装</span></h5><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ brew install redis</span><br></pre></td></tr></table></figure>
+<h5><span id="配置">配置</span></h5><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/usr/local/etc/redis.conf</span><br></pre></td></tr></table></figure>
+<h5><span id="管理">管理</span></h5><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ brew services start|stop redis</span><br></pre></td></tr></table></figure>
+<h3><span id="客户端">客户端</span></h3><ul>
+<li>redis：<a href="https://github.com/uglide/RedisDesktopManager" target="_blank" rel="external">https://github.com/uglide/RedisDesktopManager</a></li>
+<li>mysql：[<strong>推荐</strong>]DataGrip: 使用<code>Jetbrains toolbox</code>进行安装</li>
+</ul>
+<h2><span id="文本编辑器">文本编辑器</span></h2><h3><span id="sublimetext">SublimeText</span></h3><blockquote>
+<p>指南：<a href="https://github.com/wangweiX/mac-setup/tree/master/SublimeText" target="_blank" rel="external">https://github.com/wangweiX/mac-setup/tree/master/SublimeText</a></p>
+</blockquote>
+<h3><span id="markdown">MarkDown</span></h3><ol>
+<li>工具<ul>
+<li>免费：<a href="http://typora.io" target="_blank" rel="external">typora</a></li>
+<li>付费：<a href="https://itunes.apple.com/us/app/bear/id1016366447?mt=8" target="_blank" rel="external">Bear</a></li>
+</ul>
+</li>
+<li><p>语法教学</p>
+<ul>
+<li><a href="http://wowubuntu.com/markdown/basic.html" target="_blank" rel="external">http://wowubuntu.com/markdown/basic.html</a></li>
+<li><a href="http://www.maxiang.info/" target="_blank" rel="external">http://www.maxiang.info/</a></li>
+</ul>
+</li>
+</ol>
+<h3><span id="atom">Atom</span></h3><ul>
+<li>下载地址：<a href="https://atom.io/" target="_blank" rel="external">https://atom.io/</a></li></ul>]]></content>
       
         <categories>
             
@@ -3260,7 +3362,103 @@
             
             <tag> 工具 </tag>
             
-            <tag> Java </tag>
+        </tags>
+        
+    </entry>
+    
+    <entry>
+      <title><![CDATA[Mac、Linux常用命令清单]]></title>
+      <url>/posts/e07d35dc.html</url>
+      <content type="html"><![CDATA[<script src="/assets/js/APlayer.min.js"> </script><p>整理一下自己平时用的比较多的一些工具和命令，便于后期查阅。</p><a id="more"></a><h2><span id="mac命令">Mac命令</span></h2><h3><span id="brew">brew</span></h3><blockquote><p>官网：<a href="https://brew.sh/" target="_blank" rel="external">https://brew.sh/</a></p></blockquote><h5><span id="安装">安装</span></h5><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ ruby -e <span class="string">"$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"</span></span><br></pre></td></tr></table></figure>
+<h5><span id="常用命令">常用命令</span></h5><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">$ brew update <span class="comment">#更新brew</span></span><br><span class="line">$ brew doctor <span class="comment"># 诊断</span></span><br><span class="line">$ brew upgrade <span class="comment"># 升级mac上的软件包</span></span><br><span class="line">$ brew cleanup <span class="comment"># 清除过时的就版本软件</span></span><br><span class="line">$ brew list  <span class="comment"># 列出本机通过brew安装的所有软件</span></span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>以安装 nginx 为例</p>
+</blockquote>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">$ brew search nginx <span class="comment">#模糊搜索关键字openssl</span></span><br><span class="line">$ brew install nginx  <span class="comment">#安装openssl</span></span><br><span class="line">$ brew info nginx <span class="comment">#查询openssl的安装信息</span></span><br><span class="line">$ brew uninstall nginx <span class="comment">#卸载openssl</span></span><br><span class="line">$ brew uninstall --ignore-dependencies nginx <span class="comment">#强行卸载openssl</span></span><br><span class="line">$ brew upgrade nginx <span class="comment"># 升级openssl，如果不加软件名，就更新所有可以更新的软件</span></span><br><span class="line">$ brew service start|stop|restart nginx <span class="comment"># 启动/停止/重启 nginx服务</span></span><br></pre></td></tr></table></figure>
+<h3><span id="jenv">Jenv</span></h3><blockquote>
+<p>官网：<a href="http://www.jenv.be/" target="_blank" rel="external">http://www.jenv.be/</a></p>
+</blockquote>
+<h3><span id="其它">其它</span></h3><h5><span id="清除剪切板内容">清除剪切板内容</span></h5><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ pbcopy &lt; /dev/null</span><br></pre></td></tr></table></figure>
+<h2><span id="文件操作">文件操作</span></h2><h4><span id="本地操作">本地操作</span></h4><ol>
+<li><p>查询 <code>path1</code>目录中的java文件：</p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ find path1 -type f -name <span class="string">"*.java"</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>从 <code>path1</code> 目录同步 java 文件到 <code>path2</code> 中，并且: 1)同步目录结构;2)删除源文件;3)删除path2中的空文件夹</p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ rsync -arv --prune-empty-dirs --remove-source-files --include=<span class="string">'*/'</span> --include=<span class="string">'*.java'</span> --exclude=<span class="string">'*'</span> path1 path2</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>删除 <code>path1</code> 目录中所有的空文件夹：</p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ find path1 -type d -depth -empty -exec rmdir <span class="string">"&#123;&#125;"</span> \;</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<h4><span id="远程操作">远程操作</span></h4><ol>
+<li><p>同步远程服务器上的文件到本地</p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ rsync -avz --progress -e <span class="string">"ssh -p <span class="variable">$portNumber</span>"</span> user@remoteip:/path/to/files/ /local/path/</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<h2><span id="进程amp端口">进程&amp;端口</span></h2><ol>
+<li><p>检查端口运行</p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ netstat -vanp tcp | grep <span class="variable">$port</span></span><br></pre></td></tr></table></figure>
+<p>或    </p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo lsof -i tcp:<span class="variable">$port</span></span><br></pre></td></tr></table></figure></li></ol>]]></content>
+      
+        <categories>
+            
+            <category> tools </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> Mac </tag>
+            
+            <tag> Linux </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
+      <title><![CDATA[运维资料整理]]></title>
+      <url>/posts/96a7dc5b.html</url>
+      <content type="html"><![CDATA[<script src="/assets/js/APlayer.min.js"> </script><p>收集整理一些有关运维相关的操作指南</p><a id="more"></a><h1><span id="centos">CentOS</span></h1><ul><li><a href="https://www.digitalocean.com/community/tutorials/how-to-set-up-a-firewall-using-firewalld-on-centos-7" target="_blank" rel="external">防火墙配置</a></li><li><a href="https://www.cyberciti.biz/faq/unix-linux-check-if-port-is-in-use-command/" target="_blank" rel="external">端口运行检查</a></li></ul><h1><span id="nginx">Nginx</span></h1><ul><li><a href="https://www.digitalocean.com/community/tutorials/how-to-install-nginx-on-centos-7" target="_blank" rel="external">Nginx安装</a></li><li><a href="https://www.digitalocean.com/community/tutorials/how-to-secure-nginx-with-let-s-encrypt-on-centos-7" target="_blank" rel="external">Let’s Encrypt 安装</a></li><li><a href="https://www.cyberciti.biz/tips/linux-unix-bsd-nginx-webserver-security.html" target="_blank" rel="external">Nginx安全设置</a></li><li><a href="https://github.com/denji/nginx-tuning" target="_blank" rel="external">Nginx性能优化</a></li></ul><h1><span id="git常用命令">Git常用命令</span></h1><ul><li><a href="http://www.ruanyifeng.com/blog/2015/12/git-cheat-sheet.html" target="_blank" rel="external">http://www.ruanyifeng.com/blog/2015/12/git-cheat-sheet.html</a></li></ul>]]></content>
+      
+        <categories>
+            
+            <category> tools </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> Nginx </tag>
+            
+            <tag> Https </tag>
+            
+            <tag> Let’s Encrypt </tag>
+            
+            <tag> CentOs </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
+      <title><![CDATA[Mac系统清理指南]]></title>
+      <url>/posts/80d694a6.html</url>
+      <content type="html"><![CDATA[<script src="/assets/js/APlayer.min.js"> </script><p>Mac电脑在使用一段时间之后，磁盘空间会逐渐减少，系统性能会逐渐降低，主要是由于在系统运行的过程中产生了大量的缓存文件（Cache File）、临时文件（Temp File）以及系统日志（System Logs），这些需要被清理的对象累计起来甚至可占用100G多的磁盘空间。这时就需要我们对这部分文件进行清理。</p><a id="more"></a><h1><span id="工具">工具</span></h1><ul><li>文件扫描工具：<a href="https://daisydiskapp.com/index.html" target="_blank" rel="external">DaisyDisk</a></li><li>文件清理工具：<a href="https://cleanmymac.com/" target="_blank" rel="external">CleanMac3</a></li></ul><h1><span id="步骤">步骤</span></h1><ul><li><strong>备份</strong>。准备一块移动硬盘，移动硬盘大小1TB，使用Mac自带的Time Machine将整个磁盘备份到移动硬盘上。</li><li>运行DaisyDisk，扫描整个磁盘，找出占用磁盘空间大的文件，进行针对性的删除。<img src="https://img.i7years.com/disk.png" alt="disk"></li></ul><ul><li><p>运行CleanMac，找出系统中的需要被清理的文件（Junk）,注意：CleanMac所扫描出来的需要我们自己检查一遍，以免误删文件。</p><p><img src="https://img.i7years.com/diskclean.png" alt="diskclean"></p></li></ul>]]></content>
+      
+        <categories>
+            
+            <category> tools </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> Mac </tag>
             
         </tags>
         
