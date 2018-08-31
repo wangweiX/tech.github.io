@@ -2685,7 +2685,97 @@
     </entry>
     
     <entry>
-      <title><![CDATA[Channel介绍]]></title>
+      <title><![CDATA[Java NIO Buffer介绍]]></title>
+      <url>/posts/40e0e28f.html</url>
+      <content type="html"><![CDATA[<script src="/assets/js/APlayer.min.js"> </script><p>Java NIO Buffer（缓冲区）通常与NIO Channels（通道）一起使用。如我们 <a href="https://wangwei.one/posts/d7aa1132.html">前面</a> 所提到的那样，数据从channel中读取到buffer中，也可以从buffer写入到channel 中。</p><p>Buffer 本质上是一个可以写入数据的内存块，并且之后你又可以从中再次读取数据。 此内存块包含在NIO Buffer对象中，该对象提供了一组方法，可以更轻松地使用内存块。</p><a id="more"></a><h2><span id="buffer基本用法">Buffer基本用法</span></h2><p>使用Buffer去读取和写入数据时，通常要遵循以下4个步骤：</p><ol><li>写入数据到Buffer中</li><li>调用 <code>buffer.flip()</code></li><li>从Buffer中读取数据</li><li>调用 <code>buffer.clear()</code> 或 <code>buffer.compact()</code> 方法</li></ol><p>将数据写入缓冲区时，缓冲区会跟踪您写入的数据量。一旦你需要从中读取数据时，你需要调用 <code>flip()</code> 方法，将缓冲区从写入模式切换成读取模式。在读取模式下，你可以读取到所有写入到缓冲区的数据。</p><p>一旦你读取到了所有的数据，你需要对缓冲区做一次清理（clear），让其为下一次写入数据做好准备。你可以采用以下两种方式：一是调用 <code>clear()</code> 方法，而是调用 <code>compact()</code> 方法。<code>clear()</code> 方法是对整个缓冲区做清理。<code>compcat()</code> 方法只是清理掉你已经读取过的数据，任何未读取过的数据会被移动到缓冲区的起始位置，新写入进来的数据将会放到这些未读取的数据后面。</p><p>我们来看一个简单的示例：</p><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">RandomAccessFile fromFile = <span class="keyword">new</span> RandomAccessFile(<span class="string">"/Users/wangwei/Desktop/fromFile.txt"</span>, <span class="string">"rw"</span>);</span><br><span class="line">FileChannel fromChannel = fromFile.getChannel();</span><br><span class="line"></span><br><span class="line"><span class="comment">// create buffer with capacity of 48 bytes</span></span><br><span class="line">ByteBuffer buf = ByteBuffer.allocate(<span class="number">48</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// read data from channel into buffer</span></span><br><span class="line"><span class="keyword">int</span> bytesRead = fromChannel.read(buf);</span><br><span class="line"><span class="keyword">while</span> (bytesRead != -<span class="number">1</span>) &#123;</span><br><span class="line"></span><br><span class="line">	<span class="comment">// switch to read mode</span></span><br><span class="line">	buf.flip();</span><br><span class="line"></span><br><span class="line">	<span class="keyword">while</span> (buf.hasRemaining()) &#123;</span><br><span class="line">    	System.out.println((<span class="keyword">char</span>) buf.get());</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="comment">// make buffer ready for writing</span></span><br><span class="line">	buf.clear();</span><br><span class="line">	bytesRead = fromChannel.read(buf);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">fromChannel.close();</span><br><span class="line">fromFile.close();</span><br></pre></td></tr></table></figure>
+<h2><span id="buffer容量-位置与限制">Buffer容量、位置与限制</span></h2><p>Buffer 本质上是一个可以写入数据的内存块，并且之后你又可以从中再次读取数据。 此内存块包含在NIO Buffer对象中，该对象提供了一组方法，可以更轻松地使用内存块。</p>
+<p>为了理解Buffer的工作原理，你需要去熟悉Buffer的三个属性：</p>
+<ul>
+<li>capacity（容量）</li>
+<li>position（位置）</li>
+<li>limit（限制）</li>
+</ul>
+<p>position与limit的具体含义取决于Buffer处于哪种模式，而capacity则与Buffer的模式无关。示意图如下：</p>
+<p><img src="https://img.i7years.com/blog/JavaNIOBuffer.png" alt="JavaNIOBuffer"></p>
+<h3><span id="capacity">Capacity</span></h3><p>作为一个内存块，缓冲区具有一定的固定大小，也称为“容量”。 你最多只能写入容量大小的字节(bytes)、长整型(longs)、字符(chars)等数据。一旦缓冲区满了，你需要清空它，才能继续写入数据。</p>
+<h3><span id="position">Position</span></h3><p>当你写入数据时，你需要在某个position处才能执行此操作。初始位置为0，当一个字节、长整数等已写入缓冲区时，position被提前指向缓冲区中的下一个单元以备插入新的数据。 Position的最大值为 capacity - 1.</p>
+<p>当你从缓冲区读取数据时，也需要从给定位置开始读取数据。当您将缓冲区从写入模式切换到读取模式时，position将重置为0。当你从缓冲区读取数据时，将从position所指定的位置开始读取数据，并将position提前设置到下一个要读取的位置。</p>
+<h3><span id="limit">Limit</span></h3><p>在写入模式下，Buffer的限制是您可以写入缓冲区的数据量的限制，limit就等于capacity。</p>
+<p>将buffer切换为读取模式时，limit就变成了你可以从中读取到的最大数据量。 因此，当Buffer切换为读取模式时，limit被设置为写入模式的写入位置。 换句话说，就是你可以读取到的写入字节数。</p>
+<h2><span id="buffer类型">Buffer类型</span></h2><p>Java NIO有以下几种Buffer类型：</p>
+<p><img src="https://img.i7years.com/blog/IO_NioBuffer.png" alt="IO_NioBuffer"></p>
+<p>如您所见，这些Buffer类型分别代表了不同的数据类型。 换句话说，它们允许您使用char，short，int，long，float或double来处理缓冲区中的字节。</p>
+<p>MappedByteBuffer有点特殊，以后单独介绍。</p>
+<h2><span id="使用">使用</span></h2><h3><span id="allocating-a-buffer">Allocating a Buffer</span></h3><p>直接调通 <code>Buffer.allocate()</code> 就可以获取一个Buffer对象，示例代码：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 48 bytes</span></span><br><span class="line">ByteBuffer buffer = ByteBuffer.allocate(<span class="number">48</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 1024 characters</span></span><br><span class="line">CharBuffer charBuffer = CharBuffer.allocate(<span class="number">1024</span>);</span><br></pre></td></tr></table></figure>
+<h3><span id="写入数据">写入数据</span></h3><p>Buffer有两种写入数据的方式：</p>
+<ol>
+<li><p>从Channel写入到Buffer</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> bytesRead = inChannel.read(buf); <span class="comment">//read into buffer.</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>直接调用 buffer.put() 方法</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">buf.put(<span class="number">127</span>);</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>有关put()的更多用法，具体参见JavaDoc文档.</p>
+</blockquote>
+</li>
+</ol>
+<h3><span id="flip">flip()</span></h3><p>前面说过，flip()用于切换Buffer的运行模式，并相应地改变position与limit的值。</p>
+<p><img src="https://img.i7years.com/blog/buffer_lifecycle.png" alt="buffer_lifecycle"></p>
+<h3><span id="读取数据">读取数据</span></h3><p>Buffer有两种方式可以读取数据：</p>
+<ol>
+<li><p>从Buffer读取数据到Channel中。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//read from buffer into channel.</span></span><br><span class="line"><span class="keyword">int</span> bytesWritten = inChannel.write(buf);</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>直接调用get()方法获取数据。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">byte</span> aByte = buf.get();</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>有关get()的更多用法，具体参见JavaDoc文档.</p>
+</blockquote>
+</li>
+</ol>
+<h3><span id="rewind">rewind()</span></h3><p>Buffer.rewind()方法会将 position 充值为0，这样就可以重新读取所有的数据。但limit的值不受影响，因此这就导致会读取出很多空的元素数据。</p>
+<h3><span id="clear-和-compcat">clear() 和 compcat()</span></h3><p>完成从缓冲区读取数据后，必须使缓冲区准备好再次写入。 您可以通过调用<code>clear()</code>或调用<code>compact()</code>来完成此操作。</p>
+<p>如果你调用 <code>clear()</code> 方法，position会设置为0，limit会设置为capacity ，但是Buffer中的数据并没被真正删除掉。只有标记告诉您可以将数据写入缓冲区的位置。</p>
+<p>如果在调用 <code>clear()</code> 时缓冲区中有任何未读数据，数据将被“遗忘”，这意味着您不再有任何标记告诉读取了哪些数据，以及未读取的数据。</p>
+<p>如果缓冲区中仍有未读数据，并且你想稍后读取它，但你需要先进行一些写入，请调用 <code>compact()</code> 而不是<code>clear()</code>。</p>
+<p><code>compact()</code> 将所有未读数据复制到Buffer的开头。然后它将位置设置在最后一个未读元素之后。 limit属性仍设置为capacity，就像 <code>clear()</code> 一样。现在缓冲区已准备好写入，但您不会覆盖未读数据。</p>
+<h3><span id="mark-和-reset">mark() 和 reset()</span></h3><p>你可以通过调用 <code>Buffer.mark()</code> 方法在Buffer中标记给定位置。 然后，你可以通过调用 <code>Buffer.reset()</code> 方法将位置重置回标记位置。 示例代码：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 设置 mark 值等于 position</span></span><br><span class="line">buffer.mark();</span><br><span class="line"></span><br><span class="line"><span class="comment">//call buffer.get() a couple of times, e.g. during parsing.</span></span><br><span class="line"><span class="comment">//set position back to mark.   </span></span><br><span class="line">buffer.reset();</span><br></pre></td></tr></table></figure>
+<h3><span id="equals-和-comareto">equals() 和 comareTo()</span></h3><p>可以使用 <code>equals()</code> 和 <code>compareTo()</code> 这两个方法来比较两个缓冲区。</p>
+<h4><span id="equals">equals()</span></h4><p>两个Buffer如果满足以下条件，则表示相等：</p>
+<ul>
+<li>类型一致</li>
+<li>剩余的字节、字符等数量相同</li>
+<li>剩余的字节、字符内容都相同</li>
+</ul>
+<p>如您所见，equals仅比较缓冲区的一部分，而不是它内部的每个元素。 实际上，它只是比较缓冲区中的剩余元素。</p>
+<h4><span id="compareto">compareTo()</span></h4><p><code>compareTo()</code> 方法比较两个缓冲区的剩余元素（字节，字符等）的大小。 在下列情况下，缓冲区被视为“小于”另一个缓冲区：</p>
+<ul>
+<li>与另一个缓冲区中的对应元素相等的第一个元素小于另一个缓冲区中的元素。</li>
+<li>所有元素都相等，但第一个缓冲区在第二个缓冲区之前耗尽了元素（它只有更少的元素）。</li>
+</ul>
+<h2><span id="参考资料">参考资料</span></h2><ul>
+<li><a href="http://tutorials.jenkov.com/java-nio/buffers.html" target="_blank" rel="external">http://tutorials.jenkov.com/java-nio/buffers.html</a></li>
+<li><a href="http://actimem.com/java/nio/buffer/" target="_blank" rel="external">http://actimem.com/java/nio/buffer/</a></li></ul>]]></content>
+      
+        <categories>
+            
+            <category> coding </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> NIO </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
+      <title><![CDATA[Java NIO Channel]]></title>
       <url>/posts/d7aa1132.html</url>
       <content type="html"><![CDATA[<script src="/assets/js/APlayer.min.js"> </script><p>Java NIO（New IO）是Java的替代IO API（来自Java 1.4），意味着替代标准Java IO和Java Networking API。 Java NIO提供了与标准IO API不同的使用IO的方式。</p><a id="more"></a><h2><span id="概述">概述</span></h2><p>Java NIO 主要有以下三个核心组件：</p><ul><li>Channels</li><li>Buffers</li><li>Selectors</li></ul><p>除此之外，Java NIO还有许多类和组件，但是NIO的核心API主要还是由 <code>channel</code>,<code>buffer</code>和<code>selector</code> 构成。其余的组件，如<code>Pipe</code>和<code>FileLock</code>，只是与三个核心组件一起使用的实用程序类。</p><p>本篇文章先来来介绍Channel，其余的后面再来介绍。</p><p>通常，NIO中的所有IO都以Channel开始，Channel（通道）有点像Stream（流），但是它又有一些区别：</p><ul><li>你既可以从Channle中读取数据，也可以向其写入数据。而Stream通常只能单向操作，要么读，要么写；</li><li>Channel支持异步读取或写入数据；</li><li>数据从Channel中读取到Buffer中，从Buffer写入到Channel中。</li></ul><p>示意图如下：</p><p><img src="https://img.i7years.com/blog/channels-buffers.png" alt="channels-buffers"></p><h3><span id="channel-实现类">Channel 实现类</span></h3><p>以下是Java NIO中最重要的Channel实现类：</p><ul><li>FileChannel：从文件中读取数据，或写入数据到文件中</li><li>DatagramChannel：可以通过UDP协议在网络上读写数据。</li><li>SocketChannel：可以通过TCP协议在网络上读写数据。</li><li>ServerSocketChannel：监听传入的TCP连接，就像Web服务器一样。 对于每个传入连接，都会创建一个SocketChannel。</li></ul><p>本篇文章先来介绍FileChannel，其余的后面再来介绍。</p><h2><span id="filechannel">FileChannel</span></h2><p>Java NIO FileChannel 是一个与文件相连接的通道。通过FileChannel你可以从文件中读取数据，以及写入数据到文件中。FileChannel可以看作是标准Java IO API的替代方案。</p><p>FileChannel只能以阻塞模式来使用，不能使用非阻塞模式。</p><h4><span id="opening-a-filechannel">Opening a FileChannel</span></h4><p>在使用FileChannel之前，你必须先打开它。你不能直接打开一个FileChannel，你需要通过InputStream,OutputStream或RandomAccessFile来获取FileChannel，调用 <code>getChannel()</code>。</p><p>代码示例：</p><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">FileOutputStream outputStream = <span class="keyword">new</span> FileOutputStream(<span class="string">"file.txt"</span>);</span><br><span class="line">FileChannel fileChannel = outputStream.getChannel();</span><br><span class="line"></span><br><span class="line">FileInputStream inputStream = <span class="keyword">new</span> FileInputStream(<span class="string">"file.txt"</span>);</span><br><span class="line">FileChannel fileChannel = inputStream.getChannel();</span><br><span class="line">            </span><br><span class="line">RandomAccessFile accessFile = <span class="keyword">new</span> RandomAccessFile(<span class="string">"file.txt"</span>, <span class="string">"rw"</span>);</span><br><span class="line">FileChannel fileChannel = accessFile.getChannel();</span><br></pre></td></tr></table></figure>
 <h4><span id="reading-data-from-a-filechannel">Reading Data from a FileChannel</span></h4><p>调用 <code>read()</code> 方法可以从FileChannel中读取相应的数据。例如：</p>
