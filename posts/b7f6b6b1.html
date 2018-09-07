@@ -1,0 +1,590 @@
+<!DOCTYPE html><html class="theme-next muse use-motion" lang="en"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1"><meta name="theme-color" content="#222"><link rel="stylesheet" media="all" href="/lib/Han/dist/han.min.css?v=3.3"><meta http-equiv="Cache-Control" content="no-transform"><meta http-equiv="Cache-Control" content="no-siteapp"><link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css"><link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css"><link href="/css/main.css?v=5.1.3" rel="stylesheet" type="text/css"><link rel="apple-touch-icon" sizes="180x180" href="/favicon-180x180.png?v=5.1.3"><link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png?v=5.1.3"><link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png?v=5.1.3"><link rel="mask-icon" href="/logo.svg?v=5.1.3" color="#222"><meta name="keywords" content="NIO,"><meta name="description" content="前面我们介绍了一系列的NIO Channel的使用，发现它与标准的IO有很大的不同，本篇我们就来总结一下 NIO 与 IO 之间的差异。"><meta name="keywords" content="NIO"><meta property="og:type" content="article"><meta property="og:title" content="Java IO vs NIO"><meta property="og:url" content="https://wangwei.one/posts/b7f6b6b1.html"><meta property="og:site_name" content="终生学习"><meta property="og:description" content="前面我们介绍了一系列的NIO Channel的使用，发现它与标准的IO有很大的不同，本篇我们就来总结一下 NIO 与 IO 之间的差异。"><meta property="og:locale" content="en"><meta property="og:image" content="https://img.i7years.com/blog/Selector-NIO.png"><meta property="og:image" content="https://img.i7years.com/blog/Socket-BIO.png"><meta property="og:image" content="https://img.i7years.com/blog/nio-vs-io-1.png"><meta property="og:updated_time" content="2018-09-07T09:14:44.602Z"><meta name="twitter:card" content="summary"><meta name="twitter:title" content="Java IO vs NIO"><meta name="twitter:description" content="前面我们介绍了一系列的NIO Channel的使用，发现它与标准的IO有很大的不同，本篇我们就来总结一下 NIO 与 IO 之间的差异。"><meta name="twitter:image" content="https://img.i7years.com/blog/Selector-NIO.png"><script type="text/javascript" id="hexo.configurations">var NexT=window.NexT||{},CONFIG={root:"/",scheme:"Muse",version:"5.1.3",sidebar:{position:"left",display:"post",offset:12,b2t:!1,scrollpercent:!1,onmobile:!1},fancybox:!0,tabs:!0,motion:{enable:!0,async:!1,transition:{post_block:"fadeIn",post_header:"slideDownIn",post_body:"slideDownIn",coll_header:"slideLeftIn",sidebar:"slideUpIn"}},duoshuo:{userId:"0",author:"Author"},algolia:{applicationID:"",apiKey:"",indexName:"",hits:{per_page:10},labels:{input_placeholder:"Search for Posts",hits_empty:"We didn't find any results for the search: ${query}",hits_stats:"${hits} results found in ${time} ms"}}}</script><link rel="canonical" href="https://wangwei.one/posts/b7f6b6b1.html"><title>Java IO vs NIO | 终生学习</title><script>!function(e,a,t,n,g,c,o){e.GoogleAnalyticsObject=g,e.ga=e.ga||function(){(e.ga.q=e.ga.q||[]).push(arguments)},e.ga.l=1*new Date,c=a.createElement(t),o=a.getElementsByTagName(t)[0],c.async=1,c.src="https://www.google-analytics.com/analytics.js",o.parentNode.insertBefore(c,o)}(window,document,"script",0,"ga"),ga("create","UA-112239883-1","auto"),ga("send","pageview")</script><script type="text/javascript">var _hmt=_hmt||[];!function(){var e=document.createElement("script");e.src="https://hm.baidu.com/hm.js?7a23039be1256cfe778d1eeb19110f89";var t=document.getElementsByTagName("script")[0];t.parentNode.insertBefore(e,t)}()</script></head><body itemscope itemtype="http://schema.org/WebPage" lang="en"><div class="bg_content" style="height:0%;width:0%"><canvas id="canvas" style="height:0%;width:0%"><script type="text/javascript" src="/lib/canvas-nest/canvas.js?v=1.0.0"></script></canvas></div><div class="container sidebar-position-left page-post-detail"><div class="headband"></div><header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="header-inner"><div class="site-brand-wrapper"><div class="site-meta"><div class="custom-logo-site-title"><a href="/" class="brand" rel="start"><span class="logo-line-before"><i></i></span> <span class="site-title">终生学习</span> <span class="logo-line-after"><i></i></span></a></div><p class="site-subtitle">每天夜里睡觉时都比那天早晨聪明一点点</p></div><div class="site-nav-toggle"><button><span class="btn-bar"></span> <span class="btn-bar"></span> <span class="btn-bar"></span></button></div></div><nav class="site-nav"><ul id="menu" class="menu"><li class="menu-item menu-item-首页"><a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i><br>首页</a></li><li class="menu-item menu-item-区块链"><a href="/categories/blockchain/" rel="section"><i class="menu-item-icon fa fa-fw fa-btc"></i><br>区块链</a></li><li class="menu-item menu-item-编程"><a href="/categories/coding/" rel="section"><i class="menu-item-icon fa fa-fw fa-terminal"></i><br>编程</a></li><li class="menu-item menu-item-工具"><a href="/categories/tools/" rel="section"><i class="menu-item-icon fa fa-fw fa-gear"></i><br>工具</a></li><li class="menu-item menu-item-阅读"><a href="/books/" rel="section"><i class="menu-item-icon fa fa-fw fa-book"></i><br>阅读</a></li><li class="menu-item menu-item-电影"><a href="/movies/" rel="section"><i class="menu-item-icon fa fa-fw fa-film"></i><br>电影</a></li><li class="menu-item menu-item-分类"><a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i><br>分类</a></li><li class="menu-item menu-item-标签"><a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i><br>标签</a></li><li class="menu-item menu-item-归档"><a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i><br>归档</a></li><li class="menu-item menu-item-关于"><a href="/about/" rel="section"><i class="menu-item-icon fa fa-fw fa-user"></i><br>关于</a></li><li class="menu-item menu-item-search"><a href="javascript:;" class="popup-trigger"><i class="menu-item-icon fa fa-search fa-fw"></i><br>Search</a></li></ul><div class="site-search"><div class="popup search-popup local-search-popup"><div class="local-search-header clearfix"><span class="search-icon"><i class="fa fa-search"></i> </span><span class="popup-btn-close"><i class="fa fa-times-circle"></i></span><div class="local-search-input-wrapper"><input autocomplete="off" placeholder="Searching..." spellcheck="false" type="text" id="local-search-input"></div></div><div id="local-search-result"></div></div></div></nav></div></header><main id="main" class="main"><div class="main-inner"><div class="content-wrap"><div id="content" class="content"><div id="posts" class="posts-expand"><article class="post post-type-normal" itemscope itemtype="http://schema.org/Article"><div class="post-block"><link itemprop="mainEntityOfPage" href="https://wangwei.one/posts/b7f6b6b1.html"><span hidden itemprop="author" itemscope itemtype="http://schema.org/Person"><meta itemprop="name" content="王维 / Michael  Wang"><meta itemprop="description" content=""><meta itemprop="image" content="https://img.i7years.com/avatar/myAvatar.png"></span><span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization"><meta itemprop="name" content="终生学习"></span><header class="post-header"><h1 class="post-title" itemprop="name headline">Java IO vs NIO</h1><div class="post-meta"><span class="post-time"><span class="post-meta-item-icon"><i class="fa fa-calendar-o"></i> </span><span class="post-meta-item-text">Posted on</span> <time title="Post created" itemprop="dateCreated datePublished" datetime="2015-12-02T10:14:12+08:00">2015-12-02 </time></span><span class="post-category"><span class="post-meta-divider">|</span> <span class="post-meta-item-icon"><i class="fa fa-folder-o"></i> </span><span class="post-meta-item-text">In</span> <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/coding/" itemprop="url" rel="index"><span itemprop="name">coding</span> </a></span></span><span class="post-comments-count"><span class="post-meta-divider">|</span> <span class="post-meta-item-icon"><i class="fa fa-comment-o"></i> </span><a href="/posts/b7f6b6b1.html#comments" itemprop="discussionUrl"><span class="post-comments-count disqus-comment-count" data-disqus-identifier="posts/b7f6b6b1.html" itemprop="commentCount"></span> </a></span><span class="post-meta-divider">|</span> <span class="page-pv">本文总阅读量 <span class="busuanzi-value" id="busuanzi_value_page_pv"></span>次</span><div class="post-wordcount"><span class="post-meta-item-icon"><i class="fa fa-file-word-o"></i> </span><span class="post-meta-item-text">Words count in article&#58;</span> <span title="Words count in article">1,355 </span><span class="post-meta-divider">|</span> <span class="post-meta-item-icon"><i class="fa fa-clock-o"></i> </span><span class="post-meta-item-text">Reading time &asymp;</span> <span title="Reading time">5</span></div></div></header><div class="post-body han-init-context" itemprop="articleBody"><script src="/assets/js/APlayer.min.js"></script><p>前面我们介绍了一系列的NIO Channel的使用，发现它与标准的IO有很大的不同，本篇我们就来总结一下 NIO 与 IO 之间的差异。</p><a id="more"></a><h2><span id="主要区别">主要区别</span></h2><p>对比如下：</p><table><thead><tr><th>IO</th><th>NIO</th></tr></thead><tbody><tr><td>面向流(Stream)</td><td>面向缓冲(Buffer)</td></tr><tr><td>阻塞IO(Blocking IO)</td><td>非阻塞IO(Non Blocking IO)</td></tr><tr><td>\</td><td>选择器(Selectors)</td></tr></tbody></table><h3><span id="流-vs-缓冲区">流 vs 缓冲区</span></h3><p>Java NIO和IO之间的第一个重要区别是IO是面向流的，而NIO是面向缓冲区的。</p><p>IO 以面向流为主，意味着你可以从流中一次性读取一个或多个字节。如何操作读取到的字节取决于你自己。这些流中的字节没有做任何缓存。此外，你无法在流中的数据做前后移动操作。如果你想要对读取到数据做前后移动操作，则必须将其缓存到 Buffer 中。</p><p>Java NIO的面向缓冲区的方法略有不同。数据读入缓冲区，然后在处理该缓冲区。 你可以根据你的需要在缓冲区中做前后移动操作。这样可以提高处理数据时的灵活性。不过，在处理数据之前，还需要检查缓冲区是否包含了完整的数据，并且，要确保缓冲区在读入更多的数据时，不能覆盖掉尚未处理的数据。</p><h3><span id="阻塞-vs-非阻塞">阻塞 vs 非阻塞</span></h3><p>Java IO 中的各种流都是阻塞的。当一个线程调用 read() 或 write() 方法时，在数据被完整读取或写入之前，该线程一直处于阻塞状态，其间它不能做任何其他的事情。</p><p><img src="https://img.i7years.com/blog/Selector-NIO.png" alt="Selector-NIO"></p><p>Java NIO 非阻塞模式能允许线程从通道中读取数据，通道中有多少数据就读多少数据，如果没有可读的数据，那就什么也不读取。在有数据可以读取之前，线程可以去干其他的事情，而不用一直阻塞等待。</p><p>Java NIO 写操作也是类似。个线程请求写入一些数据到某通道，但不需要等待它完全写入，这个线程同时可以去做别的事情。</p><p>线程通常将非阻塞IO的空闲时间用于在其它通道上执行IO操作，所以一个单独的线程现在可以管理多个输入和输出通道（channel）。</p><p><img src="https://img.i7years.com/blog/Socket-BIO.png" alt="Socket-BIO"></p><h3><span id="选择器">选择器</span></h3><p>Java NIO 选择器允许一个线程去监控多个输入通道。你可以用一个选择器去注册多个通道，然后线程就可以”选择”出哪些通道已经准备好了读取或写入操作。这种选择器机制让单个线程同时管理多个通道变得更加容易。</p><h2><span id="nio-与-io-影响应用程序设计">NIO 与 IO 影响应用程序设计</span></h2><p>选择用NIO 还是 IO 作为你程序的IO工具包，将会影响应用程序的以下几个方面：</p><ul><li>NIO 或 IO 类的API调用</li><li>数据的处理方式</li><li>处理数据的线程数量</li></ul><h3><span id="api调用">API调用</span></h3><p>当然，使用NIO时的API调用看起来与使用IO时不同。 这并不奇怪。 而不是仅仅从例如字节读取数据字节。 在InputStream中，必须首先将数据读入缓冲区，然后从那里进行处理。</p><h3><span id="数据处理">数据处理</span></h3><p>使用纯NIO设计与IO设计时，数据处理也会受到影响。</p><p>在IO设计中，你从InputStream或Reader中一个字节一个字节地读取数据。 想象一下，你正在处理基于行的文本数据流。 例如：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Name: Anna</span><br><span class="line">Age: 25</span><br><span class="line">Email: anna@mailserver.com</span><br><span class="line">Phone: 1234567890</span><br></pre></td></tr></table></figure>
+<p>逐行逐行地处理该数据，过程如下：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">InputStream input = ... ; <span class="comment">// get the InputStream from the client socket</span></span><br><span class="line"></span><br><span class="line">BufferedReader reader = <span class="keyword">new</span> BufferedReader(<span class="keyword">new</span> InputStreamReader(input));</span><br><span class="line"></span><br><span class="line">String nameLine   = reader.readLine();</span><br><span class="line">String ageLine    = reader.readLine();</span><br><span class="line">String emailLine  = reader.readLine();</span><br><span class="line">String phoneLine  = reader.readLine();</span><br></pre></td></tr></table></figure>
+<p><img src="https://img.i7years.com/blog/nio-vs-io-1.png" alt=""></p>
+<p>NIO 的实现就完全不一样了，例如：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">ByteBuffer buffer = ByteBuffer.allocate(<span class="number">48</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> bytesRead = inChannel.read(buffer);</span><br></pre></td></tr></table></figure>
+<p>注意第二行代码，从channel中读取字节保存到Buffer中。当你这个read()方法返回时，你无法知道你所需要的数据是否已经全部存储在了Buffer中，你仅仅只是知道Buffer中存储一些字节数据。这样就让数据处理变得稍微困难了点。</p>
+<p>想象一下，在第一次调用 <code>read(buffer)</code> 之后 ，buffer中只读取到了一半的数据，例如：”Name: An”。你能处理这样不完整的数据吗？当然不能！因此，在处理任何数据之前，你需要等待至少一整行数据进入缓冲区。</p>
+<p>那么，你怎么知道Buffer中包含了你想要处理的数据呢？很显然，不能。唯一的办法就是去检查Buffer中的数据。这样一来，在你知道所有数据是否存在之前，你可能需要多次检查缓冲区中的数据。这样就会导致程序变得低效，而且代码变得有点混乱。例如：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">ByteBuffer buffer = ByteBuffer.allocate(<span class="number">48</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> bytesRead = inChannel.read(buffer);</span><br><span class="line"></span><br><span class="line"><span class="keyword">while</span>(! bufferFull(bytesRead) ) &#123;</span><br><span class="line">    bytesRead = inChannel.read(buffer);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>这个 <code>bufferFull()</code> 方法必须去跟踪有多少字节已经读取到了Buffer中。当Buffer中的数据已经准备好了的时候，需要返回ture，否则返回false。</p>
+<h2><span id="参考资料">参考资料</span></h2><ul>
+<li><a href="http://tutorials.jenkov.com/java-nio/nio-vs-io.html" target="_blank" rel="external">http://tutorials.jenkov.com/java-nio/nio-vs-io.html</a></li>
+<li><a href="http://www.studytrails.com/java-io/io-vs-nio/" target="_blank" rel="external">http://www.studytrails.com/java-io/io-vs-nio/</a></li>
+<li><a href="https://segmentfault.com/a/1190000003063859" target="_blank" rel="external">https://segmentfault.com/a/1190000003063859</a></li>
+<li><p><a href="https://web.archive.org/web/20140528182031/https://blogs.oracle.com/slc/entry/javanio_vs_javaio" target="_blank" rel="external">https://web.archive.org/web/20140528182031/https://blogs.oracle.com/slc/entry/javanio_vs_javaio</a></p>
+</li>
+<li><p><a href="http://www.importnew.com/1178.html" target="_blank" rel="external">http://www.importnew.com/1178.html</a></p></li></ul>
+      
+    </div>
+    
+    
+    
+
+    
+      <div>
+        <div id="wechat_subscriber" style="display:block;padding:10px 0;margin:20px auto;width:100%;text-align:center">
+    <img id="wechat_subscriber_qcode" src="https://img.i7years.com/my7year-8.jpg" alt="王维 / Michael  Wang wechat" style="width:200px;max-width:100%">
+    <div>欢迎交流学习</div>
+</div>
+
+      </div>
+    
+
+    
+      <div>
+        <div style="padding:10px 0;margin:20px auto;width:90%;text-align:center">
+  <div>请我喝杯咖啡吧~</div>
+  <button id="rewardButton" disable="enable" onclick='var qr=document.getElementById("QR");"none"===qr.style.display?qr.style.display="block":qr.style.display="none"'>
+    <span>Donate</span>
+  </button>
+  <div id="QR" style="display:none">
+
+    
+      <div id="wechat" style="display:inline-block">
+        <img id="wechat_qr" src="https://img.i7years.com/pay2Wechat.png" alt="王维 / Michael  Wang WeChat Pay">
+        <p>WeChat Pay</p>
+      </div>
+    
+
+    
+      <div id="alipay" style="display:inline-block">
+        <img id="alipay_qr" src="https://img.i7years.com/pay2Alipay.png" alt="王维 / Michael  Wang Alipay">
+        <p>Alipay</p>
+      </div>
+    
+
+    
+      <div id="bitcoin" style="display:inline-block">
+        <img id="bitcoin_qr" src="https://img.i7years.com/wallet/rec_bitcoin.png" alt="王维 / Michael  Wang Bitcoin">
+        <p>Bitcoin</p>
+      </div>
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+      <div>
+        <ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>Post author:</strong>
+    王维 / Michael  Wang
+  </li>
+  <li class="post-copyright-link">
+    <strong>Post link:</strong>
+    <a href="https://wangwei.one/posts/b7f6b6b1.html" title="Java IO vs NIO">https://wangwei.one/posts/b7f6b6b1.html</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>Copyright Notice: </strong>
+    All articles in this blog are licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 3.0</a> unless stating additionally.
+  </li>
+</ul>
+
+      </div>
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/NIO/" rel="tag"># NIO</a>
+          
+        </div>
+      
+
+      
+      
+        <div class="post-widgets">
+        
+
+        
+
+        
+          
+          <div id="needsharebutton-postbottom">
+            <span class="btn">
+              <i class="fa fa-share-alt" aria-hidden="true"></i>
+            </span>
+          </div>
+        
+        </div>
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/posts/f409841b.html" rel="next" title="Java NIO2 Asynchronous Channel APIs">
+                <i class="fa fa-chevron-left"></i> Java NIO2 Asynchronous Channel APIs
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/posts/bc401e84.html" rel="prev" title="带你看看外面的世界">
+                带你看看外面的世界 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="https://img.i7years.com/avatar/myAvatar.png" alt="王维 / Michael  Wang">
+            
+              <p class="site-author-name" itemprop="name">王维 / Michael  Wang</p>
+              <p class="site-description motion-element" itemprop="description">分享自己所思所学所行</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives">
+              
+                  <span class="site-state-item-count">50</span>
+                  <span class="site-state-item-name">posts</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">4</span>
+                  <span class="site-state-item-name">categories</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">45</span>
+                  <span class="site-state-item-name">tags</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          <div class="links-of-author motion-element">
+            
+              
+                <span class="links-of-author-item">
+                  <a href="https://github.com/wangweiX" target="_blank" title="GitHub">
+                    
+                      <i class="fa fa-fw fa-github"></i>GitHub</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="https://twitter.com/wangwei_hz" target="_blank" title="Twitter">
+                    
+                      <i class="fa fa-fw fa-twitter"></i>Twitter</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="mailto:w7years@gmail.com" target="_blank" title="E-Mail">
+                    
+                      <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                </span>
+              
+            
+          </div>
+
+          
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+              <div class="links-of-blogroll-title">
+                <i class="fa fa-fw fa-link"></i>
+                Links
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://learnblockchain.cn/" title="深入浅出区块链" target="_blank">深入浅出区块链</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://www.ruanyifeng.com/" title="阮一峰" target="_blank">阮一峰</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://tech.meituan.com/" title="美团点评" target="_blank">美团点评</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://daimajia.com/" title="代码家" target="_blank">代码家</a>
+                  </li>
+                
+              </ul>
+            </div>
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">1.</span> <span class="nav-text">主要区别</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">1.1.</span> <span class="nav-text">流 vs 缓冲区</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">1.2.</span> <span class="nav-text">阻塞 vs 非阻塞</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">1.3.</span> <span class="nav-text">选择器</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">2.</span> <span class="nav-text">NIO 与 IO 影响应用程序设计</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">2.1.</span> <span class="nav-text">API调用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">2.2.</span> <span class="nav-text">数据处理</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">3.</span> <span class="nav-text">参考资料</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; 2015 &mdash; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">王维 / Michael  Wang</span>
+
+  
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+    
+      <span class="post-meta-item-text">Site words total count&#58;</span>
+    
+    <span title="Site words total count">95.1k</span>
+  
+</div>
+
+
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Muse</a> v5.1.3</div>
+
+
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv">
+      本站访客数
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+      人次
+    </span>
+  
+
+  
+    <span class="site-pv">
+      本站总访问量
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+      次
+    </span>
+  
+</div>
+
+
+
+<script>var _mtac={};!function(){var t=document.createElement("script");t.src="https://pingjs.qq.com/h5/stats.js?v2.0.4",t.setAttribute("name","MTAH5"),t.setAttribute("sid","500547962");var e=document.getElementsByTagName("script")[0];e.parentNode.insertBefore(t,e)}()</script>
+
+
+
+
+
+
+  <div style="display:none">
+    <script src="//s95.cnzz.com/z_stat.php?id=1270083794&web_id=1270083794" language="JavaScript"></script>
+  </div>
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+      <div id="needsharebutton-float">
+        <span class="btn">
+          <i class="fa fa-share-alt" aria-hidden="true"></i>
+        </span>
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">"[object Function]"!==Object.prototype.toString.call(window.Promise)&&(window.Promise=null)</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.3"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.3"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.3"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.3"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.3"></script>
+
+
+
+  
+
+
+  
+
+    
+      <script id="dsq-count-scr" src="https://techi7years.disqus.com/count.js" async></script>
+    
+
+    
+      <script type="text/javascript">var disqus_config=function(){this.page.url="https://wangwei.one/posts/b7f6b6b1.html",this.page.identifier="posts/b7f6b6b1.html",this.page.title="Java IO vs NIO"},d=document,s=d.createElement("script");s.src="https://techi7years.disqus.com/embed.js",s.setAttribute("data-timestamp",""+ +new Date),(d.head||d.body).appendChild(s)</script>
+    
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+
+
+
+  
+
+  <script type="text/javascript">function proceedsearch(){$("body").append('<div class="search-popup-overlay local-search-pop-overlay"></div>').css("overflow","hidden"),$(".search-popup-overlay").click(onPopupClose),$(".popup").toggle();var t=$("#local-search-input");t.attr("autocapitalize","none"),t.attr("autocorrect","off"),t.focus()}var isfetched=!1,isXml=!0,search_path="search.xml";0===search_path.length?search_path="search.xml":/json$/i.test(search_path)&&(isXml=!1);var path="/"+search_path,onPopupClose=function(t){$(".popup").hide(),$("#local-search-input").val(""),$(".search-result-list").remove(),$("#no-result").remove(),$(".local-search-pop-overlay").remove(),$("body").css("overflow","")},searchFunc=function(t,e,o){"use strict";$("body").append('<div class="search-popup-overlay local-search-pop-overlay"><div id="search-loading-icon"><i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i></div></div>').css("overflow","hidden"),$("#search-loading-icon").css("margin","20% auto 0 auto").css("text-align","center"),$.ajax({url:t,dataType:isXml?"xml":"json",async:!0,success:function(t){isfetched=!0,$(".popup").detach().appendTo(".header-inner");var n=isXml?$("entry",t).map(function(){return{title:$("title",this).text(),content:$("content",this).text(),url:$("url",this).text()}}).get():t,r=document.getElementById(e),s=document.getElementById(o),a=function(){var t=r.value.trim().toLowerCase(),e=t.split(/[\s\-]+/);e.length>1&&e.push(t);var o=[];if(t.length>0&&n.forEach(function(n){var r=!1,s=0,a=0,i=n.title.trim(),c=i.toLowerCase(),l=n.content.trim().replace(/<[^>]+>/g,""),h=l.toLowerCase(),p=decodeURIComponent(n.url),u=[],f=[];if(""!=i&&(e.forEach(function(t){function e(t,e,o){var n=t.length;if(0===n)return[];var r=0,s=[],a=[];for(o||(e=e.toLowerCase(),t=t.toLowerCase());(s=e.indexOf(t,r))>-1;)a.push({position:s,word:t}),r=s+n;return a}u=u.concat(e(t,c,!1)),f=f.concat(e(t,h,!1))}),(u.length>0||f.length>0)&&(r=!0,s=u.length+f.length)),r){[u,f].forEach(function(t){t.sort(function(t,e){return e.position!==t.position?e.position-t.position:t.word.length-e.word.length})});function d(e,o,n,r){for(var s=r[r.length-1],i=s.position,c=s.word,l=[],h=0;i+c.length<=n&&0!=r.length;){c===t&&h++,l.push({position:i,length:c.length});var p=i+c.length;for(r.pop();0!=r.length&&(s=r[r.length-1],i=s.position,c=s.word,p>i);)r.pop()}return a+=h,{hits:l,start:o,end:n,searchTextCount:h}}var g=[];0!=u.length&&g.push(d(0,0,i.length,u));for(var v=[];0!=f.length;){var $=f[f.length-1],C=$.position,m=$.word,x=C-20,w=C+80;x<0&&(x=0),w<C+m.length&&(w=C+m.length),w>l.length&&(w=l.length),v.push(d(0,x,w,f))}v.sort(function(t,e){return t.searchTextCount!==e.searchTextCount?e.searchTextCount-t.searchTextCount:t.hits.length!==e.hits.length?e.hits.length-t.hits.length:t.start-e.start});var y=parseInt("1");y>=0&&(v=v.slice(0,y));function T(t,e){var o="",n=e.start;return e.hits.forEach(function(e){o+=t.substring(n,e.position);var r=e.position+e.length;o+='<b class="search-keyword">'+t.substring(e.position,r)+"</b>",n=r}),o+=t.substring(n,e.end)}var b="";0!=g.length?b+="<li><a href='"+p+"' class='search-result-title'>"+T(i,g[0])+"</a>":b+="<li><a href='"+p+"' class='search-result-title'>"+i+"</a>",v.forEach(function(t){b+="<a href='"+p+'\'><p class="search-result">'+T(l,t)+"...</p></a>"}),b+="</li>",o.push({item:b,searchTextCount:a,hitCount:s,id:o.length})}}),1===e.length&&""===e[0])s.innerHTML='<div id="no-result"><i class="fa fa-search fa-5x" /></div>';else if(0===o.length)s.innerHTML='<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>';else{o.sort(function(t,e){return t.searchTextCount!==e.searchTextCount?e.searchTextCount-t.searchTextCount:t.hitCount!==e.hitCount?e.hitCount-t.hitCount:e.id-t.id});var a='<ul class="search-result-list">';o.forEach(function(t){a+=t.item}),a+="</ul>",s.innerHTML=a}};r.addEventListener("input",a),$(".local-search-pop-overlay").remove(),$("body").css("overflow",""),proceedsearch()}})};$(".popup-trigger").click(function(t){t.stopPropagation(),!1===isfetched?searchFunc(path,"local-search-input","local-search-result"):proceedsearch()}),$(".popup-btn-close").click(onPopupClose),$(".popup").click(function(t){t.stopPropagation()}),$(document).on("keyup",function(t){27===t.which&&$(".search-popup").is(":visible")&&onPopupClose()})</script>
+
+
+
+
+
+  
+
+  
+
+  
+<script>!function(){var t=document.createElement("script"),e=window.location.protocol.split(":")[0];t.src="https"===e?"https://zz.bdstatic.com/linksubmit/push.js":"http://push.zhanzhang.baidu.com/push.js";var s=document.getElementsByTagName("script")[0];s.parentNode.insertBefore(t,s)}()</script>
+
+
+  
+  
+  
+  <link rel="stylesheet" href="/lib/needsharebutton/needsharebutton.css">
+
+  
+  
+  <script src="/lib/needsharebutton/needsharebutton.js"></script>
+
+  <script>pbOptions={},pbOptions.iconStyle="default",pbOptions.boxForm="horizontal",pbOptions.position="bottomCenter",pbOptions.networks="Mailto,Wechat,Weibo,QQZone,Twitter,Facebook,Linkedin,Evernote,Douban,GooglePlus,Reddit",new needShareButton("#needsharebutton-postbottom",pbOptions),flOptions={},flOptions.iconStyle="default",flOptions.boxForm="horizontal",flOptions.position="middleRight",flOptions.networks="Mailto,Wechat,Weibo,QQZone,Twitter,Facebook,Linkedin,Evernote,Douban,GooglePlus,Reddit",new needShareButton("#needsharebutton-float",flOptions)</script></body></html>
