@@ -2,9 +2,16 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://wangwei.one/posts/netty-base-theory-intro.html</loc>
+    
+    <lastmod>2018-09-30T12:49:31.239Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://wangwei.one/posts/java-11-base-tutorial.html</loc>
     
-    <lastmod>2018-09-30T11:59:52.188Z</lastmod>
+    <lastmod>2018-09-30T12:49:20.438Z</lastmod>
     
   </url>
   
@@ -19,13 +26,6 @@
     <loc>https://wangwei.one/posts/netty-core-assembly-intro.html</loc>
     
     <lastmod>2018-09-30T11:58:12.556Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://wangwei.one/posts/netty-base-theory-intro.html</loc>
-    
-    <lastmod>2018-09-30T11:57:29.245Z</lastmod>
     
   </url>
   
