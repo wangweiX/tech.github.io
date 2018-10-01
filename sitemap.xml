@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://wangwei.one/posts/blockchain-token-summit-2017.html</loc>
+    
+    <lastmod>2018-10-01T08:40:29.780Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://wangwei.one/posts/devops-article-collection.html</loc>
     
     <lastmod>2018-10-01T02:43:26.159Z</lastmod>
@@ -61,13 +68,6 @@
     <loc>https://wangwei.one/posts/java-11-base-tutorial.html</loc>
     
     <lastmod>2018-10-01T02:31:12.621Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://wangwei.one/posts/blockchain-token-summit-2017.html</loc>
-    
-    <lastmod>2018-10-01T02:31:07.375Z</lastmod>
     
   </url>
   
