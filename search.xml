@@ -2897,7 +2897,7 @@
     
     <entry>
       <title><![CDATA[Linux、Mac命令清单]]></title>
-      <url>/posts/e07d35dc.html</url>
+      <url>/posts/list-of-common-linux-and-mac-commands.html</url>
       <content type="html"><![CDATA[<script src="/assets/js/APlayer.min.js"> </script><p>整理一下自己平时用的比较多的一些工具和命令，便于后期查阅。</p><a id="more"></a><h2><span id="linux系统">Linux系统</span></h2><p>强烈推荐一个网站：<a href="http://cheat.sh/，能够查询所有linux系统相关的命令。" target="_blank" rel="external">http://cheat.sh/，能够查询所有linux系统相关的命令。</a></p><h3><span id="磁盘类">磁盘类</span></h3><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 查询系统磁盘剩余空间</span></span><br><span class="line">df -h</span><br><span class="line"></span><br><span class="line"><span class="comment"># 查看当前空间文件的大小</span></span><br><span class="line">du -h</span><br></pre></td></tr></table></figure>
 <h3><span id="文件操作类">文件操作类</span></h3><h4><span id="本地操作">本地操作</span></h4><ol>
 <li><p>查询 <code>path1</code>目录中的java文件：</p>
@@ -2950,9 +2950,9 @@
         
         <tags>
             
-            <tag> Mac </tag>
-            
             <tag> Linux </tag>
+            
+            <tag> Mac </tag>
             
         </tags>
         
@@ -2960,7 +2960,7 @@
     
     <entry>
       <title><![CDATA[运维资料整理]]></title>
-      <url>/posts/96a7dc5b.html</url>
+      <url>/posts/devops-article-collection.html</url>
       <content type="html"><![CDATA[<script src="/assets/js/APlayer.min.js"> </script><p>收集整理一些有关运维相关的操作指南</p><a id="more"></a><h1><span id="centos">CentOS</span></h1><ul><li><a href="https://www.digitalocean.com/community/tutorials/how-to-set-up-a-firewall-using-firewalld-on-centos-7" target="_blank" rel="external">防火墙配置</a></li><li><a href="https://www.cyberciti.biz/faq/unix-linux-check-if-port-is-in-use-command/" target="_blank" rel="external">端口运行检查</a></li></ul><h1><span id="nginx">Nginx</span></h1><ul><li><a href="https://www.digitalocean.com/community/tutorials/how-to-install-nginx-on-centos-7" target="_blank" rel="external">Nginx安装</a></li><li><a href="https://www.digitalocean.com/community/tutorials/how-to-secure-nginx-with-let-s-encrypt-on-centos-7" target="_blank" rel="external">Let’s Encrypt 安装</a></li><li><a href="https://www.cyberciti.biz/tips/linux-unix-bsd-nginx-webserver-security.html" target="_blank" rel="external">Nginx安全设置</a></li><li><a href="https://github.com/denji/nginx-tuning" target="_blank" rel="external">Nginx性能优化</a></li></ul><h1><span id="git常用命令">Git常用命令</span></h1><ul><li><a href="http://www.ruanyifeng.com/blog/2015/12/git-cheat-sheet.html" target="_blank" rel="external">http://www.ruanyifeng.com/blog/2015/12/git-cheat-sheet.html</a></li></ul>]]></content>
       
         <categories>
@@ -2972,13 +2972,7 @@
         
         <tags>
             
-            <tag> Nginx </tag>
-            
-            <tag> Https </tag>
-            
-            <tag> Let’s Encrypt </tag>
-            
-            <tag> CentOs </tag>
+            <tag> DevOps </tag>
             
         </tags>
         

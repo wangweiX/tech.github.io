@@ -42,8 +42,8 @@ https://wangwei.one/posts/java-nio-selector.html
 https://wangwei.one/posts/java-nio-buffer.html
 https://wangwei.one/posts/dev-env-config-list-guide.html
 https://wangwei.one/posts/java-nio-channel.html
-https://wangwei.one/posts/e07d35dc.html
-https://wangwei.one/posts/96a7dc5b.html
+https://wangwei.one/posts/list-of-common-linux-and-mac-commands.html
+https://wangwei.one/posts/devops-article-collection.html
 https://wangwei.one/posts/good-tool-list-for-mac.html
 https://wangwei.one/posts/kindle-eBook-to-epub.html
 https://wangwei.one/posts/dockerized-your-java-application.html

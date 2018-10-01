@@ -2,6 +2,20 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://wangwei.one/posts/devops-article-collection.html</loc>
+    
+    <lastmod>2018-10-01T02:43:26.159Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://wangwei.one/posts/list-of-common-linux-and-mac-commands.html</loc>
+    
+    <lastmod>2018-10-01T02:40:26.904Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://wangwei.one/posts/blockchain-eos-connect-public-network.html</loc>
     
     <lastmod>2018-10-01T02:36:28.611Z</lastmod>
@@ -387,23 +401,9 @@
   </url>
   
   <url>
-    <loc>https://wangwei.one/posts/e07d35dc.html</loc>
-    
-    <lastmod>2018-09-11T04:12:17.779Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>https://wangwei.one/about/index.html</loc>
     
     <lastmod>2018-08-18T10:21:41.489Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://wangwei.one/posts/96a7dc5b.html</loc>
-    
-    <lastmod>2018-08-08T02:50:38.391Z</lastmod>
     
   </url>
   

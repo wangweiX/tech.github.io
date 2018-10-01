@@ -4,6 +4,48 @@
 
     
   <url>
+    <loc>https://wangwei.one/posts/devops-article-collection.html</loc>
+    <lastmod>2018-10-01T02:43:26.159Z</lastmod>
+    <data>
+        <display>
+        <title>运维资料整理</title>
+        <pubTime>2015-06-05T13:23:00.000Z</pubTime>
+        
+        <tag>DevOps</tag>
+         
+         
+           
+             
+              <breadCrumb title="tools" url="https://wangwei.one/categories/tools/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://wangwei.one/posts/list-of-common-linux-and-mac-commands.html</loc>
+    <lastmod>2018-10-01T02:40:26.904Z</lastmod>
+    <data>
+        <display>
+        <title>Linux、Mac命令清单</title>
+        <pubTime>2015-09-17T11:16:20.000Z</pubTime>
+        
+        <tag>Linux</tag>
+         
+        <tag>Mac</tag>
+         
+         
+           
+             
+              <breadCrumb title="tools" url="https://wangwei.one/categories/tools/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>https://wangwei.one/posts/blockchain-eos-connect-public-network.html</loc>
     <lastmod>2018-10-01T02:36:28.611Z</lastmod>
     <data>
@@ -1165,54 +1207,6 @@
     </url>
 
     
-  <url>
-    <loc>https://wangwei.one/posts/e07d35dc.html</loc>
-    <lastmod>2018-09-11T04:12:17.779Z</lastmod>
-    <data>
-        <display>
-        <title>Linux、Mac命令清单</title>
-        <pubTime>2015-09-17T11:16:20.000Z</pubTime>
-        
-        <tag>Mac</tag>
-         
-        <tag>Linux</tag>
-         
-         
-           
-             
-              <breadCrumb title="tools" url="https://wangwei.one/categories/tools/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-    
-  <url>
-    <loc>https://wangwei.one/posts/96a7dc5b.html</loc>
-    <lastmod>2018-08-08T02:50:38.391Z</lastmod>
-    <data>
-        <display>
-        <title>运维资料整理</title>
-        <pubTime>2015-06-05T13:23:00.000Z</pubTime>
-        
-        <tag>Nginx</tag>
-         
-        <tag>Https</tag>
-         
-        <tag>Let’s Encrypt</tag>
-         
-        <tag>CentOs</tag>
-         
-         
-           
-             
-              <breadCrumb title="tools" url="https://wangwei.one/categories/tools/"/>
-          
-        </display>
-    </data>
-    </url>
-
     
     
     
