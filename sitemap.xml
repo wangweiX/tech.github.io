@@ -2,6 +2,34 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://wangwei.one/posts/personal-blog-building-guide-3.html</loc>
+    
+    <lastmod>2018-10-01T01:55:40.408Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://wangwei.one/posts/personal-blog-building-guide-2.html</loc>
+    
+    <lastmod>2018-10-01T01:55:21.692Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://wangwei.one/posts/personal-blog-building-guide.html</loc>
+    
+    <lastmod>2018-10-01T01:55:00.507Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://wangwei.one/posts/personal-blog-building-guide-1.html</loc>
+    
+    <lastmod>2018-10-01T01:53:54.715Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://wangwei.one/posts/java-io-vs-nio.html</loc>
     
     <lastmod>2018-10-01T01:49:30.662Z</lastmod>
@@ -306,34 +334,6 @@
     <loc>https://wangwei.one/posts/4c3b6bcb.html</loc>
     
     <lastmod>2018-09-07T04:01:13.126Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://wangwei.one/posts/b7749504.html</loc>
-    
-    <lastmod>2018-08-31T07:31:13.500Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://wangwei.one/posts/c5e43a28.html</loc>
-    
-    <lastmod>2018-08-31T07:30:39.712Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://wangwei.one/posts/b8ec75a2.html</loc>
-    
-    <lastmod>2018-08-31T07:30:34.711Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://wangwei.one/posts/f5f2d6f0.html</loc>
-    
-    <lastmod>2018-08-31T07:30:31.120Z</lastmod>
     
   </url>
   

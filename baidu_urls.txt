@@ -51,7 +51,7 @@ https://wangwei.one/posts/docker-common-commands.html
 https://wangwei.one/posts/d1e0a844.html
 https://wangwei.one/posts/cdd4b01b.html
 https://wangwei.one/posts/e7455888.html
-https://wangwei.one/posts/b7749504.html
-https://wangwei.one/posts/b8ec75a2.html
-https://wangwei.one/posts/f5f2d6f0.html
-https://wangwei.one/posts/c5e43a28.html
+https://wangwei.one/posts/personal-blog-building-guide.html
+https://wangwei.one/posts/personal-blog-building-guide-3.html
+https://wangwei.one/posts/personal-blog-building-guide-2.html
+https://wangwei.one/posts/personal-blog-building-guide-1.html
