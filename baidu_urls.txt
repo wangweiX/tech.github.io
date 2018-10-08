@@ -16,7 +16,6 @@ https://wangwei.one/posts/learning-c-plus.html
 https://wangwei.one/posts/blockchain-eos-build.html
 https://wangwei.one/posts/why-we-need-writing.html
 https://wangwei.one/posts/good-tool-list.html
-https://wangwei.one/posts/9f1629fe.html
 https://wangwei.one/posts/java-8-new-feature-base-intro.html
 https://wangwei.one/posts/jvm-gc-concurrent-mark-sweep-cms.html
 https://wangwei.one/posts/jvm-gc-serial-and-parallel.html

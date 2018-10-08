@@ -2,30 +2,37 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>https://wangwei.one/posts/9f1629fe.html</loc>
-    
-    <lastmod>2018-10-03T06:15:22.076Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://wangwei.one/posts/netty-channel-intro.html</loc>
-    
-    <lastmod>2018-10-03T05:59:45.456Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>https://wangwei.one/posts/netty-core-assembly-intro.html</loc>
     
-    <lastmod>2018-10-03T05:58:59.910Z</lastmod>
+    <lastmod>2018-10-08T06:22:04.133Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://wangwei.one/posts/java-8-new-feature-base-intro.html</loc>
+    
+    <lastmod>2018-10-08T06:13:20.441Z</lastmod>
     
   </url>
   
   <url>
     <loc>https://wangwei.one/posts/netty-base-theory-intro.html</loc>
     
-    <lastmod>2018-10-03T01:43:39.243Z</lastmod>
+    <lastmod>2018-10-08T06:12:14.028Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://wangwei.one/posts/java-11-base-tutorial.html</loc>
+    
+    <lastmod>2018-10-08T02:12:41.688Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://wangwei.one/posts/netty-channel-intro.html</loc>
+    
+    <lastmod>2018-10-08T00:40:37.169Z</lastmod>
     
   </url>
   
@@ -89,13 +96,6 @@
     <loc>https://wangwei.one/posts/kindle-eBook-to-epub.html</loc>
     
     <lastmod>2018-10-01T02:31:14.797Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://wangwei.one/posts/java-11-base-tutorial.html</loc>
-    
-    <lastmod>2018-10-01T02:31:12.621Z</lastmod>
     
   </url>
   
@@ -376,13 +376,6 @@
     <loc>https://wangwei.one/posts/build-blockchain-in-java-base-prototype.html</loc>
     
     <lastmod>2018-09-30T15:14:03.638Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://wangwei.one/posts/java-8-new-feature-base-intro.html</loc>
-    
-    <lastmod>2018-09-30T14:34:57.124Z</lastmod>
     
   </url>
   

@@ -1197,27 +1197,7 @@
     </entry>
     
     <entry>
-      <title><![CDATA[Java Thread Pool介绍]]></title>
-      <url>/posts/9f1629fe.html</url>
-      <content type="html"><![CDATA[<script src="/assets/js/APlayer.min.js"> </script><h2><span id="参考资料">参考资料</span></h2><ul><li><a href="https://winterbe.com/posts/2015/04/07/java8-concurrency-tutorial-thread-executor-examples/" target="_blank" rel="external">https://winterbe.com/posts/2015/04/07/java8-concurrency-tutorial-thread-executor-examples/</a></li><li><a href="https://www.baeldung.com/thread-pool-java-and-guava" target="_blank" rel="external">https://www.baeldung.com/thread-pool-java-and-guava</a></li></ul>]]></content>
-      
-        <categories>
-            
-            <category> coding </category>
-            
-        </categories>
-        
-        
-        <tags>
-            
-            <tag> JUC </tag>
-            
-        </tags>
-        
-    </entry>
-    
-    <entry>
-      <title><![CDATA[Java8 | 新特性纵览]]></title>
+      <title><![CDATA[Java8新特性介绍]]></title>
       <url>/posts/java-8-new-feature-base-intro.html</url>
       <content type="html"><![CDATA[<script src="/assets/js/APlayer.min.js"> </script><p>Java 8 于 2014年3月份发布，新版本增添很多不错的特性，本篇文章我们一起纵览一下这些新特性，后面的文章我们将会一一详细讨论。</p><a id="more"></a><h2><span id="java8介绍">Java8介绍</span></h2><p>促使Java做出重大改变的动力主要来源于：</p><ul><li>代码可读性</li><li>多核运行</li></ul><h3><span id="代码可读性">代码可读性</span></h3><p>Java代码非常的啰嗦冗长，导致了代码可读性的下降，换句话说，需要很多额外的代码来解释一段很小的内容。例如，现在有个需求，要按照发票金额的数量倒序排序发票列表。在Java 8之前，你可能需要这么处理：</p><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Collections.sort(invoices, <span class="keyword">new</span> Comparator&lt;Invoice&gt;() &#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">compare</span><span class="params">(Invoice inv1, Invoice inv2)</span> </span>&#123;</span><br><span class="line">    	<span class="keyword">return</span> Double.compare(inv2.getAmount(), inv1.getAmount());</span><br><span class="line">   &#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
 <p>而在Java8中，你只需要这样即可：</p>
