@@ -2,9 +2,30 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://wangwei.one/posts/netty-channel-create-init-register-bind-process-analyse.html</loc>
+    
+    <lastmod>2018-10-11T16:19:03.423Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://wangwei.one/posts/netty-channel-intro.html</loc>
+    
+    <lastmod>2018-10-11T13:44:29.344Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://wangwei.one/posts/netty-core-assembly-intro.html</loc>
     
-    <lastmod>2018-10-08T06:22:04.133Z</lastmod>
+    <lastmod>2018-10-10T06:13:38.651Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://wangwei.one/posts/netty-base-theory-intro.html</loc>
+    
+    <lastmod>2018-10-08T06:37:37.190Z</lastmod>
     
   </url>
   
@@ -16,23 +37,9 @@
   </url>
   
   <url>
-    <loc>https://wangwei.one/posts/netty-base-theory-intro.html</loc>
-    
-    <lastmod>2018-10-08T06:12:14.028Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>https://wangwei.one/posts/java-11-base-tutorial.html</loc>
     
     <lastmod>2018-10-08T02:12:41.688Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://wangwei.one/posts/netty-channel-intro.html</loc>
-    
-    <lastmod>2018-10-08T00:40:37.169Z</lastmod>
     
   </url>
   

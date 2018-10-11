@@ -24,6 +24,7 @@ https://wangwei.one/posts/jvm-gc-base-concept.html
 https://wangwei.one/posts/java8-jvm-metaSpace.html
 https://wangwei.one/posts/java7-jvm-memory-model.html
 https://wangwei.one/posts/good-chrome-extensions-list.html
+https://wangwei.one/posts/netty-channel-create-init-register-bind-process-analyse.html
 https://wangwei.one/posts/netty-channel-intro.html
 https://wangwei.one/posts/netty-core-assembly-intro.html
 https://wangwei.one/posts/netty-base-theory-intro.html
