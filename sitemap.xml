@@ -2,23 +2,44 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>https://wangwei.one/posts/netty-channel-create-init-register-bind-process-analyse.html</loc>
+    <loc>https://wangwei.one/posts/netty-nioeventloop-.html</loc>
     
-    <lastmod>2018-10-11T16:19:03.423Z</lastmod>
+    <lastmod>2018-10-16T11:47:53.979Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://wangwei.one/posts/netty-channel-intro.html</loc>
+    <loc>https://wangwei.one/posts/netty-channel-create-init-register-bind-process-analyse.html</loc>
     
-    <lastmod>2018-10-11T13:44:29.344Z</lastmod>
+    <lastmod>2018-10-16T09:19:35.832Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://wangwei.one/posts/java-io-vs-nio.html</loc>
+    
+    <lastmod>2018-10-16T08:41:00.441Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://wangwei.one/posts/personal-blog-building-guide-1.html</loc>
+    
+    <lastmod>2018-10-16T08:25:40.695Z</lastmod>
     
   </url>
   
   <url>
     <loc>https://wangwei.one/posts/netty-core-assembly-intro.html</loc>
     
-    <lastmod>2018-10-10T06:13:38.651Z</lastmod>
+    <lastmod>2018-10-16T08:23:22.368Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://wangwei.one/posts/netty-channel-intro.html</loc>
+    
+    <lastmod>2018-10-16T08:00:33.758Z</lastmod>
     
   </url>
   
@@ -222,20 +243,6 @@
     <loc>https://wangwei.one/posts/personal-blog-building-guide.html</loc>
     
     <lastmod>2018-10-01T01:55:00.507Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://wangwei.one/posts/personal-blog-building-guide-1.html</loc>
-    
-    <lastmod>2018-10-01T01:53:54.715Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://wangwei.one/posts/java-io-vs-nio.html</loc>
-    
-    <lastmod>2018-10-01T01:49:30.662Z</lastmod>
     
   </url>
   
