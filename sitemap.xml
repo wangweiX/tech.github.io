@@ -2,9 +2,16 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://wangwei.one/about/index.html</loc>
+    
+    <lastmod>2018-10-17T01:58:26.603Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://wangwei.one/posts/netty-nioeventloop-.html</loc>
     
-    <lastmod>2018-10-16T11:47:53.979Z</lastmod>
+    <lastmod>2018-10-17T01:28:21.795Z</lastmod>
     
   </url>
   
@@ -404,13 +411,6 @@
     <loc>https://wangwei.one/posts/5-unix-io-model-intro.html</loc>
     
     <lastmod>2018-09-30T14:34:34.659Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://wangwei.one/about/index.html</loc>
-    
-    <lastmod>2018-08-18T10:21:41.489Z</lastmod>
     
   </url>
   
