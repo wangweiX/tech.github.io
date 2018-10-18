@@ -46,7 +46,6 @@ https://wangwei.one/posts/list-of-common-linux-and-mac-commands.html
 https://wangwei.one/posts/devops-article-collection.html
 https://wangwei.one/posts/good-tool-list-for-mac.html
 https://wangwei.one/posts/kindle-eBook-to-epub.html
-https://wangwei.one/posts/why-we-need-writing.html
 https://wangwei.one/posts/dockerized-your-java-application.html
 https://wangwei.one/posts/docker-common-commands.html
 https://wangwei.one/posts/java-data-structures-and-algorithms-stack.html
@@ -56,3 +55,4 @@ https://wangwei.one/posts/personal-blog-building-guide.html
 https://wangwei.one/posts/personal-blog-building-guide-3.html
 https://wangwei.one/posts/personal-blog-building-guide-2.html
 https://wangwei.one/posts/personal-blog-building-guide-1.html
+https://wangwei.one/posts/why-we-need-writing.html

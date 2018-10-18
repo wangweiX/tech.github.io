@@ -5,11 +5,11 @@
     
   <url>
     <loc>https://wangwei.one/posts/why-we-need-writing.html</loc>
-    <lastmod>2018-10-18T08:45:03.820Z</lastmod>
+    <lastmod>2018-10-18T08:50:45.921Z</lastmod>
     <data>
         <display>
         <title>关于写作</title>
-        <pubTime>2015-03-15T14:51:09.000Z</pubTime>
+        <pubTime>2015-01-01T14:51:09.000Z</pubTime>
         
         <tag>写作</tag>
          
@@ -25,7 +25,7 @@
     
   <url>
     <loc>https://wangwei.one/posts/netty-channel-create-init-register-bind-process-analyse.html</loc>
-    <lastmod>2018-10-18T08:39:59.233Z</lastmod>
+    <lastmod>2018-10-18T08:49:05.573Z</lastmod>
     <data>
         <display>
         <title>Netty Channel源码分析</title>
@@ -45,7 +45,7 @@
     
   <url>
     <loc>https://wangwei.one/posts/netty-nioeventloop-analyse-for-create.html</loc>
-    <lastmod>2018-10-18T08:38:59.501Z</lastmod>
+    <lastmod>2018-10-18T08:47:10.829Z</lastmod>
     <data>
         <display>
         <title>Netty NioEventLoop 创建过程源码分析</title>
