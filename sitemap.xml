@@ -2,23 +2,37 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>https://wangwei.one/posts/netty-nioeventloop-analyse.html</loc>
+    <loc>https://wangwei.one/posts/netty-channel-create-init-register-bind-process-analyse.html</loc>
     
-    <lastmod>2018-10-18T03:58:49.430Z</lastmod>
+    <lastmod>2018-10-18T08:39:59.233Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://wangwei.one/posts/netty-base-theory-intro.html</loc>
+    <loc>https://wangwei.one/posts/netty-nioeventloop-analyse-for-create.html</loc>
     
-    <lastmod>2018-10-18T01:46:10.236Z</lastmod>
+    <lastmod>2018-10-18T08:38:59.501Z</lastmod>
     
   </url>
   
   <url>
     <loc>https://wangwei.one/posts/netty-core-assembly-intro.html</loc>
     
-    <lastmod>2018-10-17T07:00:04.693Z</lastmod>
+    <lastmod>2018-10-18T08:38:25.556Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://wangwei.one/posts/netty-channel-intro.html</loc>
+    
+    <lastmod>2018-10-18T08:36:19.991Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://wangwei.one/posts/netty-base-theory-intro.html</loc>
+    
+    <lastmod>2018-10-18T08:36:02.122Z</lastmod>
     
   </url>
   
@@ -26,13 +40,6 @@
     <loc>https://wangwei.one/about/index.html</loc>
     
     <lastmod>2018-10-17T01:58:26.603Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://wangwei.one/posts/netty-channel-create-init-register-bind-process-analyse.html</loc>
-    
-    <lastmod>2018-10-16T09:19:35.832Z</lastmod>
     
   </url>
   
@@ -47,13 +54,6 @@
     <loc>https://wangwei.one/posts/personal-blog-building-guide-1.html</loc>
     
     <lastmod>2018-10-16T08:25:40.695Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://wangwei.one/posts/netty-channel-intro.html</loc>
-    
-    <lastmod>2018-10-16T08:00:33.758Z</lastmod>
     
   </url>
   
