@@ -2,9 +2,16 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>https://wangwei.one/posts/netty-nioeventloop-.html</loc>
+    <loc>https://wangwei.one/posts/netty-nioeventloop-analyse.html</loc>
     
-    <lastmod>2018-10-17T09:34:50.449Z</lastmod>
+    <lastmod>2018-10-18T03:58:49.430Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://wangwei.one/posts/netty-base-theory-intro.html</loc>
+    
+    <lastmod>2018-10-18T01:46:10.236Z</lastmod>
     
   </url>
   
@@ -47,13 +54,6 @@
     <loc>https://wangwei.one/posts/netty-channel-intro.html</loc>
     
     <lastmod>2018-10-16T08:00:33.758Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://wangwei.one/posts/netty-base-theory-intro.html</loc>
-    
-    <lastmod>2018-10-08T06:37:37.190Z</lastmod>
     
   </url>
   
