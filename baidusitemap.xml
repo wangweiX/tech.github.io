@@ -4,6 +4,26 @@
 
     
   <url>
+    <loc>https://wangwei.one/posts/why-we-need-writing.html</loc>
+    <lastmod>2018-10-18T08:45:03.820Z</lastmod>
+    <data>
+        <display>
+        <title>关于写作</title>
+        <pubTime>2015-03-15T14:51:09.000Z</pubTime>
+        
+        <tag>写作</tag>
+         
+         
+           
+             
+              <breadCrumb title="writing" url="https://wangwei.one/categories/writing/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>https://wangwei.one/posts/netty-channel-create-init-register-bind-process-analyse.html</loc>
     <lastmod>2018-10-18T08:39:59.233Z</lastmod>
     <data>
@@ -372,26 +392,6 @@
            
              
               <breadCrumb title="tools" url="https://wangwei.one/categories/tools/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://wangwei.one/posts/why-we-need-writing.html</loc>
-    <lastmod>2018-10-01T02:29:51.834Z</lastmod>
-    <data>
-        <display>
-        <title>关于写作</title>
-        <pubTime>2017-03-15T14:51:09.000Z</pubTime>
-        
-        <tag>写作</tag>
-         
-         
-           
-             
-              <breadCrumb title="writing" url="https://wangwei.one/categories/writing/"/>
           
         </display>
     </data>

@@ -19,7 +19,6 @@ https://wangwei.one/posts/netty-channel-create-init-register-bind-process-analys
 https://wangwei.one/posts/netty-channel-intro.html
 https://wangwei.one/posts/netty-core-assembly-intro.html
 https://wangwei.one/posts/netty-base-theory-intro.html
-https://wangwei.one/posts/why-we-need-writing.html
 https://wangwei.one/posts/good-tool-list.html
 https://wangwei.one/posts/java-8-new-feature-base-intro.html
 https://wangwei.one/posts/jvm-gc-concurrent-mark-sweep-cms.html
@@ -47,6 +46,7 @@ https://wangwei.one/posts/list-of-common-linux-and-mac-commands.html
 https://wangwei.one/posts/devops-article-collection.html
 https://wangwei.one/posts/good-tool-list-for-mac.html
 https://wangwei.one/posts/kindle-eBook-to-epub.html
+https://wangwei.one/posts/why-we-need-writing.html
 https://wangwei.one/posts/dockerized-your-java-application.html
 https://wangwei.one/posts/docker-common-commands.html
 https://wangwei.one/posts/java-data-structures-and-algorithms-stack.html
