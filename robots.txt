@@ -3,6 +3,9 @@ Allow: /
 Allow: /archives/
 Allow: /categories/
 Allow: /tags/
+Allow: /books/
+Allow: /movies/
+Allow: /about/
 
 Disallow: /vendors/
 Disallow: /js/
@@ -11,5 +14,5 @@ Disallow: /fonts/
 Disallow: /vendors/
 Disallow: /fancybox/
 
-Sitemap: https://tech.i7years.com/sitemap.xml
-Sitemap: https://tech.i7years.com/baidusitemap.xml
+Sitemap: https://wangwei.one/sitemap.xml
+Sitemap: https://wangwei.one/baidusitemap.xml
