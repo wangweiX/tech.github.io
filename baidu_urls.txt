@@ -16,7 +16,7 @@ https://wangwei.one/posts/learning-c-plus.html
 https://wangwei.one/posts/blockchain-eos-build.html
 https://wangwei.one/posts/netty-nioeventloop-analyse-for-startup.html
 https://wangwei.one/posts/netty-nioeventloop-analyse-for-create.html
-https://wangwei.one/posts/netty-channel-create-init-register-bind-process-analyse.html
+https://wangwei.one/posts/netty-channel-source-analyse.html
 https://wangwei.one/posts/netty-channel-intro.html
 https://wangwei.one/posts/netty-core-assembly-intro.html
 https://wangwei.one/posts/netty-base-theory-intro.html
