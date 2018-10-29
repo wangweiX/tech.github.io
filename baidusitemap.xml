@@ -5,10 +5,10 @@
     
   <url>
     <loc>https://wangwei.one/posts/netty-pipeline-source-analyse-1.html</loc>
-    <lastmod>2018-10-29T09:08:11.406Z</lastmod>
+    <lastmod>2018-10-29T09:16:37.230Z</lastmod>
     <data>
         <display>
-        <title>Netty Pipeline源码分析</title>
+        <title>Netty Pipeline源码分析(1)</title>
         <pubTime>2017-05-14T06:32:00.000Z</pubTime>
         
         <tag>Netty</tag>
