@@ -2,9 +2,16 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://wangwei.one/posts/netty-pipeline-source-analyse-2.html</loc>
+    
+    <lastmod>2018-10-30T16:19:43.236Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://wangwei.one/posts/netty-pipeline-source-analyse-1.html</loc>
     
-    <lastmod>2018-10-30T08:51:10.270Z</lastmod>
+    <lastmod>2018-10-30T14:16:56.476Z</lastmod>
     
   </url>
   
