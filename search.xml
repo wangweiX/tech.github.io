@@ -1203,6 +1203,7 @@
 <h2><span id="小结">小结</span></h2><ul>
 <li>Netty是在哪里检测有新连接接入的？</li>
 <li>新连接是怎样注册到NioEventLoop线程上的？</li>
+<li>NioSocketChannel是怎样初始化及注册的？</li>
 </ul>
 <h2><span id="参考资料">参考资料</span></h2><ul>
 <li><a href="https://coding.imooc.com/class/230.html" target="_blank" rel="external">Java读源码之Netty深入剖析</a></li></ul>]]></content>
@@ -1378,10 +1379,8 @@
 <p>好了， 删除的逻辑就分析到这里了。</p>
 <h2><span id="小结">小结</span></h2><p>这一讲我们分析了Pipeline的创建过程，了解Pipeline中的链表结构以及每个节点的数据结构。还分析了Pipeline是如何添加节点的，又是如何删除节点的。<a href="https://wangwei.one/posts/netty-pipeline-source-analyse-2.html">接下来</a> ，我们会分析Pipeline如何进行事件传播的。</p>
 <h2><span id="参考资料">参考资料</span></h2><ul>
-<li><p><a href="https://coding.imooc.com/class/230.html" target="_blank" rel="external">Java读源码之Netty深入剖析</a></p>
-</li>
-<li><p><a href="https://github.com/wangweiX/myBooks/blob/master/computer/netty/Netty%20in%20Action.epub" target="_blank" rel="external">《Netty in action》</a></p>
-</li>
+<li><a href="https://coding.imooc.com/class/230.html" target="_blank" rel="external">Java读源码之Netty深入剖析</a></li>
+<li><a href="https://github.com/wangweiX/myBooks/blob/master/computer/netty/Netty%20in%20Action.epub" target="_blank" rel="external">《Netty in action》</a></li>
 <li><a href="https://www.jianshu.com/p/6efa9c5fa702" target="_blank" rel="external">https://www.jianshu.com/p/6efa9c5fa702</a></li></ul>]]></content>
       
         <categories>
@@ -1449,9 +1448,8 @@
 <li>netty是如何保证串行无锁化的？</li>
 </ul>
 <h2><span id="参考资料">参考资料</span></h2><ul>
-<li><p><a href="https://coding.imooc.com/class/230.html" target="_blank" rel="external">Java读源码之Netty深入剖析</a></p>
-</li>
-<li><p><a href="https://github.com/wangweiX/myBooks/blob/master/computer/netty/Netty%20in%20Action.epub" target="_blank" rel="external">《Netty in action》</a></p></li></ul>]]></content>
+<li><a href="https://coding.imooc.com/class/230.html" target="_blank" rel="external">Java读源码之Netty深入剖析</a></li>
+<li><a href="https://github.com/wangweiX/myBooks/blob/master/computer/netty/Netty%20in%20Action.epub" target="_blank" rel="external">《Netty in action》</a></li></ul>]]></content>
       
         <categories>
             
@@ -1551,9 +1549,8 @@
 <li>创建任务选择器 EventExecutorChooser</li>
 </ul>
 <h2><span id="参考资料">参考资料</span></h2><ul>
-<li><p><a href="https://coding.imooc.com/class/230.html" target="_blank" rel="external">Java读源码之Netty深入剖析</a></p>
-</li>
-<li><p><a href="https://github.com/wangweiX/myBooks/blob/master/computer/netty/Netty%20in%20Action.epub" target="_blank" rel="external">《Netty in action》</a></p></li></ul>]]></content>
+<li><a href="https://coding.imooc.com/class/230.html" target="_blank" rel="external">Java读源码之Netty深入剖析</a></li>
+<li><a href="https://github.com/wangweiX/myBooks/blob/master/computer/netty/Netty%20in%20Action.epub" target="_blank" rel="external">《Netty in action》</a></li></ul>]]></content>
       
         <categories>
             
@@ -1661,13 +1658,10 @@
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 注册一个OP_ACCEPT</span></span><br><span class="line"><span class="meta">@Override</span></span><br><span class="line"><span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">doBeginRead</span><span class="params">()</span> <span class="keyword">throws</span> Exception </span>&#123;</span><br><span class="line">    <span class="comment">// Channel.read() or ChannelHandlerContext.read() was called</span></span><br><span class="line">    <span class="comment">// 获取channel注册是的设置的 selectionKey</span></span><br><span class="line">    <span class="keyword">final</span> SelectionKey selectionKey = <span class="keyword">this</span>.selectionKey;</span><br><span class="line">    <span class="comment">// selectionKey无效则返回</span></span><br><span class="line">    <span class="keyword">if</span> (!selectionKey.isValid()) &#123;</span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">    &#125;</span><br><span class="line">	</span><br><span class="line">    readPending = <span class="keyword">true</span>;</span><br><span class="line">	<span class="comment">// 前面讲到channel在注册的时候，这是 interestOps 设置的是 0</span></span><br><span class="line">    <span class="keyword">final</span> <span class="keyword">int</span> interestOps = selectionKey.interestOps();</span><br><span class="line">    <span class="comment">// readInterestOp 在前面讲到channel创建的时候，设置值为 SelectionKey.OP_ACCEPT</span></span><br><span class="line">    <span class="keyword">if</span> ((interestOps &amp; readInterestOp) == <span class="number">0</span>) &#123;</span><br><span class="line">        <span class="comment">// 最终 selectionKey 的兴趣集就会设置为 SelectionKey.OP_ACCEPT</span></span><br><span class="line">        <span class="comment">// 表示随时可以接收新连接的接入</span></span><br><span class="line">        selectionKey.interestOps(interestOps | readInterestOp);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h2><span id="总结">总结</span></h2><p>至此，我们就分析完了Channel的创建、初始化、注册、绑定的流程。其中涉及到的EventLoopGroup和Pipeline事件传播机制的知识点，我们放到后面的文章中去讲解。</p>
 <h2><span id="参考资料">参考资料</span></h2><ul>
-<li><p><a href="https://coding.imooc.com/class/230.html" target="_blank" rel="external">Java读源码之Netty深入剖析</a></p>
-</li>
-<li><p><a href="https://www.kancloud.cn/ssj234/netty-source/433213" target="_blank" rel="external">https://www.kancloud.cn/ssj234/netty-source/433213</a></p>
-</li>
-<li><p><a href="https://segmentfault.com/a/1190000007282789" target="_blank" rel="external">https://segmentfault.com/a/1190000007282789</a></p>
-</li>
-<li><p><a href="https://segmentfault.com/a/1190000007283053" target="_blank" rel="external">https://segmentfault.com/a/1190000007283053</a></p></li></ul>]]></content>
+<li><a href="https://coding.imooc.com/class/230.html" target="_blank" rel="external">Java读源码之Netty深入剖析</a></li>
+<li><a href="https://www.kancloud.cn/ssj234/netty-source/433213" target="_blank" rel="external">https://www.kancloud.cn/ssj234/netty-source/433213</a></li>
+<li><a href="https://segmentfault.com/a/1190000007282789" target="_blank" rel="external">https://segmentfault.com/a/1190000007282789</a></li>
+<li><a href="https://segmentfault.com/a/1190000007283053" target="_blank" rel="external">https://segmentfault.com/a/1190000007283053</a></li></ul>]]></content>
       
         <categories>
             
