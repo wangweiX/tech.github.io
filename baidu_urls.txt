@@ -20,7 +20,6 @@ https://wangwei.one/posts/netty-pipeline-source-analyse-1.html
 https://wangwei.one/posts/netty-nioeventloop-analyse-for-startup.html
 https://wangwei.one/posts/netty-nioeventloop-analyse-for-create.html
 https://wangwei.one/posts/netty-channel-source-analyse.html
-https://wangwei.one/posts/netty-channel-intro.html
 https://wangwei.one/posts/netty-core-assembly-intro.html
 https://wangwei.one/posts/netty-base-theory-intro.html
 https://wangwei.one/posts/good-tool-list.html
