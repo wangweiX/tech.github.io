@@ -14,7 +14,7 @@ https://wangwei.one/posts/blockchain-eos-glossary.html
 https://wangwei.one/posts/blockchain-token-summit-2017.html
 https://wangwei.one/posts/learning-c-plus.html
 https://wangwei.one/posts/blockchain-eos-build.html
-https://wangwei.one/posts/netty-new-connection-and-nioSocketChannel-analyse.html
+https://wangwei.one/posts/netty-new-connection-and-niosocketchannel-analyse.html
 https://wangwei.one/posts/netty-pipeline-source-analyse-2.html
 https://wangwei.one/posts/netty-pipeline-source-analyse-1.html
 https://wangwei.one/posts/netty-nioeventloop-analyse-for-startup.html

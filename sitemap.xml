@@ -2,9 +2,23 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>https://wangwei.one/posts/netty-new-connection-and-nioSocketChannel-analyse.html</loc>
+    <loc>https://wangwei.one/posts/netty-pipeline-source-analyse-1.html</loc>
     
-    <lastmod>2018-10-31T16:49:58.690Z</lastmod>
+    <lastmod>2018-11-01T00:33:39.702Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://wangwei.one/posts/netty-channel-source-analyse.html</loc>
+    
+    <lastmod>2018-11-01T00:31:02.246Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://wangwei.one/posts/netty-new-connection-and-niosocketchannel-analyse.html</loc>
+    
+    <lastmod>2018-11-01T00:30:40.989Z</lastmod>
     
   </url>
   
@@ -16,23 +30,9 @@
   </url>
   
   <url>
-    <loc>https://wangwei.one/posts/netty-channel-source-analyse.html</loc>
-    
-    <lastmod>2018-10-31T16:20:56.119Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>https://wangwei.one/posts/netty-nioeventloop-analyse-for-startup.html</loc>
     
     <lastmod>2018-10-31T09:04:39.844Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://wangwei.one/posts/netty-pipeline-source-analyse-1.html</loc>
-    
-    <lastmod>2018-10-31T08:29:26.670Z</lastmod>
     
   </url>
   
