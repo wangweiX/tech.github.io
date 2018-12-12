@@ -1,3 +1,4 @@
+https://wangwei.one/posts/web3-design-principles.html
 https://wangwei.one/posts/java-11-base-tutorial.html
 https://wangwei.one/posts/build-blockchain-in-java-transaction-script.html
 https://wangwei.one/posts/build-blockchain-in-java-transaction-merkle-tree.html
