@@ -2,9 +2,9 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>https://wangwei.one/posts/web3-design-principles.html</loc>
+    <loc>https://wangwei.one/principle/index.html</loc>
     
-    <lastmod>2018-12-12T09:09:51.070Z</lastmod>
+    <lastmod>2018-12-12T14:22:41.978Z</lastmod>
     
   </url>
   
@@ -19,13 +19,6 @@
     <loc>https://wangwei.one/posts/java-nio-buffer.html</loc>
     
     <lastmod>2018-12-11T14:08:42.378Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://wangwei.one/principle/index.html</loc>
-    
-    <lastmod>2018-12-11T07:13:59.337Z</lastmod>
     
   </url>
   
