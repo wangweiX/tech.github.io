@@ -1,3 +1,4 @@
+https://wangwei.one/posts/java-data-structures-and-algorithms-linkedlist.html
 https://wangwei.one/posts/java-data-structures-and-algorithms-arraylist.html
 https://wangwei.one/posts/java-11-base-tutorial.html
 https://wangwei.one/posts/build-blockchain-in-java-transaction-script.html
@@ -46,7 +47,6 @@ https://wangwei.one/posts/java-nio-selector.html
 https://wangwei.one/posts/java-nio-buffer.html
 https://wangwei.one/posts/dev-env-config-list-guide.html
 https://wangwei.one/posts/java-nio-channel.html
-https://wangwei.one/posts/java-data-structures-and-algorithms-linkedlist.html
 https://wangwei.one/posts/list-of-common-linux-and-mac-commands.html
 https://wangwei.one/posts/devops-article-collection.html
 https://wangwei.one/posts/good-tool-list-for-mac.html
