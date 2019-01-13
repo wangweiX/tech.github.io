@@ -1,3 +1,4 @@
+https://wangwei.one/posts/java-data-structures-and-algorithms-stack.html
 https://wangwei.one/posts/java-algoDS-Merge-Two-Sorted-Linked-Lists.html
 https://wangwei.one/posts/java-algoDS-linked-list-cycle.html
 https://wangwei.one/posts/java-algoDS-reverse-linked-list.html
@@ -56,7 +57,6 @@ https://wangwei.one/posts/good-tool-list-for-mac.html
 https://wangwei.one/posts/kindle-eBook-to-epub.html
 https://wangwei.one/posts/dockerized-your-java-application.html
 https://wangwei.one/posts/docker-common-commands.html
-https://wangwei.one/posts/java-data-structures-and-algorithms-stack.html
 https://wangwei.one/posts/personal-blog-building-guide.html
 https://wangwei.one/posts/personal-blog-building-guide-3.html
 https://wangwei.one/posts/personal-blog-building-guide-2.html
