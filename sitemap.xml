@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://wangwei.one/posts/java-algoDS-Remove-Nth-Node-From-End-of-List.html</loc>
+    
+    <lastmod>2019-01-23T15:54:52.703Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://wangwei.one/posts/build-your-own-vpn-by-shadowsocks-or-rixcloud.html</loc>
     
     <lastmod>2019-01-23T15:18:10.717Z</lastmod>
@@ -12,13 +19,6 @@
     <loc>https://wangwei.one/posts/java-algoDS-Merge-Two-Sorted-Linked-Lists.html</loc>
     
     <lastmod>2019-01-23T15:14:57.243Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://wangwei.one/posts/java-algoDS-Remove-Nth-Node-From-End-of-List.html</loc>
-    
-    <lastmod>2019-01-23T15:14:50.481Z</lastmod>
     
   </url>
   
