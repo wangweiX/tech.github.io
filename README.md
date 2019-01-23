@@ -36,7 +36,7 @@ I Hear and I Forget, I See and I Remember, I Do and I Understand —— Confuciu
 | Project  | Version  | Article                                                      |
 | :------: | :------: | :----------------------------------------------------------- |
 |  AlgoDS  |  AlgoDS  | [数据结构与算法 \| 线性表 —— 顺序表](https://wangwei.one/posts/java-data-structures-and-algorithms-arraylist.html)<br />[数据结构与算法 \| 线性表 —— 链表](https://wangwei.one/posts/java-data-structures-and-algorithms-linkedlist.html)<br />[数据结构与算法 \| 栈的实现及其应用](https://wangwei.one/posts/java-data-structures-and-algorithms-stack.html)<br /> |
-| 算法练习 | LeetCode | [Leetcode 206. Reverse Linked List](https://wangwei.one/posts/java-algoDS-reverse-linked-list.html)<br />[Leetcode 141. Linked List Cycle](https://wangwei.one/posts/java-algoDS-linked-list-cycle.html)<br />[Leetcode 21. Merge Two Sorted Lists](https://wangwei.one/posts/java-algoDS-Merge-Two-Sorted-Linked-Lists.html)<br />[LeetCode 224. Basic Calculator](https://wangwei.one/posts/algoDS-java-leetcode-224-basic-calculator.html)<br /> |
+| 算法练习 | LeetCode | [Leetcode 206. Reverse Linked List](https://wangwei.one/posts/java-algoDS-reverse-linked-list.html)<br />[Leetcode 141. Linked List Cycle](https://wangwei.one/posts/java-algoDS-linked-list-cycle.html)<br />[Leetcode 21. Merge Two Sorted Lists](https://wangwei.one/posts/java-algoDS-Merge-Two-Sorted-Linked-Lists.html)<br />[LeetCode 224. Basic Calculator](https://wangwei.one/posts/algoDS-java-leetcode-224-basic-calculator.html)<br />[Leetcode 19. Remove Nth Node From End of List](https://wangwei.one/posts/java-algoDS-Remove-Nth-Node-From-End-of-List.html)<br /> |
 
 
 
