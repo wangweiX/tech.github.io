@@ -10,14 +10,15 @@
 <img src="https://img.shields.io/badge/language-JavaScript-yellow.svg">
 <a href=""><img src="https://img.shields.io/badge/license-CC-000000.svg"></a>
 <img src="https://img.shields.io/badge/made%20with-=1-blue.svg">
-<a href="https://wangwei.one"><img src="https://img.shields.io/badge/Blog-终生成长-80d4f9.svg?style=flat"></a>
-<a href="https://weibo.com/wangweijava"><img src="https://img.shields.io/badge/weibo-@wangwei_hz-f974ce.svg?style=flat&colorA=f4292e"></a>
-<a href="https://twitter.com/wangwei_hz"><img src="https://img.shields.io/badge/twitter-@wangwei_hz-F8E81C.svg?style=flat&colorA=009df2"></a>
-<a href="https://juejin.im/user/58365a1e880741006c06eba7"><img src="https://img.shields.io/badge/%E6%8E%98%E9%87%91-%40wangwei_hz-fd6f32.svg?style=flat&colorA=1970fe"></a>
-<a href="https://www.jianshu.com/u/a04d5c200045"><img src="https://img.shields.io/badge/%E7%AE%80%E4%B9%A6-@wangwei_hz-green.svg"></a>
-<a href="https://segmentfault.com/u/wangweix"><img src="https://img.shields.io/badge/思否-@wangwei_hz-fa6739.svg?style=flat&colorA=159963"></a>
+<a target="_blank" href="https://wangwei.one"><img src="https://img.shields.io/badge/Blog-终生成长-80d4f9.svg?style=flat"></a>
+<a target="_blank" href="https://weibo.com/wangweijava"><img src="https://img.shields.io/badge/weibo-@wangwei_hz-f974ce.svg?style=flat&colorA=f4292e"></a>
+<a target="_blank" href="https://twitter.com/wangwei_hz"><img src="https://img.shields.io/badge/twitter-@wangwei_hz-F8E81C.svg?style=flat&colorA=009df2"></a>
+<a target="_blank" href="https://juejin.im/user/58365a1e880741006c06eba7"><img src="https://img.shields.io/badge/%E6%8E%98%E9%87%91-%40wangwei_hz-fd6f32.svg?style=flat&colorA=1970fe"></a>
+<a target="_blank" href="https://www.jianshu.com/u/a04d5c200045"><img src="https://img.shields.io/badge/%E7%AE%80%E4%B9%A6-@wangwei_hz-green.svg"></a>
+<a target="_blank" href="https://segmentfault.com/u/wangweix"><img src="https://img.shields.io/badge/思否-@wangwei_hz-fa6739.svg?style=flat&colorA=159963"></a>
 <img src="https://img.shields.io/badge/PR-welcome%20!-brightgreen.svg?colorA=a0cd34">
 </p>
+
 
 
 
@@ -35,7 +36,7 @@ I Hear and I Forget, I See and I Remember, I Do and I Understand —— Confuciu
 
 | Project  | Version  | Article                                                      |
 | :------: | :------: | :----------------------------------------------------------- |
-|  AlgoDS  |  AlgoDS  | [数据结构与算法 \| 线性表 —— 顺序表](https://wangwei.one/posts/java-data-structures-and-algorithms-arraylist.html)<br />[数据结构与算法 \| 线性表 —— 链表](https://wangwei.one/posts/java-data-structures-and-algorithms-linkedlist.html)<br />[数据结构与算法 \| 栈的实现及其应用](https://wangwei.one/posts/java-data-structures-and-algorithms-stack.html)<br /> |
+|  AlgoDS  |  AlgoDS  | [数据结构与算法 \| 线性表 —— 顺序表](https://wangwei.one/posts/java-data-structures-and-algorithms-arraylist.html)<br />[数据结构与算法 \| 线性表 —— 链表](https://wangwei.one/posts/java-data-structures-and-algorithms-linkedlist.html)<br />[数据结构与算法 \| 栈的实现及其应用](https://wangwei.one/posts/java-data-structures-and-algorithms-stack.html)<br />[数据结构与算法 \| 队列的实现及其应用](https://wangwei.one/posts/java-data-structures-and-algorithms-queue.html)<br /> |
 | 算法练习 | LeetCode | [Leetcode 206. Reverse Linked List](https://wangwei.one/posts/java-algoDS-reverse-linked-list.html)<br />[Leetcode 141. Linked List Cycle](https://wangwei.one/posts/java-algoDS-linked-list-cycle.html)<br />[Leetcode 21. Merge Two Sorted Lists](https://wangwei.one/posts/java-algoDS-Merge-Two-Sorted-Linked-Lists.html)<br />[LeetCode 224. Basic Calculator](https://wangwei.one/posts/algoDS-java-leetcode-224-basic-calculator.html)<br />[Leetcode 19. Remove Nth Node From End of List](https://wangwei.one/posts/java-algoDS-Remove-Nth-Node-From-End-of-List.html)<br />[Leetcode 146. LRU Cache](https://wangwei.one/posts/java-algoDS-LRU-implement-by-linkedlist.html)<br /> |
 
 
