@@ -4,8 +4,50 @@
 
     
   <url>
+    <loc>https://wangwei.one/posts/build-your-own-vpn-by-shadowsocks-or-rixcloud.html</loc>
+    <lastmod>2019-04-14T08:43:47.575Z</lastmod>
+    <data>
+        <display>
+        <title>带你看看外面的世界</title>
+        <pubTime>2015-12-08T06:27:10.000Z</pubTime>
+        
+        <tag>free</tag>
+         
+        <tag>vpn</tag>
+         
+         
+           
+             
+              <breadCrumb title="tools" url="https://wangwei.one/categories/tools/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://wangwei.one/posts/How-to-switch-icloud-region.html</loc>
+    <lastmod>2019-04-14T08:18:57.594Z</lastmod>
+    <data>
+        <display>
+        <title>如何进行iCloud转区操作</title>
+        <pubTime>2018-12-31T13:48:43.000Z</pubTime>
+        
+        <tag>free</tag>
+         
+         
+           
+             
+              <breadCrumb title="tools" url="https://wangwei.one/categories/tools/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>https://wangwei.one/posts/How-to-register-and-use-the-Google-Voice.html</loc>
-    <lastmod>2019-04-14T07:57:30.591Z</lastmod>
+    <lastmod>2019-04-14T07:57:43.085Z</lastmod>
     <data>
         <display>
         <title>如何注册并使用Google Voice</title>
@@ -52,28 +94,6 @@
         <pubTime>2018-12-25T12:15:48.000Z</pubTime>
         
         <tag>free</tag>
-         
-         
-           
-             
-              <breadCrumb title="tools" url="https://wangwei.one/categories/tools/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://wangwei.one/posts/build-your-own-vpn-by-shadowsocks-or-rixcloud.html</loc>
-    <lastmod>2019-04-14T05:50:04.189Z</lastmod>
-    <data>
-        <display>
-        <title>带你看看外面的世界</title>
-        <pubTime>2015-12-08T06:27:10.000Z</pubTime>
-        
-        <tag>free</tag>
-         
-        <tag>vpn</tag>
          
          
            
