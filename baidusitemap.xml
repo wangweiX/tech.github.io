@@ -4,14 +4,34 @@
 
     
   <url>
+    <loc>https://wangwei.one/posts/netflix-guide.html</loc>
+    <lastmod>2019-04-14T10:07:12.885Z</lastmod>
+    <data>
+        <display>
+        <title>Netflix看剧指南</title>
+        <pubTime>2019-04-17T00:12:00.000Z</pubTime>
+        
+        <tag>Netflix</tag>
+         
+         
+           
+             
+              <breadCrumb title="tools" url="https://wangwei.one/categories/tools/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>https://wangwei.one/posts/build-your-own-vpn-by-shadowsocks-or-rixcloud.html</loc>
-    <lastmod>2019-04-14T08:43:47.575Z</lastmod>
+    <lastmod>2019-04-14T10:06:28.853Z</lastmod>
     <data>
         <display>
         <title>带你看看外面的世界</title>
         <pubTime>2015-12-08T06:27:10.000Z</pubTime>
         
-        <tag>free</tag>
+        <tag>freedom</tag>
          
         <tag>vpn</tag>
          
@@ -26,54 +46,14 @@
 
     
   <url>
-    <loc>https://wangwei.one/posts/How-to-switch-icloud-region.html</loc>
-    <lastmod>2019-04-14T08:18:57.594Z</lastmod>
+    <loc>https://wangwei.one/posts/How-to-change-icloud-region.html</loc>
+    <lastmod>2019-04-14T10:04:37.596Z</lastmod>
     <data>
         <display>
         <title>如何进行iCloud转区操作</title>
-        <pubTime>2018-12-31T13:48:43.000Z</pubTime>
+        <pubTime>2019-04-13T13:48:43.000Z</pubTime>
         
-        <tag>free</tag>
-         
-         
-           
-             
-              <breadCrumb title="tools" url="https://wangwei.one/categories/tools/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://wangwei.one/posts/How-to-register-and-use-the-Google-Voice.html</loc>
-    <lastmod>2019-04-14T07:57:43.085Z</lastmod>
-    <data>
-        <display>
-        <title>如何注册并使用Google Voice</title>
-        <pubTime>2018-12-30T13:48:43.000Z</pubTime>
-        
-        <tag>free</tag>
-         
-         
-           
-             
-              <breadCrumb title="tools" url="https://wangwei.one/categories/tools/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://wangwei.one/posts/How-to-register-for-the-US-PayPal-and-bind-the-US-Apple-ID.html</loc>
-    <lastmod>2019-04-14T06:19:32.347Z</lastmod>
-    <data>
-        <display>
-        <title>如何注册美区 PayPal 并绑定美区 Apple ID，以及风控的解决方案</title>
-        <pubTime>2018-12-13T11:56:52.000Z</pubTime>
-        
-        <tag>free</tag>
+        <tag>freedom</tag>
          
          
            
@@ -87,13 +67,13 @@
     
   <url>
     <loc>https://wangwei.one/posts/How-to-register-and-use-the-US-Apple-ID.html</loc>
-    <lastmod>2019-04-14T06:13:54.612Z</lastmod>
+    <lastmod>2019-04-14T09:59:27.198Z</lastmod>
     <data>
         <display>
         <title>如何注册并使用美区 Apple ID</title>
-        <pubTime>2018-12-25T12:15:48.000Z</pubTime>
+        <pubTime>2019-04-10T12:15:48.000Z</pubTime>
         
-        <tag>free</tag>
+        <tag>freedom</tag>
          
          
            
@@ -106,14 +86,34 @@
 
     
   <url>
-    <loc>https://wangwei.one/posts/netflix-guide.html</loc>
-    <lastmod>2019-04-14T01:25:43.222Z</lastmod>
+    <loc>https://wangwei.one/posts/How-to-register-for-the-US-PayPal-and-bind-the-US-Apple-ID.html</loc>
+    <lastmod>2019-04-14T09:59:21.762Z</lastmod>
     <data>
         <display>
-        <title>Netflix看剧指南</title>
-        <pubTime>2019-04-17T00:12:00.000Z</pubTime>
+        <title>如何注册美区 PayPal 并绑定美区 Apple ID，以及风控的解决方案</title>
+        <pubTime>2019-04-11T11:56:52.000Z</pubTime>
         
-        <tag>Netflix</tag>
+        <tag>freedom</tag>
+         
+         
+           
+             
+              <breadCrumb title="tools" url="https://wangwei.one/categories/tools/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://wangwei.one/posts/How-to-register-and-use-the-Google-Voice.html</loc>
+    <lastmod>2019-04-14T09:59:18.495Z</lastmod>
+    <data>
+        <display>
+        <title>如何注册并使用Google Voice</title>
+        <pubTime>2019-04-12T13:48:43.000Z</pubTime>
+        
+        <tag>freedom</tag>
          
          
            
