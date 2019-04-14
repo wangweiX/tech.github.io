@@ -4,6 +4,46 @@
 
     
   <url>
+    <loc>https://wangwei.one/posts/netflix-guide.html</loc>
+    <lastmod>2019-04-14T01:25:43.222Z</lastmod>
+    <data>
+        <display>
+        <title>Netflix看剧指南</title>
+        <pubTime>2019-04-17T00:12:00.000Z</pubTime>
+        
+        <tag>Netflix</tag>
+         
+         
+           
+             
+              <breadCrumb title="tools" url="https://wangwei.one/categories/tools/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://wangwei.one/posts/kindle-eBook-to-epub.html</loc>
+    <lastmod>2019-04-13T08:54:36.665Z</lastmod>
+    <data>
+        <display>
+        <title>Kindle电子书转Epub</title>
+        <pubTime>2015-04-30T15:55:22.000Z</pubTime>
+        
+        <tag>Kindle</tag>
+         
+         
+           
+             
+              <breadCrumb title="tools" url="https://wangwei.one/categories/tools/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>https://wangwei.one/posts/java-data-structures-and-algorithms-queue.html</loc>
     <lastmod>2019-04-12T03:46:04.068Z</lastmod>
     <data>
@@ -488,26 +528,6 @@
            
              
               <breadCrumb title="coding" url="https://wangwei.one/categories/coding/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://wangwei.one/posts/kindle-eBook-to-epub.html</loc>
-    <lastmod>2019-01-11T09:52:23.997Z</lastmod>
-    <data>
-        <display>
-        <title>Kindle电子书转Epub</title>
-        <pubTime>2015-04-30T15:55:22.000Z</pubTime>
-        
-        <tag>Kindle</tag>
-         
-         
-           
-             
-              <breadCrumb title="tools" url="https://wangwei.one/categories/tools/"/>
           
         </display>
     </data>

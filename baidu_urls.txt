@@ -1,3 +1,4 @@
+https://wangwei.one/posts/netflix-guide.html
 https://wangwei.one/posts/java-data-structures-and-algorithms-queue.html
 https://wangwei.one/posts/java-algoDS-palindrome-linked-list.html
 https://wangwei.one/posts/java-algoDS-LRU-implement-by-linkedlist.html
