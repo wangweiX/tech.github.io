@@ -4,16 +4,14 @@
 
     
   <url>
-    <loc>https://wangwei.one/posts/build-your-own-vpn-by-shadowsocks-or-rixcloud.html</loc>
-    <lastmod>2019-04-14T05:48:05.801Z</lastmod>
+    <loc>https://wangwei.one/posts/How-to-register-and-use-the-Google-Voice.html</loc>
+    <lastmod>2019-04-14T07:57:30.591Z</lastmod>
     <data>
         <display>
-        <title>带你看看外面的世界</title>
-        <pubTime>2015-12-08T06:27:10.000Z</pubTime>
+        <title>如何注册并使用Google Voice</title>
+        <pubTime>2018-12-30T13:48:43.000Z</pubTime>
         
         <tag>free</tag>
-         
-        <tag>vpn</tag>
          
          
            
@@ -27,7 +25,7 @@
     
   <url>
     <loc>https://wangwei.one/posts/How-to-register-for-the-US-PayPal-and-bind-the-US-Apple-ID.html</loc>
-    <lastmod>2019-04-14T05:47:19.687Z</lastmod>
+    <lastmod>2019-04-14T06:19:32.347Z</lastmod>
     <data>
         <display>
         <title>如何注册美区 PayPal 并绑定美区 Apple ID，以及风控的解决方案</title>
@@ -47,13 +45,35 @@
     
   <url>
     <loc>https://wangwei.one/posts/How-to-register-and-use-the-US-Apple-ID.html</loc>
-    <lastmod>2019-04-14T05:46:15.625Z</lastmod>
+    <lastmod>2019-04-14T06:13:54.612Z</lastmod>
     <data>
         <display>
         <title>如何注册并使用美区 Apple ID</title>
         <pubTime>2018-12-25T12:15:48.000Z</pubTime>
         
         <tag>free</tag>
+         
+         
+           
+             
+              <breadCrumb title="tools" url="https://wangwei.one/categories/tools/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://wangwei.one/posts/build-your-own-vpn-by-shadowsocks-or-rixcloud.html</loc>
+    <lastmod>2019-04-14T05:50:04.189Z</lastmod>
+    <data>
+        <display>
+        <title>带你看看外面的世界</title>
+        <pubTime>2015-12-08T06:27:10.000Z</pubTime>
+        
+        <tag>free</tag>
+         
+        <tag>vpn</tag>
          
          
            
