@@ -4,28 +4,8 @@
 
     
   <url>
-    <loc>https://wangwei.one/posts/How-to-register-and-use-the-US-Apple-ID.html</loc>
-    <lastmod>2019-04-15T00:08:10.099Z</lastmod>
-    <data>
-        <display>
-        <title>数据移民漂流记——如何注册并使用美区 Apple ID</title>
-        <pubTime>2019-04-10T12:15:48.000Z</pubTime>
-        
-        <tag>freedom</tag>
-         
-         
-           
-             
-              <breadCrumb title="tools" url="https://wangwei.one/categories/tools/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
     <loc>https://wangwei.one/posts/build-your-own-vpn-by-shadowsocks-or-rixcloud.html</loc>
-    <lastmod>2019-04-15T00:08:04.736Z</lastmod>
+    <lastmod>2019-04-15T00:15:55.914Z</lastmod>
     <data>
         <display>
         <title>数据移民漂流记——带你看看外面的世界</title>
@@ -46,14 +26,14 @@
 
     
   <url>
-    <loc>https://wangwei.one/posts/netflix-guide.html</loc>
-    <lastmod>2019-04-14T23:02:23.338Z</lastmod>
+    <loc>https://wangwei.one/posts/How-to-register-and-use-the-Google-Voice.html</loc>
+    <lastmod>2019-04-15T00:10:57.706Z</lastmod>
     <data>
         <display>
-        <title>Netflix看剧指南</title>
-        <pubTime>2019-04-17T00:12:00.000Z</pubTime>
+        <title>数据移民漂流记——如何注册并使用Google Voice</title>
+        <pubTime>2019-04-12T13:48:43.000Z</pubTime>
         
-        <tag>Netflix</tag>
+        <tag>freedom</tag>
          
          
            
@@ -66,14 +46,34 @@
 
     
   <url>
-    <loc>https://wangwei.one/posts/How-to-register-and-use-the-Google-Voice.html</loc>
-    <lastmod>2019-04-14T14:53:41.991Z</lastmod>
+    <loc>https://wangwei.one/posts/How-to-register-and-use-the-US-Apple-ID.html</loc>
+    <lastmod>2019-04-15T00:10:29.250Z</lastmod>
     <data>
         <display>
-        <title>数据移民漂流记——如何注册并使用Google Voice</title>
-        <pubTime>2019-04-12T13:48:43.000Z</pubTime>
+        <title>数据移民漂流记——如何注册并使用美区 Apple ID</title>
+        <pubTime>2019-04-10T12:15:48.000Z</pubTime>
         
         <tag>freedom</tag>
+         
+         
+           
+             
+              <breadCrumb title="tools" url="https://wangwei.one/categories/tools/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://wangwei.one/posts/netflix-guide.html</loc>
+    <lastmod>2019-04-14T23:02:23.338Z</lastmod>
+    <data>
+        <display>
+        <title>Netflix看剧指南</title>
+        <pubTime>2019-04-17T00:12:00.000Z</pubTime>
+        
+        <tag>Netflix</tag>
          
          
            
