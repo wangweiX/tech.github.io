@@ -47,7 +47,6 @@ https://wangwei.one/posts/jvm-gc-arithmetic-intro.html
 https://wangwei.one/posts/jvm-gc-base-concept.html
 https://wangwei.one/posts/java8-jvm-metaSpace.html
 https://wangwei.one/posts/java7-jvm-memory-model.html
-https://wangwei.one/posts/good-chrome-extensions-list.html
 https://wangwei.one/posts/design-patterns-template-method.html
 https://wangwei.one/posts/design-patterns-abstract-factory.html
 https://wangwei.one/posts/design-patterns-factory-method.html
@@ -64,7 +63,6 @@ https://wangwei.one/posts/dev-env-config-list-guide.html
 https://wangwei.one/posts/java-nio-channel.html
 https://wangwei.one/posts/list-of-common-linux-and-mac-commands.html
 https://wangwei.one/posts/devops-article-collection.html
-https://wangwei.one/posts/good-tool-list-for-mac.html
 https://wangwei.one/posts/kindle-eBook-to-epub.html
 https://wangwei.one/posts/dockerized-your-java-application.html
 https://wangwei.one/posts/docker-common-commands.html
