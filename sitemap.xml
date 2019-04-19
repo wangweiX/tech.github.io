@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://wangwei.one/posts/netflix-guide.html</loc>
+    
+    <lastmod>2019-04-19T02:09:10.583Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://wangwei.one/posts/netty-new-connection-and-niosocketchannel-analyse.html</loc>
     
     <lastmod>2019-04-19T01:45:36.982Z</lastmod>
@@ -257,13 +264,6 @@
     <loc>https://wangwei.one/posts/build-blockchain-in-java-base-prototype.html</loc>
     
     <lastmod>2019-04-19T01:42:10.918Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://wangwei.one/posts/netflix-guide.html</loc>
-    
-    <lastmod>2019-04-18T06:19:06.276Z</lastmod>
     
   </url>
   
