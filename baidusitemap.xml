@@ -3,6 +3,27 @@
 
 
     
+    
+  <url>
+    <loc>https://wangwei.one/posts/good-tool-list.html</loc>
+    <lastmod>2019-05-06T06:07:03.886Z</lastmod>
+    <data>
+        <display>
+        <title>好用的工具清单</title>
+        <pubTime>2016-12-02T08:02:36.000Z</pubTime>
+        
+        <tag>Tool</tag>
+         
+         
+           
+             
+              <breadCrumb title="tools" url="https://wangwei.one/categories/tools/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
   <url>
     <loc>https://wangwei.one/posts/build-your-own-vpn-by-shadowsocks-or-rixcloud.html</loc>
     <lastmod>2019-05-05T11:31:48.621Z</lastmod>
@@ -69,26 +90,6 @@
            
              
               <breadCrumb title="blockchain" url="https://wangwei.one/categories/blockchain/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://wangwei.one/posts/good-tool-list.html</loc>
-    <lastmod>2019-05-05T07:31:10.978Z</lastmod>
-    <data>
-        <display>
-        <title>好用的工具清单</title>
-        <pubTime>2016-12-02T08:02:36.000Z</pubTime>
-        
-        <tag>Tool</tag>
-         
-         
-           
-             
-              <breadCrumb title="tools" url="https://wangwei.one/categories/tools/"/>
           
         </display>
     </data>
@@ -880,7 +881,6 @@
     </data>
     </url>
 
-    
     
   <url>
     <loc>https://wangwei.one/posts/learning-c-plus.html</loc>

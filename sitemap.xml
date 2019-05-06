@@ -2,6 +2,20 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://wangwei.one/about/index.html</loc>
+    
+    <lastmod>2019-05-06T08:13:43.096Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://wangwei.one/posts/good-tool-list.html</loc>
+    
+    <lastmod>2019-05-06T06:07:03.886Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://wangwei.one/posts/build-your-own-vpn-by-shadowsocks-or-rixcloud.html</loc>
     
     <lastmod>2019-05-05T11:31:48.621Z</lastmod>
@@ -19,13 +33,6 @@
     <loc>https://wangwei.one/posts/build-blockchain-in-java-transaction-merkle-tree.html</loc>
     
     <lastmod>2019-05-05T07:31:36.472Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://wangwei.one/posts/good-tool-list.html</loc>
-    
-    <lastmod>2019-05-05T07:31:10.978Z</lastmod>
     
   </url>
   
@@ -285,13 +292,6 @@
     <loc>https://wangwei.one/posts/kindle-eBook-to-epub.html</loc>
     
     <lastmod>2019-04-15T00:22:48.885Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://wangwei.one/about/index.html</loc>
-    
-    <lastmod>2019-01-29T13:32:56.503Z</lastmod>
     
   </url>
   
