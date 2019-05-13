@@ -3,10 +3,129 @@
 
 
     
+  <url>
+    <loc>https://wangwei.one/posts/How-to-change-icloud-region.html</loc>
+    <lastmod>2019-05-13T06:35:47.610Z</lastmod>
+    <data>
+        <display>
+        <title>数据移民漂流记——如何进行iCloud转区操作</title>
+        <pubTime>2019-04-13T13:48:43.000Z</pubTime>
+        
+        <tag>freedom</tag>
+         
+         
+           
+             
+              <breadCrumb title="tools" url="https://wangwei.one/categories/tools/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://wangwei.one/posts/How-to-register-and-use-the-Google-Voice.html</loc>
+    <lastmod>2019-05-13T00:36:22.271Z</lastmod>
+    <data>
+        <display>
+        <title>数据移民漂流记 —— 如何拥有属于自己的美国电话号码</title>
+        <pubTime>2019-04-12T13:48:43.000Z</pubTime>
+        
+        <tag>freedom</tag>
+         
+         
+           
+             
+              <breadCrumb title="tools" url="https://wangwei.one/categories/tools/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://wangwei.one/posts/java-io-vs-nio.html</loc>
+    <lastmod>2019-05-10T07:43:32.903Z</lastmod>
+    <data>
+        <display>
+        <title>Java IO vs NIO</title>
+        <pubTime>2015-12-02T02:14:12.000Z</pubTime>
+        
+        <tag>NIO</tag>
+         
+         
+           
+             
+              <breadCrumb title="coding" url="https://wangwei.one/categories/coding/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://wangwei.one/posts/dev-env-config-list-guide.html</loc>
+    <lastmod>2019-05-10T03:30:49.841Z</lastmod>
+    <data>
+        <display>
+        <title>开发环境搭建清单</title>
+        <pubTime>2015-11-20T12:42:22.000Z</pubTime>
+        
+        <tag>工具</tag>
+         
+         
+           
+             
+              <breadCrumb title="coding" url="https://wangwei.one/categories/coding/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://wangwei.one/posts/netty-new-connection-and-niosocketchannel-analyse.html</loc>
+    <lastmod>2019-05-08T03:01:33.693Z</lastmod>
+    <data>
+        <display>
+        <title>Netty新连接接入与NioSocketChannel分析</title>
+        <pubTime>2017-05-23T02:15:00.000Z</pubTime>
+        
+        <tag>Netty</tag>
+         
+         
+           
+             
+              <breadCrumb title="coding" url="https://wangwei.one/categories/coding/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://wangwei.one/posts/java-data-structures-and-algorithms-queue.html</loc>
+    <lastmod>2019-05-07T07:22:02.315Z</lastmod>
+    <data>
+        <display>
+        <title>数据结构与算法 | 队列的实现及其应用</title>
+        <pubTime>2019-02-05T07:35:21.000Z</pubTime>
+        
+        <tag>AlgoDS</tag>
+         
+         
+           
+             
+              <breadCrumb title="coding" url="https://wangwei.one/categories/coding/"/>
+          
+        </display>
+    </data>
+    </url>
+
     
   <url>
     <loc>https://wangwei.one/posts/good-tool-list.html</loc>
-    <lastmod>2019-05-06T06:07:03.886Z</lastmod>
+    <lastmod>2019-05-07T01:29:23.288Z</lastmod>
     <data>
         <display>
         <title>好用的工具清单</title>
@@ -24,27 +143,6 @@
     </url>
 
     
-  <url>
-    <loc>https://wangwei.one/posts/build-your-own-vpn-by-shadowsocks-or-rixcloud.html</loc>
-    <lastmod>2019-05-05T11:31:48.621Z</lastmod>
-    <data>
-        <display>
-        <title>数据移民漂流记——带你看看外面的世界</title>
-        <pubTime>2015-12-08T06:27:10.000Z</pubTime>
-        
-        <tag>freedom</tag>
-         
-        <tag>vpn</tag>
-         
-         
-           
-             
-              <breadCrumb title="tools" url="https://wangwei.one/categories/tools/"/>
-          
-        </display>
-    </data>
-    </url>
-
     
   <url>
     <loc>https://wangwei.one/posts/build-blockchain-in-java-base-prototype.html</loc>
@@ -97,26 +195,6 @@
 
     
   <url>
-    <loc>https://wangwei.one/posts/java-data-structures-and-algorithms-queue.html</loc>
-    <lastmod>2019-04-30T08:32:54.666Z</lastmod>
-    <data>
-        <display>
-        <title>数据结构与算法 | 队列的实现及其应用</title>
-        <pubTime>2019-02-05T07:35:21.000Z</pubTime>
-        
-        <tag>AlgoDS</tag>
-         
-         
-           
-             
-              <breadCrumb title="coding" url="https://wangwei.one/categories/coding/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
     <loc>https://wangwei.one/posts/java-data-structures-and-algorithms-stack.html</loc>
     <lastmod>2019-04-28T07:02:14.782Z</lastmod>
     <data>
@@ -125,46 +203,6 @@
         <pubTime>2019-01-13T09:35:23.000Z</pubTime>
         
         <tag>AlgoDS</tag>
-         
-         
-           
-             
-              <breadCrumb title="coding" url="https://wangwei.one/categories/coding/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://wangwei.one/posts/How-to-change-icloud-region.html</loc>
-    <lastmod>2019-04-25T02:27:05.212Z</lastmod>
-    <data>
-        <display>
-        <title>数据移民漂流记——如何进行iCloud转区操作</title>
-        <pubTime>2019-04-13T13:48:43.000Z</pubTime>
-        
-        <tag>freedom</tag>
-         
-         
-           
-             
-              <breadCrumb title="tools" url="https://wangwei.one/categories/tools/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://wangwei.one/posts/dev-env-config-list-guide.html</loc>
-    <lastmod>2019-04-19T08:16:57.969Z</lastmod>
-    <data>
-        <display>
-        <title>开发环境搭建清单</title>
-        <pubTime>2015-11-20T12:42:22.000Z</pubTime>
-        
-        <tag>工具</tag>
          
          
            
@@ -190,26 +228,6 @@
            
              
               <breadCrumb title="tools" url="https://wangwei.one/categories/tools/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://wangwei.one/posts/netty-new-connection-and-niosocketchannel-analyse.html</loc>
-    <lastmod>2019-04-19T01:45:36.982Z</lastmod>
-    <data>
-        <display>
-        <title>Netty新连接接入与NioSocketChannel分析</title>
-        <pubTime>2017-05-23T02:15:00.000Z</pubTime>
-        
-        <tag>Netty</tag>
-         
-         
-           
-             
-              <breadCrumb title="coding" url="https://wangwei.one/categories/coding/"/>
           
         </display>
     </data>
@@ -681,26 +699,6 @@
 
     
   <url>
-    <loc>https://wangwei.one/posts/How-to-register-and-use-the-Google-Voice.html</loc>
-    <lastmod>2019-04-19T01:43:05.206Z</lastmod>
-    <data>
-        <display>
-        <title>数据移民漂流记——如何注册并使用Google Voice</title>
-        <pubTime>2019-04-12T13:48:43.000Z</pubTime>
-        
-        <tag>freedom</tag>
-         
-         
-           
-             
-              <breadCrumb title="tools" url="https://wangwei.one/categories/tools/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
     <loc>https://wangwei.one/posts/How-to-register-for-the-US-PayPal-and-bind-the-US-Apple-ID.html</loc>
     <lastmod>2019-04-19T01:43:00.988Z</lastmod>
     <data>
@@ -1084,26 +1082,6 @@
            
              
               <breadCrumb title="writing" url="https://wangwei.one/categories/writing/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://wangwei.one/posts/java-io-vs-nio.html</loc>
-    <lastmod>2018-10-16T08:41:00.441Z</lastmod>
-    <data>
-        <display>
-        <title>Java IO vs NIO</title>
-        <pubTime>2015-12-02T02:14:12.000Z</pubTime>
-        
-        <tag>NIO</tag>
-         
-         
-           
-             
-              <breadCrumb title="coding" url="https://wangwei.one/categories/coding/"/>
           
         </display>
     </data>

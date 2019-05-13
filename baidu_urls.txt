@@ -51,7 +51,6 @@ https://wangwei.one/posts/design-patterns-template-method.html
 https://wangwei.one/posts/design-patterns-abstract-factory.html
 https://wangwei.one/posts/design-patterns-factory-method.html
 https://wangwei.one/posts/server-thread-io-model-reactor-proactor.html
-https://wangwei.one/posts/build-your-own-vpn-by-shadowsocks-or-rixcloud.html
 https://wangwei.one/posts/5-unix-io-model-intro.html
 https://wangwei.one/posts/java-io-vs-nio.html
 https://wangwei.one/posts/java-nio2-asynchronous-channel.html
