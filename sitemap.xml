@@ -2,16 +2,23 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>https://wangwei.one/posts/How-to-change-icloud-region.html</loc>
+    <loc>https://wangwei.one/posts/How-to-register-and-use-the-Google-Voice.html</loc>
     
-    <lastmod>2019-05-13T06:35:47.610Z</lastmod>
+    <lastmod>2019-05-22T23:47:10.387Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://wangwei.one/posts/How-to-register-and-use-the-Google-Voice.html</loc>
+    <loc>https://wangwei.one/posts/java-data-structures-and-algorithms-queue.html</loc>
     
-    <lastmod>2019-05-13T00:36:22.271Z</lastmod>
+    <lastmod>2019-05-13T09:46:38.583Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://wangwei.one/posts/How-to-change-icloud-region.html</loc>
+    
+    <lastmod>2019-05-13T06:35:47.610Z</lastmod>
     
   </url>
   
@@ -33,13 +40,6 @@
     <loc>https://wangwei.one/posts/netty-new-connection-and-niosocketchannel-analyse.html</loc>
     
     <lastmod>2019-05-08T03:01:33.693Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://wangwei.one/posts/java-data-structures-and-algorithms-queue.html</loc>
-    
-    <lastmod>2019-05-07T07:22:02.315Z</lastmod>
     
   </url>
   
