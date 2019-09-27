@@ -4,6 +4,26 @@
 
     
   <url>
+    <loc>https://wangwei.one/posts/personal-blog-building-guide-1.html</loc>
+    <lastmod>2019-08-28T02:58:36.125Z</lastmod>
+    <data>
+        <display>
+        <title>个人博客搭建指南（一）</title>
+        <pubTime>2015-01-10T01:40:16.000Z</pubTime>
+        
+        <tag>hexo</tag>
+         
+         
+           
+             
+              <breadCrumb title="tools" url="https://wangwei.one/categories/tools/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>https://wangwei.one/posts/How-to-register-and-use-the-Google-Voice.html</loc>
     <lastmod>2019-05-22T23:47:10.387Z</lastmod>
     <data>
@@ -1082,26 +1102,6 @@
            
              
               <breadCrumb title="writing" url="https://wangwei.one/categories/writing/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://wangwei.one/posts/personal-blog-building-guide-1.html</loc>
-    <lastmod>2018-10-16T08:25:40.695Z</lastmod>
-    <data>
-        <display>
-        <title>个人博客搭建指南（一）</title>
-        <pubTime>2015-01-10T01:40:16.000Z</pubTime>
-        
-        <tag>hexo</tag>
-         
-         
-           
-             
-              <breadCrumb title="tools" url="https://wangwei.one/categories/tools/"/>
           
         </display>
     </data>

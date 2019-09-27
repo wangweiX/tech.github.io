@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://wangwei.one/posts/personal-blog-building-guide-1.html</loc>
+    
+    <lastmod>2019-08-28T02:58:36.125Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://wangwei.one/posts/How-to-register-and-use-the-Google-Voice.html</loc>
     
     <lastmod>2019-05-22T23:47:10.387Z</lastmod>
@@ -376,13 +383,6 @@
     <loc>https://wangwei.one/posts/why-we-need-writing.html</loc>
     
     <lastmod>2018-10-18T08:50:45.921Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://wangwei.one/posts/personal-blog-building-guide-1.html</loc>
-    
-    <lastmod>2018-10-16T08:25:40.695Z</lastmod>
     
   </url>
   
