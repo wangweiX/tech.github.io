@@ -411,31 +411,6 @@
   </entry>
   
   <entry>
-    <title>基于Java语言构建区块链（八）—— 网络</title>
-    <link href="https://wangwei.one/posts/29bcb2a4.html"/>
-    <id>https://wangwei.one/posts/29bcb2a4.html</id>
-    <published>2018-08-02T14:43:00.000Z</published>
-    <updated>2019-12-02T10:37:39.991Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;&lt;img src=&quot;https://img.i7years.com/blog/blockchain-network.jpg&quot; alt=&quot;blockchain-network&quot;&gt;&lt;/p&gt;&lt;blockquote&gt;&lt;p&gt;文章的主要思想和内容均来自 &lt;a href=&quot;https://jeiwan.cc/posts/building-blockchain-in-go-part-7/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;https://jeiwan.cc/posts/building-blockchain-in-go-part-7/&lt;/a&gt;&lt;/p&gt;&lt;/blockquote&gt;&lt;blockquote&gt;&lt;p&gt;&lt;a href=&quot;https://jeiwan.net/posts/programming-bitcoin-network/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;https://jeiwan.net/posts/programming-bitcoin-network/&lt;/a&gt;&lt;/p&gt;&lt;/blockquote&gt;&lt;h2 id=&quot;引言&quot;&gt;&lt;a href=&quot;#引言&quot; class=&quot;headerlink&quot; title=&quot;引言&quot;&gt;&lt;/a&gt;引言&lt;/h2&gt;&lt;p&gt;在 &lt;a href=&quot;https://wangwei.one/posts/643232a4.html&quot;&gt;上一篇&lt;/a&gt; 中我们介绍了比特币的交易脚本机制。到目前为止，我们已经构建了区块链的所有关键特性：&lt;/p&gt;&lt;ul&gt;&lt;li&gt;生成匿名、安全且随机的地址；&lt;/li&gt;&lt;li&gt;区块链数据存储；&lt;/li&gt;&lt;li&gt;工作量证明(POW)系统；&lt;/li&gt;&lt;li&gt;可靠地存储交易信息&lt;/li&gt;&lt;/ul&gt;&lt;p&gt;虽然这些功能都至关重要，但是还缺少关键的一环。仔细想想什么东西能够让这些功能大放异彩，能够使加密货币成为可能？答案是：&lt;strong&gt;网络&lt;/strong&gt;。如果区块链只能在运行在单台电脑上时，又有什么用呢？如果基于这些特性的加密货币只有一个用户时，又有什么用呢？有了网络才能使区块链的这些机制变得有价值。&lt;/p&gt;
-    
-    </summary>
-    
-    
-      <category term="blockchain" scheme="https://wangwei.one/categories/blockchain/"/>
-    
-    
-      <category term="blockchain" scheme="https://wangwei.one/tags/blockchain/"/>
-    
-      <category term="bitcoin" scheme="https://wangwei.one/tags/bitcoin/"/>
-    
-      <category term="bitcoin-networking" scheme="https://wangwei.one/tags/bitcoin-networking/"/>
-    
-  </entry>
-  
-  <entry>
     <title>基于Java语言构建区块链（七）—— 交易脚本（智能合约）</title>
     <link href="https://wangwei.one/posts/build-blockchain-in-java-transaction-script.html"/>
     <id>https://wangwei.one/posts/build-blockchain-in-java-transaction-script.html</id>
@@ -459,6 +434,35 @@
       <category term="bitcoin-script" scheme="https://wangwei.one/tags/bitcoin-script/"/>
     
       <category term="smart contract" scheme="https://wangwei.one/tags/smart-contract/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>基于Java语言构建区块链（六）—— 交易（Merkle Tree）</title>
+    <link href="https://wangwei.one/posts/build-blockchain-in-java-transaction-merkle-tree.html"/>
+    <id>https://wangwei.one/posts/build-blockchain-in-java-transaction-merkle-tree.html</id>
+    <published>2018-03-26T09:00:00.000Z</published>
+    <updated>2019-05-05T07:31:36.472Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&lt;img src=&quot;https://img.i7years.com/blog/pexels-photo-38136.webp?imageslim&quot; alt=&quot;pexels-photo-38136&quot;&gt;&lt;/p&gt;&lt;blockquote&gt;&lt;p&gt;文章的主要思想和内容均来自 &lt;a href=&quot;https://jeiwan.cc/posts/building-blockchain-in-go-part-6/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;https://jeiwan.cc/posts/building-blockchain-in-go-part-6/&lt;/a&gt;&lt;/p&gt;&lt;/blockquote&gt;&lt;h2 id=&quot;引言&quot;&gt;&lt;a href=&quot;#引言&quot; class=&quot;headerlink&quot; title=&quot;引言&quot;&gt;&lt;/a&gt;引言&lt;/h2&gt;&lt;p&gt;在这一系列文章的最开始部分，我们提到过区块链是一个分布式的数据库。那时候，我们决定跳过”分布式”这一环节，并且聚焦于”数据存储”这一环节。到目前为止，我们几乎实现了区块链的所有组成部分。在本篇文章中，我们将会涉及一些在前面的文章中所忽略的一些机制，并且在下一篇文章中我们将开始研究区块链的分布式特性。&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="blockchain" scheme="https://wangwei.one/categories/blockchain/"/>
+    
+    
+      <category term="blockchain" scheme="https://wangwei.one/tags/blockchain/"/>
+    
+      <category term="bitcoin" scheme="https://wangwei.one/tags/bitcoin/"/>
+    
+      <category term="Merkle Tree" scheme="https://wangwei.one/tags/Merkle-Tree/"/>
+    
+      <category term="UTXO" scheme="https://wangwei.one/tags/UTXO/"/>
+    
+      <category term="SPV" scheme="https://wangwei.one/tags/SPV/"/>
     
   </entry>
   
