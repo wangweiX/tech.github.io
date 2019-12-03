@@ -16,6 +16,7 @@ https://wangwei.one/posts/java-algoDS-reverse-linked-list.html
 https://wangwei.one/posts/java-data-structures-and-algorithms-linkedlist.html
 https://wangwei.one/posts/java-data-structures-and-algorithms-arraylist.html
 https://wangwei.one/posts/java-11-base-tutorial.html
+https://wangwei.one/posts/29bcb2a4.html
 https://wangwei.one/posts/build-blockchain-in-java-transaction-script.html
 https://wangwei.one/posts/build-blockchain-in-java-transaction-merkle-tree.html
 https://wangwei.one/posts/build-blockchain-in-java-wallet-address.html
