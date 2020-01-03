@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://wangwei.one/"/>
-  <updated>2019-04-19T07:10:51.162Z</updated>
+  <updated>2020-01-02T13:17:40.556Z</updated>
   <id>https://wangwei.one/</id>
   
   <author>
@@ -21,11 +21,11 @@
     <link href="https://wangwei.one/posts/netflix-guide.html"/>
     <id>https://wangwei.one/posts/netflix-guide.html</id>
     <published>2019-04-17T00:12:00.000Z</published>
-    <updated>2019-04-19T07:10:51.162Z</updated>
+    <updated>2020-01-02T13:17:40.556Z</updated>
     
     <summary type="html">
     
-      &lt;p&gt;&lt;img src=&quot;https://img.i7years.com/blog/netflix_v2-1024x576.png?imageslim&quot; alt=&quot;Netflix&quot;&gt;&lt;/p&gt;&lt;blockquote&gt;&lt;p&gt;翻译: &lt;a href=&quot;https://netflix-codes.com/?ref=digitalimmigrant.org&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Netflix-Codes&lt;/a&gt;&lt;/p&gt;&lt;/blockquote&gt;&lt;p&gt;Netflix使用一个非常奇怪的系统来对电影和电视节目进行分类，网站上并没有分类的导航tab，不过你可以通过下面的分类CODE直达您想看的影片。您只需用CODE替换掉下面链接中&lt;code&gt;xx&lt;/code&gt;即可：&lt;/p&gt;&lt;blockquote&gt;&lt;p&gt;&lt;code&gt;https://netflix.com/browse/genre/xx&lt;/code&gt;&lt;/p&gt;&lt;/blockquote&gt;
+      &lt;p align=&quot;center&quot;&gt;&lt;a target=&quot;_blank&quot; href=&quot;https://wangwei.one/posts/netflix-guide.html&quot;&gt;&lt;img src=&quot;https://img.i7years.com/blog/netflix_v2-1024x576.png?imageslim&quot;&gt;&lt;/a&gt;&lt;/p&gt;&lt;blockquote&gt;&lt;p&gt;翻译: &lt;a href=&quot;https://netflix-codes.com/?ref=digitalimmigrant.org&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Netflix-Codes&lt;/a&gt;&lt;/p&gt;&lt;/blockquote&gt;&lt;p&gt;Netflix使用一个非常奇怪的系统来对电影和电视节目进行分类，网站上并没有分类的导航tab，不过你可以通过下面的分类CODE直达您想看的影片。您只需用CODE替换掉下面链接中&lt;code&gt;xx&lt;/code&gt;即可：&lt;/p&gt;&lt;blockquote&gt;&lt;p&gt;&lt;code&gt;https://netflix.com/browse/genre/xx&lt;/code&gt;&lt;/p&gt;&lt;/blockquote&gt;
     
     </summary>
     
@@ -42,7 +42,7 @@
     <link href="https://wangwei.one/posts/How-to-change-icloud-region.html"/>
     <id>https://wangwei.one/posts/How-to-change-icloud-region.html</id>
     <published>2019-04-13T13:48:43.000Z</published>
-    <updated>2019-05-13T06:35:47.610Z</updated>
+    <updated>2019-12-14T16:19:30.939Z</updated>
     
     <summary type="html">
     
@@ -126,11 +126,11 @@
     <link href="https://wangwei.one/posts/java-data-structures-and-algorithms-queue.html"/>
     <id>https://wangwei.one/posts/java-data-structures-and-algorithms-queue.html</id>
     <published>2019-02-05T07:35:21.000Z</published>
-    <updated>2019-05-13T09:46:38.583Z</updated>
+    <updated>2019-12-26T06:25:40.344Z</updated>
     
     <summary type="html">
     
-      &lt;p align=&quot;center&quot;&gt;&lt;br&gt;&lt;a target=&quot;_blank&quot; href=&quot;https://wangwei.one/posts/java-data-structures-and-algorithms-queue.html&quot;&gt;&lt;img src=&quot;https://img.i7years.com/blog/DyeTYiAXcAEYLIk.jpg?imageslim&quot; title=&quot;Farming&quot; alt=&quot;Farming&quot;&gt;&lt;/a&gt;&lt;br&gt;&lt;/p&gt;&lt;br&gt;前面，我们学习了 &lt;a href=&quot;https://wangwei.one/posts/java-data-structures-and-algorithms-stack.html&quot;&gt;栈的实现及应用&lt;/a&gt; ，本篇我们来学习一下最后一种线性表——队列。&lt;br&gt;&lt;br&gt;
+      &lt;p align=&quot;center&quot;&gt;&lt;a target=&quot;_blank&quot; href=&quot;https://wangwei.one/posts/java-data-structures-and-algorithms-queue.html&quot;&gt;&lt;img src=&quot;https://img.i7years.com/blog/DyeTYiAXcAEYLIk.jpg?imageslim&quot; title=&quot;Farming&quot; alt=&quot;Farming&quot;&gt;&lt;/a&gt;&lt;/p&gt;前面，我们学习了 [栈的实现及应用](https://wangwei.one/posts/java-data-structures-and-algorithms-stack.html) ，本篇我们来学习一下最后一种线性表——队列。
     
     </summary>
     
@@ -220,7 +220,7 @@
     
     <summary type="html">
     
-      &lt;p align=&quot;center&quot;&gt;&lt;br&gt;&lt;a target=&quot;_blank&quot; href=&quot;https://www.pexels.com/photo/orange-and-blue-abstract-painting-1532704/&quot;&gt;&lt;img src=&quot;https://img.i7years.com/blog/abstract-expressionism-abstract-painting-acrylic-1532704.jpg?imageslim&quot; title=&quot;abstract painting acrylic&quot; alt=&quot;abstract painting acrylic&quot;&gt;&lt;/a&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;前面，我们实现了两种常见的线性表 —— &lt;a href=&quot;https://wangwei.one/posts/java-data-structures-and-algorithms-arraylist.html&quot;&gt;顺序表&lt;/a&gt; 和 &lt;a href=&quot;https://wangwei.one/posts/java-data-structures-and-algorithms-linkedlist.html&quot;&gt;链表&lt;/a&gt; ，本篇我们来介绍另外一种常用的线性表 —— 栈。&lt;/p&gt;
+      &lt;p align=&quot;center&quot;&gt;&lt;a target=&quot;_blank&quot; href=&quot;https://www.pexels.com/photo/orange-and-blue-abstract-painting-1532704/&quot;&gt;&lt;img src=&quot;https://img.i7years.com/blog/abstract-expressionism-abstract-painting-acrylic-1532704.jpg?imageslim&quot; title=&quot;abstract painting acrylic&quot; alt=&quot;abstract painting acrylic&quot;&gt;&lt;/a&gt;&lt;/p&gt;&lt;p&gt;前面，我们实现了两种常见的线性表 —— &lt;a href=&quot;https://wangwei.one/posts/java-data-structures-and-algorithms-arraylist.html&quot;&gt;顺序表&lt;/a&gt; 和 &lt;a href=&quot;https://wangwei.one/posts/java-data-structures-and-algorithms-linkedlist.html&quot;&gt;链表&lt;/a&gt; ，本篇我们来介绍另外一种常用的线性表 —— 栈。&lt;/p&gt;
     
     </summary>
     
@@ -394,11 +394,11 @@
     <link href="https://wangwei.one/posts/java-11-base-tutorial.html"/>
     <id>https://wangwei.one/posts/java-11-base-tutorial.html</id>
     <published>2018-09-30T08:33:00.000Z</published>
-    <updated>2019-04-19T01:44:48.846Z</updated>
+    <updated>2020-01-02T10:07:48.609Z</updated>
     
     <summary type="html">
     
-      &lt;p&gt;&lt;img src=&quot;https://img.i7years.com/cover/architecture-buildings-city-313782.webp?imageslim&quot; alt=&quot;new era&quot;&gt;&lt;/p&gt;&lt;blockquote&gt;&lt;p&gt;原文：&lt;a href=&quot;https://winterbe.com/posts/2018/09/24/java-11-tutorial/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;链接&lt;/a&gt;&lt;/p&gt;&lt;p&gt;作者：&lt;a href=&quot;https://github.com/winterbe&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Benjamin Winterberg&lt;/a&gt;&lt;/p&gt;&lt;p&gt;翻译：&lt;a href=&quot;https://wangwei.one&quot;&gt;Wang Wei&lt;/a&gt;&lt;/p&gt;&lt;/blockquote&gt;&lt;p&gt;&lt;a href=&quot;http://openjdk.java.net/projects/jdk/11/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Java11&lt;/a&gt; 已于 2018/09/25 成功发布，不过目前 &lt;a href=&quot;https://twitter.com/winterbe_/status/1035864662976413696&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;绝大多数人&lt;/a&gt; 在生产环境仍旧使用的是Java 8。这篇以案例为主的教程涵盖了从 Java 9 到 Java 11的绝大多数重要的语法与API特性。让我们开始吧！&lt;/p&gt;
+      &lt;p align=&quot;center&quot;&gt;&lt;a target=&quot;_blank&quot; href=&quot;https://wangwei.one/posts/java-11-base-tutorial.html&quot;&gt;&lt;img src=&quot;https://img.i7years.com/cover/architecture-buildings-city-313782.webp?imageslim&quot; title=&quot;Java 11&quot; alt=&quot;Java 11&quot;&gt;&lt;/a&gt;&lt;/p&gt;&lt;blockquote&gt;&lt;p&gt;原文：&lt;a href=&quot;https://winterbe.com/posts/2018/09/24/java-11-tutorial/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;链接&lt;/a&gt;&lt;/p&gt;&lt;p&gt;作者：&lt;a href=&quot;https://github.com/winterbe&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Benjamin Winterberg&lt;/a&gt;&lt;/p&gt;&lt;p&gt;翻译：&lt;a href=&quot;https://wangwei.one&quot;&gt;Wang Wei&lt;/a&gt;&lt;/p&gt;&lt;/blockquote&gt;&lt;p&gt;&lt;a href=&quot;http://openjdk.java.net/projects/jdk/11/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Java11&lt;/a&gt; 已于 2018/09/25 成功发布，不过目前 &lt;a href=&quot;https://twitter.com/winterbe_/status/1035864662976413696&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;绝大多数人&lt;/a&gt; 在生产环境仍旧使用的是Java 8。这篇以案例为主的教程涵盖了从 Java 9 到 Java 11的绝大多数重要的语法与API特性。让我们开始吧！&lt;/p&gt;
     
     </summary>
     
@@ -415,11 +415,11 @@
     <link href="https://wangwei.one/posts/build-blockchain-in-java-transaction-script.html"/>
     <id>https://wangwei.one/posts/build-blockchain-in-java-transaction-script.html</id>
     <published>2018-05-02T14:43:00.000Z</published>
-    <updated>2019-04-19T01:42:15.593Z</updated>
+    <updated>2020-01-02T13:24:37.079Z</updated>
     
     <summary type="html">
     
-      &lt;p&gt;&lt;img src=&quot;https://img.i7years.com/blog/rawpixel-652547-unsplash.jpg-webp&quot; alt=&quot;&quot;&gt;&lt;/p&gt;&lt;p&gt;&lt;a href=&quot;https://wangwei.one/posts/630e7ae5.html&quot;&gt;上一篇&lt;/a&gt; 文章我们引入 UTXOset 和 Merkle Tree 对交易流程做了些许优化，本篇文章我们将介绍比特币另一个更加重要的机制 —— 交易脚本。&lt;/p&gt;&lt;p&gt;在介绍 &lt;a href=&quot;https://wangwei.one/posts/9cf9e42a.html&quot;&gt;UTXO的文章&lt;/a&gt; 中，我们已经了解到比特币的交易输出由锁定脚本锁定，它只能被交易输出所被指向的交易输入中的解锁脚本所解锁，今天让我们来详细讨论一下它们的实现机制。&lt;/p&gt;
+      &lt;p align=&quot;center&quot;&gt;&lt;a target=&quot;_blank&quot; href=&quot;https://wangwei.one/posts/build-blockchain-in-java-transaction-script.html&quot;&gt;&lt;img src=&quot;https://img.i7years.com/blog/rawpixel-652547-unsplash.jpg-webp?imageslim&quot;&gt;&lt;/a&gt;&lt;/p&gt;&lt;p&gt;&lt;a href=&quot;https://wangwei.one/posts/630e7ae5.html&quot;&gt;上一篇&lt;/a&gt; 文章我们引入 UTXOset 和 Merkle Tree 对交易流程做了些许优化，本篇文章我们将介绍比特币另一个更加重要的机制 —— 交易脚本。&lt;/p&gt;&lt;p&gt;在介绍 &lt;a href=&quot;https://wangwei.one/posts/9cf9e42a.html&quot;&gt;UTXO的文章&lt;/a&gt; 中，我们已经了解到比特币的交易输出由锁定脚本锁定，它只能被交易输出所被指向的交易输入中的解锁脚本所解锁，今天让我们来详细讨论一下它们的实现机制。&lt;/p&gt;
     
     </summary>
     
@@ -442,11 +442,11 @@
     <link href="https://wangwei.one/posts/build-blockchain-in-java-transaction-merkle-tree.html"/>
     <id>https://wangwei.one/posts/build-blockchain-in-java-transaction-merkle-tree.html</id>
     <published>2018-03-26T09:00:00.000Z</published>
-    <updated>2019-05-05T07:31:36.472Z</updated>
+    <updated>2020-01-02T13:25:55.322Z</updated>
     
     <summary type="html">
     
-      &lt;p&gt;&lt;img src=&quot;https://img.i7years.com/blog/pexels-photo-38136.webp?imageslim&quot; alt=&quot;pexels-photo-38136&quot;&gt;&lt;/p&gt;&lt;blockquote&gt;&lt;p&gt;文章的主要思想和内容均来自 &lt;a href=&quot;https://jeiwan.cc/posts/building-blockchain-in-go-part-6/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;https://jeiwan.cc/posts/building-blockchain-in-go-part-6/&lt;/a&gt;&lt;/p&gt;&lt;/blockquote&gt;&lt;h2 id=&quot;引言&quot;&gt;&lt;a href=&quot;#引言&quot; class=&quot;headerlink&quot; title=&quot;引言&quot;&gt;&lt;/a&gt;引言&lt;/h2&gt;&lt;p&gt;在这一系列文章的最开始部分，我们提到过区块链是一个分布式的数据库。那时候，我们决定跳过”分布式”这一环节，并且聚焦于”数据存储”这一环节。到目前为止，我们几乎实现了区块链的所有组成部分。在本篇文章中，我们将会涉及一些在前面的文章中所忽略的一些机制，并且在下一篇文章中我们将开始研究区块链的分布式特性。&lt;/p&gt;
+      &lt;p align=&quot;center&quot;&gt;&lt;a target=&quot;_blank&quot; href=&quot;https://wangwei.one/posts/build-blockchain-in-java-transaction-merkle-tree.html&quot;&gt;&lt;img src=&quot;https://img.i7years.com/blog/pexels-photo-38136.webp?imageslim&quot;&gt;&lt;/a&gt;&lt;/p&gt;&lt;blockquote&gt;&lt;p&gt;文章的主要思想和内容均来自 &lt;a href=&quot;https://jeiwan.cc/posts/building-blockchain-in-go-part-6/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;https://jeiwan.cc/posts/building-blockchain-in-go-part-6/&lt;/a&gt;&lt;/p&gt;&lt;/blockquote&gt;&lt;h2 id=&quot;引言&quot;&gt;&lt;a href=&quot;#引言&quot; class=&quot;headerlink&quot; title=&quot;引言&quot;&gt;&lt;/a&gt;引言&lt;/h2&gt;&lt;p&gt;在这一系列文章的最开始部分，我们提到过区块链是一个分布式的数据库。那时候，我们决定跳过”分布式”这一环节，并且聚焦于”数据存储”这一环节。到目前为止，我们几乎实现了区块链的所有组成部分。在本篇文章中，我们将会涉及一些在前面的文章中所忽略的一些机制，并且在下一篇文章中我们将开始研究区块链的分布式特性。&lt;/p&gt;
     
     </summary>
     
