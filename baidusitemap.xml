@@ -2,7 +2,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://wangwei.one/posts/jvm-gc-garbage-first.html</loc>
-    <lastmod>2020-01-03</lastmod>
+    <lastmod>2020-01-04</lastmod>
   </url>  <url>
     <loc>https://wangwei.one/posts/jvm-gc-concurrent-mark-sweep-cms.html</loc>
     <lastmod>2020-01-03</lastmod>
