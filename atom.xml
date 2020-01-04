@@ -458,9 +458,9 @@
     
       <category term="bitcoin" scheme="https://wangwei.one/tags/bitcoin/"/>
     
-      <category term="Merkle Tree" scheme="https://wangwei.one/tags/Merkle-Tree/"/>
-    
       <category term="UTXO" scheme="https://wangwei.one/tags/UTXO/"/>
+    
+      <category term="Merkle Tree" scheme="https://wangwei.one/tags/Merkle-Tree/"/>
     
       <category term="SPV" scheme="https://wangwei.one/tags/SPV/"/>
     
