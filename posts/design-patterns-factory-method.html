@@ -1,0 +1,263 @@
+<!DOCTYPE html><html lang="en" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"><title>设计模式 | 工厂方法(Factory Method) | 维新工坊</title><meta name="keywords" content="Design Patterns"><meta name="author" content="Wang Wei"><meta name="copyright" content="Wang Wei"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="定义工厂方法是一种创建式设计模式，它提供了用于在超类中创建对象的接口，但允许子类改变将要创建的对象的类型。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="设计模式 | 工厂方法(Factory Method)">
+<meta property="og:url" content="https://wangwei.one/posts/design-patterns-factory-method.html">
+<meta property="og:site_name" content="维新工坊">
+<meta property="og:description" content="定义工厂方法是一种创建式设计模式，它提供了用于在超类中创建对象的接口，但允许子类改变将要创建的对象的类型。">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7">
+<meta property="article:published_time" content="2016-02-01T14:43:00.000Z">
+<meta property="article:modified_time" content="2020-01-03T02:12:09.825Z">
+<meta property="article:author" content="Wang Wei">
+<meta property="article:tag" content="Design Patterns">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"><link rel="shortcut icon" href="/images/favicon-180x180.png"><link rel="canonical" href="https://wangwei.one/posts/design-patterns-factory-method"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//www.google-analytics.com" crossorigin=""/><link rel="preconnect" href="//s4.cnzz.com"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.css" media="print" onload="this.media='all'"><script async="async" src="https://www.googletagmanager.com/gtag/js?id=UA-112239883-1"></script><script>window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'UA-112239883-1');
+</script><script async="async" data-pjax="data-pjax" src="https://s4.cnzz.com/z_stat.php?id=1270083794&amp;web_id=1270083794"></script><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: 'Copy successfully',
+    error: 'Copy error',
+    noSupport: 'The browser does not support'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  date_suffix: {
+    just: 'Just',
+    min: 'minutes ago',
+    hour: 'hours ago',
+    day: 'days ago',
+    month: 'months ago'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery@2/dist/fjGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery@2/dist/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '设计模式 | 工厂方法(Factory Method)',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2020-01-03 10:12:09'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><link rel="stylesheet" href="/lib/css/particles-style.min.css"><meta name="generator" content="Hexo 6.0.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data is-center"><div class="data-item"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">74</div></a></div><div class="data-item"><a href="/tags/"><div class="headline">Tags</div><div class="length-num">39</div></a></div><div class="data-item"><a href="/categories/"><div class="headline">Categories</div><div class="length-num">4</div></a></div></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 目录</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/categories/"><i class="fa-fw fas fa-th"></i><span> 分类</span></a></li><li><a class="site-page child" href="/tags/"><i class="fa-fw fas fas-tags"></i><span> 标签</span></a></li><li><a class="site-page child" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/books/"><i class="fa-fw fas fa-book"></i><span> 阅读</span></a></div><div class="menus_item"><a class="site-page" href="/movies/"><i class="fa-fw fas fa-film"></i><span> 电影</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fa fa-user"></i><span> 关于</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">维新工坊</a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 目录</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/categories/"><i class="fa-fw fas fa-th"></i><span> 分类</span></a></li><li><a class="site-page child" href="/tags/"><i class="fa-fw fas fas-tags"></i><span> 标签</span></a></li><li><a class="site-page child" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/books/"><i class="fa-fw fas fa-book"></i><span> 阅读</span></a></div><div class="menus_item"><a class="site-page" href="/movies/"><i class="fa-fw fas fa-film"></i><span> 电影</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fa fa-user"></i><span> 关于</span></a></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">设计模式 | 工厂方法(Factory Method)</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">Created</span><time class="post-meta-date-created" datetime="2016-02-01T14:43:00.000Z" title="Created 2016-02-01 22:43:00">2016-02-01</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">Updated</span><time class="post-meta-date-updated" datetime="2020-01-03T02:12:09.825Z" title="Updated 2020-01-03 10:12:09">2020-01-03</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/coding/">coding</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="设计模式 | 工厂方法(Factory Method)"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">Post View:</span><span id="busuanzi_value_page_pv"></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><p><img src="https://img.i7years.com/blog/factory-method-mini-2x.png"></p>
+<h2 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h2><p><strong>工厂方法</strong>是一种创建式设计模式，它提供了用于在超类中创建对象的接口，但允许子类改变将要创建的对象的类型。</p>
+<span id="more"></span>
+
+
+
+<h2 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h2><p>想象一下，你正在创建一个物流管理应用程序。 您的应用程序的第一个版本只能处理卡车运输，因此大部分代码都在Truck类中。</p>
+<p>过了一段时间，您的应用程序变得非常流行，以至于您会收到大量包含海运的请求。</p>
+<p><img src="https://img.i7years.com/blog/factory-method-problem1-2x.png"></p>
+<p>好消息，对吧？！ 但是代码如何？ 它看起来大部分代码都与Truck类相关联。 添加船只需要更改整个代码库。 此外，如果您决定为应用程序添加其他类型的交通工具，则可能需要再次进行所有这些更改。</p>
+<p>你最终会遇到一些令人讨厌的代码，它们会根据传输对象的类别选择行为。</p>
+<h2 id="方案"><a href="#方案" class="headerlink" title="方案"></a>方案</h2><p>工厂方法设计模式建议使用一个叫”工厂”的方法来替代直接通过 new 来创建对象。构造函数调用应该在该方法内移动。 工厂方法返回的对象通常被称为“产品”。</p>
+<p>咋一看上去，这一举动貌似毫无意义。但是你可以在子类中重写工厂方法，并且改变将要创建的类对象。让我们看看它是如何工作的：</p>
+<p><img src="https://img.i7years.com/blog/factory-method-solution1-2x.png"></p>
+<p>当然，有一些小小的限制：所有的产品都必须有一个通用的接口（比如Transport）。 基类中的Factory方法应该返回这个通用接口。</p>
+<p><img src="https://img.i7years.com/blog/fatory-methond-solution2-en-2x.png"></p>
+<p>只要这些产品具有共同的基类或接口（例如卡车和船舶实现传输接口），子类就可以返回不同的具体产品。</p>
+<p><img src="https://img.i7years.com/blog/fatory-method-solution3-2x.png"></p>
+<p>工厂方法的客户端并不关心它们接收到的具体产品类型，它们通过一个共同的产品接口来与所有的具体产品协同工作。</p>
+<h2 id="构造"><a href="#构造" class="headerlink" title="构造"></a>构造</h2><p><img src="https://img.i7years.com/blog/fatory-method-structure-2x.png"></p>
+<h2 id="伪代码"><a href="#伪代码" class="headerlink" title="伪代码"></a>伪代码</h2><h4 id="创建产品接口及其实现类"><a href="#创建产品接口及其实现类" class="headerlink" title="创建产品接口及其实现类"></a>创建产品接口及其实现类</h4><p>运输接口：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> one.wangwei.designpatterns.factorymethod;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 运输</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author</span> wangwei</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@date</span> 2018/05/10</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">interface</span> <span class="title class_">Transport</span> &#123;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 发送快递</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">deliver</span><span class="params">()</span>;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>卡车运输子类:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> one.wangwei.designpatterns.factorymethod;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> lombok.extern.slf4j.Slf4j;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 卡车运输</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author</span> wangwei</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@date</span> 2018/05/10</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="meta">@Slf4j</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Truck</span> <span class="keyword">implements</span> <span class="title class_">Transport</span> &#123;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 发送</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">deliver</span><span class="params">()</span> &#123;</span><br><span class="line">        log.info(<span class="string">&quot;Deliver by land in a box. &quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>水路运输子类:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> one.wangwei.designpatterns.factorymethod;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> lombok.extern.slf4j.Slf4j;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 水路运输</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author</span> wangwei</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@date</span> 2018/05/10</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="meta">@Slf4j</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Ship</span> <span class="keyword">implements</span> <span class="title class_">Transport</span> &#123;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 发送</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">deliver</span><span class="params">()</span> &#123;</span><br><span class="line">        log.info(<span class="string">&quot;Deliver by sea in a container. &quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="创建工厂及其子类"><a href="#创建工厂及其子类" class="headerlink" title="创建工厂及其子类"></a>创建工厂及其子类</h4><p>物流抽象类：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> one.wangwei.designpatterns.factorymethod;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 物流</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author</span> wangwei</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@date</span> 2018/05/10</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">abstract</span> <span class="keyword">class</span> <span class="title class_">BaseLogistics</span> &#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">planDelivery</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="type">Transport</span> <span class="variable">transport</span> <span class="operator">=</span> createTransport();</span><br><span class="line">        transport.deliver();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">protected</span> <span class="keyword">abstract</span> Transport <span class="title function_">createTransport</span><span class="params">()</span>;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>道路运输，采用卡车</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> one.wangwei.designpatterns.factorymethod;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 道路物流</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author</span> wangwei</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@date</span> 2018/05/10</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">RoadLogistics</span> <span class="keyword">extends</span> <span class="title class_">BaseLogistics</span> &#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">protected</span> Transport <span class="title function_">createTransport</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> <span class="title class_">Truck</span>();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>海运，采用船</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> one.wangwei.designpatterns.factorymethod;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 海运</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author</span> wangwei</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@date</span> 2018/05/10</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">SeaLogistics</span> <span class="keyword">extends</span> <span class="title class_">BaseLogistics</span> &#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">protected</span> Transport <span class="title function_">createTransport</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> <span class="title class_">Ship</span>();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>调用</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> one.wangwei.designpatterns.factorymethod;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 客户端</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author</span> wangwei</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@date</span> 2018/05/10</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Client</span> &#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line"></span><br><span class="line">        <span class="type">BaseLogistics</span> <span class="variable">logistics</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">RoadLogistics</span>();</span><br><span class="line">        logistics.planDelivery();</span><br><span class="line"></span><br><span class="line">        <span class="type">BaseLogistics</span> <span class="variable">logistics1</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">SeaLogistics</span>();</span><br><span class="line">        logistics1.planDelivery();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="使用场景"><a href="#使用场景" class="headerlink" title="使用场景"></a>使用场景</h2><ol>
+<li><p><strong>问题</strong>：当你不知道对象的确切类型和依赖关系时，你的代码需要保证可以正常工作。</p>
+<p>例如，从多个数据源去读和写入数据——文件系统、数据库和网络。这些资源都有不同的类型，依赖关系和初始化代码。</p>
+<p><strong>方案</strong></p>
+<p>工厂方法可以一个产品的具体实现细节。 为了支持新的产品类型，您只需要创建一个新的子类并覆盖其中的工厂方法即可。</p>
+</li>
+<li><p><strong>问题</strong>：当你想要为你的类库或框架的用户提供一种方式，好让他们能够扩展这些库或框架的内部组件。</p>
+<p><strong>方案</strong></p>
+<p>用户可以轻松地对某些特定组件进行子类化。 但是，框架将如何识别该子类并使用它而不是标准组件呢？ 用户必须重写每个创建标准组件实例的方法，并将其更改为创建自定义子类的对象。 这很尴尬，不是吗？</p>
+<p>更好的解决方案不仅是给用户提供扩展特定类的手段，而且还将生产组件的代码减少到单个创建方法中。 换句话说，提供工厂方法。</p>
+<p>让我们看一下它是如何工作的。想象一下，你正在使用一个开源的UI框架开发APP，你的APP需要一个圆型按钮，但是这个框架只提供的方形按钮。</p>
+<p>你要做的第一件事情就是实现 <code>RoundButton</code> 类。但是现在你需要告诉 <code>UIFramework</code> 类去使用新创建的对象，而不是默认对象。</p>
+<p>为了达到这个目的，你需要创建一个子类 <code>UIWithRoundButtons</code> 并且重写 <code>createButton</code> 方法. 这个方法仍然返回 <code>Button</code> 类，但是你的新子类将会提供 <code>RoundButton</code> 对象。现在，在你的App中，你需要使用 <code>UIWithRoundButtons</code> 而不是 <code>UIFramework</code> 来初始化这个框架。</p>
+</li>
+<li><p><strong>问题</strong>：当你想要保存系统资源并且重用已经存在的对象，而不是重新创建一个新的对象。</p>
+<p>例如，当处理大的或者资源密集性的对象，例如数据库连接，等等。</p>
+<p>方案：</p>
+<p>想象一下，重复使用现有对象需要做多少工作：</p>
+<ul>
+<li>首先，您需要创建一个池来保留现有的对象。</li>
+<li>当有人请求一个对象时，你会在该池内寻找一个空闲对象。</li>
+<li>…并将其返回给客户端代码。</li>
+<li>只有在没有空闲对象时，才会创建一个新对象（并将其添加到池中）。</li>
+</ul>
+<p>此代码必须放置在某处。 最方便的地方是一个构造函数。 这样，只要有人试图创建一个对象，所有这些检查都会被执行。 但是，唉，构造函数必须按照定义返回新对象，所以它们不能返回现有的实例。</p>
+</li>
+</ol>
+<h2 id="如何做"><a href="#如何做" class="headerlink" title="如何做"></a>如何做</h2><ol>
+<li><p>提取所有产品的通用接口。 这个接口应该声明对每个产品都有意义的方法。</p>
+</li>
+<li><p>在创建者类中添加一个空的工厂方法。 其方法签名应返回产品接口类型。</p>
+</li>
+<li><p>查看创建者的代码并查找对产品构造函数的所有引用。 一个接一个地将它们替换为对工厂方法的调用，但将产品创建代码提取到工厂方法。</p>
+<p>您可能需要向工厂方法添加一个临时参数，该参数将用于控制将创建哪个产品。</p>
+<p>在这一点上，工厂方法的代码可能看起来很丑陋。 它可能有一个大的开关操作员，可以选择要实例化的产品类别。 但别担心，我们会马上修复它。</p>
+</li>
+<li><p>现在，在子类中覆盖工厂方法，并在base方法中从switch操作符中移出相应的条件。</p>
+</li>
+<li><p>在基础创建者类中用到的控制参数也能够用到子类当中</p>
+<p>例如，您可能拥有一个创建者的层次结构，其中包含基类 <code>Mail</code> 以及<code>Air</code>和<code>Ground</code>类以及产品类：<code>Plane</code>，<code>Truck</code>和<code>Train</code>。 <code>Air</code>与<code>Plane</code> 相匹配，同时<code>Ground</code>与<code>Truck</code>和<code>Train</code>同时匹配。 您可以创建一个新的子类来处理这两种情况，但还有另一种选择。 客户端代码可以将参数传递给Ground类的工厂方法，以控制它接收的产品。</p>
+</li>
+<li><p>如果基础工厂方法在完成代码的迁移后变成了空壳，则可以将其抽象化。</p>
+</li>
+</ol>
+<h2 id="优缺点"><a href="#优缺点" class="headerlink" title="优缺点"></a>优缺点</h2><h4 id="Pros"><a href="#Pros" class="headerlink" title="Pros"></a>Pros</h4><ul>
+<li>遵循了开闭原则。</li>
+<li>避免了具体产品和使用它们的代码之间的紧密耦合。</li>
+<li>由于将所有创建代码移动到一个地方，因此简化了代码。</li>
+<li>向程序添加一个新的产品变得非常方便。</li>
+</ul>
+<h4 id="Cons"><a href="#Cons" class="headerlink" title="Cons"></a>Cons</h4><ul>
+<li>需要额外的子类。</li>
+</ul>
+<h2 id="JDK中的运用"><a href="#JDK中的运用" class="headerlink" title="JDK中的运用"></a>JDK中的运用</h2><ul>
+<li><a target="_blank" rel="noopener" href="http://docs.oracle.com/javase/8/docs/api/java/util/Calendar.html#getInstance--"><code>java.util.Calendar#getInstance()</code></a></li>
+<li><a target="_blank" rel="noopener" href="http://docs.oracle.com/javase/8/docs/api/java/util/ResourceBundle.html#getBundle-java.lang.String-"><code>java.util.ResourceBundle#getBundle()</code></a></li>
+<li><a target="_blank" rel="noopener" href="http://docs.oracle.com/javase/8/docs/api/java/text/NumberFormat.html#getInstance--"><code>java.text.NumberFormat#getInstance()</code></a></li>
+<li><a target="_blank" rel="noopener" href="http://docs.oracle.com/javase/8/docs/api/java/nio/charset/Charset.html#forName-java.lang.String-"><code>java.nio.charset.Charset#forName()</code></a></li>
+<li><a target="_blank" rel="noopener" href="http://docs.oracle.com/javase/8/docs/api/java/net/URLStreamHandlerFactory.html"><code>java.net.URLStreamHandlerFactory#createURLStreamHandler(String)</code></a> (Returns different singleton objects, depending on a protocol)</li>
+<li><a target="_blank" rel="noopener" href="https://docs.oracle.com/javase/8/docs/api/java/util/EnumSet.html#of(E)"><code>java.util.EnumSet#of()</code></a></li>
+<li><a target="_blank" rel="noopener" href="https://docs.oracle.com/javase/8/docs/api/javax/xml/bind/JAXBContext.html#createMarshaller--"><code>javax.xml.bind.JAXBContext#createMarshaller()</code></a> and other similar methods.</li>
+</ul>
+<h4 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h4><ul>
+<li><a target="_blank" rel="noopener" href="https://github.com/wangweiX/design-patterns/blob/master/src/main/java/one/wangwei/designpatterns/factorymethod">源码</a></li>
+<li><a target="_blank" rel="noopener" href="https://github.com/wangweiX/java-design-patterns/tree/master/factory-method">https://github.com/wangweiX/java-design-patterns/tree/master/factory-method</a></li>
+<li><a target="_blank" rel="noopener" href="https://refactoring.guru/design-patterns/factory-method">https://refactoring.guru/design-patterns/factory-method</a></li>
+<li><a target="_blank" rel="noopener" href="https://sourcemaking.com/design_patterns/factory_method">https://sourcemaking.com/design_patterns/factory_method</a></li>
+<li>《图解设计模式》</li>
+</ul>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">Author: </span><span class="post-copyright-info"><a href="mailto:undefined">Wang Wei</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">Link: </span><span class="post-copyright-info"><a href="https://wangwei.one/posts/design-patterns-factory-method.html">https://wangwei.one/posts/design-patterns-factory-method.html</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">Copyright Notice: </span><span class="post-copyright-info">All articles in this blog are licensed under <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> unless stating additionally.</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/Design-Patterns/">Design Patterns</a></div><div class="post_share"><div class="social-share" data-image="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/social-share.js/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/posts/design-patterns-abstract-factory.html"><img class="prev-cover" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">Previous Post</div><div class="prev_info">设计模式 | 抽象工厂(Abstract Factory)</div></div></a></div><div class="next-post pull-right"><a href="/posts/server-thread-io-model-reactor-proactor.html"><img class="next-cover" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">Next Post</div><div class="next_info">线程IO模型介绍</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>Related Articles</span></div><div class="relatedPosts-list"><div><a href="/posts/design-patterns-abstract-factory.html" title="设计模式 | 抽象工厂(Abstract Factory)"><img class="cover" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2016-02-02</div><div class="title">设计模式 | 抽象工厂(Abstract Factory)</div></div></a></div><div><a href="/posts/design-patterns-template-method.html" title="设计模式 | 模板方法(Template Method)"><img class="cover" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2016-02-03</div><div class="title">设计模式 | 模板方法(Template Method)</div></div></a></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">Wang Wei</div><div class="author-info__description">分享自己所思所学所行</div></div><div class="card-info-data is-center"><div class="card-info-data-item"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">74</div></a></div><div class="card-info-data-item"><a href="/tags/"><div class="headline">Tags</div><div class="length-num">39</div></a></div><div class="card-info-data-item"><a href="/categories/"><div class="headline">Categories</div><div class="length-num">4</div></a></div></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/xxxxxx"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/wangweiX" target="_blank" title="Github"><i class="fab fa-github"></i></a><a class="social-icon" href="mailto:dzd5ZWFyc0BnbWFpbC5jb20NCg==" target="_blank" title="Email"><i class="fas fa-envelope"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>Announcement</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>Catalog</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%9A%E4%B9%89"><span class="toc-number">1.</span> <span class="toc-text">定义</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%97%AE%E9%A2%98"><span class="toc-number">2.</span> <span class="toc-text">问题</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%96%B9%E6%A1%88"><span class="toc-number">3.</span> <span class="toc-text">方案</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9E%84%E9%80%A0"><span class="toc-number">4.</span> <span class="toc-text">构造</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BC%AA%E4%BB%A3%E7%A0%81"><span class="toc-number">5.</span> <span class="toc-text">伪代码</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%88%9B%E5%BB%BA%E4%BA%A7%E5%93%81%E6%8E%A5%E5%8F%A3%E5%8F%8A%E5%85%B6%E5%AE%9E%E7%8E%B0%E7%B1%BB"><span class="toc-number">5.0.1.</span> <span class="toc-text">创建产品接口及其实现类</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%88%9B%E5%BB%BA%E5%B7%A5%E5%8E%82%E5%8F%8A%E5%85%B6%E5%AD%90%E7%B1%BB"><span class="toc-number">5.0.2.</span> <span class="toc-text">创建工厂及其子类</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8%E5%9C%BA%E6%99%AF"><span class="toc-number">6.</span> <span class="toc-text">使用场景</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%A6%82%E4%BD%95%E5%81%9A"><span class="toc-number">7.</span> <span class="toc-text">如何做</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BC%98%E7%BC%BA%E7%82%B9"><span class="toc-number">8.</span> <span class="toc-text">优缺点</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Pros"><span class="toc-number">8.0.1.</span> <span class="toc-text">Pros</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Cons"><span class="toc-number">8.0.2.</span> <span class="toc-text">Cons</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#JDK%E4%B8%AD%E7%9A%84%E8%BF%90%E7%94%A8"><span class="toc-number">9.</span> <span class="toc-text">JDK中的运用</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%8F%82%E8%80%83%E8%B5%84%E6%96%99"><span class="toc-number">9.0.1.</span> <span class="toc-text">参考资料</span></a></li></ol></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>Recent Post</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/posts/spring-cloud-eureka-source-code-analysis.html" title="SpringCloud 之 Eureka 源码分析"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="SpringCloud 之 Eureka 源码分析"/></a><div class="content"><a class="title" href="/posts/spring-cloud-eureka-source-code-analysis.html" title="SpringCloud 之 Eureka 源码分析">SpringCloud 之 Eureka 源码分析</a><time datetime="2021-03-31T16:00:00.000Z" title="Created 2021-04-01 00:00:00">2021-04-01</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/jvm-gc-garbage-first.html" title="Garbage-First(G1)"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Garbage-First(G1)"/></a><div class="content"><a class="title" href="/posts/jvm-gc-garbage-first.html" title="Garbage-First(G1)">Garbage-First(G1)</a><time datetime="2020-01-01T10:19:03.000Z" title="Created 2020-01-01 18:19:03">2020-01-01</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/netflix-guide.html" title="输入「神秘代码」解锁「隐藏类目」"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="输入「神秘代码」解锁「隐藏类目」"/></a><div class="content"><a class="title" href="/posts/netflix-guide.html" title="输入「神秘代码」解锁「隐藏类目」">输入「神秘代码」解锁「隐藏类目」</a><time datetime="2019-04-17T00:12:00.000Z" title="Created 2019-04-17 08:12:00">2019-04-17</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/How-to-change-icloud-region.html" title="数据移民漂流记——如何进行iCloud转区操作"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="数据移民漂流记——如何进行iCloud转区操作"/></a><div class="content"><a class="title" href="/posts/How-to-change-icloud-region.html" title="数据移民漂流记——如何进行iCloud转区操作">数据移民漂流记——如何进行iCloud转区操作</a><time datetime="2019-04-13T13:48:43.000Z" title="Created 2019-04-13 21:48:43">2019-04-13</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/How-to-register-and-use-the-Google-Voice.html" title="数据移民漂流记 —— 如何拥有属于自己的美国电话号码"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="数据移民漂流记 —— 如何拥有属于自己的美国电话号码"/></a><div class="content"><a class="title" href="/posts/How-to-register-and-use-the-Google-Voice.html" title="数据移民漂流记 —— 如何拥有属于自己的美国电话号码">数据移民漂流记 —— 如何拥有属于自己的美国电话号码</a><time datetime="2019-04-12T13:48:43.000Z" title="Created 2019-04-12 21:48:43">2019-04-12</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2022 By Wang Wei</div><div class="framework-info"><span>Framework </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>Theme </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="Read Mode"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="Switch Between Light And Dark Mode"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="Toggle between single-column and double-column"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="Setting"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="Table Of Contents"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="Back To Top"><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.umd.js"></script><div class="js-pjax"></div><div id="particles-js"></div><script src="/lib/js/particles.min.js"></script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
