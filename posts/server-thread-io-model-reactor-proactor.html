@@ -1,9 +1,9 @@
-<!DOCTYPE html><html lang="en" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"><title>线程IO模型介绍 | 维新工坊</title><meta name="keywords" content="IO,NIO"><meta name="author" content="Wang Wei"><meta name="copyright" content="Wang Wei"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="本文转载自：https:&#x2F;&#x2F;juejin.im&#x2F;post&#x2F;5b8f23b96fb9a019ec6a133d  前面，我们了解到了服务器如何基于I&#x2F;O模型管理连接，获取输入数据，下面介绍基于进程&#x2F;线程模型，服务器如何处理请求。">
+<!DOCTYPE html><html lang="en" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"><title>线程 IO 模型介绍 | 维新工坊</title><meta name="keywords" content="IO,NIO"><meta name="author" content="Wang Wei"><meta name="copyright" content="Wang Wei"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="本文转载自：https:&#x2F;&#x2F;juejin.im&#x2F;post&#x2F;5b8f23b96fb9a019ec6a133d  前面，我们了解到了服务器如何基于 I&#x2F;O 模型管理连接，获取输入数据，下面介绍基于进程 &#x2F; 线程模型，服务器如何处理请求。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="线程IO模型介绍">
+<meta property="og:title" content="线程 IO 模型介绍">
 <meta property="og:url" content="https://wangwei.one/posts/server-thread-io-model-reactor-proactor.html">
 <meta property="og:site_name" content="维新工坊">
-<meta property="og:description" content="本文转载自：https:&#x2F;&#x2F;juejin.im&#x2F;post&#x2F;5b8f23b96fb9a019ec6a133d  前面，我们了解到了服务器如何基于I&#x2F;O模型管理连接，获取输入数据，下面介绍基于进程&#x2F;线程模型，服务器如何处理请求。">
+<meta property="og:description" content="本文转载自：https:&#x2F;&#x2F;juejin.im&#x2F;post&#x2F;5b8f23b96fb9a019ec6a133d  前面，我们了解到了服务器如何基于 I&#x2F;O 模型管理连接，获取输入数据，下面介绍基于进程 &#x2F; 线程模型，服务器如何处理请求。">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7">
 <meta property="article:published_time" content="2015-12-10T03:56:32.000Z">
@@ -50,10 +50,10 @@ gtag('config', 'UA-112239883-1');
     }
   },
   isPhotoFigcaption: false,
-  islazyload: false,
+  islazyload: true,
   isAnchor: false
 }</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
-  title: '线程IO模型介绍',
+  title: '线程 IO 模型介绍',
   isPost: true,
   isHome: false,
   isHighlightShrink: false,
@@ -147,129 +147,147 @@ gtag('config', 'UA-112239883-1');
       }
     }
     detectApple()
-    })(window)</script><link rel="stylesheet" href="/lib/css/particles-style.min.css"><meta name="generator" content="Hexo 6.0.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/images/avatar.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data is-center"><div class="data-item"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">74</div></a></div><div class="data-item"><a href="/tags/"><div class="headline">Tags</div><div class="length-num">39</div></a></div><div class="data-item"><a href="/categories/"><div class="headline">Categories</div><div class="length-num">4</div></a></div></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 目录</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/categories/"><i class="fa-fw fas fa-th"></i><span> 分类</span></a></li><li><a class="site-page child" href="/tags/"><i class="fa-fw fas fas-tags"></i><span> 标签</span></a></li><li><a class="site-page child" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/books/"><i class="fa-fw fas fa-book"></i><span> 阅读</span></a></div><div class="menus_item"><a class="site-page" href="/movies/"><i class="fa-fw fas fa-film"></i><span> 电影</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fa fa-user"></i><span> 关于</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">维新工坊</a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 目录</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/categories/"><i class="fa-fw fas fa-th"></i><span> 分类</span></a></li><li><a class="site-page child" href="/tags/"><i class="fa-fw fas fas-tags"></i><span> 标签</span></a></li><li><a class="site-page child" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/books/"><i class="fa-fw fas fa-book"></i><span> 阅读</span></a></div><div class="menus_item"><a class="site-page" href="/movies/"><i class="fa-fw fas fa-film"></i><span> 电影</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fa fa-user"></i><span> 关于</span></a></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">线程IO模型介绍</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="fa-fw post-meta-icon far fa-calendar-alt"></i><span class="post-meta-label">Created</span><time datetime="2015-12-10T03:56:32.000Z" title="Created 2015-12-10 11:56:32">2015-12-10</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/coding/">coding</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">Word count:</span><span class="word-count">2.6k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">Reading time:</span><span>8min</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="线程IO模型介绍"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">Post View:</span><span id="busuanzi_value_page_pv"></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><p align="center">
-<a target="_blank" href="https://wangwei.one/posts/server-thread-io-model-reactor-proactor.html"><img src="https://img.i7years.com/blog/the_thick_forest-wallpaper-1680x1050.jpg?imageslim"></a>
+    })(window)</script><link rel="stylesheet" href="/lib/css/particles-style.min.css"><meta name="generator" content="Hexo 6.0.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/images/avatar.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data is-center"><div class="data-item"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">74</div></a></div><div class="data-item"><a href="/tags/"><div class="headline">Tags</div><div class="length-num">39</div></a></div><div class="data-item"><a href="/categories/"><div class="headline">Categories</div><div class="length-num">4</div></a></div></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 目录</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/categories/"><i class="fa-fw fas fa-th"></i><span> 分类</span></a></li><li><a class="site-page child" href="/tags/"><i class="fa-fw fas fas-tags"></i><span> 标签</span></a></li><li><a class="site-page child" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/books/"><i class="fa-fw fas fa-book"></i><span> 阅读</span></a></div><div class="menus_item"><a class="site-page" href="/movies/"><i class="fa-fw fas fa-film"></i><span> 电影</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fa fa-user"></i><span> 关于</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">维新工坊</a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 目录</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/categories/"><i class="fa-fw fas fa-th"></i><span> 分类</span></a></li><li><a class="site-page child" href="/tags/"><i class="fa-fw fas fas-tags"></i><span> 标签</span></a></li><li><a class="site-page child" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/books/"><i class="fa-fw fas fa-book"></i><span> 阅读</span></a></div><div class="menus_item"><a class="site-page" href="/movies/"><i class="fa-fw fas fa-film"></i><span> 电影</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fa fa-user"></i><span> 关于</span></a></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">线程 IO 模型介绍</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="fa-fw post-meta-icon far fa-calendar-alt"></i><span class="post-meta-label">Created</span><time datetime="2015-12-10T03:56:32.000Z" title="Created 2015-12-10 11:56:32">2015-12-10</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/coding/">coding</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">Word count:</span><span class="word-count">2.7k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">Reading time:</span><span>8min</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="线程 IO 模型介绍"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">Post View:</span><span id="busuanzi_value_page_pv"></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><p align="center">
+<a target="_blank" href="https://wangwei.one/posts/server-thread-io-model-reactor-proactor.html"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://img.i7years.com/blog/the_thick_forest-wallpaper-1680x1050.jpg?imageslim"></a>
 </p>
 
 <blockquote>
 <p>本文转载自：<a target="_blank" rel="noopener" href="https://juejin.im/post/5b8f23b96fb9a019ec6a133d">https://juejin.im/post/5b8f23b96fb9a019ec6a133d</a></p>
 </blockquote>
-<p>前面，我们了解到了服务器如何基于I&#x2F;O模型管理连接，获取输入数据，下面介绍基于进程&#x2F;线程模型，服务器如何处理请求。</p>
+<p>前面，我们了解到了服务器如何基于 I/O 模型管理连接，获取输入数据，下面介绍基于进程 / 线程模型，服务器如何处理请求。</p>
 <span id="more"></span>
 
-<p>值得说明的是，具体选择线程还是进程，更多是与平台及编程语言相关，例如C语言使用线程和进程都可以(例如Nginx使用进程，Memcached使用线程)，Java语言一般使用线程(例如Netty)，为了描述方便，下面都使用线程来进程描述。</p>
-<h3 id="传统阻塞I-x2F-O服务模型"><a href="#传统阻塞I-x2F-O服务模型" class="headerlink" title="传统阻塞I&#x2F;O服务模型"></a>传统阻塞I&#x2F;O服务模型</h3><p>![Blocking IO Server](<a target="_blank" rel="noopener" href="https://img.i7years.com/blog/Blocking">https://img.i7years.com/blog/Blocking</a> IO Server.png)</p>
+<p>值得说明的是，具体选择线程还是进程，更多是与平台及编程语言相关，例如 C 语言使用线程和进程都可以 (例如 Nginx 使用进程，Memcached 使用线程)，Java 语言一般使用线程 (例如 Netty)，为了描述方便，下面都使用线程来进程描述。</p>
+<h3 id="传统阻塞I-x2F-O服务模型"><a href="#传统阻塞I-x2F-O服务模型" class="headerlink" title="传统阻塞I/O服务模型"></a>传统阻塞 I/O 服务模型</h3><p>![Blocking IO Server](<a target="_blank" rel="noopener" href="https://img.i7years.com/blog/Blocking">https://img.i7years.com/blog/Blocking</a> IO Server.png)</p>
 <p><strong>特点</strong></p>
 <ul>
-<li>采用阻塞式I&#x2F;O模型获取输入数据</li>
+<li>采用阻塞式 I/O 模型获取输入数据</li>
 <li>每个连接都需要独立的线程完成数据输入，业务处理，数据返回的完整操作</li>
 </ul>
 <p><strong>存在问题</strong></p>
 <ul>
 <li>当并发数较大时，需要创建大量线程来处理连接，系统资源占用较大</li>
-<li>连接建立后，如果当前线程暂时没有数据可读，则线程就阻塞在read操作上，造成线程资源浪费</li>
+<li>连接建立后，如果当前线程暂时没有数据可读，则线程就阻塞在 read 操作上，造成线程资源浪费</li>
 </ul>
-<h3 id="Reactor模式"><a href="#Reactor模式" class="headerlink" title="Reactor模式"></a>Reactor模式</h3><p>针对传统阻塞I&#x2F;O服务模型的2个缺点，比较常见的解决方案如下：</p>
+<h3 id="Reactor模式"><a href="#Reactor模式" class="headerlink" title="Reactor模式"></a>Reactor 模式</h3><p>针对传统阻塞 I/O 服务模型的 2 个缺点，比较常见的解决方案如下：</p>
 <ul>
-<li>基于I&#x2F;O复用模型，多个连接共用一个阻塞对象，应用程序只需要在一个阻塞对象上等待，无需阻塞等待所有连接。当某条连接有新的数据可以处理时，操作系统通知应用程序，线程从阻塞状态返回，开始进行业务处理</li>
+<li>基于 I/O 复用模型，多个连接共用一个阻塞对象，应用程序只需要在一个阻塞对象上等待，无需阻塞等待所有连接。当某条连接有新的数据可以处理时，操作系统通知应用程序，线程从阻塞状态返回，开始进行业务处理</li>
 <li>基于线程池复用线程资源，不必再为每个连接创建线程，将连接完成后的业务处理任务分配给线程进行处理，一个线程可以处理多个连接的业务。</li>
 </ul>
-<p>I&#x2F;O复用 + 线程池，这就是Reactor模式的基本设计思想</p>
-<p><img src="https://img.i7years.com/blog/Reactor.png" alt="Reactor"></p>
-<p><strong>Reactor模式</strong>：指通过一个或多个输入同时传递给服务处理器的服务请求的事件驱动处理模式。服务端程序处理传入多路请求，并将它们同步分派给请求对应的处理线程，Reactor模式也叫Dispatcher模式，即 I&#x2F;O多路复用统一监听事件，收到事件后分发（Dispatch给某进程）。</p>
-<p>Reactor模式中的2个关键组成：</p>
+<p>I/O 复用 + 线程池，这就是 Reactor 模式的基本设计思想</p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://img.i7years.com/blog/Reactor.png" alt="Reactor"></p>
+<p><strong>Reactor 模式</strong>：指通过一个或多个输入同时传递给服务处理器的服务请求的事件驱动处理模式。服务端程序处理传入多路请求，并将它们同步分派给请求对应的处理线程，Reactor 模式也叫 Dispatcher 模式，即 I/O 多路复用统一监听事件，收到事件后分发（Dispatch 给某进程）。</p>
+<p>Reactor 模式中的 2 个关键组成：</p>
 <ul>
-<li><strong>Reactor</strong>。Reactor在一个单独的线程中运行，负责监听和分发事件，分发给适当的处理程序来对IO事件作出反应。它就像公司的电话接线员，它接听来自客户的电话并将线路转移到适当的联系人</li>
-<li><strong>Handlers</strong>。处理程序执行I&#x2F;O事件要完成的实际事件，类似于客户想要与之交谈的公司中实际负责人。Reactor通过适度适当的处理程序来响应I&#x2F;O事件，处理程序执行非阻塞操作</li>
+<li><strong>Reactor</strong>。Reactor 在一个单独的线程中运行，负责监听和分发事件，分发给适当的处理程序来对 IO 事件作出反应。它就像公司的电话接线员，它接听来自客户的电话并将线路转移到适当的联系人</li>
+<li><strong> Handlers</strong>。处理程序执行 I/O 事件要完成的实际事件，类似于客户想要与之交谈的公司中实际负责人。Reactor 通过适度适当的处理程序来响应 I/O 事件，处理程序执行非阻塞操作</li>
 </ul>
-<p>根据Reactor的数量和处理资源池线程数量的不同，有3种典型的实现：</p>
+<p>根据 Reactor 的数量和处理资源池线程数量的不同，有 3 种典型的实现：</p>
 <ul>
 <li>单 Reactor 单线程</li>
 <li>单 Reactor 多线程</li>
 <li>主从 Reactor 多线程</li>
 </ul>
-<h4 id="单Reactor单线程"><a href="#单Reactor单线程" class="headerlink" title="单Reactor单线程"></a>单Reactor单线程</h4><p>![Single Reactor Thread](<a target="_blank" rel="noopener" href="https://img.i7years.com/blog/Single">https://img.i7years.com/blog/Single</a> Reactor Thread.png)</p>
-<p>其中，select是前面<strong>I&#x2F;O复用模型</strong>介绍的标准网络编程API，可以实现应用程序通过一个阻塞对象监听多路连接请求，其他方案示意图类似</p>
+<h4 id="单Reactor单线程"><a href="#单Reactor单线程" class="headerlink" title="单Reactor单线程"></a>单 Reactor 单线程</h4><p>![Single Reactor Thread](<a target="_blank" rel="noopener" href="https://img.i7years.com/blog/Single">https://img.i7years.com/blog/Single</a> Reactor Thread.png)</p>
+<p>其中，select 是前面 <strong>I/O 复用模型</strong>介绍的标准网络编程 API，可以实现应用程序通过一个阻塞对象监听多路连接请求，其他方案示意图类似</p>
 <p><strong>方案说明</strong></p>
 <ul>
-<li>Reactor对象通过select监控客户端请求事件，收到事件后通过dispatch进行分发</li>
-<li>如果是建立连接请求事件，则由Acceptor通过accept处理连接请求，然后创建一个Handler对象处理连接完成后的后续业务处理</li>
-<li>如果不是建立连接事件，则Reactor会分发调用连接对应的Handler来响应</li>
-<li>Handler会完成read-&gt;业务处理-&gt;send的完整业务流程</li>
+<li>Reactor 对象通过 select 监控客户端请求事件，收到事件后通过 dispatch 进行分发</li>
+<li>如果是建立连接请求事件，则由 Acceptor 通过 accept 处理连接请求，然后创建一个 Handler 对象处理连接完成后的后续业务处理</li>
+<li>如果不是建立连接事件，则 Reactor 会分发调用连接对应的 Handler 来响应</li>
+<li> Handler 会完成 read-&gt; 业务处理 -&gt;send 的完整业务流程</li>
 </ul>
 <p><strong>优点</strong> 模型简单，没有多线程、进程通信、竞争的问题，全部都在一个线程中完成</p>
 <p><strong>缺点</strong></p>
 <ul>
-<li>性能问题：只有一个线程，无法完全发挥多核CPU的性能 Handler在处理某个连接上的业务时，整个进程无法处理其他连接事件，很容易导致性能瓶颈</li>
+<li>性能问题：只有一个线程，无法完全发挥多核 CPU 的性能 Handler 在处理某个连接上的业务时，整个进程无法处理其他连接事件，很容易导致性能瓶颈</li>
 <li>可靠性问题：线程意外跑飞，或者进入死循环，会导致整个系统通信模块不可用，不能接收和处理外部消息，造成节点故障</li>
 </ul>
-<p><strong>使用场景</strong> 客户端的数量有限，业务处理非常快速，比如Redis，业务处理的时间复杂度O(1)</p>
-<h4 id="单Reactor多线程"><a href="#单Reactor多线程" class="headerlink" title="单Reactor多线程"></a>单Reactor多线程</h4><p>![Single Reactor Mutil Thread](<a target="_blank" rel="noopener" href="https://img.i7years.com/blog/Single">https://img.i7years.com/blog/Single</a> Reactor Mutil Thread.png)</p>
+<p><strong>使用场景</strong> 客户端的数量有限，业务处理非常快速，比如 Redis，业务处理的时间复杂度 O (1)</p>
+<h4 id="单Reactor多线程"><a href="#单Reactor多线程" class="headerlink" title="单Reactor多线程"></a>单 Reactor 多线程</h4><p>![Single Reactor Mutil Thread](<a target="_blank" rel="noopener" href="https://img.i7years.com/blog/Single">https://img.i7years.com/blog/Single</a> Reactor Mutil Thread.png)</p>
 <p><strong>方案说明</strong></p>
 <ul>
-<li>Reactor对象通过select监控客户端请求事件，收到事件后通过dispatch进行分发</li>
-<li>如果是建立连接请求事件，则由Acceptor通过accept处理连接请求，然后创建一个Handler对象处理连接完成后的续各种事件</li>
-<li>如果不是建立连接事件，则Reactor会分发调用连接对应的Handler来响应</li>
-<li>Handler只负责响应事件，不做具体业务处理，通过read读取数据后，会分发给后面的Worker线程池进行业务处理</li>
-<li>Worker线程池会分配独立的线程完成真正的业务处理，如何将响应结果发给Handler进行处理</li>
-<li>Handler收到响应结果后通过send将响应结果返回给client</li>
+<li>Reactor 对象通过 select 监控客户端请求事件，收到事件后通过 dispatch 进行分发</li>
+<li>如果是建立连接请求事件，则由 Acceptor 通过 accept 处理连接请求，然后创建一个 Handler 对象处理连接完成后的续各种事件</li>
+<li>如果不是建立连接事件，则 Reactor 会分发调用连接对应的 Handler 来响应</li>
+<li> Handler 只负责响应事件，不做具体业务处理，通过 read 读取数据后，会分发给后面的 Worker 线程池进行业务处理</li>
+<li> Worker 线程池会分配独立的线程完成真正的业务处理，如何将响应结果发给 Handler 进行处理</li>
+<li> Handler 收到响应结果后通过 send 将响应结果返回给 client</li>
 </ul>
-<p><strong>优点</strong> 可以充分利用多核CPU的处理能力</p>
+<p><strong>优点</strong> 可以充分利用多核 CPU 的处理能力</p>
 <p><strong>缺点</strong></p>
 <ul>
 <li>多线程数据共享和访问比较复杂</li>
-<li>Reactor承担所有事件的监听和响应，在单线程中运行，高并发场景下容易成为性能瓶颈</li>
+<li> Reactor 承担所有事件的监听和响应，在单线程中运行，高并发场景下容易成为性能瓶颈</li>
 </ul>
-<h4 id="主从Reactor多线程"><a href="#主从Reactor多线程" class="headerlink" title="主从Reactor多线程"></a>主从Reactor多线程</h4><p>针对单Reactor多线程模型中，Reactor在单线程中运行，高并发场景下容易成为性能瓶颈，可以让Reactor在多线程中运行</p>
+<h4 id="主从Reactor多线程"><a href="#主从Reactor多线程" class="headerlink" title="主从Reactor多线程"></a>主从 Reactor 多线程</h4><p>针对单 Reactor 多线程模型中，Reactor 在单线程中运行，高并发场景下容易成为性能瓶颈，可以让 Reactor 在多线程中运行</p>
 <p>![Master-slave Reactor Mutil Thread](<a target="_blank" rel="noopener" href="https://img.i7years.com/blog/Master-slave">https://img.i7years.com/blog/Master-slave</a> Reactor Mutil Thread.png)</p>
 <p><strong>方案说明</strong></p>
 <ul>
-<li>Reactor主线程MainReactor对象通过select监控建立连接事件，收到事件后通过Acceptor接收，处理建立连接事件</li>
-<li>Acceptor处理建立连接事件后，MainReactor将连接分配Reactor子线程给SubReactor进行处理</li>
-<li>SubReactor将连接加入连接队列进行监听，并创建一个Handler用于处理各种连接事件</li>
-<li>当有新的事件发生时，SubReactor会调用连接对应的Handler进行响应</li>
-<li>Handler通过read读取数据后，会分发给后面的Worker线程池进行业务处理</li>
-<li>Worker线程池会分配独立的线程完成真正的业务处理，如何将响应结果发给Handler进行处理</li>
-<li>Handler收到响应结果后通过send将响应结果返回给client</li>
+<li>Reactor 主线程 MainReactor 对象通过 select 监控建立连接事件，收到事件后通过 Acceptor 接收，处理建立连接事件</li>
+<li> Acceptor 处理建立连接事件后，MainReactor 将连接分配 Reactor 子线程给 SubReactor 进行处理</li>
+<li> SubReactor 将连接加入连接队列进行监听，并创建一个 Handler 用于处理各种连接事件</li>
+<li>当有新的事件发生时，SubReactor 会调用连接对应的 Handler 进行响应</li>
+<li> Handler 通过 read 读取数据后，会分发给后面的 Worker 线程池进行业务处理</li>
+<li> Worker 线程池会分配独立的线程完成真正的业务处理，如何将响应结果发给 Handler 进行处理</li>
+<li> Handler 收到响应结果后通过 send 将响应结果返回给 client</li>
 </ul>
 <p><strong>优点</strong></p>
 <ul>
 <li>父线程与子线程的数据交互简单职责明确，父线程只需要接收新连接，子线程完成后续的业务处理</li>
-<li>父线程与子线程的数据交互简单，Reactor主线程只需要把新连接传给子线程，子线程无需返回数据</li>
+<li>父线程与子线程的数据交互简单，Reactor 主线程只需要把新连接传给子线程，子线程无需返回数据</li>
 </ul>
-<p>这种模型在许多项目中广泛使用，包括Nginx主从Reactor多进程模型，Memcached主从多线程，Netty主从多线程模型的支持。</p>
-<h4 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h4><p>3种模式可以用个比喻来理解： 餐厅常常雇佣接待员负责迎接顾客，当顾客入坐后，侍应生专门为这张桌子服务</p>
+<p>这种模型在许多项目中广泛使用，包括 Nginx 主从 Reactor 多进程模型，Memcached 主从多线程，Netty 主从多线程模型的支持。</p>
+<h4 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h4><p>3 种模式可以用个比喻来理解： 餐厅常常雇佣接待员负责迎接顾客，当顾客入坐后，侍应生专门为这张桌子服务</p>
 <ul>
-<li>单Reactor单线程：接待员和侍应生是同一个人，全程为顾客服务</li>
-<li>单Reactor多线程：1个接待员，多个侍应生，接待员只负责接待</li>
-<li>主从Reactor多线程：多个接待员，多个侍应生</li>
+<li>单 Reactor 单线程：接待员和侍应生是同一个人，全程为顾客服务</li>
+<li>单 Reactor 多线程：1 个接待员，多个侍应生，接待员只负责接待</li>
+<li>主从 Reactor 多线程：多个接待员，多个侍应生</li>
 </ul>
-<p>Reactor模式具有如下的优点：</p>
+<p>Reactor 模式具有如下的优点：</p>
 <ul>
-<li>响应快，不必为单个同步时间所阻塞，虽然Reactor本身依然是同步的</li>
-<li>编程相对简单，可以最大程度的避免复杂的多线程及同步问题，并且避免了多线程&#x2F;进程的切换开销；</li>
-<li>可扩展性，可以方便的通过增加Reactor实例个数来充分利用CPU资源</li>
-<li>可复用性，Reactor模型本身与具体事件处理逻辑无关，具有很高的复用性</li>
+<li>响应快，不必为单个同步时间所阻塞，虽然 Reactor 本身依然是同步的</li>
+<li>编程相对简单，可以最大程度的避免复杂的多线程及同步问题，并且避免了多线程 / 进程的切换开销；</li>
+<li>可扩展性，可以方便的通过增加 Reactor 实例个数来充分利用 CPU 资源</li>
+<li>可复用性，Reactor 模型本身与具体事件处理逻辑无关，具有很高的复用性</li>
 </ul>
-<h3 id="Proactor模型"><a href="#Proactor模型" class="headerlink" title="Proactor模型"></a>Proactor模型</h3><p>在Reactor模式中，Reactor等待某个事件或者可应用或个操作的状态发生（比如文件描述符可读写，或者是socket可读写），然后把这个事件传给事先注册的Handler（事件处理函数或者回调函数），由后者来做实际的读写操作，其中的读写操作都需要应用程序同步操作，所以Reactor是非阻塞同步网络模型。如果把I&#x2F;O操作改为异步，即交给操作系统来完成就能进一步提升性能，这就是异步网络模型Proactor。</p>
-<p><img src="https://img.i7years.com/blog/Proactor.png" alt="Proactor"></p>
-<p>Proactor是和异步I&#x2F;O相关的，<strong>详细方案</strong>如下：</p>
+<h3 id="Proactor模型"><a href="#Proactor模型" class="headerlink" title="Proactor模型"></a>Proactor 模型</h3><p>在 Reactor 模式中，Reactor 等待某个事件或者可应用或个操作的状态发生（比如文件描述符可读写，或者是 socket 可读写），然后把这个事件传给事先注册的 Handler（事件处理函数或者回调函数），由后者来做实际的读写操作，其中的读写操作都需要应用程序同步操作，所以 Reactor 是非阻塞同步网络模型。如果把 I/O 操作改为异步，即交给操作系统来完成就能进一步提升性能，这就是异步网络模型 Proactor。</p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://img.i7years.com/blog/Proactor.png" alt="Proactor"></p>
+<p>Proactor 是和异步 I/O 相关的，<strong>详细方案</strong>如下：</p>
 <ul>
-<li>ProactorInitiator创建Proactor和Handler对象，并将Proactor和Handler都通过AsyOptProcessor（Asynchronous Operation Processor）注册到内核</li>
-<li>AsyOptProcessor处理注册请求，并处理I&#x2F;O操作</li>
-<li>AsyOptProcessor完成I&#x2F;O操作后通知Proactor</li>
-<li>Proactor根据不同的事件类型回调不同的Handler进行业务处理</li>
-<li>Handler完成业务处理</li>
+<li>ProactorInitiator 创建 Proactor 和 Handler 对象，并将 Proactor 和 Handler 都通过 AsyOptProcessor（Asynchronous Operation Processor）注册到内核</li>
+<li> AsyOptProcessor 处理注册请求，并处理 I/O 操作</li>
+<li> AsyOptProcessor 完成 I/O 操作后通知 Proactor</li>
+<li>Proactor 根据不同的事件类型回调不同的 Handler 进行业务处理</li>
+<li> Handler 完成业务处理</li>
 </ul>
-<p>可以看出Proactor和Reactor的区别：Reactor是在事件发生时就通知事先注册的事件（读写在应用程序线程中处理完成）；Proactor是在事件发生时基于异步I&#x2F;O完成读写操作（由内核完成），待I&#x2F;O操作完成后才回调应用程序的处理器来处理进行业务处理</p>
-<p>理论上Proactor比Reactor效率更高，异步I&#x2F;O更加充分发挥DMA(Direct Memory Access，直接内存存取)的优势，但是有如下缺点：</p>
+<p>可以看出 Proactor 和 Reactor 的区别：Reactor 是在事件发生时就通知事先注册的事件（读写在应用程序线程中处理完成）；Proactor 是在事件发生时基于异步 I/O 完成读写操作（由内核完成），待 I/O 操作完成后才回调应用程序的处理器来处理进行业务处理</p>
+<p>理论上 Proactor 比 Reactor 效率更高，异步 I/O 更加充分发挥 DMA (Direct Memory Access，直接内存存取) 的优势，但是有如下缺点：</p>
 <ul>
-<li>编程复杂性 由于异步操作流程的事件的初始化和事件完成在时间和空间上都是相互分离的，因此开发异步应用程序更加复杂。应用程序还可能因为反向的流控而变得更加难以Debug</li>
-<li>内存使用 缓冲区在读或写操作的时间段内必须保持住，可能造成持续的不确定性，并且每个并发操作都要求有独立的缓存，相比Reactor模式，在socket已经准备好读或写前，是不要求开辟缓存的</li>
-<li>操作系统支持 Windows 下通过 IOCP 实现了真正的异步 I&#x2F;O，而在 Linux 系统下，Linux2.6才引入，目前异步I&#x2F;O还不完善</li>
+<li>编程复杂性 由于异步操作流程的事件的初始化和事件完成在时间和空间上都是相互分离的，因此开发异步应用程序更加复杂。应用程序还可能因为反向的流控而变得更加难以 Debug</li>
+<li> 内存使用 缓冲区在读或写操作的时间段内必须保持住，可能造成持续的不确定性，并且每个并发操作都要求有独立的缓存，相比 Reactor 模式，在 socket 已经准备好读或写前，是不要求开辟缓存的</li>
+<li>操作系统支持 Windows 下通过 IOCP 实现了真正的异步 I/O，而在 Linux 系统下，Linux2.6 才引入，目前异步 I/O 还不完善</li>
 </ul>
-<p>因此在Linux下实现高并发网络编程都是以Reactor模型为主。</p>
-</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">Author: </span><span class="post-copyright-info"><a href="mailto:undefined">Wang Wei</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">Link: </span><span class="post-copyright-info"><a href="https://wangwei.one/posts/server-thread-io-model-reactor-proactor.html">https://wangwei.one/posts/server-thread-io-model-reactor-proactor.html</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">Copyright Notice: </span><span class="post-copyright-info">All articles in this blog are licensed under <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> unless stating additionally.</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/IO/">IO</a><a class="post-meta__tags" href="/tags/NIO/">NIO</a></div><div class="post_share"><div class="social-share" data-image="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/social-share.js/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/posts/design-patterns-factory-method.html"><img class="prev-cover" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">Previous Post</div><div class="prev_info">设计模式 | 工厂方法(Factory Method)</div></div></a></div><div class="next-post pull-right"><a href="/posts/5-unix-io-model-intro.html"><img class="next-cover" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">Next Post</div><div class="next_info">Unix IO模型介绍</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>Related Articles</span></div><div class="relatedPosts-list"><div><a href="/posts/5-unix-io-model-intro.html" title="Unix IO模型介绍"><img class="cover" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2015-12-06</div><div class="title">Unix IO模型介绍</div></div></a></div><div><a href="/posts/java-nio-channel.html" title="Java NIO Channel"><img class="cover" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2015-11-20</div><div class="title">Java NIO Channel</div></div></a></div><div><a href="/posts/java-nio-buffer.html" title="Java NIO Buffer"><img class="cover" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2015-11-21</div><div class="title">Java NIO Buffer</div></div></a></div><div><a href="/posts/java-nio-selector.html" title="Java NIO Selector"><img class="cover" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2015-11-23</div><div class="title">Java NIO Selector</div></div></a></div><div><a href="/posts/java-nio-server-socket-datagram-channel.html" title="Java NIO ServerSocketChannel、SocketChannel、DatagramChannel"><img class="cover" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2015-11-26</div><div class="title">Java NIO ServerSocketChannel、SocketChannel、DatagramChannel</div></div></a></div><div><a href="/posts/java-nio-pipe.html" title="Java NIO Pipe"><img class="cover" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2015-11-28</div><div class="title">Java NIO Pipe</div></div></a></div></div></div><hr/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> Comment</span></div></div><div class="comment-wrap"><div><div id="disqus_thread"></div></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/images/avatar.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">Wang Wei</div><div class="author-info__description">分享自己所思所学所行</div></div><div class="card-info-data is-center"><div class="card-info-data-item"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">74</div></a></div><div class="card-info-data-item"><a href="/tags/"><div class="headline">Tags</div><div class="length-num">39</div></a></div><div class="card-info-data-item"><a href="/categories/"><div class="headline">Categories</div><div class="length-num">4</div></a></div></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/xxxxxx"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/wangweiX" target="_blank" title="Github"><i class="fab fa-github"></i></a><a class="social-icon" href="mailto:dzd5ZWFyc0BnbWFpbC5jb20NCg==" target="_blank" title="Email"><i class="fas fa-envelope"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>Announcement</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>Catalog</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BC%A0%E7%BB%9F%E9%98%BB%E5%A1%9EI-x2F-O%E6%9C%8D%E5%8A%A1%E6%A8%A1%E5%9E%8B"><span class="toc-number">1.</span> <span class="toc-text">传统阻塞I&#x2F;O服务模型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Reactor%E6%A8%A1%E5%BC%8F"><span class="toc-number">2.</span> <span class="toc-text">Reactor模式</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%8D%95Reactor%E5%8D%95%E7%BA%BF%E7%A8%8B"><span class="toc-number">2.1.</span> <span class="toc-text">单Reactor单线程</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%8D%95Reactor%E5%A4%9A%E7%BA%BF%E7%A8%8B"><span class="toc-number">2.2.</span> <span class="toc-text">单Reactor多线程</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%B8%BB%E4%BB%8EReactor%E5%A4%9A%E7%BA%BF%E7%A8%8B"><span class="toc-number">2.3.</span> <span class="toc-text">主从Reactor多线程</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%80%BB%E7%BB%93"><span class="toc-number">2.4.</span> <span class="toc-text">总结</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Proactor%E6%A8%A1%E5%9E%8B"><span class="toc-number">3.</span> <span class="toc-text">Proactor模型</span></a></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>Recent Post</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/posts/spring-cloud-eureka-source-code-analysis.html" title="SpringCloud 之 Eureka 源码分析"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="SpringCloud 之 Eureka 源码分析"/></a><div class="content"><a class="title" href="/posts/spring-cloud-eureka-source-code-analysis.html" title="SpringCloud 之 Eureka 源码分析">SpringCloud 之 Eureka 源码分析</a><time datetime="2021-03-31T16:00:00.000Z" title="Created 2021-04-01 00:00:00">2021-04-01</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/jvm-gc-garbage-first.html" title="Garbage-First(G1)"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Garbage-First(G1)"/></a><div class="content"><a class="title" href="/posts/jvm-gc-garbage-first.html" title="Garbage-First(G1)">Garbage-First(G1)</a><time datetime="2020-01-01T10:19:03.000Z" title="Created 2020-01-01 18:19:03">2020-01-01</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/netflix-guide.html" title="输入「神秘代码」解锁「隐藏类目」"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="输入「神秘代码」解锁「隐藏类目」"/></a><div class="content"><a class="title" href="/posts/netflix-guide.html" title="输入「神秘代码」解锁「隐藏类目」">输入「神秘代码」解锁「隐藏类目」</a><time datetime="2019-04-17T00:12:00.000Z" title="Created 2019-04-17 08:12:00">2019-04-17</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/How-to-change-icloud-region.html" title="数据移民漂流记——如何进行iCloud转区操作"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="数据移民漂流记——如何进行iCloud转区操作"/></a><div class="content"><a class="title" href="/posts/How-to-change-icloud-region.html" title="数据移民漂流记——如何进行iCloud转区操作">数据移民漂流记——如何进行iCloud转区操作</a><time datetime="2019-04-13T13:48:43.000Z" title="Created 2019-04-13 21:48:43">2019-04-13</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/How-to-register-and-use-the-Google-Voice.html" title="数据移民漂流记 —— 如何拥有属于自己的美国电话号码"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="数据移民漂流记 —— 如何拥有属于自己的美国电话号码"/></a><div class="content"><a class="title" href="/posts/How-to-register-and-use-the-Google-Voice.html" title="数据移民漂流记 —— 如何拥有属于自己的美国电话号码">数据移民漂流记 —— 如何拥有属于自己的美国电话号码</a><time datetime="2019-04-12T13:48:43.000Z" title="Created 2019-04-12 21:48:43">2019-04-12</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2014 - 2022 By Wang Wei</div><div class="framework-info"><span>Framework </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>Theme </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="Read Mode"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="Switch Between Light And Dark Mode"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="Toggle between single-column and double-column"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="Setting"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="Table Of Contents"><i class="fas fa-list-ul"></i></button><a id="to_comment" href="#post-comment" title="Scroll To Comments"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="Back To Top"><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.umd.js"></script><div class="js-pjax"><script>function loadDisqusjs () {
+<p>因此在 Linux 下实现高并发网络编程都是以 Reactor 模型为主。</p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">Author: </span><span class="post-copyright-info"><a href="mailto:undefined">Wang Wei</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">Link: </span><span class="post-copyright-info"><a href="https://wangwei.one/posts/server-thread-io-model-reactor-proactor.html">https://wangwei.one/posts/server-thread-io-model-reactor-proactor.html</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">Copyright Notice: </span><span class="post-copyright-info">All articles in this blog are licensed under <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> unless stating additionally.</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/IO/">IO</a><a class="post-meta__tags" href="/tags/NIO/">NIO</a></div><div class="post_share"><div class="social-share" data-image="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/social-share.js/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/posts/design-patterns-factory-method.html"><img class="prev-cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">Previous Post</div><div class="prev_info">设计模式 | 工厂方法 (Factory Method)</div></div></a></div><div class="next-post pull-right"><a href="/posts/5-unix-io-model-intro.html"><img class="next-cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">Next Post</div><div class="next_info">Unix IO 模型介绍</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>Related Articles</span></div><div class="relatedPosts-list"><div><a href="/posts/5-unix-io-model-intro.html" title="Unix IO 模型介绍"><img class="cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2015-12-06</div><div class="title">Unix IO 模型介绍</div></div></a></div><div><a href="/posts/java-nio-channel.html" title="Java NIO Channel"><img class="cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2015-11-20</div><div class="title">Java NIO Channel</div></div></a></div><div><a href="/posts/java-nio-buffer.html" title="Java NIO Buffer"><img class="cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2015-11-21</div><div class="title">Java NIO Buffer</div></div></a></div><div><a href="/posts/java-nio-selector.html" title="Java NIO Selector"><img class="cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2015-11-23</div><div class="title">Java NIO Selector</div></div></a></div><div><a href="/posts/java-nio-server-socket-datagram-channel.html" title="Java NIO ServerSocketChannel、SocketChannel、DatagramChannel"><img class="cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2015-11-26</div><div class="title">Java NIO ServerSocketChannel、SocketChannel、DatagramChannel</div></div></a></div><div><a href="/posts/java-nio-pipe.html" title="Java NIO Pipe"><img class="cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2015-11-28</div><div class="title">Java NIO Pipe</div></div></a></div></div></div><hr/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> Comment</span></div></div><div class="comment-wrap"><div><div id="disqus_thread"></div></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/images/avatar.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">Wang Wei</div><div class="author-info__description"></div></div><div class="card-info-data is-center"><div class="card-info-data-item"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">74</div></a></div><div class="card-info-data-item"><a href="/tags/"><div class="headline">Tags</div><div class="length-num">39</div></a></div><div class="card-info-data-item"><a href="/categories/"><div class="headline">Categories</div><div class="length-num">4</div></a></div></div><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/wangweiX" target="_blank" title="Github"><i class="fab fa-github"></i></a><a class="social-icon" href="mailto:dzd5ZWFyc0BnbWFpbC5jb20NCg==" target="_blank" title="Email"><i class="fas fa-envelope"></i></a></div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>Catalog</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BC%A0%E7%BB%9F%E9%98%BB%E5%A1%9EI-x2F-O%E6%9C%8D%E5%8A%A1%E6%A8%A1%E5%9E%8B"><span class="toc-number">1.</span> <span class="toc-text">传统阻塞 I&#x2F;O 服务模型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Reactor%E6%A8%A1%E5%BC%8F"><span class="toc-number">2.</span> <span class="toc-text">Reactor 模式</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%8D%95Reactor%E5%8D%95%E7%BA%BF%E7%A8%8B"><span class="toc-number">2.1.</span> <span class="toc-text">单 Reactor 单线程</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%8D%95Reactor%E5%A4%9A%E7%BA%BF%E7%A8%8B"><span class="toc-number">2.2.</span> <span class="toc-text">单 Reactor 多线程</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%B8%BB%E4%BB%8EReactor%E5%A4%9A%E7%BA%BF%E7%A8%8B"><span class="toc-number">2.3.</span> <span class="toc-text">主从 Reactor 多线程</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%80%BB%E7%BB%93"><span class="toc-number">2.4.</span> <span class="toc-text">总结</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Proactor%E6%A8%A1%E5%9E%8B"><span class="toc-number">3.</span> <span class="toc-text">Proactor 模型</span></a></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>Recent Post</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/posts/spring-cloud-eureka-source-code-analysis.html" title="SpringCloud 之 Eureka 源码分析"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="SpringCloud 之 Eureka 源码分析"/></a><div class="content"><a class="title" href="/posts/spring-cloud-eureka-source-code-analysis.html" title="SpringCloud 之 Eureka 源码分析">SpringCloud 之 Eureka 源码分析</a><time datetime="2021-03-31T16:00:00.000Z" title="Created 2021-04-01 00:00:00">2021-04-01</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/jvm-gc-garbage-first.html" title="Garbage-First(G1)"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Garbage-First(G1)"/></a><div class="content"><a class="title" href="/posts/jvm-gc-garbage-first.html" title="Garbage-First(G1)">Garbage-First(G1)</a><time datetime="2020-01-01T10:19:03.000Z" title="Created 2020-01-01 18:19:03">2020-01-01</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/netflix-guide.html" title="输入「神秘代码」解锁「隐藏类目」"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="输入「神秘代码」解锁「隐藏类目」"/></a><div class="content"><a class="title" href="/posts/netflix-guide.html" title="输入「神秘代码」解锁「隐藏类目」">输入「神秘代码」解锁「隐藏类目」</a><time datetime="2019-04-17T00:12:00.000Z" title="Created 2019-04-17 08:12:00">2019-04-17</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/How-to-change-icloud-region.html" title="数据移民漂流记 —— 如何进行 iCloud 转区操作"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="数据移民漂流记 —— 如何进行 iCloud 转区操作"/></a><div class="content"><a class="title" href="/posts/How-to-change-icloud-region.html" title="数据移民漂流记 —— 如何进行 iCloud 转区操作">数据移民漂流记 —— 如何进行 iCloud 转区操作</a><time datetime="2019-04-13T13:48:43.000Z" title="Created 2019-04-13 21:48:43">2019-04-13</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/How-to-register-and-use-the-Google-Voice.html" title="数据移民漂流记 —— 如何拥有属于自己的美国电话号码"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="数据移民漂流记 —— 如何拥有属于自己的美国电话号码"/></a><div class="content"><a class="title" href="/posts/How-to-register-and-use-the-Google-Voice.html" title="数据移民漂流记 —— 如何拥有属于自己的美国电话号码">数据移民漂流记 —— 如何拥有属于自己的美国电话号码</a><time datetime="2019-04-12T13:48:43.000Z" title="Created 2019-04-12 21:48:43">2019-04-12</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2014 - 2022 By Wang Wei</div><div class="footer_custom_text">Stay Hungry, Stay Foolish</div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="Read Mode"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="Switch Between Light And Dark Mode"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="Toggle between single-column and double-column"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="Setting"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="Table Of Contents"><i class="fas fa-list-ul"></i></button><a id="to_comment" href="#post-comment" title="Scroll To Comments"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="Back To Top"><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.umd.js"></script><script src="https://cdn.jsdelivr.net/npm/vanilla-lazyload/dist/lazyload.iife.min.js"></script><script>function panguFn () {
+  if (typeof pangu === 'object') pangu.autoSpacingPage()
+  else {
+    getScript('https://cdn.jsdelivr.net/npm/pangu/dist/browser/pangu.min.js')
+      .then(() => {
+        pangu.autoSpacingPage()
+      })
+  }
+}
+
+function panguInit () {
+  if (false){
+    GLOBAL_CONFIG_SITE.isPost && panguFn()
+  } else {
+    panguFn()
+  }
+}
+
+document.addEventListener('DOMContentLoaded', panguInit)</script><div class="js-pjax"><script>function loadDisqusjs () {
   function addDisqusjsCSS () {
     const ele = document.createElement('link')
     ele.rel = 'stylesheet'
@@ -283,7 +301,7 @@ gtag('config', 'UA-112239883-1');
       shortname: 'wangweiblog',
       identifier: 'posts/server-thread-io-model-reactor-proactor.html',
       url: 'https://wangwei.one/posts/server-thread-io-model-reactor-proactor.html',
-      title: '线程IO模型介绍',
+      title: '线程 IO 模型介绍',
       apikey: 'Fbg1QT6GJQYjK5jgJotfR5tznyJ6z9i6sfzhumYxWwOLo4IiepF29KpLsW296beS',
     },null))
   }
@@ -309,4 +327,73 @@ else {
   }
 }
 
-</script></div><div id="particles-js"></div><script src="/lib/js/particles.min.js"></script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
+</script></div><div id="particles-js"></div><script src="/lib/js/particles.min.js"></script><script src="https://cdn.jsdelivr.net/npm/pjax/pjax.min.js"></script><script>let pjaxSelectors = ["title","#config-diff","#body-wrap","#rightside-config-hide","#rightside-config-show",".js-pjax"]
+
+var pjax = new Pjax({
+  elements: 'a:not([target="_blank"])',
+  selectors: pjaxSelectors,
+  cacheBust: false,
+  analytics: true,
+  scrollRestoration: false
+})
+
+document.addEventListener('pjax:send', function () {
+
+  // removeEventListener scroll 
+  window.tocScrollFn && window.removeEventListener('scroll', window.tocScrollFn)
+  window.scrollCollect && window.removeEventListener('scroll', scrollCollect)
+
+  typeof preloader === 'object' && preloader.initLoading()
+  document.getElementById('rightside').style.cssText = "opacity: ''; transform: ''"
+  
+  if (window.aplayers) {
+    for (let i = 0; i < window.aplayers.length; i++) {
+      if (!window.aplayers[i].options.fixed) {
+        window.aplayers[i].destroy()
+      }
+    }
+  }
+
+  typeof typed === 'object' && typed.destroy()
+
+  //reset readmode
+  const $bodyClassList = document.body.classList
+  $bodyClassList.contains('read-mode') && $bodyClassList.remove('read-mode')
+
+})
+
+document.addEventListener('pjax:complete', function () {
+  window.refreshFn()
+
+  document.querySelectorAll('script[data-pjax]').forEach(item => {
+    const newScript = document.createElement('script')
+    const content = item.text || item.textContent || item.innerHTML || ""
+    Array.from(item.attributes).forEach(attr => newScript.setAttribute(attr.name, attr.value))
+    newScript.appendChild(document.createTextNode(content))
+    item.parentNode.replaceChild(newScript, item)
+  })
+
+  GLOBAL_CONFIG.islazyload && window.lazyLoadInstance.update()
+
+  typeof chatBtnFn === 'function' && chatBtnFn()
+  typeof panguInit === 'function' && panguInit()
+
+  // google analytics
+  typeof gtag === 'function' && gtag('config', 'UA-112239883-1', {'page_path': window.location.pathname});
+
+  // baidu analytics
+  typeof _hmt === 'object' && _hmt.push(['_trackPageview',window.location.pathname]);
+
+  typeof loadMeting === 'function' && document.getElementsByClassName('aplayer').length && loadMeting()
+
+  // prismjs
+  typeof Prism === 'object' && Prism.highlightAll()
+
+  typeof preloader === 'object' && preloader.endLoading()
+})
+
+document.addEventListener('pjax:error', (e) => {
+  if (e.request.status === 404) {
+    pjax.loadUrl('/404.html')
+  }
+})</script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
