@@ -1,0 +1,355 @@
+<!DOCTYPE html><html lang="en" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"><title>Java7 HotSpot(TM) VM内存模型 | 维新工坊</title><meta name="keywords" content="JVM"><meta name="author" content="Wang Wei"><meta name="copyright" content="Wang Wei"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="本文我们来学习一下 Java7 HotSpot(TM) VM 内存模型。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Java7 HotSpot(TM) VM内存模型">
+<meta property="og:url" content="https://wangwei.one/posts/java7-jvm-memory-model.html">
+<meta property="og:site_name" content="维新工坊">
+<meta property="og:description" content="本文我们来学习一下 Java7 HotSpot(TM) VM 内存模型。">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7">
+<meta property="article:published_time" content="2016-06-08T11:34:32.000Z">
+<meta property="article:modified_time" content="2020-01-02T13:15:51.198Z">
+<meta property="article:author" content="Wang Wei">
+<meta property="article:tag" content="JVM">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"><link rel="shortcut icon" href="/images/favicon-180x180.png"><link rel="canonical" href="https://wangwei.one/posts/java7-jvm-memory-model"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//www.google-analytics.com" crossorigin=""/><link rel="preconnect" href="//s4.cnzz.com"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.css" media="print" onload="this.media='all'"><script async="async" src="https://www.googletagmanager.com/gtag/js?id=UA-112239883-1"></script><script>window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'UA-112239883-1');
+</script><script async="async" data-pjax="data-pjax" src="https://s4.cnzz.com/z_stat.php?id=1270083794&amp;web_id=1270083794"></script><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: 'Copy successfully',
+    error: 'Copy error',
+    noSupport: 'The browser does not support'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: 'days',
+  date_suffix: {
+    just: 'Just',
+    min: 'minutes ago',
+    hour: 'hours ago',
+    day: 'days ago',
+    month: 'months ago'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery@2/dist/fjGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery@2/dist/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'Java7 HotSpot(TM) VM内存模型',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2020-01-02 21:15:51'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><link rel="stylesheet" href="/lib/css/particles-style.min.css"><meta name="generator" content="Hexo 6.0.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/images/avatar.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data is-center"><div class="data-item"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">74</div></a></div><div class="data-item"><a href="/tags/"><div class="headline">Tags</div><div class="length-num">39</div></a></div><div class="data-item"><a href="/categories/"><div class="headline">Categories</div><div class="length-num">4</div></a></div></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 目录</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/categories/"><i class="fa-fw fas fa-th"></i><span> 分类</span></a></li><li><a class="site-page child" href="/tags/"><i class="fa-fw fas fas-tags"></i><span> 标签</span></a></li><li><a class="site-page child" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/books/"><i class="fa-fw fas fa-book"></i><span> 阅读</span></a></div><div class="menus_item"><a class="site-page" href="/movies/"><i class="fa-fw fas fa-film"></i><span> 电影</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fa fa-user"></i><span> 关于</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">维新工坊</a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 目录</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/categories/"><i class="fa-fw fas fa-th"></i><span> 分类</span></a></li><li><a class="site-page child" href="/tags/"><i class="fa-fw fas fas-tags"></i><span> 标签</span></a></li><li><a class="site-page child" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/books/"><i class="fa-fw fas fa-book"></i><span> 阅读</span></a></div><div class="menus_item"><a class="site-page" href="/movies/"><i class="fa-fw fas fa-film"></i><span> 电影</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fa fa-user"></i><span> 关于</span></a></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">Java7 HotSpot(TM) VM内存模型</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="fa-fw post-meta-icon far fa-calendar-alt"></i><span class="post-meta-label">Created</span><time datetime="2016-06-08T11:34:32.000Z" title="Created 2016-06-08 19:34:32">2016-06-08</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/coding/">coding</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">Word count:</span><span class="word-count">3.8k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">Reading time:</span><span>14min</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="Java7 HotSpot(TM) VM内存模型"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">Post View:</span><span id="busuanzi_value_page_pv"></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><p align="center">
+<a target="_blank" href="https://wangwei.one/posts/java7-jvm-memory-model.html"><img src="https://img.i7years.com/blog/nature_227-wallpaper-1920x1200.jpg?imageslim"></a>
+</p>
+
+<p>本文我们来学习一下 Java7 HotSpot(TM) VM 内存模型。</p>
+<span id="more"></span>
+
+<h2 id="JVM-Architecture"><a href="#JVM-Architecture" class="headerlink" title="JVM Architecture"></a>JVM Architecture</h2><p><img src="https://img.i7years.com/blog/JVM%20Architecture.png" alt="JVM Architecture"></p>
+<p>我们先来了解一下JVM的整体架构体系，JVM主要分三大子系统：<code>Class Loader SubSystem</code>、<code>Runtime Data Area</code>、<code>Execution Engine </code>。</p>
+<h4 id="Class-Loader-SubSystem"><a href="#Class-Loader-SubSystem" class="headerlink" title="Class Loader SubSystem"></a>Class Loader SubSystem</h4><p>Java的动态类加载功能由类加载器子系统处理。 它在<strong>运行时</strong>第一次引用类时加载，链接和初始化类，而不是在编译时引用。 它执行三个主要功能，如加载，链接和初始化。</p>
+<h4 id="Execution-Engine"><a href="#Execution-Engine" class="headerlink" title="Execution Engine"></a>Execution Engine</h4><p>被分配给运行时数据区域中的字节码将被执行引擎来执行。 执行引擎读取字节代码并挨个挨个执行。</p>
+<p>本篇将重点介绍 Rumtime Date Area，至于Class Loader SubSystem和Execution Engine将放在后期的文章中去讲解。</p>
+<h2 id="Runtime-Data-Area"><a href="#Runtime-Data-Area" class="headerlink" title="Runtime Data Area"></a>Runtime Data Area</h2><p>Java虚拟机定义了在程序执行期间使用的各种运行时数据区域。 其中一些数据区域是随着Java虚拟机启动而创建，随着Java虚拟机退出而销毁。其他数据区域则是依附于每个单独的线程，它们随着线程创建而创建，随着线程 的退出而销毁。</p>
+<p>运行时数据区，是JVM内存管理的主要区域。Java虚拟机在程序执行的过程中，会把它所管理的内存划分为若干个不同的数据区域。主要分为：</p>
+<ul>
+<li>Program Counter Register：程序计数器</li>
+<li>Java Virtual Machine Stacks：Java虚拟机栈</li>
+<li>Native Method Stack：本地方法栈</li>
+<li>Java Heap：Java堆</li>
+<li>Method Area：方法区</li>
+</ul>
+<p><img src="https://img.i7years.com/blog/JVM_Internal_Architecture.png" alt="Runtime Data Area"></p>
+<h3 id="控制参数"><a href="#控制参数" class="headerlink" title="控制参数"></a>控制参数</h3><p>每个区域的内存大小可以通过以下参数进行分配</p>
+<p><img src="https://img.i7years.com/blog/Runtime%20Date%20Area%20Allocation.png" alt="Runtime data area allocation"></p>
+<p>控制参数：</p>
+<ul>
+<li><code>-Xms</code> 设置堆的最小空间大小。</li>
+<li><code>-Xmx</code> 设置堆的最大空间大小。</li>
+<li><code>-XX:NewSize</code> 设置新生代最小空间大小。</li>
+<li><code>-XX:MaxNewSize</code> 设置新生代最大空间大小。</li>
+<li><code>-XX:PermSize</code> 设置永久代最小空间大小。</li>
+<li><code>-XX:MaxPermSize</code> 设置永久代最大空间大小。</li>
+<li><code>-Xss</code> 设置每个线程的堆栈大小。</li>
+</ul>
+<h2 id="Program-Counter-Register"><a href="#Program-Counter-Register" class="headerlink" title="Program Counter Register"></a>Program Counter Register</h2><ul>
+<li>当前线程所执行的字节码的行号解释器。字节码解释器工作时就是通过改变这个计数器的值来选取下一条需要执行的字节码指令，分支、循环、跳转、异常处理、线程恢复等基础功能都需要依赖这个计数器来完成。</li>
+<li>此为线程的私有内存区域。任何一个确定的时刻，一个处理器或者内核，都只会执行一条线程中的指令，为了确保线程切换后还能回到正确的执行位置，每一个线程都有一个独立的程序计数器，各个线程之间计数器互不影响，独立存储。</li>
+<li>此内存区域是唯一一个在Java虚拟机规范中没有规定任何OutOfMemoryError情况的区域。</li>
+</ul>
+<h2 id="Java-Virtual-Machine-Stack"><a href="#Java-Virtual-Machine-Stack" class="headerlink" title="Java Virtual Machine Stack"></a>Java Virtual Machine Stack</h2><h4 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h4><ul>
+<li>线程私有，生命周期与线程的一致。</li>
+<li>虚拟机栈描述的是Java方法执行的内存模型：每个方法在执行的同时都会创建一个<strong>栈帧（Stack Frame）</strong>用于存储<strong>局部变量表</strong>、<strong>操作数栈</strong>、<strong>动态链接</strong>、<strong>方法出口</strong>等信息。每一个方法从调用直至执行完成的过程，就对应着一个栈帧在虚拟机栈中入栈到出栈的过程。</li>
+<li><strong>局部变量表</strong>存放了编译期可知的各种基本数据类型（boolean、byte、char、short、int、float、long、double）、对象引用（reference类型，它不等同于对象本身，可能是一个指向对象起始地址的引用指针，也可能是指向一个代表对象的句柄或其他与此对象相关的位置）和returnAddress类型（指向了一条字节码指令的地址）。</li>
+<li>局部变量表所需的内存空间在<strong>编译期间完成分配</strong>，当进入一个方法时，这个方法需要在帧中分配多大的局部变量空间是完全确定的，在方法运行期间不会改变局部变量表的大小。</li>
+</ul>
+<h4 id="默认大小"><a href="#默认大小" class="headerlink" title="默认大小"></a>默认大小</h4><p>Java虚拟机栈的默认大小与运行的操作系统有关：</p>
+<table>
+<thead>
+<tr>
+<th>Platform</th>
+<th>Default</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Windows IA32</td>
+<td>64 KB</td>
+</tr>
+<tr>
+<td>Linux IA32</td>
+<td>128 KB</td>
+</tr>
+<tr>
+<td>Windows x86_64</td>
+<td>128 KB</td>
+</tr>
+<tr>
+<td>Linux x86_64</td>
+<td>256 KB</td>
+</tr>
+<tr>
+<td>Windows IA64</td>
+<td>320 KB</td>
+</tr>
+<tr>
+<td>Linux IA64</td>
+<td>1024 KB (1 MB)</td>
+</tr>
+<tr>
+<td>Solaris Sparc</td>
+<td>512 KB</td>
+</tr>
+</tbody></table>
+<p>我们可以通过 <code>-Xss&lt;size&gt;</code> 来设置Java虚拟机栈大小，例如：-Xss128k，则大小为128k。</p>
+<h4 id="异常"><a href="#异常" class="headerlink" title="异常"></a>异常</h4><h5 id="StackOverflowError"><a href="#StackOverflowError" class="headerlink" title="StackOverflowError"></a>StackOverflowError</h5><p>如果线程请求的栈深度大于虚拟机所允许的深度，将抛出StackOverflowError异常。</p>
+<p>如下例子，通过限制虚拟机栈的大小，并产生大量的局部变量，以此来增加此方法帧中的本地变量表长度。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.thinkingjava;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * VM args: -Xss:200k</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">JavaVMStackSOF</span> &#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> <span class="type">int</span> <span class="variable">stackLength</span> <span class="operator">=</span> <span class="number">1</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">stackLeak</span><span class="params">()</span> &#123;</span><br><span class="line">        stackLength++;</span><br><span class="line">        stackLeak();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        <span class="type">JavaVMStackSOF</span> <span class="variable">oom</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">JavaVMStackSOF</span>();</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            oom.stackLeak();</span><br><span class="line">        &#125; <span class="keyword">catch</span> (Throwable e) &#123;</span><br><span class="line">            System.out.println(<span class="string">&quot;stack length:&quot;</span> + oom.stackLength);</span><br><span class="line">            <span class="keyword">throw</span> e;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 内容输出：</span></span><br><span class="line">Exception in thread <span class="string">&quot;main&quot;</span> java.lang.StackOverflowError</span><br><span class="line">stack length:<span class="number">1239</span></span><br><span class="line">	at com.thinkingjava.JavaVMStackSOF.stackLeak(JavaVMStackSOF.java:<span class="number">11</span>)</span><br><span class="line">	at com.thinkingjava.JavaVMStackSOF.stackLeak(JavaVMStackSOF.java:<span class="number">12</span>)</span><br><span class="line"></span><br><span class="line">    ...</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>在单线程的情况下，无论是栈容量太大，还是虚拟机内存太小，当内存无法分配时，都会抛出StackOverflowError异常。</p>
+<h5 id="OutOfMemoryError"><a href="#OutOfMemoryError" class="headerlink" title="OutOfMemoryError"></a>OutOfMemoryError</h5><p>如果虚拟机栈可以动态扩展（当前大部分的Java虚拟机都可动态扩展，只不过Java虚拟机规范中也允许固定长度的虚拟机栈），如果扩展时无法申请到足够的内存，就会抛出OutOfMemoryError异常。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">栈内存大小 = 进程的内存大小 - 堆内存大小(-Xmx) - 方法区内存大小(-XX:MaxPermSize)</span><br></pre></td></tr></table></figure>
+
+<p>由于操作系统给每一个进程的内存是有限制，除去Java堆内存大小（Xmx）和方法区的内存大小（MaxPermSize），剩余的内容就归Java虚拟机栈和本地方法栈分配了，每个线程可分配的栈容量越大，那么所能够产生的线程数则越少。建立线程越多，则越容易把内存消耗掉。</p>
+<p>如果是建立过多线程导致的内存溢出，在不能减少线程数或者更换64位虚拟机的情况下，就只能通过减少最大堆和减少栈容量来换取更多的线程。</p>
+<p>如下例子：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.thinkingjava;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * </span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">JavaVMStackOOM</span> &#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        <span class="type">int</span> <span class="variable">count</span> <span class="operator">=</span> <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">while</span> (<span class="literal">true</span>) &#123;</span><br><span class="line">            System.out.println(++count);</span><br><span class="line">            <span class="keyword">new</span> <span class="title class_">Thread</span>(<span class="keyword">new</span> <span class="title class_">Runnable</span>() &#123;</span><br><span class="line">                <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">run</span><span class="params">()</span> &#123;</span><br><span class="line">                    <span class="keyword">try</span> &#123;</span><br><span class="line">                        Thread.sleep(<span class="number">10000000</span>);</span><br><span class="line">                    &#125; <span class="keyword">catch</span> (InterruptedException e) &#123;</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;).start();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 输出</span></span><br><span class="line"><span class="number">1</span></span><br><span class="line"><span class="number">2</span></span><br><span class="line"></span><br><span class="line">...</span><br><span class="line"></span><br><span class="line"><span class="number">2032</span></span><br><span class="line">    </span><br><span class="line">Exception in thread <span class="string">&quot;main&quot;</span> java.lang.OutOfMemoryError: unable to create <span class="keyword">new</span> <span class="title class_">native</span> thread</span><br><span class="line">	at java.lang.Thread.start0(Native Method)</span><br><span class="line">	at java.lang.Thread.start(Thread.java:<span class="number">714</span>)</span><br><span class="line">	at com.thinkingjava.JavaVMStackOOM.main(JavaVMStackOOM.java:<span class="number">12</span>)</span><br></pre></td></tr></table></figure>
+
+
+
+
+<h2 id="Native-Method-Stack"><a href="#Native-Method-Stack" class="headerlink" title="Native Method Stack"></a>Native Method Stack</h2><ul>
+<li>本地方法栈与Java虚拟机栈类似，区别在于 Java虚拟机栈为Java方法服务，而本地方法栈为Native方法服务。</li>
+<li>与虚拟机栈一样，本地方法栈区域也会抛出StackOverflowError和OutOfMemoryError异常。</li>
+</ul>
+<h2 id="Java-Heap"><a href="#Java-Heap" class="headerlink" title="Java Heap"></a>Java Heap</h2><p>Java堆（Java Heap）主要用于所有<strong>对象实例与数组</strong>的分配，是Java虚拟机所管理的内存当中最大的一块。</p>
+<blockquote>
+<p>随着JIT编译器的发展与逃逸分析技术逐渐成熟，栈上分配、标量替换优化技术将会导致一些微妙的变化发生，所有的对象都分配在堆上也渐渐变得不是那么“绝对”了。</p>
+</blockquote>
+<p>Java堆是垃圾收集器管理的主要区域，因此很多时候也被称做“GC堆”（Garbage Collected Heap）。</p>
+<p>Java堆空间可以分为如下几个部分：</p>
+<ul>
+<li><strong>Young Generation</strong>（新生代）：是所有新对象分配和老化的地方<ul>
+<li><strong>Eden Space</strong>（伊甸区）：最初为大多数对象分配内存的地方</li>
+<li><strong>Survivor Space</strong>（幸存者区）：Eden Space进行Minor GC后幸存下来的对象存放的地方</li>
+</ul>
+</li>
+<li><strong>Tenured&#x2F;Old Generation</strong>（老年代）：Survivor Space进行Major GC后幸存下来的对象存放的地方</li>
+</ul>
+<p><img src="https://img.i7years.com/blog/Java_Heap_1.png" alt="Java_Heap"></p>
+<h3 id="异常-1"><a href="#异常-1" class="headerlink" title="异常"></a>异常</h3><p>如果在堆中没有内存完成实例分配时，并且堆再也无法扩展时，将会抛出 OOM 异常。</p>
+<blockquote>
+<p>将堆的最小值-Xms参数与最大值-Xmx参数设置为一样即可避免堆自动扩展</p>
+</blockquote>
+<p>如下例子，不断地创造对象，最终导致Java堆内存溢出。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.thinkingjava;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.util.ArrayList;</span><br><span class="line"><span class="keyword">import</span> java.util.List;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * VM Args：-Xms20m -Xmx20m -XX:+HeapDumpOnOutOfMemoryError</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">HeapOOM</span> &#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">static</span> <span class="keyword">class</span> <span class="title class_">HeapObject</span> &#123;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        List&lt;HeapObject&gt; heapObjectList = <span class="keyword">new</span> <span class="title class_">ArrayList</span>&lt;&gt;();</span><br><span class="line">        <span class="keyword">while</span> (<span class="literal">true</span>) &#123;</span><br><span class="line">            heapObjectList.add(<span class="keyword">new</span> <span class="title class_">HeapObject</span>());</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 日志输出：</span></span><br><span class="line">java.lang.OutOfMemoryError: Java heap space</span><br><span class="line">Dumping heap to java_pid22301.hprof ...</span><br><span class="line">Heap dump file created [<span class="number">27600189</span> bytes in <span class="number">0.203</span> secs]</span><br><span class="line">Exception in thread <span class="string">&quot;main&quot;</span> java.lang.OutOfMemoryError: Java heap space</span><br><span class="line">	at java.util.Arrays.copyOf(Arrays.java:<span class="number">2245</span>)</span><br><span class="line">	at java.util.Arrays.copyOf(Arrays.java:<span class="number">2219</span>)</span><br><span class="line">	at java.util.ArrayList.grow(ArrayList.java:<span class="number">242</span>)</span><br><span class="line">	at java.util.ArrayList.ensureExplicitCapacity(ArrayList.java:<span class="number">216</span>)</span><br><span class="line">	at java.util.ArrayList.ensureCapacityInternal(ArrayList.java:<span class="number">208</span>)</span><br><span class="line">	at java.util.ArrayList.add(ArrayList.java:<span class="number">440</span>)</span><br><span class="line">	at com.thinkingjava.HeapOOM.main(HeapOOM.java:<span class="number">18</span>)</span><br><span class="line"></span><br><span class="line">Process finished with exit code <span class="number">1</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="Method-Area-Non-Heap"><a href="#Method-Area-Non-Heap" class="headerlink" title="Method Area(Non-Heap)"></a>Method Area(Non-Heap)</h2><p>由于该区域使用的是永久代GC收集方法来实现，所以也称为”永久代”（Permanent Generation），用于存储已被虚拟机加载的<strong>类信息</strong>、<strong>常量</strong>、<strong>静态变量</strong>、<strong>即时编译器编译后的代码</strong>等数据。</p>
+<p>垃圾回收在这个区域较少出现，但这个区域的数据并非永久存在，这个区域的内存回收主要目标是针对常量池的回收和对类型的卸载。</p>
+<h3 id="异常-2"><a href="#异常-2" class="headerlink" title="异常"></a>异常</h3><p>当方法区无法满足内存分配的需求时，将会抛出OutOfMemoryError异常。下面例子，运用cblib动态代理技术，产生大量的类型，导致OOM异常：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> one.wangwei.java;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> net.sf.cglib.proxy.Enhancer;</span><br><span class="line"><span class="keyword">import</span> net.sf.cglib.proxy.MethodInterceptor;</span><br><span class="line"><span class="keyword">import</span> net.sf.cglib.proxy.MethodProxy;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.lang.reflect.Method;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">JavaMethodOOM</span> &#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">static</span> <span class="keyword">class</span> <span class="title class_">OOMObject</span> &#123;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        <span class="keyword">while</span> (<span class="literal">true</span>) &#123;</span><br><span class="line">            <span class="type">Enhancer</span> <span class="variable">enhancer</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Enhancer</span>();</span><br><span class="line">            enhancer.setSuperclass(OOMObject.class);</span><br><span class="line">            enhancer.setUseCache(<span class="literal">false</span>);</span><br><span class="line">            enhancer.setCallback(<span class="keyword">new</span> <span class="title class_">MethodInterceptor</span>() &#123;</span><br><span class="line">                <span class="meta">@Override</span></span><br><span class="line">                <span class="keyword">public</span> Object <span class="title function_">intercept</span><span class="params">(Object o, Method method, Object[] objects, MethodProxy methodProxy)</span> <span class="keyword">throws</span> Throwable &#123;</span><br><span class="line">                    <span class="keyword">return</span> methodProxy.invoke(o, objects);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;);</span><br><span class="line">            enhancer.create();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 异常输出：</span></span><br><span class="line">Exception in thread <span class="string">&quot;main&quot;</span> </span><br><span class="line">Exception: java.lang.OutOfMemoryError thrown from the UncaughtExceptionHandler in thread <span class="string">&quot;main&quot;</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="运行时常量池"><a href="#运行时常量池" class="headerlink" title="运行时常量池"></a>运行时常量池</h2><p>运行时常量池（Runtime Constant Pool）是方法区的一部分。Class文件除了有类的版本、字段、方法、接口等描述信息外，还有一项信息是常量池（Constant Pool Table），用于存放编译期生成的各种<strong>字面量</strong>和<strong>符号引用</strong>，这部分内容将在类加载进方法区后进入常量池存放。</p>
+<p>运行时常量池相对于Class文件常量池的另一个重要特征，是具备动态性。Java语言并不要求常量一定只有编译期才能产生，也就是并非预置入Class文件中常量池的内容才能进入方法区运行时常量池，运行期间也可能将新的常量放入池中，这种特性被开发人员利用得比较多的便是String类的intern()方法。</p>
+<h5 id="字符串常量池"><a href="#字符串常量池" class="headerlink" title="字符串常量池"></a>字符串常量池</h5><p>字符串常量池 在JDK 1.7的HotSpot中已经从运行时常量池转移到Heap中。<a target="_blank" rel="noopener" href="http://www.oracle.com/technetwork/java/javase/jdk7-relnotes-418459.html#jdk7changes">参见</a></p>
+<blockquote>
+<p><strong>Area</strong>: HotSpot </p>
+<p><strong>Synopsis</strong>: In JDK 7, interned strings are no longer allocated in the permanent generation of the Java heap, but <strong>are instead allocated in the main part of the Java heap</strong> (known as the young and old generations), along with the other objects created by the application. This change will result in more data residing in the main Java heap, and less data in the permanent generation, and thus may require heap sizes to be adjusted. Most applications will see only relatively small differences in heap usage due to this change, but larger applications that load many classes or make heavy use of the String.intern() method will see more significant differences. RFE: 6962931</p>
+</blockquote>
+<h3 id="异常-3"><a href="#异常-3" class="headerlink" title="异常"></a>异常</h3><p>既然运行时常量池是方法区的一部分，自然受到方法区内存的限制，当常量池无法再申请到内存时会抛出OutOfMemoryError异常。</p>
+<p>String.intern()是一个Native方法，它的作用是：如果字符串常量池中已经包含一个等于此String对象的字符串，则返回代表池中这个字符串的String对象；否则，将此String对象包含的字符串添加到常量池中，并且返回此String对象的引用。在JDK 1.6及之前的版本中，由于常量池分配在永久代内，我们可以通过-XX:PermSize和-XX:MaxPermSize限制方法区大小，从而间接限制其中常量池的容量。</p>
+<p>例如：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> one.wangwei.java;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.util.ArrayList;</span><br><span class="line"><span class="keyword">import</span> java.util.List;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * JVM VM: -XX:PermSize=10M -XX:MaxPermSize=10M</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">ConstantPoolOOM</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        List&lt;String&gt; stringList = <span class="keyword">new</span> <span class="title class_">ArrayList</span>&lt;String&gt;();</span><br><span class="line">        <span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">while</span> (<span class="literal">true</span>) &#123;</span><br><span class="line">            i++;</span><br><span class="line">            stringList.add(String.valueOf(i).intern());</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 输出</span></span><br><span class="line">Exception in thread <span class="string">&quot;main&quot;</span> java.lang.OutOfMemoryError: PermGen space</span><br><span class="line">	at java.lang.String.intern(Native Method)</span><br><span class="line">	at one.wangwei.java.App.main(App.java:<span class="number">15</span>)</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="Direct-Memory"><a href="#Direct-Memory" class="headerlink" title="Direct Memory"></a>Direct Memory</h2><p>直接内存（Direct Memory）并不是虚拟机运行时数据区的一部分，也不是Java虚拟机规范中定义的内存区域。</p>
+<p>在JDK 1.4中新加入了NIO（New Input&#x2F;Output）类，引入了一种基于通道（Channel）与缓冲区（Buffer）的I&#x2F;O方式，它可以使用Native函数库直接分配堆外内存，然后通过一个存储在Java堆中的DirectByteBuffer对象作为这块内存的引用进行操作。这样能在一些场景中显著提高性能，因为避免了在Java堆和Native堆中来回复制数据。</p>
+<h3 id="异常-4"><a href="#异常-4" class="headerlink" title="异常"></a>异常</h3><p>本机直接内存的分配不会受到Java堆大小的限制，但是，既然是内存，肯定还是会受到本机总内存（包括RAM以及SWAP区或者分页文件）大小以及处理器寻址空间的限制。服务器管理员在配置虚拟机参数时，会根据实际内存设置-Xmx等参数信息，但经常忽略直接内存，使得各个内存区域总和大于物理内存限制（包括物理的和操作系统级的限制），从而导致动态扩展时出现OutOfMemoryError异常。</p>
+<p>DirectMemory容量可通过 <code>-XX:MaxDirectMemorySize</code> 指定，下面的代码越过了DirectByteBuffer类，直接通过反射获取Unsafe实例进行内存分配（Unsafe类的getUnsafe()方法限制了只有引导类加载器才会返回实例，也就是设计者希望只有rt.jar中的类才能使用Unsafe的功能）。因为，虽然使用DirectByteBuffer分配内存也会抛出内存溢出异常，但它抛出异常时并没有真正向操作系统申请分配内存，而是通过计算得知内存无法分配，于是手动抛出异常，真正申请分配内存的方法是unsafe.allocateMemory()。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> one.wangwei.java;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> sun.misc.Unsafe;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.lang.reflect.Field;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * VM Args：-Xmx20M -XX:MaxDirectMemorySize=10M</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">DirectMemory</span> &#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="type">int</span> <span class="variable">ALLOCATE_MEMORY</span> <span class="operator">=</span> <span class="number">10</span> * <span class="number">1024</span> * <span class="number">1024</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            <span class="type">Field</span> <span class="variable">unsafeField</span> <span class="operator">=</span> Unsafe.class.getDeclaredFields()[<span class="number">0</span>];</span><br><span class="line">            unsafeField.setAccessible(<span class="literal">true</span>);</span><br><span class="line">            <span class="type">Unsafe</span> <span class="variable">unsafe</span> <span class="operator">=</span> (Unsafe) unsafeField.get(<span class="literal">null</span>);</span><br><span class="line">            <span class="keyword">while</span> (<span class="literal">true</span>) &#123;</span><br><span class="line">                unsafe.allocateMemory(ALLOCATE_MEMORY);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125; <span class="keyword">catch</span> (Exception e) &#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">// 输出：</span></span><br><span class="line"></span><br><span class="line">java(<span class="number">45961</span>,<span class="number">0x70000a70c000</span>) malloc: *** mach_vm_map(size=<span class="number">10485760</span>) failed (error code=<span class="number">3</span>)</span><br><span class="line">*** error: can<span class="string">&#x27;t allocate region</span></span><br><span class="line"><span class="string">*** set a breakpoint in malloc_error_break to debug</span></span><br><span class="line"><span class="string">Exception in thread &quot;main&quot; java.lang.OutOfMemoryError</span></span><br><span class="line"><span class="string">	at sun.misc.Unsafe.allocateMemory(Native Method)</span></span><br><span class="line"><span class="string">	at one.wangwei.java.DirectMemory.main(DirectMemory.java:20)</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2><ul>
+<li><a target="_blank" rel="noopener" href="https://book.douban.com/subject/24722612/">《JVM高级特性与最佳实践[第2版]》第2章节「Java内存区域与内存溢出异常」</a></li>
+<li><a target="_blank" rel="noopener" href="https://docs.oracle.com/javase/specs/jvms/se7/html/index.html">The Java® Virtual Machine Specification Java SE 7 Edition</a></li>
+<li><a target="_blank" rel="noopener" href="http://www.javainterviewpoint.com/java-virtual-machine-architecture-in-java/">http://www.javainterviewpoint.com/java-virtual-machine-architecture-in-java/</a></li>
+<li><a target="_blank" rel="noopener" href="http://blog.jamesdbloom.com/JVMInternals.html">http://blog.jamesdbloom.com/JVMInternals.html</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.oracle.com/technetwork/java/javase/tech/vmoptions-jsp-140102.html">https://www.oracle.com/technetwork/java/javase/tech/vmoptions-jsp-140102.html</a></li>
+</ul>
+<blockquote>
+<p><a target="_blank" rel="noopener" href="https://press.one/file/v?s=6f3d70c29a9ccc4fd57898e95ca6b76ff82541dffa7198d4e05a6cf172f09627e9cd2261f63d7a9ccd73e1e829e03ed53363f67b313ae4b340728ad060650dd91&amp;h=4b82cb88322a4072133c5388a10f69a6a10b5b85faf4dcd993b62d4549a94463&amp;a=23fe9bfd7ceef4b44c2ce44dcac8e4a49caf8026&amp;f=P1&amp;v=2">https://press.one/file/v?s=6f3d70c29a9ccc4fd57898e95ca6b76ff82541dffa7198d4e05a6cf172f09627e9cd2261f63d7a9ccd73e1e829e03ed53363f67b313ae4b340728ad060650dd91&amp;h=4b82cb88322a4072133c5388a10f69a6a10b5b85faf4dcd993b62d4549a94463&amp;a=23fe9bfd7ceef4b44c2ce44dcac8e4a49caf8026&amp;f=P1&amp;v=2</a></p>
+</blockquote>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">Author: </span><span class="post-copyright-info"><a href="mailto:undefined">Wang Wei</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">Link: </span><span class="post-copyright-info"><a href="https://wangwei.one/posts/java7-jvm-memory-model.html">https://wangwei.one/posts/java7-jvm-memory-model.html</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">Copyright Notice: </span><span class="post-copyright-info">All articles in this blog are licensed under <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> unless stating additionally.</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/JVM/">JVM</a></div><div class="post_share"><div class="social-share" data-image="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/social-share.js/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/posts/java8-jvm-metaSpace.html"><img class="prev-cover" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">Previous Post</div><div class="prev_info">Java8 MetaSpace介绍</div></div></a></div><div class="next-post pull-right"><a href="/posts/design-patterns-template-method.html"><img class="next-cover" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">Next Post</div><div class="next_info">设计模式 | 模板方法(Template Method)</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>Related Articles</span></div><div class="relatedPosts-list"><div><a href="/posts/jvm-gc-base-concept.html" title="GC基本概念"><img class="cover" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2016-06-12</div><div class="title">GC基本概念</div></div></a></div><div><a href="/posts/jvm-gc-arithmetic-intro.html" title="GC算法介绍"><img class="cover" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2016-06-14</div><div class="title">GC算法介绍</div></div></a></div><div><a href="/posts/jvm-gc-serial-and-parallel.html" title="Serial GC 与 Parallel GC"><img class="cover" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2016-06-17</div><div class="title">Serial GC 与 Parallel GC</div></div></a></div><div><a href="/posts/jvm-gc-concurrent-mark-sweep-cms.html" title="Concurrent Mark Sweep(CMS)"><img class="cover" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2016-06-20</div><div class="title">Concurrent Mark Sweep(CMS)</div></div></a></div><div><a href="/posts/jvm-gc-garbage-first.html" title="Garbage-First(G1)"><img class="cover" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2020-01-01</div><div class="title">Garbage-First(G1)</div></div></a></div><div><a href="/posts/java8-jvm-metaSpace.html" title="Java8 MetaSpace介绍"><img class="cover" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2016-06-11</div><div class="title">Java8 MetaSpace介绍</div></div></a></div></div></div><hr/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> Comment</span></div></div><div class="comment-wrap"><div><div id="disqus_thread"></div></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/images/avatar.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">Wang Wei</div><div class="author-info__description">分享自己所思所学所行</div></div><div class="card-info-data is-center"><div class="card-info-data-item"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">74</div></a></div><div class="card-info-data-item"><a href="/tags/"><div class="headline">Tags</div><div class="length-num">39</div></a></div><div class="card-info-data-item"><a href="/categories/"><div class="headline">Categories</div><div class="length-num">4</div></a></div></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/xxxxxx"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/wangweiX" target="_blank" title="Github"><i class="fab fa-github"></i></a><a class="social-icon" href="mailto:dzd5ZWFyc0BnbWFpbC5jb20NCg==" target="_blank" title="Email"><i class="fas fa-envelope"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>Announcement</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>Catalog</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#JVM-Architecture"><span class="toc-number">1.</span> <span class="toc-text">JVM Architecture</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Class-Loader-SubSystem"><span class="toc-number">1.0.1.</span> <span class="toc-text">Class Loader SubSystem</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Execution-Engine"><span class="toc-number">1.0.2.</span> <span class="toc-text">Execution Engine</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Runtime-Data-Area"><span class="toc-number">2.</span> <span class="toc-text">Runtime Data Area</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%8E%A7%E5%88%B6%E5%8F%82%E6%95%B0"><span class="toc-number">2.1.</span> <span class="toc-text">控制参数</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Program-Counter-Register"><span class="toc-number">3.</span> <span class="toc-text">Program Counter Register</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Java-Virtual-Machine-Stack"><span class="toc-number">4.</span> <span class="toc-text">Java Virtual Machine Stack</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%A6%82%E5%BF%B5"><span class="toc-number">4.0.1.</span> <span class="toc-text">概念</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%BB%98%E8%AE%A4%E5%A4%A7%E5%B0%8F"><span class="toc-number">4.0.2.</span> <span class="toc-text">默认大小</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%BC%82%E5%B8%B8"><span class="toc-number">4.0.3.</span> <span class="toc-text">异常</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#StackOverflowError"><span class="toc-number">4.0.3.1.</span> <span class="toc-text">StackOverflowError</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#OutOfMemoryError"><span class="toc-number">4.0.3.2.</span> <span class="toc-text">OutOfMemoryError</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Native-Method-Stack"><span class="toc-number">5.</span> <span class="toc-text">Native Method Stack</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Java-Heap"><span class="toc-number">6.</span> <span class="toc-text">Java Heap</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%BC%82%E5%B8%B8-1"><span class="toc-number">6.1.</span> <span class="toc-text">异常</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Method-Area-Non-Heap"><span class="toc-number">7.</span> <span class="toc-text">Method Area(Non-Heap)</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%BC%82%E5%B8%B8-2"><span class="toc-number">7.1.</span> <span class="toc-text">异常</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%BF%90%E8%A1%8C%E6%97%B6%E5%B8%B8%E9%87%8F%E6%B1%A0"><span class="toc-number">8.</span> <span class="toc-text">运行时常量池</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%B8%B8%E9%87%8F%E6%B1%A0"><span class="toc-number">8.0.0.1.</span> <span class="toc-text">字符串常量池</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%BC%82%E5%B8%B8-3"><span class="toc-number">8.1.</span> <span class="toc-text">异常</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Direct-Memory"><span class="toc-number">9.</span> <span class="toc-text">Direct Memory</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%BC%82%E5%B8%B8-4"><span class="toc-number">9.1.</span> <span class="toc-text">异常</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8F%82%E8%80%83%E8%B5%84%E6%96%99"><span class="toc-number">10.</span> <span class="toc-text">参考资料</span></a></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>Recent Post</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/posts/spring-cloud-eureka-source-code-analysis.html" title="SpringCloud 之 Eureka 源码分析"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="SpringCloud 之 Eureka 源码分析"/></a><div class="content"><a class="title" href="/posts/spring-cloud-eureka-source-code-analysis.html" title="SpringCloud 之 Eureka 源码分析">SpringCloud 之 Eureka 源码分析</a><time datetime="2021-03-31T16:00:00.000Z" title="Created 2021-04-01 00:00:00">2021-04-01</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/jvm-gc-garbage-first.html" title="Garbage-First(G1)"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Garbage-First(G1)"/></a><div class="content"><a class="title" href="/posts/jvm-gc-garbage-first.html" title="Garbage-First(G1)">Garbage-First(G1)</a><time datetime="2020-01-01T10:19:03.000Z" title="Created 2020-01-01 18:19:03">2020-01-01</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/netflix-guide.html" title="输入「神秘代码」解锁「隐藏类目」"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="输入「神秘代码」解锁「隐藏类目」"/></a><div class="content"><a class="title" href="/posts/netflix-guide.html" title="输入「神秘代码」解锁「隐藏类目」">输入「神秘代码」解锁「隐藏类目」</a><time datetime="2019-04-17T00:12:00.000Z" title="Created 2019-04-17 08:12:00">2019-04-17</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/How-to-change-icloud-region.html" title="数据移民漂流记——如何进行iCloud转区操作"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="数据移民漂流记——如何进行iCloud转区操作"/></a><div class="content"><a class="title" href="/posts/How-to-change-icloud-region.html" title="数据移民漂流记——如何进行iCloud转区操作">数据移民漂流记——如何进行iCloud转区操作</a><time datetime="2019-04-13T13:48:43.000Z" title="Created 2019-04-13 21:48:43">2019-04-13</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/How-to-register-and-use-the-Google-Voice.html" title="数据移民漂流记 —— 如何拥有属于自己的美国电话号码"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="数据移民漂流记 —— 如何拥有属于自己的美国电话号码"/></a><div class="content"><a class="title" href="/posts/How-to-register-and-use-the-Google-Voice.html" title="数据移民漂流记 —— 如何拥有属于自己的美国电话号码">数据移民漂流记 —— 如何拥有属于自己的美国电话号码</a><time datetime="2019-04-12T13:48:43.000Z" title="Created 2019-04-12 21:48:43">2019-04-12</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2014 - 2022 By Wang Wei</div><div class="framework-info"><span>Framework </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>Theme </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="Read Mode"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="Switch Between Light And Dark Mode"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="Toggle between single-column and double-column"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="Setting"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="Table Of Contents"><i class="fas fa-list-ul"></i></button><a id="to_comment" href="#post-comment" title="Scroll To Comments"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="Back To Top"><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.umd.js"></script><div class="js-pjax"><script>function loadDisqusjs () {
+  function addDisqusjsCSS () {
+    const ele = document.createElement('link')
+    ele.rel = 'stylesheet'
+    ele.href= 'https://cdn.jsdelivr.net/npm/disqusjs@1/dist/disqusjs.css'
+    document.getElementsByTagName('head')[0].appendChild(ele)
+  }
+
+  function initDisqusjs () {
+    window.DISQUS = null
+    new DisqusJS(Object.assign({
+      shortname: 'wangweiblog',
+      identifier: 'posts/java7-jvm-memory-model.html',
+      url: 'https://wangwei.one/posts/java7-jvm-memory-model.html',
+      title: 'Java7 HotSpot(TM) VM内存模型',
+      apikey: 'Fbg1QT6GJQYjK5jgJotfR5tznyJ6z9i6sfzhumYxWwOLo4IiepF29KpLsW296beS',
+    },null))
+  }
+
+
+  window.disqusReset = initDisqusjs
+
+  if (window.disqusJsLoad) initDisqusjs()
+  else {
+    addDisqusjsCSS()
+    getScript('https://cdn.jsdelivr.net/npm/disqusjs@1/dist/disqus.js').then(initDisqusjs)
+    window.disqusJsLoad = true
+  }
+}
+
+if ('Disqusjs' === 'Disqusjs' || !false) {
+  if (false) btf.loadComment(document.getElementById('disqus_thread'), loadDisqusjs)
+  else loadDisqusjs()
+}
+else {
+  function loadOtherComment () {
+    loadDisqusjs()
+  }
+}
+
+</script></div><div id="particles-js"></div><script src="/lib/js/particles.min.js"></script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>

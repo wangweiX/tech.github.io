@@ -1,0 +1,265 @@
+<!DOCTYPE html><html lang="en" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"><title>GC算法介绍 | 维新工坊</title><meta name="keywords" content="JVM,GC"><meta name="author" content="Wang Wei"><meta name="copyright" content="Wang Wei"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="前面我们了解了 Java7 与 Java8 的内存模型，接下里我们要学习JVM是如何回收对象所占用的内存的，本文先为你介绍三种常用的GC算法。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="GC算法介绍">
+<meta property="og:url" content="https://wangwei.one/posts/jvm-gc-arithmetic-intro.html">
+<meta property="og:site_name" content="维新工坊">
+<meta property="og:description" content="前面我们了解了 Java7 与 Java8 的内存模型，接下里我们要学习JVM是如何回收对象所占用的内存的，本文先为你介绍三种常用的GC算法。">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7">
+<meta property="article:published_time" content="2016-06-14T05:29:12.000Z">
+<meta property="article:modified_time" content="2020-01-17T09:34:07.061Z">
+<meta property="article:author" content="Wang Wei">
+<meta property="article:tag" content="JVM">
+<meta property="article:tag" content="GC">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"><link rel="shortcut icon" href="/images/favicon-180x180.png"><link rel="canonical" href="https://wangwei.one/posts/jvm-gc-arithmetic-intro"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//www.google-analytics.com" crossorigin=""/><link rel="preconnect" href="//s4.cnzz.com"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.css" media="print" onload="this.media='all'"><script async="async" src="https://www.googletagmanager.com/gtag/js?id=UA-112239883-1"></script><script>window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'UA-112239883-1');
+</script><script async="async" data-pjax="data-pjax" src="https://s4.cnzz.com/z_stat.php?id=1270083794&amp;web_id=1270083794"></script><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: 'Copy successfully',
+    error: 'Copy error',
+    noSupport: 'The browser does not support'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: 'days',
+  date_suffix: {
+    just: 'Just',
+    min: 'minutes ago',
+    hour: 'hours ago',
+    day: 'days ago',
+    month: 'months ago'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery@2/dist/fjGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery@2/dist/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'GC算法介绍',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2020-01-17 17:34:07'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><link rel="stylesheet" href="/lib/css/particles-style.min.css"><meta name="generator" content="Hexo 6.0.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/images/avatar.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data is-center"><div class="data-item"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">74</div></a></div><div class="data-item"><a href="/tags/"><div class="headline">Tags</div><div class="length-num">39</div></a></div><div class="data-item"><a href="/categories/"><div class="headline">Categories</div><div class="length-num">4</div></a></div></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 目录</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/categories/"><i class="fa-fw fas fa-th"></i><span> 分类</span></a></li><li><a class="site-page child" href="/tags/"><i class="fa-fw fas fas-tags"></i><span> 标签</span></a></li><li><a class="site-page child" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/books/"><i class="fa-fw fas fa-book"></i><span> 阅读</span></a></div><div class="menus_item"><a class="site-page" href="/movies/"><i class="fa-fw fas fa-film"></i><span> 电影</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fa fa-user"></i><span> 关于</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">维新工坊</a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 目录</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/categories/"><i class="fa-fw fas fa-th"></i><span> 分类</span></a></li><li><a class="site-page child" href="/tags/"><i class="fa-fw fas fas-tags"></i><span> 标签</span></a></li><li><a class="site-page child" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/books/"><i class="fa-fw fas fa-book"></i><span> 阅读</span></a></div><div class="menus_item"><a class="site-page" href="/movies/"><i class="fa-fw fas fa-film"></i><span> 电影</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fa fa-user"></i><span> 关于</span></a></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">GC算法介绍</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="fa-fw post-meta-icon far fa-calendar-alt"></i><span class="post-meta-label">Created</span><time datetime="2016-06-14T05:29:12.000Z" title="Created 2016-06-14 13:29:12">2016-06-14</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/coding/">coding</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">Word count:</span><span class="word-count">2.7k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">Reading time:</span><span>8min</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="GC算法介绍"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">Post View:</span><span id="busuanzi_value_page_pv"></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><p align="center">
+<a target="_blank" href="https://wangwei.one/posts/jvm-gc-arithmetic-intro.html"><img src="https://img.i7years.com/blog/landscape-tree-nature-mountain-cloud-meadow-60159-pxhere.com.jpg?imageslim"></a>
+</p>
+
+<p>前面我们了解了 <a href="https://wangwei.one/posts/71c1df10.html">Java7</a> 与 <a href="https://wangwei.one/posts/fcc298ef.html">Java8</a> 的内存模型，接下里我们要学习JVM是如何回收对象所占用的内存的，本文先为你介绍三种常用的GC算法。</p>
+<span id="more"></span>
+
+<h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><p>常用的GC算法主要有三种：<code>标记-清除算法</code>、<code>标记-整理算法</code>、<code>复制算法</code>。还有一种<code>分代收集算法</code>，这种算法无非就是对内存的不同区域使用前面三种不同的算法。</p>
+<p>这三种GC算法总体而言，都专注于干两件事情：</p>
+<ul>
+<li>标记所有存活的对象。在垃圾收集中有一个叫做 <strong>标记(Marking)</strong> 的过程专门干这件事。</li>
+<li>清除所有死对象。这三种算法的区别就在于清理死对象的实现方式上。</li>
+</ul>
+<h2 id="标记可达对象-Marking-Reachable-Objects"><a href="#标记可达对象-Marking-Reachable-Objects" class="headerlink" title="标记可达对象(Marking Reachable Objects)"></a>标记可达对象(Marking Reachable Objects)</h2><p>现代JVM中所有的GC算法，第一步都是找出所有存活的对象，如图所示：</p>
+<p><img src="https://img.i7years.com/blog/03_01_Java-GC-mark-and-sweep.png" alt="Java-GC-mark-and-sweep"></p>
+<h4 id="GC-Roots"><a href="#GC-Roots" class="headerlink" title="GC Roots"></a>GC Roots</h4><p><a href="https://wangwei.one/posts/95492bf7.html">前面</a> 讲了 GC中 <strong>根(GC Roots)</strong> 的概念：</p>
+<blockquote>
+<p>指的是指向对象指针的”起点”。</p>
+</blockquote>
+<p>可作为GC Roots的节点主要在全局性的引用（例如常量或类静态属性）与执行上下文（例如栈帧中的本地变量表）中，主要包括：</p>
+<ul>
+<li>在虚拟机栈（栈帧中的本地变量表）中应用的对象，譬如各个线程被调用的方法堆栈中使用到的参数、局部变量、临时变量。</li>
+<li>在方法区中类静态属性引用的对象，譬如Java类的应用类型静态变量。</li>
+<li>在方法区中常量的应用对象，譬如字符串常量池（StringTable）里的应用。</li>
+<li>在本地方法栈中JNI（Native方法）应用的对象。</li>
+<li>Java虚拟机内部引用，如基本数据类型对象的Class对象，一些常驻的异常对象（比如NullPointException、OutOfMemoryError）等，还有系统类加载器。</li>
+<li>所有被同步锁（synchronized）持有的对象。</li>
+<li>反映Java虚拟机内部情况的JMXBean、JVMTI中注册的回调、本地代码缓存等。</li>
+</ul>
+<p>GC遍历(traverses)内存中整体的对象关系图(object graph)，从GC根元素开始扫描，到直接引用以及间接引用(通过对象的 <a href="https://wangwei.one/posts/95492bf7.html">属性域</a> )。所有GC访问到的对象都被 (marked)为 <a href="https://wangwei.one/posts/95492bf7.html">存活对象</a> （上图中的蓝色标记）。而从GC根无法直接或间接访问到的对象称为 <a href="https://wangwei.one/posts/95492bf7.html">不可达的对象</a> (unreachable object) (上图中的灰色标记)，GC会在接下来的阶段中清除掉这些不可达的对象。</p>
+<p>在标记阶段，需要注意几点：</p>
+<h4 id="Stop-The-World-STW"><a href="#Stop-The-World-STW" class="headerlink" title="Stop The World(STW)"></a>Stop The World(STW)</h4><p>在标记阶段，需要暂停所有应用线程，以遍历所有对象的引用关系。因为这项分析工作必须在一个能确保一致性的快照中进行——这里“一致性”的意思是指在整个分析期间整个执行系统看起来就像被冻结在某个时间点上，不可以出现分析过程中对象引用关系还在不断变化的情况，该点不满足的话分析结果准确性就无法得到保证。这种情景叫做 <strong>Stop The World pause</strong> (全线停顿)。</p>
+<p>暂停的时间，与堆内存的大小，对象的总数没有直接关系，而是有存活对象（alive objects）的数量来决定。所以，增加堆内存的大小并不会直接影响标记阶段占用的时间。</p>
+<h4 id="OopMap"><a href="#OopMap" class="headerlink" title="OopMap"></a>OopMap</h4><p>目前的主流Java虚拟机使用的都是准确式GC（Exact VM），所以当执行系统停顿下来后，并不需要一个不漏地检查完所有执行上下文和全局的引用位置，虚拟机应当是有办法直接得知哪些地方存放着对象引用。在HotSpot的实现中，是使用一组称为<strong>OopMap</strong>的数据结构来达到这个目的的，在类加载完成的时候，HotSpot就把对象内什么偏移量上是什么类型的数据计算出来，在JIT编译过程中，也会在特定的位置记录下栈和寄存器中哪些位置是引用。这样，GC在扫描时就可以直接得知这些信息了。</p>
+<blockquote>
+<p>OopMap 是一种用于记录位于Java栈上的对象引用的数据结构。 其主要目的是查找位于Java栈上的 GC Roots，当Heap中对象移动时，会去更新对应的对象引用信息。</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/openjdk-mirror/jdk7u-hotspot/blob/master/src/share/vm/compiler/oopMap.cpp">oopMap.cpp</a> 、 <a target="_blank" rel="noopener" href="https://github.com/openjdk-mirror/jdk7u-hotspot/blob/master/src/share/vm/oops/generateOopMap.cpp">generateOopMap.cpp</a> 、 <a target="_blank" rel="noopener" href="https://github.com/openjdk-mirror/jdk7u-hotspot/blob/master/src/share/vm/interpreter/oopMapCache.cpp">oopMapCache.hpp</a></p>
+</blockquote>
+<h4 id="Safe-Point"><a href="#Safe-Point" class="headerlink" title="Safe Point"></a>Safe Point</h4><p>程序并非在所有的地方都能停顿下来开始GC，只有达到<strong>安全点</strong>(Safe Point)才能暂定。如何在GC发生时，让所有线程都”跑”到安全点上再停顿下来，这里有两种方案：</p>
+<h5 id="抢先式中断（Preemptive-Suspension）"><a href="#抢先式中断（Preemptive-Suspension）" class="headerlink" title="抢先式中断（Preemptive Suspension）"></a>抢先式中断（Preemptive Suspension）</h5><p>不需要线程的执行代码主动配合，在GC发生时，首先把所有线程全部中断，如果发现有线程中断的地方不在安全点上，就恢复线程，让它”跑”到安全点上。（这种方式几乎没有虚拟机使用了）</p>
+<h5 id="主动式中断（Voluntary-Suspension）"><a href="#主动式中断（Voluntary-Suspension）" class="headerlink" title="主动式中断（Voluntary Suspension）"></a>主动式中断（Voluntary Suspension）</h5><p>当GC需要中断线程的时候，不直接对线程操作，仅仅简单地设置一个标志，各个线程执行时主动去轮询这个标志，发现中断标志为真时就自己中断挂起。</p>
+<h4 id="Safe-Region"><a href="#Safe-Region" class="headerlink" title="Safe Region"></a>Safe Region</h4><p>当线程处于Sleep状态或者Blocked状态，这时线程无法响应JVM的中断请求，也就无法”跑”到安全的地方去中断挂起，JVM也不可能等到线程重新被分配CPU时间。这就需要安全区域来解决。</p>
+<p><strong>安全区域（Safe Region）</strong>是指在一段代码片段之中，引用关系不会发生变化。在这个区域中的任意地方开始GC都是安全的。</p>
+<p>在线程执行到Safe Region中的代码时，首先标识自己已经进入了Safe Region，那样，当在这段时间里JVM要发起GC时，就不用管标识自己为Safe Region状态的线程了。在线程要离开Safe Region时，它要检查系统是否已经完成了根节点枚举（或者是整个GC过程），如果完成了，那线程就继续执行，否则它就必须等待直到收到可以安全离开Safe Region的信号为止。</p>
+<h2 id="删除不可达对象-Removing-Unused-Objects"><a href="#删除不可达对象-Removing-Unused-Objects" class="headerlink" title="删除不可达对象(Removing Unused Objects)"></a>删除不可达对象(Removing Unused Objects)</h2><p>各种GC算法在删除不可达对象时略有不同, 但总体可分为三类: 清除(sweeping)、整理(compacting)和复制 (copying)。</p>
+<h3 id="Sweep-清除"><a href="#Sweep-清除" class="headerlink" title="Sweep(清除)"></a>Sweep(清除)</h3><p><strong>Mark-Sweep</strong>(标记-清除)算法是最基础的收集算法。在标记阶段完成之后，所有不可达的对象占用的空间都会被回收，用于下一次新对象的分配。</p>
+<p><img src="https://img.i7years.com/blog/03_02_GC-sweep.png" alt="GC-sweep"></p>
+<h4 id="优点"><a href="#优点" class="headerlink" title="优点"></a>优点</h4><ul>
+<li>算法简单，实现容易</li>
+</ul>
+<h4 id="缺点"><a href="#缺点" class="headerlink" title="缺点"></a>缺点</h4><ul>
+<li><strong>碎片化（fragmentation）</strong>。在 GC 标记 - 清除算法的使用过程中会逐渐产生被细化的分块，不久后就会导致无数的 小分块散布在堆的各处。如果发生碎片化，那么即使堆中分块的总大小够用，也会因为一个个的分块都太小而不能执行分配。</li>
+<li>需要使用<strong>空闲链表</strong> (free­list)，来记录所有的空闲区域，以及每个区域的大小。维护空闲表增加了对象分配时的开销。</li>
+<li><strong>分配速度低下</strong>。GC 标记 - 清除算法中分块不是连续的，因此每次分配都必须遍历空闲链表，找到足够大的分块。最糟的情况就是每次进行分配都得把空闲链表遍历到最后。</li>
+</ul>
+<h3 id="Copy-复制"><a href="#Copy-复制" class="headerlink" title="Copy(复制)"></a>Copy(复制)</h3><p>为了解决效率问题，一种称为“复制”（Copying）的收集算法出现了，它将可用内存按容量划分为大小相等的两块，每次只使用其中的一块。当这一块的内存用完了，就将还存活着的对象复制到另外一块上面，然后再把已使用过的内存空间一次清理掉。这样使得每次都是对整个半区进行内存回收，内存分配时也就不用考虑内存碎片等复杂情况，只要移动堆顶指针，按顺序分配内存即可，实现简单，运行高效。</p>
+<p><img src="https://img.i7years.com/blog/03_04_GC-mark-and-copy-in-Java.png" alt="GC-mark-and-copy-in-Java"></p>
+<h4 id="优点-1"><a href="#优点-1" class="headerlink" title="优点"></a>优点</h4><h5 id="优秀的吞吐量"><a href="#优秀的吞吐量" class="headerlink" title="优秀的吞吐量"></a>优秀的吞吐量</h5><p>GC 标记 - 清除算法消耗的吞吐量是搜索活动对象（标记阶段）所花费的时间和搜索整体堆（清除阶段）所花费的时间之和。</p>
+<p>而 GC 复制算法只搜索并复制活动对象，所以跟一般的 GC 标记 - 清除算 法相比，它能在较短时间内完成 GC。也就是说，其吞吐量优秀。</p>
+<p>尤其是堆越大，差距越明显。GC 标记 - 清除算法在清除阶段所花费的时间会不断增加， 但 GC 复制算法就不会产生这种消耗。毕竟它消耗的时间是与活动对象的数量成比例的。</p>
+<h5 id="可实现高速分配"><a href="#可实现高速分配" class="headerlink" title="可实现高速分配"></a>可实现高速分配</h5><p>GC 复制算法不使用空闲链表。这是因为分块是一个连续的内存空间。因此，只要这个分块大小不小于所申请的大小，那么移动 <code>$free</code> 指针就可以进行分配了。不像 GC 标记 - 清除算法那样每次分配内存空间时，都要遍历空闲链表，而且每次都要遍历到最后一个分块。</p>
+<h5 id="不会发生碎片化"><a href="#不会发生碎片化" class="headerlink" title="不会发生碎片化"></a>不会发生碎片化</h5><p>GC 复制算法每次回收垃圾对象是，都是对整个一半的空间进行回收，不像 GC 标记 - 清除算法那样，会留下碎片化的内存空间。</p>
+<h4 id="缺点-1"><a href="#缺点-1" class="headerlink" title="缺点"></a>缺点</h4><h5 id="堆使用效率低下"><a href="#堆使用效率低下" class="headerlink" title="堆使用效率低下"></a>堆使用效率低下</h5><p>GC 复制算法把堆二等分，通常只能利用其中的一半来安排对象。也就是说，只有一半堆能被使用。相比其他能使用整个堆的 GC 算法而言，可以说这是 GC 复制算法的一个重大的缺陷。</p>
+<h3 id="Compact-整理"><a href="#Compact-整理" class="headerlink" title="Compact(整理)"></a>Compact(整理)</h3><p>标记-清除-­整理算法 (Mark-­Sweep­-Compact)。标记过程仍然与“标记-清除”算法一样，但后续步骤不是直接对可回收对象进行清理，而是让所有存活的对象都向一端移动，然后直接清理掉端边界以外的内存。</p>
+<p><img src="https://img.i7years.com/blog/03_03_GC-mark-sweep-compact.png" alt="03_03_GC-mark-sweep-compact"></p>
+<h4 id="优点-2"><a href="#优点-2" class="headerlink" title="优点"></a>优点</h4><p>标记-清除-­整理算法 (Mark­Sweep­Compact)，将所有被标记的对象(存活对象)，迁移到内存空间的起始处, 消除了标记­清除算法的缺点。</p>
+<h4 id="缺点-2"><a href="#缺点-2" class="headerlink" title="缺点"></a>缺点</h4><p>GC暂停时间会增加。因为需要将所有对象复制到另一个地方, 然后修改指向这些对象的引用。</p>
+<h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2><ul>
+<li><a target="_blank" rel="noopener" href="https://book.douban.com/subject/24722612/">《深入理解Java虚拟机（第2版）》第3章节「垃圾收集器与内存分配策略」</a></li>
+<li><a target="_blank" rel="noopener" href="https://github.com/cncounter/gc-handbook">https://github.com/cncounter/gc-handbook</a></li>
+<li><a target="_blank" rel="noopener" href="https://book.douban.com/subject/26821357/">《垃圾回收的算法与实现》</a></li>
+<li><a target="_blank" rel="noopener" href="https://stackoverflow.com/questions/26029764/what-does-oop-maps-means-in-hotspot-vm-exactly">what-does-oop-maps-means-in-hotspot-vm-exactly</a></li>
+<li><a target="_blank" rel="noopener" href="http://java-latte.blogspot.com/2013/08/garbage-collection-in-java.html">http://java-latte.blogspot.com/2013/08/garbage-collection-in-java.html</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.ibm.com/developerworks/cn/java/j-lo-JVMGarbageCollection/index.html">https://www.ibm.com/developerworks/cn/java/j-lo-JVMGarbageCollection/index.html</a></li>
+</ul>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">Author: </span><span class="post-copyright-info"><a href="mailto:undefined">Wang Wei</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">Link: </span><span class="post-copyright-info"><a href="https://wangwei.one/posts/jvm-gc-arithmetic-intro.html">https://wangwei.one/posts/jvm-gc-arithmetic-intro.html</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">Copyright Notice: </span><span class="post-copyright-info">All articles in this blog are licensed under <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> unless stating additionally.</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/JVM/">JVM</a><a class="post-meta__tags" href="/tags/GC/">GC</a></div><div class="post_share"><div class="social-share" data-image="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/social-share.js/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/posts/jvm-gc-serial-and-parallel.html"><img class="prev-cover" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">Previous Post</div><div class="prev_info">Serial GC 与 Parallel GC</div></div></a></div><div class="next-post pull-right"><a href="/posts/jvm-gc-base-concept.html"><img class="next-cover" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">Next Post</div><div class="next_info">GC基本概念</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>Related Articles</span></div><div class="relatedPosts-list"><div><a href="/posts/jvm-gc-base-concept.html" title="GC基本概念"><img class="cover" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2016-06-12</div><div class="title">GC基本概念</div></div></a></div><div><a href="/posts/jvm-gc-serial-and-parallel.html" title="Serial GC 与 Parallel GC"><img class="cover" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2016-06-17</div><div class="title">Serial GC 与 Parallel GC</div></div></a></div><div><a href="/posts/jvm-gc-concurrent-mark-sweep-cms.html" title="Concurrent Mark Sweep(CMS)"><img class="cover" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2016-06-20</div><div class="title">Concurrent Mark Sweep(CMS)</div></div></a></div><div><a href="/posts/jvm-gc-garbage-first.html" title="Garbage-First(G1)"><img class="cover" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2020-01-01</div><div class="title">Garbage-First(G1)</div></div></a></div><div><a href="/posts/java7-jvm-memory-model.html" title="Java7 HotSpot(TM) VM内存模型"><img class="cover" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2016-06-08</div><div class="title">Java7 HotSpot(TM) VM内存模型</div></div></a></div><div><a href="/posts/java8-jvm-metaSpace.html" title="Java8 MetaSpace介绍"><img class="cover" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2016-06-11</div><div class="title">Java8 MetaSpace介绍</div></div></a></div></div></div><hr/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> Comment</span></div></div><div class="comment-wrap"><div><div id="disqus_thread"></div></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/images/avatar.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">Wang Wei</div><div class="author-info__description">分享自己所思所学所行</div></div><div class="card-info-data is-center"><div class="card-info-data-item"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">74</div></a></div><div class="card-info-data-item"><a href="/tags/"><div class="headline">Tags</div><div class="length-num">39</div></a></div><div class="card-info-data-item"><a href="/categories/"><div class="headline">Categories</div><div class="length-num">4</div></a></div></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/xxxxxx"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/wangweiX" target="_blank" title="Github"><i class="fab fa-github"></i></a><a class="social-icon" href="mailto:dzd5ZWFyc0BnbWFpbC5jb20NCg==" target="_blank" title="Email"><i class="fas fa-envelope"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>Announcement</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>Catalog</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%A6%82%E8%BF%B0"><span class="toc-number">1.</span> <span class="toc-text">概述</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%A0%87%E8%AE%B0%E5%8F%AF%E8%BE%BE%E5%AF%B9%E8%B1%A1-Marking-Reachable-Objects"><span class="toc-number">2.</span> <span class="toc-text">标记可达对象(Marking Reachable Objects)</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#GC-Roots"><span class="toc-number">2.0.1.</span> <span class="toc-text">GC Roots</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Stop-The-World-STW"><span class="toc-number">2.0.2.</span> <span class="toc-text">Stop The World(STW)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#OopMap"><span class="toc-number">2.0.3.</span> <span class="toc-text">OopMap</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Safe-Point"><span class="toc-number">2.0.4.</span> <span class="toc-text">Safe Point</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E6%8A%A2%E5%85%88%E5%BC%8F%E4%B8%AD%E6%96%AD%EF%BC%88Preemptive-Suspension%EF%BC%89"><span class="toc-number">2.0.4.1.</span> <span class="toc-text">抢先式中断（Preemptive Suspension）</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E4%B8%BB%E5%8A%A8%E5%BC%8F%E4%B8%AD%E6%96%AD%EF%BC%88Voluntary-Suspension%EF%BC%89"><span class="toc-number">2.0.4.2.</span> <span class="toc-text">主动式中断（Voluntary Suspension）</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Safe-Region"><span class="toc-number">2.0.5.</span> <span class="toc-text">Safe Region</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%88%A0%E9%99%A4%E4%B8%8D%E5%8F%AF%E8%BE%BE%E5%AF%B9%E8%B1%A1-Removing-Unused-Objects"><span class="toc-number">3.</span> <span class="toc-text">删除不可达对象(Removing Unused Objects)</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Sweep-%E6%B8%85%E9%99%A4"><span class="toc-number">3.1.</span> <span class="toc-text">Sweep(清除)</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BC%98%E7%82%B9"><span class="toc-number">3.1.1.</span> <span class="toc-text">优点</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%BC%BA%E7%82%B9"><span class="toc-number">3.1.2.</span> <span class="toc-text">缺点</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Copy-%E5%A4%8D%E5%88%B6"><span class="toc-number">3.2.</span> <span class="toc-text">Copy(复制)</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BC%98%E7%82%B9-1"><span class="toc-number">3.2.1.</span> <span class="toc-text">优点</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E4%BC%98%E7%A7%80%E7%9A%84%E5%90%9E%E5%90%90%E9%87%8F"><span class="toc-number">3.2.1.1.</span> <span class="toc-text">优秀的吞吐量</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%8F%AF%E5%AE%9E%E7%8E%B0%E9%AB%98%E9%80%9F%E5%88%86%E9%85%8D"><span class="toc-number">3.2.1.2.</span> <span class="toc-text">可实现高速分配</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E4%B8%8D%E4%BC%9A%E5%8F%91%E7%94%9F%E7%A2%8E%E7%89%87%E5%8C%96"><span class="toc-number">3.2.1.3.</span> <span class="toc-text">不会发生碎片化</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%BC%BA%E7%82%B9-1"><span class="toc-number">3.2.2.</span> <span class="toc-text">缺点</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%A0%86%E4%BD%BF%E7%94%A8%E6%95%88%E7%8E%87%E4%BD%8E%E4%B8%8B"><span class="toc-number">3.2.2.1.</span> <span class="toc-text">堆使用效率低下</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Compact-%E6%95%B4%E7%90%86"><span class="toc-number">3.3.</span> <span class="toc-text">Compact(整理)</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BC%98%E7%82%B9-2"><span class="toc-number">3.3.1.</span> <span class="toc-text">优点</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%BC%BA%E7%82%B9-2"><span class="toc-number">3.3.2.</span> <span class="toc-text">缺点</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8F%82%E8%80%83%E8%B5%84%E6%96%99"><span class="toc-number">4.</span> <span class="toc-text">参考资料</span></a></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>Recent Post</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/posts/spring-cloud-eureka-source-code-analysis.html" title="SpringCloud 之 Eureka 源码分析"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="SpringCloud 之 Eureka 源码分析"/></a><div class="content"><a class="title" href="/posts/spring-cloud-eureka-source-code-analysis.html" title="SpringCloud 之 Eureka 源码分析">SpringCloud 之 Eureka 源码分析</a><time datetime="2021-03-31T16:00:00.000Z" title="Created 2021-04-01 00:00:00">2021-04-01</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/jvm-gc-garbage-first.html" title="Garbage-First(G1)"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Garbage-First(G1)"/></a><div class="content"><a class="title" href="/posts/jvm-gc-garbage-first.html" title="Garbage-First(G1)">Garbage-First(G1)</a><time datetime="2020-01-01T10:19:03.000Z" title="Created 2020-01-01 18:19:03">2020-01-01</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/netflix-guide.html" title="输入「神秘代码」解锁「隐藏类目」"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="输入「神秘代码」解锁「隐藏类目」"/></a><div class="content"><a class="title" href="/posts/netflix-guide.html" title="输入「神秘代码」解锁「隐藏类目」">输入「神秘代码」解锁「隐藏类目」</a><time datetime="2019-04-17T00:12:00.000Z" title="Created 2019-04-17 08:12:00">2019-04-17</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/How-to-change-icloud-region.html" title="数据移民漂流记——如何进行iCloud转区操作"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="数据移民漂流记——如何进行iCloud转区操作"/></a><div class="content"><a class="title" href="/posts/How-to-change-icloud-region.html" title="数据移民漂流记——如何进行iCloud转区操作">数据移民漂流记——如何进行iCloud转区操作</a><time datetime="2019-04-13T13:48:43.000Z" title="Created 2019-04-13 21:48:43">2019-04-13</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/How-to-register-and-use-the-Google-Voice.html" title="数据移民漂流记 —— 如何拥有属于自己的美国电话号码"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="数据移民漂流记 —— 如何拥有属于自己的美国电话号码"/></a><div class="content"><a class="title" href="/posts/How-to-register-and-use-the-Google-Voice.html" title="数据移民漂流记 —— 如何拥有属于自己的美国电话号码">数据移民漂流记 —— 如何拥有属于自己的美国电话号码</a><time datetime="2019-04-12T13:48:43.000Z" title="Created 2019-04-12 21:48:43">2019-04-12</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2014 - 2022 By Wang Wei</div><div class="framework-info"><span>Framework </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>Theme </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="Read Mode"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="Switch Between Light And Dark Mode"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="Toggle between single-column and double-column"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="Setting"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="Table Of Contents"><i class="fas fa-list-ul"></i></button><a id="to_comment" href="#post-comment" title="Scroll To Comments"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="Back To Top"><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.umd.js"></script><div class="js-pjax"><script>function loadDisqusjs () {
+  function addDisqusjsCSS () {
+    const ele = document.createElement('link')
+    ele.rel = 'stylesheet'
+    ele.href= 'https://cdn.jsdelivr.net/npm/disqusjs@1/dist/disqusjs.css'
+    document.getElementsByTagName('head')[0].appendChild(ele)
+  }
+
+  function initDisqusjs () {
+    window.DISQUS = null
+    new DisqusJS(Object.assign({
+      shortname: 'wangweiblog',
+      identifier: 'posts/jvm-gc-arithmetic-intro.html',
+      url: 'https://wangwei.one/posts/jvm-gc-arithmetic-intro.html',
+      title: 'GC算法介绍',
+      apikey: 'Fbg1QT6GJQYjK5jgJotfR5tznyJ6z9i6sfzhumYxWwOLo4IiepF29KpLsW296beS',
+    },null))
+  }
+
+
+  window.disqusReset = initDisqusjs
+
+  if (window.disqusJsLoad) initDisqusjs()
+  else {
+    addDisqusjsCSS()
+    getScript('https://cdn.jsdelivr.net/npm/disqusjs@1/dist/disqus.js').then(initDisqusjs)
+    window.disqusJsLoad = true
+  }
+}
+
+if ('Disqusjs' === 'Disqusjs' || !false) {
+  if (false) btf.loadComment(document.getElementById('disqus_thread'), loadDisqusjs)
+  else loadDisqusjs()
+}
+else {
+  function loadOtherComment () {
+    loadDisqusjs()
+  }
+}
+
+</script></div><div id="particles-js"></div><script src="/lib/js/particles.min.js"></script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>

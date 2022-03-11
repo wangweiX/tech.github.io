@@ -1,0 +1,342 @@
+<!DOCTYPE html><html lang="en" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"><title>Java8 MetaSpace介绍 | 维新工坊</title><meta name="keywords" content="JVM,Java8"><meta name="author" content="Wang Wei"><meta name="copyright" content="Wang Wei"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="前面 我们学习了Java7的内存模型，重点了解了它的Runtime Data Area，今天我们要来学习一下Java8 HotSpot(TM) VM内存模型，看看它与Java7 VM存在哪些差异。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Java8 MetaSpace介绍">
+<meta property="og:url" content="https://wangwei.one/posts/java8-jvm-metaSpace.html">
+<meta property="og:site_name" content="维新工坊">
+<meta property="og:description" content="前面 我们学习了Java7的内存模型，重点了解了它的Runtime Data Area，今天我们要来学习一下Java8 HotSpot(TM) VM内存模型，看看它与Java7 VM存在哪些差异。">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7">
+<meta property="article:published_time" content="2016-06-11T04:23:19.000Z">
+<meta property="article:modified_time" content="2020-01-02T13:16:04.163Z">
+<meta property="article:author" content="Wang Wei">
+<meta property="article:tag" content="JVM">
+<meta property="article:tag" content="Java8">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"><link rel="shortcut icon" href="/images/favicon-180x180.png"><link rel="canonical" href="https://wangwei.one/posts/java8-jvm-metaSpace"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//www.google-analytics.com" crossorigin=""/><link rel="preconnect" href="//s4.cnzz.com"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.css" media="print" onload="this.media='all'"><script async="async" src="https://www.googletagmanager.com/gtag/js?id=UA-112239883-1"></script><script>window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'UA-112239883-1');
+</script><script async="async" data-pjax="data-pjax" src="https://s4.cnzz.com/z_stat.php?id=1270083794&amp;web_id=1270083794"></script><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: 'Copy successfully',
+    error: 'Copy error',
+    noSupport: 'The browser does not support'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: 'days',
+  date_suffix: {
+    just: 'Just',
+    min: 'minutes ago',
+    hour: 'hours ago',
+    day: 'days ago',
+    month: 'months ago'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery@2/dist/fjGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery@2/dist/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'Java8 MetaSpace介绍',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2020-01-02 21:16:04'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><link rel="stylesheet" href="/lib/css/particles-style.min.css"><meta name="generator" content="Hexo 6.0.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/images/avatar.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data is-center"><div class="data-item"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">74</div></a></div><div class="data-item"><a href="/tags/"><div class="headline">Tags</div><div class="length-num">39</div></a></div><div class="data-item"><a href="/categories/"><div class="headline">Categories</div><div class="length-num">4</div></a></div></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 目录</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/categories/"><i class="fa-fw fas fa-th"></i><span> 分类</span></a></li><li><a class="site-page child" href="/tags/"><i class="fa-fw fas fas-tags"></i><span> 标签</span></a></li><li><a class="site-page child" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/books/"><i class="fa-fw fas fa-book"></i><span> 阅读</span></a></div><div class="menus_item"><a class="site-page" href="/movies/"><i class="fa-fw fas fa-film"></i><span> 电影</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fa fa-user"></i><span> 关于</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">维新工坊</a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 目录</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/categories/"><i class="fa-fw fas fa-th"></i><span> 分类</span></a></li><li><a class="site-page child" href="/tags/"><i class="fa-fw fas fas-tags"></i><span> 标签</span></a></li><li><a class="site-page child" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/books/"><i class="fa-fw fas fa-book"></i><span> 阅读</span></a></div><div class="menus_item"><a class="site-page" href="/movies/"><i class="fa-fw fas fa-film"></i><span> 电影</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fa fa-user"></i><span> 关于</span></a></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">Java8 MetaSpace介绍</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="fa-fw post-meta-icon far fa-calendar-alt"></i><span class="post-meta-label">Created</span><time datetime="2016-06-11T04:23:19.000Z" title="Created 2016-06-11 12:23:19">2016-06-11</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/coding/">coding</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">Word count:</span><span class="word-count">2.9k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">Reading time:</span><span>10min</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="Java8 MetaSpace介绍"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">Post View:</span><span id="busuanzi_value_page_pv"></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><p align="center">
+<a target="_blank" href="https://wangwei.one/posts/java8-jvm-metaSpace.html"><img src="https://img.i7years.com/blog/amirkabir_dam-wallpaper-1920x1200.jpg?imageslim"></a>
+</p>
+
+<p><a href="https://wangwei.one/posts/71c1df10.html">前面</a> 我们学习了Java7的内存模型，重点了解了它的Runtime Data Area，今天我们要来学习一下Java8 HotSpot(TM) VM内存模型，看看它与Java7 VM存在哪些差异。</p>
+<span id="more"></span>
+
+<p>与Java7相比较，Java8 VM的一个重大更新：<strong>完全移除永久代（PermGen），取而代之的为元空间（Metaspace）</strong>。</p>
+<p>![Java8 VM MetaSpace](<a target="_blank" rel="noopener" href="https://img.i7years.com/blog/Java8">https://img.i7years.com/blog/Java8</a> VM MetaSpace.png)</p>
+<h2 id="为什么要移除PermGen"><a href="#为什么要移除PermGen" class="headerlink" title="为什么要移除PermGen"></a>为什么要移除PermGen</h2><blockquote>
+<p>来源：<a target="_blank" rel="noopener" href="http://openjdk.java.net/jeps/122">http://openjdk.java.net/jeps/122</a></p>
+</blockquote>
+<p>Jon Masamitsu 对此的解释如下：</p>
+<blockquote>
+<p>A goal for removing perm gen was so that users do not have to think about correctly sizing it.</p>
+<p>Set MetaspaceSize to a value larger than the default, if you know that your applications needs more space for class data. Setting it to a larger size will avoid some number of GC’s at startup. It is not necessary and I do not particularly recommend it unless you want to avoid as many GC’s as possible.</p>
+<p>Set MaxMetaspaceSize if you want to limit the space for class data. You might want to do this if you suspect you are leaking classloaders and want the application to stop before it uses up too much native memory. Another case might be where you have multiple applications running on a server and you want to limit how much space each uses for class data.</p>
+</blockquote>
+<p>PermGen空间的大小在JVM启动时就已经分配好了，但是随着动态类加载的情况越来越多，如果设置的太小，则容易出现OOM的异常，设置的太大，则容易造成空间浪费。</p>
+<p>而Metaspace空间的容量则会根据应用程序在运行时的需求动态调整大小，省得为PermGen的大小分配操碎了心。</p>
+<h2 id="有哪些变化"><a href="#有哪些变化" class="headerlink" title="有哪些变化"></a>有哪些变化</h2><blockquote>
+<p>来源：<a target="_blank" rel="noopener" href="http://mail.openjdk.java.net/pipermail/hotspot-dev/2012-September/006679.html">http://mail.openjdk.java.net/pipermail/hotspot-dev/2012-September/006679.html</a></p>
+</blockquote>
+<h5 id="PermGen-情况"><a href="#PermGen-情况" class="headerlink" title="PermGen 情况"></a>PermGen 情况</h5><ul>
+<li>PermGen 被完全移除，对应的控制参数 <code>PermSize</code> 和 <code>MaxPermSize</code> 也变得无效。</li>
+</ul>
+<h5 id="Metaspace内存分配模型"><a href="#Metaspace内存分配模型" class="headerlink" title="Metaspace内存分配模型"></a>Metaspace内存分配模型</h5><ul>
+<li><p>类的元数据信息（metadata）不再是存储在连续的堆空间上，而是移动到叫做“Metaspace”的本地内存（Native memory）中。PermGen中剩下的一些杂项数据已移至Java Heap中。</p>
+</li>
+<li><p>用于描述类元数据的类(klasses)已被删除（klassKlass及其派生类）。</p>
+</li>
+</ul>
+<h5 id="Metaspace空间容量"><a href="#Metaspace空间容量" class="headerlink" title="Metaspace空间容量"></a>Metaspace空间容量</h5><ul>
+<li>默认情况下，类元数据分配受到可用的本机内存总容量的限制（容量依然取决于你使用32位JVM还是64位操作系统的虚拟内存的可用性）。 </li>
+<li>可以使用一个新的参数 (<code>MaxMetaspaceSize</code>)来限制用于类元数据的本地内存。如果没有特别指定，元空间将会根据应用程序在运行时的需求动态调整大小。</li>
+</ul>
+<h5 id="Metaspace垃圾回收"><a href="#Metaspace垃圾回收" class="headerlink" title="Metaspace垃圾回收"></a>Metaspace垃圾回收</h5><ul>
+<li>当class metadata的使用的内存达到<code>MetaspaceSize</code>(32位clientVM默认12Mbytes，32位ServerVM默认是16Mbytes)时就会对死亡的类加载器和类进行垃圾收集。 设置<code>MetaspaceSize</code>为一个较高的值可以推迟垃圾收集的发生。</li>
+<li>为了限制垃圾回收的频率和延迟，适当的监控和调优元空间是非常有必要的。元空间过多的垃圾收集可能表示类加载器内存泄漏或对你的应用程序来说空间太小了。</li>
+</ul>
+<h5 id="Java-Heap影响"><a href="#Java-Heap影响" class="headerlink" title="Java Heap影响"></a>Java Heap影响</h5><ul>
+<li>一些杂乱的数据从PermGen移到了Java Heap，这意味着升级到JDK8之后，Java Heap的大小会有明显的增加。</li>
+</ul>
+<h2 id="Metaspace的组成"><a href="#Metaspace的组成" class="headerlink" title="Metaspace的组成"></a>Metaspace的组成</h2><blockquote>
+<p>来源：<a target="_blank" rel="noopener" href="http://lovestblog.cn/blog/2016/10/29/metaspace/">http://lovestblog.cn/blog/2016/10/29/metaspace/</a></p>
+</blockquote>
+<h3 id="组成"><a href="#组成" class="headerlink" title="组成"></a>组成</h3><ul>
+<li>Klass Metaspace</li>
+<li>NoKlass Metaspace</li>
+</ul>
+<h3 id="组成说明"><a href="#组成说明" class="headerlink" title="组成说明"></a>组成说明</h3><ul>
+<li>Klass Metaspace就是用来存klass的，klass是我们熟知的class文件在jvm里的运行时数据结构，不过有点要提的是我们看到的类似A.class其实是存在heap里的，是java.lang.Class的一个对象实例。这块内存是紧接着Heap的，和我们之前的perm一样，这块内存大小可通过 <code>-XX:CompressedClassSpaceSize</code> 参数来控制，这个参数默认是1G，但是这块内存也可以没有，假如没有开启压缩指针就不会有这块内存，这种情况下klass都会存在NoKlass Metaspace里，另外如果我们把-Xmx设置大于32G的话，其实也是没有这块内存的，因为会这么大内存会关闭压缩指针开关。还有就是这块内存最多只会存在一块。</li>
+<li>NoKlass Metaspace专门来存klass相关的其他的内容，比如method，constantPool等，这块内存是由多块内存组合起来的，所以可以认为是不连续的内存块组成的。这块内存是必须的，虽然叫做NoKlass Metaspace，但是也其实可以存klass的内容，上面已经提到了对应场景。</li>
+<li>Klass Metaspace和NoKlass Mestaspace都是所有classloader共享的，所以类加载器要分配内存，但是每个类加载器都有一个SpaceManager，来管理属于这个类加载的内存小块。如果Klass Metaspace用完了，那就会OOM了，不过一般情况下不会，NoKlass Mestaspace是由一块块内存慢慢组合起来的，在没有达到限制条件的情况下，会不断加长这条链，让它可以持续工作。</li>
+</ul>
+<h2 id="Metaspace的几个参数"><a href="#Metaspace的几个参数" class="headerlink" title="Metaspace的几个参数"></a>Metaspace的几个参数</h2><p>如果我们要改变metaspace的一些行为，我们一般会对其相关的一些参数做调整，因为metaspace的参数本身不是很多，所以我这里将涉及到的所有参数都做一个介绍，也许好些参数大家都是有误解的</p>
+<ul>
+<li>UseLargePagesInMetaspace</li>
+<li>InitialBootClassLoaderMetaspaceSize</li>
+<li>MetaspaceSize</li>
+<li>MaxMetaspaceSize</li>
+<li>CompressedClassSpaceSize</li>
+<li>MinMetaspaceExpansion</li>
+<li>MaxMetaspaceExpansion</li>
+<li>MinMetaspaceFreeRatio</li>
+<li>MaxMetaspaceFreeRatio</li>
+</ul>
+<p><strong>UseLargePagesInMetaspace</strong></p>
+<p>默认false，这个参数是说是否在metaspace里使用LargePage，一般情况下我们使用4KB的page size，这个参数依赖于UseLargePages这个参数开启，不过这个参数我们一般不开。</p>
+<p><strong>InitialBootClassLoaderMetaspaceSize</strong></p>
+<p>64位下默认4M，32位下默认2200K，metasapce前面已经提到主要分了两大块，Klass Metaspace以及NoKlass Metaspace，而 NoKlass Metaspace 是由一块块内存组合起来的，这个参数决定了NoKlass Metaspace的第一个内存Block的大小，即<code>2 * InitialBootClassLoaderMetaspaceSize</code>，同时为bootstrapClassLoader的第一块内存chunk分配了<code>InitialBootClassLoaderMetaspaceSize</code>的大小</p>
+<p><strong>MetaspaceSize</strong></p>
+<p>默认20.8M左右(x86下开启c2模式)，主要是控制metaspaceGC发生的初始阈值，也是最小阈值，但是触发metaspaceGC的阈值是不断变化的，与之对比的主要是指Klass Metaspace与NoKlass Metaspace两块committed的内存和。</p>
+<p><strong>MaxMetaspaceSize</strong></p>
+<p>默认基本是无穷大，但是我还是建议大家设置这个参数，因为很可能会因为没有限制而导致metaspace被无止境使用(一般是内存泄漏)而被OS Kill。这个参数会限制metaspace(包括了Klass Metaspace以及NoKlass Metaspace)被committed的内存大小，会保证committed的内存不会超过这个值，一旦超过就会触发GC，这里要注意和MaxPermSize的区别，MaxMetaspaceSize并不会在jvm启动的时候分配一块这么大的内存出来，而MaxPermSize是会分配一块这么大的内存的。</p>
+<p><strong>CompressedClassSpaceSize</strong></p>
+<p>默认1G，这个参数主要是设置Klass Metaspace的大小，不过这个参数设置了也不一定起作用，前提是能开启压缩指针，假如-Xmx超过了32G，压缩指针是开启不来的。如果有Klass Metaspace，那这块内存是和Heap连着的。</p>
+<p><strong>MinMetaspaceExpansion</strong></p>
+<p>MinMetaspaceExpansion和MaxMetaspaceExpansion这两个参数或许和大家认识的并不一样，也许很多人会认为这两个参数不就是内存不够的时候，然后扩容的最小大小吗？其实不然</p>
+<p>这两个参数和扩容其实并没有直接的关系，也就是并不是为了增大committed的内存，而是为了增大触发metaspace GC的阈值</p>
+<p>这两个参数主要是在比较特殊的场景下救急使用，比如gcLocker或者<code>should_concurrent_collect</code>的一些场景，因为这些场景下接下来会做一次GC，相信在接下来的GC中可能会释放一些metaspace的内存，于是先临时扩大下metaspace触发GC的阈值，而有些内存分配失败其实正好是因为这个阈值触顶导致的，于是可以通过增大阈值暂时绕过去</p>
+<p>默认332.8K，增大触发metaspace GC阈值的最小要求。假如我们要救急分配的内存很小，没有达到MinMetaspaceExpansion，但是我们会将这次触发metaspace GC的阈值提升MinMetaspaceExpansion，之所以要大于这次要分配的内存大小主要是为了防止别的线程也有类似的请求而频繁触发相关的操作，不过如果要分配的内存超过了MaxMetaspaceExpansion，那MinMetaspaceExpansion将会是要分配的内存大小基础上的一个增量</p>
+<p><strong>MaxMetaspaceExpansion</strong></p>
+<p>默认5.2M，增大触发metaspace GC阈值的最大要求。假如说我们要分配的内存超过了MinMetaspaceExpansion但是低于MaxMetaspaceExpansion，那增量是MaxMetaspaceExpansion，如果超过了MaxMetaspaceExpansion，那增量是MinMetaspaceExpansion加上要分配的内存大小</p>
+<p>注：每次分配只会给对应的线程一次扩展触发metaspace GC阈值的机会，如果扩展了，但是还不能分配，那就只能等着做GC了</p>
+<p><strong>MinMetaspaceFreeRatio</strong></p>
+<p>MinMetaspaceFreeRatio和下面的MaxMetaspaceFreeRatio，主要是影响触发metaspaceGC的阈值</p>
+<p>默认40，表示每次GC完之后，假设我们允许接下来metaspace可以继续被commit的内存占到了被commit之后总共committed的内存量的MinMetaspaceFreeRatio%，如果这个总共被committed的量比当前触发metaspaceGC的阈值要大，那么将尝试做扩容，也就是增大触发metaspaceGC的阈值，不过这个增量至少是MinMetaspaceExpansion才会做，不然不会增加这个阈值</p>
+<p>这个参数主要是为了避免触发metaspaceGC的阈值和gc之后committed的内存的量比较接近，于是将这个阈值进行扩大</p>
+<p>一般情况下在gc完之后，如果被committed的量还是比较大的时候，换个说法就是离触发metaspaceGC的阈值比较接近的时候，这个调整会比较明显</p>
+<p>注：这里不用gc之后used的量来算，主要是担心可能出现committed的量超过了触发metaspaceGC的阈值，这种情况一旦发生会很危险，会不断做gc，这应该是jdk8在某个版本之后才修复的bug</p>
+<p><strong>MaxMetaspaceFreeRatio</strong></p>
+<p>默认70，这个参数和上面的参数基本是相反的，是为了避免触发metaspaceGC的阈值过大，而想对这个值进行缩小。这个参数在gc之后committed的内存比较小的时候并且离触发metaspaceGC的阈值比较远的时候，调整会比较明显</p>
+<h2 id="MetaSpace-与-PermGen-运行时比较"><a href="#MetaSpace-与-PermGen-运行时比较" class="headerlink" title="MetaSpace 与 PermGen 运行时比较"></a>MetaSpace 与 PermGen 运行时比较</h2><p>前面提到过，MetaSpace与PermGen最主要的区别就在于，内存空间的是否能够自动扩容上，下面我们来分别演示一下MetaSpace与PermGen的GC的表现形式之间的区别。示例代码 <a target="_blank" rel="noopener" href="https://attach.i7years.com/code/Java8_Metaspace.zip">下载</a></p>
+<h4 id="JDK-1-7-64-bit-–-PermGen-depletion"><a href="#JDK-1-7-64-bit-–-PermGen-depletion" class="headerlink" title="JDK 1.7 @64-bit – PermGen depletion"></a>JDK 1.7 @64-bit – PermGen depletion</h4><blockquote>
+<p>演示异常：ERROR: java.lang.OutOfMemoryError: PermGen space</p>
+</blockquote>
+<p>VM 参数：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">-verbose:gc -Xms1024M -Xmx1024M -XX:MaxPermSize=128m -XX:PermSize=128m -XX:+PrintGCDetails -Xloggc:gc.log</span><br></pre></td></tr></table></figure>
+
+<p>JVisualVM监控显示：</p>
+<p><img src="https://img.i7years.com/blog/JVisualVM_1.png" alt="Java8_MetaSpace_1"></p>
+<p>GC日志：</p>
+<p><img src="https://img.i7years.com/blog/gc_1.png" alt="gc_1"></p>
+<h4 id="JDK-1-8-64-bit-–-Metaspace-dynamic-re-size"><a href="#JDK-1-8-64-bit-–-Metaspace-dynamic-re-size" class="headerlink" title="JDK 1.8 @64-bit – Metaspace dynamic re-size"></a>JDK 1.8 @64-bit – Metaspace dynamic re-size</h4><blockquote>
+<p>演示 metaspace 空间不断动态调整的过程</p>
+</blockquote>
+<p>VM 参数</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">-verbose:gc -Xms1024M -Xmx1024M -XX:+PrintGCDetails -Xloggc:gc.log</span><br></pre></td></tr></table></figure>
+
+<p>JVisualVM监控显示：</p>
+<p><img src="https://img.i7years.com/blog/JVisualVM_2.png" alt="JVisualVM_2"></p>
+<p>GC日志：</p>
+<p><img src="https://img.i7years.com/blog/gc_2.png" alt="gc_2"></p>
+<h4 id="JDK-1-8-64-bit-–-Metaspace-depletion"><a href="#JDK-1-8-64-bit-–-Metaspace-depletion" class="headerlink" title="JDK 1.8 @64-bit – Metaspace depletion"></a>JDK 1.8 @64-bit – Metaspace depletion</h4><blockquote>
+<p>演示异常：ERROR: java.lang.OutOfMemoryError: Metadata space</p>
+</blockquote>
+<p>VM 参数：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">-verbose:gc -Xms1024M -Xmx1024M -XX:MaxMetaspaceSize=128m -XX:+PrintGCDetails -Xloggc:gc.log</span><br></pre></td></tr></table></figure>
+
+<p>JVisualVM监控显示：</p>
+<p><img src="https://img.i7years.com/blog/JVisualVM_3.png" alt="JVisualVM_3"></p>
+<p>GC日志：</p>
+<p><img src="https://img.i7years.com/blog/gc_3.png" alt="gc_3"></p>
+<h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2><ul>
+<li><p><a target="_blank" rel="noopener" href="http://openjdk.java.net/jeps/122">http://openjdk.java.net/jeps/122</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://www.infoq.com/news/2013/03/java-8-permgen-metaspace">https://www.infoq.com/news/2013/03/java-8-permgen-metaspace</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="http://javaeesupportpatterns.blogspot.com/2013/02/java-8-from-permgen-to-metaspace.html">http://javaeesupportpatterns.blogspot.com/2013/02/java-8-from-permgen-to-metaspace.html</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://dzone.com/articles/java-8-permgen-metaspace">https://dzone.com/articles/java-8-permgen-metaspace</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="http://www.infoq.com/cn/articles/Java-PERMGEN-Removed">http://www.infoq.com/cn/articles/Java-PERMGEN-Removed</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="http://java-latte.blogspot.com/2014/03/metaspace-in-java-8.html">http://java-latte.blogspot.com/2014/03/metaspace-in-java-8.html</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="http://m.www.cnblogs.com/duanxz/p/3520829.html">http://m.www.cnblogs.com/duanxz/p/3520829.html</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://stackoverflow.com/questions/27131165/what-is-the-difference-between-permgen-and-metaspace">https://stackoverflow.com/questions/27131165/what-is-the-difference-between-permgen-and-metaspace</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="http://lovestblog.cn/blog/2016/10/29/metaspace/">http://lovestblog.cn/blog/2016/10/29/metaspace/</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://juejin.im/entry/5b74fcbf6fb9a0097f0c2a95">https://juejin.im/entry/5b74fcbf6fb9a0097f0c2a95</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://dzone.com/articles/understanding-the-java-memory-model-and-the-garbag">https://dzone.com/articles/understanding-the-java-memory-model-and-the-garbag</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://docs.oracle.com/javase/8/docs/technotes/tools/unix/java.html">https://docs.oracle.com/javase/8/docs/technotes/tools/unix/java.html</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="http://www.importnew.com/14933.html">http://www.importnew.com/14933.html</a></p>
+</li>
+</ul>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">Author: </span><span class="post-copyright-info"><a href="mailto:undefined">Wang Wei</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">Link: </span><span class="post-copyright-info"><a href="https://wangwei.one/posts/java8-jvm-metaSpace.html">https://wangwei.one/posts/java8-jvm-metaSpace.html</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">Copyright Notice: </span><span class="post-copyright-info">All articles in this blog are licensed under <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> unless stating additionally.</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/JVM/">JVM</a><a class="post-meta__tags" href="/tags/Java8/">Java8</a></div><div class="post_share"><div class="social-share" data-image="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/social-share.js/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/posts/jvm-gc-base-concept.html"><img class="prev-cover" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">Previous Post</div><div class="prev_info">GC基本概念</div></div></a></div><div class="next-post pull-right"><a href="/posts/java7-jvm-memory-model.html"><img class="next-cover" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">Next Post</div><div class="next_info">Java7 HotSpot(TM) VM内存模型</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>Related Articles</span></div><div class="relatedPosts-list"><div><a href="/posts/jvm-gc-base-concept.html" title="GC基本概念"><img class="cover" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2016-06-12</div><div class="title">GC基本概念</div></div></a></div><div><a href="/posts/jvm-gc-arithmetic-intro.html" title="GC算法介绍"><img class="cover" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2016-06-14</div><div class="title">GC算法介绍</div></div></a></div><div><a href="/posts/jvm-gc-serial-and-parallel.html" title="Serial GC 与 Parallel GC"><img class="cover" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2016-06-17</div><div class="title">Serial GC 与 Parallel GC</div></div></a></div><div><a href="/posts/jvm-gc-concurrent-mark-sweep-cms.html" title="Concurrent Mark Sweep(CMS)"><img class="cover" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2016-06-20</div><div class="title">Concurrent Mark Sweep(CMS)</div></div></a></div><div><a href="/posts/jvm-gc-garbage-first.html" title="Garbage-First(G1)"><img class="cover" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2020-01-01</div><div class="title">Garbage-First(G1)</div></div></a></div><div><a href="/posts/java7-jvm-memory-model.html" title="Java7 HotSpot(TM) VM内存模型"><img class="cover" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2016-06-08</div><div class="title">Java7 HotSpot(TM) VM内存模型</div></div></a></div></div></div><hr/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> Comment</span></div></div><div class="comment-wrap"><div><div id="disqus_thread"></div></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/images/avatar.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">Wang Wei</div><div class="author-info__description">分享自己所思所学所行</div></div><div class="card-info-data is-center"><div class="card-info-data-item"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">74</div></a></div><div class="card-info-data-item"><a href="/tags/"><div class="headline">Tags</div><div class="length-num">39</div></a></div><div class="card-info-data-item"><a href="/categories/"><div class="headline">Categories</div><div class="length-num">4</div></a></div></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/xxxxxx"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/wangweiX" target="_blank" title="Github"><i class="fab fa-github"></i></a><a class="social-icon" href="mailto:dzd5ZWFyc0BnbWFpbC5jb20NCg==" target="_blank" title="Email"><i class="fas fa-envelope"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>Announcement</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>Catalog</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%BA%E4%BB%80%E4%B9%88%E8%A6%81%E7%A7%BB%E9%99%A4PermGen"><span class="toc-number">1.</span> <span class="toc-text">为什么要移除PermGen</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9C%89%E5%93%AA%E4%BA%9B%E5%8F%98%E5%8C%96"><span class="toc-number">2.</span> <span class="toc-text">有哪些变化</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#PermGen-%E6%83%85%E5%86%B5"><span class="toc-number">2.0.0.1.</span> <span class="toc-text">PermGen 情况</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#Metaspace%E5%86%85%E5%AD%98%E5%88%86%E9%85%8D%E6%A8%A1%E5%9E%8B"><span class="toc-number">2.0.0.2.</span> <span class="toc-text">Metaspace内存分配模型</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#Metaspace%E7%A9%BA%E9%97%B4%E5%AE%B9%E9%87%8F"><span class="toc-number">2.0.0.3.</span> <span class="toc-text">Metaspace空间容量</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#Metaspace%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6"><span class="toc-number">2.0.0.4.</span> <span class="toc-text">Metaspace垃圾回收</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#Java-Heap%E5%BD%B1%E5%93%8D"><span class="toc-number">2.0.0.5.</span> <span class="toc-text">Java Heap影响</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Metaspace%E7%9A%84%E7%BB%84%E6%88%90"><span class="toc-number">3.</span> <span class="toc-text">Metaspace的组成</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BB%84%E6%88%90"><span class="toc-number">3.1.</span> <span class="toc-text">组成</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BB%84%E6%88%90%E8%AF%B4%E6%98%8E"><span class="toc-number">3.2.</span> <span class="toc-text">组成说明</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Metaspace%E7%9A%84%E5%87%A0%E4%B8%AA%E5%8F%82%E6%95%B0"><span class="toc-number">4.</span> <span class="toc-text">Metaspace的几个参数</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#MetaSpace-%E4%B8%8E-PermGen-%E8%BF%90%E8%A1%8C%E6%97%B6%E6%AF%94%E8%BE%83"><span class="toc-number">5.</span> <span class="toc-text">MetaSpace 与 PermGen 运行时比较</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#JDK-1-7-64-bit-%E2%80%93-PermGen-depletion"><span class="toc-number">5.0.1.</span> <span class="toc-text">JDK 1.7 @64-bit – PermGen depletion</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#JDK-1-8-64-bit-%E2%80%93-Metaspace-dynamic-re-size"><span class="toc-number">5.0.2.</span> <span class="toc-text">JDK 1.8 @64-bit – Metaspace dynamic re-size</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#JDK-1-8-64-bit-%E2%80%93-Metaspace-depletion"><span class="toc-number">5.0.3.</span> <span class="toc-text">JDK 1.8 @64-bit – Metaspace depletion</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8F%82%E8%80%83%E8%B5%84%E6%96%99"><span class="toc-number">6.</span> <span class="toc-text">参考资料</span></a></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>Recent Post</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/posts/spring-cloud-eureka-source-code-analysis.html" title="SpringCloud 之 Eureka 源码分析"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="SpringCloud 之 Eureka 源码分析"/></a><div class="content"><a class="title" href="/posts/spring-cloud-eureka-source-code-analysis.html" title="SpringCloud 之 Eureka 源码分析">SpringCloud 之 Eureka 源码分析</a><time datetime="2021-03-31T16:00:00.000Z" title="Created 2021-04-01 00:00:00">2021-04-01</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/jvm-gc-garbage-first.html" title="Garbage-First(G1)"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Garbage-First(G1)"/></a><div class="content"><a class="title" href="/posts/jvm-gc-garbage-first.html" title="Garbage-First(G1)">Garbage-First(G1)</a><time datetime="2020-01-01T10:19:03.000Z" title="Created 2020-01-01 18:19:03">2020-01-01</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/netflix-guide.html" title="输入「神秘代码」解锁「隐藏类目」"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="输入「神秘代码」解锁「隐藏类目」"/></a><div class="content"><a class="title" href="/posts/netflix-guide.html" title="输入「神秘代码」解锁「隐藏类目」">输入「神秘代码」解锁「隐藏类目」</a><time datetime="2019-04-17T00:12:00.000Z" title="Created 2019-04-17 08:12:00">2019-04-17</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/How-to-change-icloud-region.html" title="数据移民漂流记——如何进行iCloud转区操作"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="数据移民漂流记——如何进行iCloud转区操作"/></a><div class="content"><a class="title" href="/posts/How-to-change-icloud-region.html" title="数据移民漂流记——如何进行iCloud转区操作">数据移民漂流记——如何进行iCloud转区操作</a><time datetime="2019-04-13T13:48:43.000Z" title="Created 2019-04-13 21:48:43">2019-04-13</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/How-to-register-and-use-the-Google-Voice.html" title="数据移民漂流记 —— 如何拥有属于自己的美国电话号码"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="数据移民漂流记 —— 如何拥有属于自己的美国电话号码"/></a><div class="content"><a class="title" href="/posts/How-to-register-and-use-the-Google-Voice.html" title="数据移民漂流记 —— 如何拥有属于自己的美国电话号码">数据移民漂流记 —— 如何拥有属于自己的美国电话号码</a><time datetime="2019-04-12T13:48:43.000Z" title="Created 2019-04-12 21:48:43">2019-04-12</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2014 - 2022 By Wang Wei</div><div class="framework-info"><span>Framework </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>Theme </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="Read Mode"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="Switch Between Light And Dark Mode"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="Toggle between single-column and double-column"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="Setting"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="Table Of Contents"><i class="fas fa-list-ul"></i></button><a id="to_comment" href="#post-comment" title="Scroll To Comments"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="Back To Top"><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.umd.js"></script><div class="js-pjax"><script>function loadDisqusjs () {
+  function addDisqusjsCSS () {
+    const ele = document.createElement('link')
+    ele.rel = 'stylesheet'
+    ele.href= 'https://cdn.jsdelivr.net/npm/disqusjs@1/dist/disqusjs.css'
+    document.getElementsByTagName('head')[0].appendChild(ele)
+  }
+
+  function initDisqusjs () {
+    window.DISQUS = null
+    new DisqusJS(Object.assign({
+      shortname: 'wangweiblog',
+      identifier: 'posts/java8-jvm-metaSpace.html',
+      url: 'https://wangwei.one/posts/java8-jvm-metaSpace.html',
+      title: 'Java8 MetaSpace介绍',
+      apikey: 'Fbg1QT6GJQYjK5jgJotfR5tznyJ6z9i6sfzhumYxWwOLo4IiepF29KpLsW296beS',
+    },null))
+  }
+
+
+  window.disqusReset = initDisqusjs
+
+  if (window.disqusJsLoad) initDisqusjs()
+  else {
+    addDisqusjsCSS()
+    getScript('https://cdn.jsdelivr.net/npm/disqusjs@1/dist/disqus.js').then(initDisqusjs)
+    window.disqusJsLoad = true
+  }
+}
+
+if ('Disqusjs' === 'Disqusjs' || !false) {
+  if (false) btf.loadComment(document.getElementById('disqus_thread'), loadDisqusjs)
+  else loadDisqusjs()
+}
+else {
+  function loadOtherComment () {
+    loadDisqusjs()
+  }
+}
+
+</script></div><div id="particles-js"></div><script src="/lib/js/particles.min.js"></script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
